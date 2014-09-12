@@ -34,24 +34,48 @@ public class Player {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int diff() {
         return diff;
+    }
+
+    public void setDiff(int diff) {
+        this.diff = diff;
     }
 
     public int pilot() {
         return pilotPoints;
     }
 
+    public void setPilot(int pilotPoints) {
+        this.pilotPoints = pilotPoints;
+    }
+
     public int fighter() {
         return fighterPoints;
+    }
+
+    public void setFighter(int fighterPoints) {
+        this.fighterPoints = fighterPoints;
     }
 
     public int trader() {
         return traderPoints;
     }
 
+    public void setTrader(int traderPoints) {
+        this.traderPoints = traderPoints;
+    }
+
     public int engineer() {
         return engineerPoints;
+    }
+
+    public void setEngineer(int engineerPoints) {
+        this.engineerPoints = engineerPoints;
     }
 
 }
