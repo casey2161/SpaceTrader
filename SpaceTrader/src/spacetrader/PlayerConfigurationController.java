@@ -155,8 +155,8 @@ public class PlayerConfigurationController implements Initializable {
     }
     
     @FXML
-    private void quitAction(ActionEvent event) {
-        System.exit(0);
+    private void cancelAction(ActionEvent event) {
+        stage.setScene(allScenes[0]);
     }
    
     

@@ -92,6 +92,6 @@
       </Button>
       <Button fx:id="startNewGame" layoutX="75.0" layoutY="269.0" mnemonicParsing="false" onAction="#startNewGameAction" text="Start New Game" />
       <Text fx:id="startFailed" layoutX="32.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your name and assign all of the skill points." textAlignment="CENTER" visible="false" wrappingWidth="207.20361328125" />
-      <Button layoutX="112.0" layoutY="305.0" mnemonicParsing="false" onAction="#quitAction" text="Quit" />
+      <Button layoutX="106.0" layoutY="308.0" mnemonicParsing="false" onAction="#cancelAction" text="Cancel" />
    </children>
 </Pane>
