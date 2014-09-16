@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package spacetrader;
+package spacetrader.Ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;

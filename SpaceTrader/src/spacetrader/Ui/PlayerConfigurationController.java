@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package spacetrader;
+package spacetrader.Ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
+import spacetrader.Player;
 
 /**
  * FXML Controller class
