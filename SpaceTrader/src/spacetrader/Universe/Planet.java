@@ -4,7 +4,7 @@ import java.util.Random;
 
 /*Nickolas Graham
  * C3POs team 27
- * Version 2.0 of Planet
+ * Version 2.1 of Planet
  */
 public class Planet {
     /* VALUE KEY: numbers correspond to 
@@ -81,6 +81,7 @@ public String rsrsString(int resources) { //returns resources as a string
         System.out.println("Tech Level " + this.tchlvlString(techLevel));
         System.out.println("Resources: " + this.rsrsString(resources));
         System.out.println("Spawns Pirates: " + spawnsPirates);
+        System.out.println("---------------------------------");
     }
 }  
     
