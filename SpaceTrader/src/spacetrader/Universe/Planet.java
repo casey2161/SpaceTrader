@@ -59,7 +59,7 @@ public class Planet {
     public int getResouces() { //returns the resource type of the planet
         return resources;
     }
-    public boolean hasPirates() { //returns whether the planet spawns pirates
+    public boolean spawnsPirates() { //returns whether the planet spawns pirates
         return spawnsPirates;
     }
     public int getX() { //returns x position
