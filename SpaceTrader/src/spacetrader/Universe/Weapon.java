@@ -1,5 +1,3 @@
-package spacetrader.Universe;
-
 public abstract class Weapon {
 	protected int damage, accuracy, ammo;
 	

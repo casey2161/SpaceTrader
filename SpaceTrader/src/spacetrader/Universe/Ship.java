@@ -1,5 +1,3 @@
-package spacetrader.Universe;
-
 public abstract class Ship {
 	protected int shield, speed;
 	protected Weapon weapon;
