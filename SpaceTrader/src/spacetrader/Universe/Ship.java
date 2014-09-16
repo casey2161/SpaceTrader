@@ -1,4 +1,4 @@
-package SpaceTrader.SpaceTrader.src.spacetrader.Universe;
+package spacetrader.Universe;
 
 public abstract class Ship {
 	protected int shield, speed;

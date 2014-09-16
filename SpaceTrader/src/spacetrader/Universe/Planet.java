@@ -1,3 +1,5 @@
+package spacetrader.Universe;
+
 import java.util.Random;
 
 /*Nickolas Graham
