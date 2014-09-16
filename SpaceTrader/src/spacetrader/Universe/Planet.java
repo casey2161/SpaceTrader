@@ -4,7 +4,7 @@ import java.util.Random;
 
 /*Nickolas Graham
  * C3POs team 27
- * Version 1.0 of Planet
+ * Version 2.0 of Planet
  */
 public class Planet {
     /* VALUE KEY: numbers correspond to 
@@ -42,15 +42,6 @@ public class Planet {
         "DESERT", "LOTSOFWATER", "RICHSOIL", "POORSOIL", "RICHFAUNA", "LIFELESS", "WEIRDMUSHROOMS",
         "LOTSOFHERBS", "ARTISTIC", "WARLIKE"};
     
-    public Planet(String name, int x, int y) { //Used for generating planets in universe upon creation of new game
-        planetName = name;
-        Random rand  = new Random();
-        techLevel = rand.nextInt(8);
-        resources = rand.nextInt(13);
-        spawnsPirates = rand.nextBoolean();
-        xPosition = x;
-        yPosition = y;
-    }
     public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates) { //used for loading saved planet config from saved game
         planetName = name;
         techLevel = level;
