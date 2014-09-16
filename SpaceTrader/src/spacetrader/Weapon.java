@@ -1,4 +1,4 @@
-package SpaceTrader.SpaceTrader.src.spacetrader.Universe;
+package SpaceTrader.SpaceTrader.src.spacetrader;
 
 public abstract class Weapon {
 	protected int damage, accuracy, ammo;
