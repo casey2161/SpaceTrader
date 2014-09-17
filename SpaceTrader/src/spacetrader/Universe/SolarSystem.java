@@ -15,8 +15,17 @@ public class SolarSystem {
     private Planet[] planets;
     private int x,y;
     
-    public SolarSystem(int techLevel) {
+    public SolarSystem(String name, int techLevel, int x, int y) {
+        this.name = name;
+        this.x = x;
+        this.y = y;
+        int distance = (int) Math.sqrt((x*x + y*y));
+        pf = new PlanetFactory(techLevel, distance);
         
+        planets = new Planet[(int)(Math.random()*10) + 1];
+        for(int i = 0; i < planets.length; i++) {
+            planets[i] = pf.createPlanet();
+        }
     }
     
     public int getX() {

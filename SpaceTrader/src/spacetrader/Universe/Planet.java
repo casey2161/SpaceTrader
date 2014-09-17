@@ -66,14 +66,14 @@ public class Planet {
     public int getY() {//returns y position
         return yPosition;
     }
-public String tchlvlString(int level) { //returns tech level as a string
-    String returnStr = TECH_LEVEL[level];
-    return returnStr;   
-}
-public String rscString(int resources) { //returns resources as a string
-    String returnStr = RESOURCES[resources];
-    return returnStr;
-}
+    public String tchlvlString(int level) { //returns tech level as a string
+        String returnStr = TECH_LEVEL[level];
+        return returnStr;   
+    }
+    public String rscString(int resources) { //returns resources as a string
+        String returnStr = RESOURCES[resources];
+        return returnStr;
+    }
     public String dumpInfo() { //dump method for demo purposes
         String dump = "Planet Name: " + planetName;
         dump += "\nTech Level: " + tchlvlString(techLevel);

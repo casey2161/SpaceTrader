@@ -1,20 +1,34 @@
 
 package spacetrader.Universe;
 
+import java.util.Random;
+
 /**
  *
  * @author Casey
  */
 public class PlanetFactory {
     private String[] planetNames;
+    private int techLevel;
+    private int distanceFromSpawn;
     
-    public PlanetFactory() {
+    public PlanetFactory(int techLevel, int distanceFromSpawn) {
         initNames();
+        this.techLevel = techLevel;
+        this.distanceFromSpawn = distanceFromSpawn;
     }
     
     public Planet createPlanet() {
-        //TODO
-        return null;
+        Random gen = new Random();
+        
+        String name = planetNames[Math.abs((gen.nextInt()) % planetNames.length)];
+        int rscLevel = Math.abs(gen.nextInt() % 12);
+        int x = gen.nextInt()%100;
+        int y = gen.nextInt()%100;
+        
+        double percentDistance = distanceFromSpawn / (int)(100*Math.sqrt(2));
+        boolean pirates = Math.abs(percentDistance - gen.nextDouble()) < .0000000001;
+        return new Planet(name, techLevel, rscLevel, x, y, pirates);
     }
     
     private void initNames() {

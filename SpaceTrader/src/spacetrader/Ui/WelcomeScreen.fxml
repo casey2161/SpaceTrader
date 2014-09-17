@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="480.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.WelcomeScreenController">
+<Pane prefHeight="480.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.WelcomeScreenController">
    <children>
       <Button layoutX="12.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleNewGameButtonAction" text="New Game" />
       <Button layoutX="172.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleLoadGameButtonAction" text="Load Game" />
