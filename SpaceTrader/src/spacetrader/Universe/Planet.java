@@ -1,7 +1,5 @@
 package spacetrader.Universe;
 
-import java.util.Random;
-
 /*Nickolas Graham
  * C3POs team 27
  * Version 2.1 of Planet
@@ -33,9 +31,9 @@ public class Planet {
      * 12 = Warlike
      */
     
-    private String planetName;
-    private int xPosition, yPosition, techLevel, resources;
-    private boolean spawnsPirates;
+    private final String planetName;
+    private final int xPosition, yPosition, techLevel, resources;
+    private final boolean spawnsPirates;
     private static final String[] TECH_LEVEL = { "Pre Agriculture", "Agriculture", "Medieval",
             "Renaissance", "Early Industrial", "Industrial", "Post-Industrial", "High Tech" };
     private static final String[] RESOURCES = { "NOSPECIALRESOURCES", "MINERALRICH", "MINERALPOOR",
@@ -72,16 +70,17 @@ public String tchlvlString(int level) { //returns tech level as a string
     String returnStr = TECH_LEVEL[level];
     return returnStr;   
 }
-public String rsrsString(int resources) { //returns resources as a string
+public String rscString(int resources) { //returns resources as a string
     String returnStr = RESOURCES[resources];
     return returnStr;
 }
-    public void dumpInfo() { //dump method for demo purposes
-        System.out.println("Planet Name: " + planetName);
-        System.out.println("Tech Level " + this.tchlvlString(techLevel));
-        System.out.println("Resources: " + this.rsrsString(resources));
-        System.out.println("Spawns Pirates: " + spawnsPirates);
-        System.out.println("---------------------------------");
+    public String dumpInfo() { //dump method for demo purposes
+        String dump = "Planet Name: " + planetName;
+        dump += "\nTech Level: " + tchlvlString(techLevel);
+        dump += "\nResources: " + rscString(resources);
+        dump += "\nSpawn Pirates: " + spawnsPirates;
+        dump += "\n";
+        return dump;
     }
 }  
     
