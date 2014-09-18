@@ -7,91 +7,94 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="notification" prefHeight="480.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.PlayerConfigurationController">
+<Pane fx:id="notification" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.PlayerConfigurationController">
    <children>
-      <Text layoutX="17.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
+      <Text layoutX="38.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="playerName" layoutX="18.0" layoutY="69.0" />
-      <Text layoutX="14.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skill Points Remaining">
+      <TextField fx:id="playerName" layoutX="42.0" layoutY="129.0" />
+      <Text layoutX="46.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skill Points Remaining">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="50.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pilot">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="50.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fighter">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="50.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trader">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="50.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engineer">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="skillPointsRemaining" layoutX="280.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="pilot" layoutX="237.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pilot">
+      <Text fx:id="fighter" layoutX="237.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fighter">
+      <Text fx:id="trader" layoutX="237.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trader">
+      <Text fx:id="engineer" layoutX="237.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engineer">
+      <Button fx:id="addPilot" layoutX="277.0" layoutY="228.0" mnemonicParsing="false" onAction="#addPilotAction" text="Add">
          <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text fx:id="skillPointsRemaining" layoutX="185.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text fx:id="pilot" layoutX="189.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text fx:id="fighter" layoutX="189.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text fx:id="trader" layoutX="189.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text fx:id="engineer" layoutX="189.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Button fx:id="addPilot" layoutX="228.0" layoutY="153.0" mnemonicParsing="false" onAction="#addPilotAction" text="Add">
-         <font>
-            <Font size="8.0" />
+            <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="addFighter" layoutX="228.0" layoutY="171.0" mnemonicParsing="false" onAction="#addFighterAction" text="Add">
+      <Button fx:id="addFighter" layoutX="277.0" layoutY="258.0" mnemonicParsing="false" onAction="#addFighterAction" text="Add">
          <font>
-            <Font size="8.0" />
+            <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="addTrader" layoutX="228.0" layoutY="189.0" mnemonicParsing="false" onAction="#addTraderAction" text="Add">
+      <Button fx:id="addTrader" layoutX="277.0" layoutY="288.0" mnemonicParsing="false" onAction="#addTraderAction" text="Add">
          <font>
-            <Font size="8.0" />
+            <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="addEngineer" layoutX="228.0" layoutY="207.0" mnemonicParsing="false" onAction="#addEngineerAction" text="Add">
+      <Button fx:id="addEngineer" layoutX="277.0" layoutY="319.0" mnemonicParsing="false" onAction="#addEngineerAction" text="Add">
          <font>
-            <Font size="8.0" />
+            <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="reset" layoutX="199.0" layoutY="226.0" mnemonicParsing="false" onAction="#resetAction" text="Reset">
+      <Button fx:id="reset" layoutX="262.0" layoutY="355.0" mnemonicParsing="false" onAction="#resetAction" text="Reset">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="startNewGame" layoutX="75.0" layoutY="269.0" mnemonicParsing="false" onAction="#startNewGameAction" text="Start New Game" />
-      <Text fx:id="startFailed" layoutX="32.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your name and assign all of the skill points." textAlignment="CENTER" visible="false" wrappingWidth="207.20361328125" />
-      <Button layoutX="106.0" layoutY="308.0" mnemonicParsing="false" onAction="#cancelAction" text="Cancel" />
+      <Button fx:id="startNewGame" layoutX="130.0" layoutY="396.0" mnemonicParsing="false" onAction="#startNewGameAction" text="Start New Game" />
+      <Text fx:id="startFailed" layoutX="85.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your name and assign all of the skill points." textAlignment="CENTER" visible="false" wrappingWidth="207.20361328125">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Button layoutX="160.0" layoutY="436.0" mnemonicParsing="false" onAction="#cancelAction" text="Cancel" />
    </children>
 </Pane>

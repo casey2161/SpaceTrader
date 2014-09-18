@@ -33,6 +33,11 @@ public class WelcomeScreenController implements Initializable {
         System.out.println("Loaded game has started."); // Replace later.
     }
     
+    @FXML
+    private void quitAction(ActionEvent event) {
+        System.exit(0);
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
