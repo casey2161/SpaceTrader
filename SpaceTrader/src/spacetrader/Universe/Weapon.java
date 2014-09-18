@@ -1,7 +1,9 @@
-public abstract class Weapon {
-	protected int damage, accuracy, ammo, minQuality;
+public class Weapon {
+	String name;
+	private int damage, accuracy, ammo, minQuality;
 	
-	public Weapon (int damage, int accuracy, int ammo, int minQuality) {
+	public Weapon (String name, int damage, int accuracy, int ammo, int minQuality) {
+		this.name = name;
 		this.damage = damage;
 		this.accuracy = accuracy;
 		this.ammo = ammo;

@@ -48,7 +48,14 @@ public class Ship {
 		}
 	}
 	
-	public void dealDamage (Ship opponent, int damageDealt) {
-		opponent.takeDamage(damageDealt);
+	public void dealDamage (Ship opponent) {
+		if (weapon.getAmmo() <= 0) {
+			System.out.println("You're out of ammo! Can't shoot!");
+		} else {
+			int hit = (int) Math.random()*7;
+			if (hit <= weapon.getAccuracy()) {
+				opponent.takeDamage(weapon.getDamage());
+			}
+		}
 	}
 }
