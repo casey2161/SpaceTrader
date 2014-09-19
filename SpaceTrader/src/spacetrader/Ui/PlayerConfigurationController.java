@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package spacetrader;
+package spacetrader.Ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
+import spacetrader.Player;
+import spacetrader.Universe.SolarSystem;
 
 /**
  * FXML Controller class
@@ -151,6 +153,11 @@ public class PlayerConfigurationController implements Initializable {
             Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
             Integer.parseInt(engineer.getText()));
             System.out.println("New game has started."); // Replace later.
+        }
+        //Temp: This is the dump for the solar system.
+        for(int i = 0; i < 7; i++) {
+            SolarSystem s = new SolarSystem(((Integer) i).toString(), i,10*i, 10*i);
+            System.out.print(s.dumpInfo());
         }
     }
     

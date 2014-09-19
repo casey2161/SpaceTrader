@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.WelcomeScreenController">
+   <children>
+      <Button layoutX="134.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleNewGameButtonAction" text="New Game" />
+      <Button layoutX="132.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleLoadGameButtonAction" text="Load Game" />
+      <Text layoutX="86.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Space Trader" textAlignment="CENTER" wrappingWidth="187.92333984375">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Button layoutX="154.0" layoutY="400.0" mnemonicParsing="false" onAction="#quitAction" text="Quit" />
+   </children>
+</Pane>
