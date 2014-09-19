@@ -1,3 +1,5 @@
+package spacetrader;
+
 public class Weapon {
 	String name;
 	private int damage, accuracy, ammo, minQuality;
