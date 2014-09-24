@@ -39,6 +39,10 @@ public class PlayerConfigurationController implements Initializable {
     @FXML private Button addFighter;
     @FXML private Button addTrader;
     @FXML private Button addEngineer;
+    @FXML private Button substractPilot;
+    @FXML private Button substractFighter;
+    @FXML private Button substractTrader;
+    @FXML private Button substractEngineer;
     @FXML private Button reset;
     @FXML private Button startNewGame;
     
@@ -53,6 +57,7 @@ public class PlayerConfigurationController implements Initializable {
         String newPoints = String.valueOf(currentPoints);
         pilot.setText(newText);
         skillPointsRemaining.setText(newPoints);
+        substractPilot.setVisible(true);
 
         if (currentText >= 10 || currentPoints <= 0) {
             addPilot.setVisible(false);
@@ -61,6 +66,36 @@ public class PlayerConfigurationController implements Initializable {
                 addTrader.setVisible(false);
                 addEngineer.setVisible(false);
             }
+        }
+    }
+    
+    @FXML
+    private void substractPilotAction(ActionEvent event) {
+        int currentText = Integer.parseInt(pilot.getText());
+        int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
+        currentText--;
+        currentPoints++;
+        
+        String newText = String.valueOf(currentText);
+        String newPoints = String.valueOf(currentPoints);
+        pilot.setText(newText);
+        skillPointsRemaining.setText(newPoints);
+
+        if (currentText <= 1) {
+            substractPilot.setVisible(false);
+        }
+
+        if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addPilot.setVisible(true);
+        }
+        if (Integer.parseInt(fighter.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addFighter.setVisible(true);
+        }
+        if (Integer.parseInt(trader.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addTrader.setVisible(true);
+        }
+        if (Integer.parseInt(engineer.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addEngineer.setVisible(true);
         }
     }
     
@@ -75,6 +110,7 @@ public class PlayerConfigurationController implements Initializable {
         String newPoints = String.valueOf(currentPoints);
         fighter.setText(newText);
         skillPointsRemaining.setText(newPoints);
+        substractFighter.setVisible(true);
 
         if (currentText >= 10 || currentPoints <= 0) {
             addFighter.setVisible(false);
@@ -83,6 +119,36 @@ public class PlayerConfigurationController implements Initializable {
                 addTrader.setVisible(false);
                 addEngineer.setVisible(false);
             }
+        }
+    }
+    
+        @FXML
+    private void substractFighterAction(ActionEvent event) {
+        int currentText = Integer.parseInt(fighter.getText());
+        int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
+        currentText--;
+        currentPoints++;
+        
+        String newText = String.valueOf(currentText);
+        String newPoints = String.valueOf(currentPoints);
+        fighter.setText(newText);
+        skillPointsRemaining.setText(newPoints);
+
+        if (currentText <= 1) {
+            substractFighter.setVisible(false);
+        }
+        
+        if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addPilot.setVisible(true);
+        }
+        if (Integer.parseInt(fighter.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addFighter.setVisible(true);
+        }
+        if (Integer.parseInt(trader.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addTrader.setVisible(true);
+        }
+        if (Integer.parseInt(engineer.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addEngineer.setVisible(true);
         }
     }
     
@@ -97,6 +163,7 @@ public class PlayerConfigurationController implements Initializable {
         String newPoints = String.valueOf(currentPoints);
         trader.setText(newText);
         skillPointsRemaining.setText(newPoints);
+        substractTrader.setVisible(true);
 
         if (currentText >= 10 || currentPoints <= 0) {
             addTrader.setVisible(false);
@@ -105,6 +172,35 @@ public class PlayerConfigurationController implements Initializable {
                 addPilot.setVisible(false);
                 addEngineer.setVisible(false);
             }
+        }
+    }
+    
+        @FXML
+    private void substractTraderAction(ActionEvent event) {
+        int currentText = Integer.parseInt(trader.getText());
+        int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
+        currentText--;
+        currentPoints++;
+        
+        String newText = String.valueOf(currentText);
+        String newPoints = String.valueOf(currentPoints);
+        trader.setText(newText);
+        skillPointsRemaining.setText(newPoints);
+
+        if (currentText <= 1) {
+            substractTrader.setVisible(false);
+        }
+        if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addPilot.setVisible(true);
+        }
+        if (Integer.parseInt(fighter.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addFighter.setVisible(true);
+        }
+        if (Integer.parseInt(trader.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addTrader.setVisible(true);
+        }
+        if (Integer.parseInt(engineer.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addEngineer.setVisible(true);
         }
     }
     
@@ -119,6 +215,7 @@ public class PlayerConfigurationController implements Initializable {
         String newPoints = String.valueOf(currentPoints);
         engineer.setText(newText);
         skillPointsRemaining.setText(newPoints);
+        substractEngineer.setVisible(true);
 
         if (currentText >= 10 || currentPoints <= 0) {
             addEngineer.setVisible(false);
@@ -127,6 +224,35 @@ public class PlayerConfigurationController implements Initializable {
                 addTrader.setVisible(false);
                 addPilot.setVisible(false);
             }
+        }
+    }
+    
+        @FXML
+    private void substractEngineerAction(ActionEvent event) {
+        int currentText = Integer.parseInt(engineer.getText());
+        int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
+        currentText--;
+        currentPoints++;
+        
+        String newText = String.valueOf(currentText);
+        String newPoints = String.valueOf(currentPoints);
+        engineer.setText(newText);
+        skillPointsRemaining.setText(newPoints);
+
+        if (currentText <= 1) {
+            substractEngineer.setVisible(false);
+        }
+        if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addPilot.setVisible(true);
+        }
+        if (Integer.parseInt(fighter.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addFighter.setVisible(true);
+        }
+        if (Integer.parseInt(trader.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addTrader.setVisible(true);
+        }
+        if (Integer.parseInt(engineer.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+            addEngineer.setVisible(true);
         }
     }
     
@@ -141,6 +267,12 @@ public class PlayerConfigurationController implements Initializable {
         addFighter.setVisible(true);
         addTrader.setVisible(true);
         addEngineer.setVisible(true);
+        substractPilot.setVisible(false);
+        substractFighter.setVisible(false);
+        substractTrader.setVisible(false);
+        substractEngineer.setVisible(false);
+        
+        
         
     }
     

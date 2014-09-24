@@ -45,42 +45,42 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="pilot" layoutX="237.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+      <Text fx:id="pilot" layoutX="207.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="fighter" layoutX="237.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+      <Text fx:id="fighter" layoutX="207.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="trader" layoutX="237.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+      <Text fx:id="trader" layoutX="207.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="engineer" layoutX="237.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+      <Text fx:id="engineer" layoutX="207.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Button fx:id="addPilot" layoutX="277.0" layoutY="228.0" mnemonicParsing="false" onAction="#addPilotAction" text="Add">
+      <Button fx:id="addPilot" layoutX="247.0" layoutY="228.0" mnemonicParsing="false" onAction="#addPilotAction" text="Add">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="addFighter" layoutX="277.0" layoutY="258.0" mnemonicParsing="false" onAction="#addFighterAction" text="Add">
+      <Button fx:id="addFighter" layoutX="247.0" layoutY="258.0" mnemonicParsing="false" onAction="#addFighterAction" text="Add">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="addTrader" layoutX="277.0" layoutY="288.0" mnemonicParsing="false" onAction="#addTraderAction" text="Add">
+      <Button fx:id="addTrader" layoutX="247.0" layoutY="288.0" mnemonicParsing="false" onAction="#addTraderAction" text="Add">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="addEngineer" layoutX="277.0" layoutY="319.0" mnemonicParsing="false" onAction="#addEngineerAction" text="Add">
+      <Button fx:id="addEngineer" layoutX="247.0" layoutY="319.0" mnemonicParsing="false" onAction="#addEngineerAction" text="Add">
          <font>
             <Font size="10.0" />
          </font>
@@ -96,5 +96,25 @@
             <Font size="15.0" />
          </font></Text>
       <Button layoutX="160.0" layoutY="436.0" mnemonicParsing="false" onAction="#cancelAction" text="Cancel" />
+      <Button fx:id="substractPilot" layoutX="291.0" layoutY="228.0" mnemonicParsing="false" onAction="#substractPilotAction" text="Substract" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button fx:id="substractFighter" layoutX="291.0" layoutY="258.0" mnemonicParsing="false" onAction="#substractFighterAction" text="Substract" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button fx:id="substractTrader" layoutX="291.0" layoutY="288.0" mnemonicParsing="false" onAction="#substractTraderAction" text="Substract" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button fx:id="substractEngineer" layoutX="291.0" layoutY="319.0" mnemonicParsing="false" onAction="#substractEngineerAction" text="Substract" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
