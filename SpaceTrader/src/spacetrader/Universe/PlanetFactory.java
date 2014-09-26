@@ -1,6 +1,7 @@
 
 package spacetrader.Universe;
 
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -25,12 +26,39 @@ public class PlanetFactory {
         int rscLevel = Math.abs(gen.nextInt() % 12);
         int x = gen.nextInt()%100;
         int y = gen.nextInt()%100;
-        
+        HashMap<String, Integer> cargo;
+        cargo = generateCargo(techLevel, rscLevel);        
         double percentDistance = distanceFromSpawn / (int)(100*Math.sqrt(2));
         boolean pirates = Math.abs(percentDistance - gen.nextDouble()) < .0000000001;
-        return new Planet(name, techLevel, rscLevel, x, y, pirates);
+        return new Planet(name, techLevel, rscLevel, x, y, pirates, cargo);
     }
-    
+    private HashMap<String, Integer> generateCargo(int techLevel, int rscLevel) {
+        HashMap<String, Integer> cargo = new HashMap<String, Integer>();
+        cargo.put("water",(int) (30 + 3*techLevel + (Math.random() * 4)));
+        cargo.put("fur", (int) (250 + 10*techLevel + Math.random() * 10));
+        if(techLevel >= 1) {
+            cargo.put("food", (int) (100 + 5*(techLevel - 1) + Math.random()*5));
+        }
+        if(techLevel >= 2) {
+            cargo.put("ore", (int) (350 + 20*(techLevel - 2) + Math.random()*10));
+        }
+        if(techLevel >= 3) {
+            cargo.put("games", (int) (250 + (-10)*(techLevel - 3) + Math.random()*5));
+            cargo.put("firearms", (int) (1250 + (-75)*(techLevel - 3) + Math.random()*100));
+        }
+        if(techLevel >= 4) {
+            cargo.put("medicine", (int) (650 + (-20)*(techLevel - 4) + Math.random()*10));
+            cargo.put("machines", (int) (900 + (-30)*(techLevel - 4) + Math.random()*5));
+        }
+        if(techLevel >= 5) {
+            cargo.put("narcotics", (int) (3500 + (-125)*(techLevel - 5) + Math.random()*150));
+        }
+        if(techLevel >= 6) {
+            cargo.put("robots", (int) (5000 + (-150)*(techLevel - 5) + Math.random()*100));
+        }
+        
+        return cargo;
+    }
     private void initNames() {
         planetNames = new String[]
         {
