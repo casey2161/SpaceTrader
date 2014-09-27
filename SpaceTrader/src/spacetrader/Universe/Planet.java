@@ -1,4 +1,7 @@
 package spacetrader.Universe;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.Arrays;
 
 /*Nickolas Graham
  * C3POs team 27
@@ -39,14 +42,16 @@ public class Planet {
     private static final String[] RESOURCES = { "NOSPECIALRESOURCES", "MINERALRICH", "MINERALPOOR",
         "DESERT", "LOTSOFWATER", "RICHSOIL", "POORSOIL", "RICHFAUNA", "LIFELESS", "WEIRDMUSHROOMS",
         "LOTSOFHERBS", "ARTISTIC", "WARLIKE"};
+    private HashMap cargoMap;
     
-    public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates) { //used for loading saved planet config from saved game
+    public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates, HashMap cargo) { //used for loading saved planet config from saved game
         planetName = name;
         techLevel = level;
         resources = resourcelvl;
         spawnsPirates = pirates;
         xPosition = x;
         yPosition = y;
+        cargoMap = cargo;
     }
     public String getName() { //returns the name of the planet
         return planetName;
@@ -74,12 +79,28 @@ public class Planet {
         String returnStr = RESOURCES[resources];
         return returnStr;
     }
+    
+    public int getAmount(String key) {
+        Object result;
+        result = cargoMap.get(key);
+        return (int) result;
+    }
+    public void updateAmount(String key, int value) {
+        cargoMap.put(key, value);
+    }
+    
+    public Object[] returnMap() {
+        Set result = cargoMap.entrySet();
+        Object[] array = result.toArray();
+        return array;
+    }
     public String dumpInfo() { //dump method for demo purposes
         String dump = "Planet Name: " + planetName;
         dump += "\nTech Level: " + tchlvlString(techLevel);
         dump += "\nResources: " + rscString(resources);
         dump += "\nSpawn Pirates: " + spawnsPirates;
-        dump += "\n";
+        dump += "\nCargo: " + Arrays.toString(this.returnMap());
+        dump += "\n---------------------------------------------\n";
         return dump;
     }
 }  
