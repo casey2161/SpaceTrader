@@ -30,7 +30,7 @@ public class WelcomeScreenController implements Initializable {
     
     @FXML
     private void handleLoadGameButtonAction(ActionEvent event) {
-        System.out.println("Loaded game has started."); // Replace later.
+        System.out.println("Load Game feature has not been implemented yet."); // Replace later.
     }
     
     @FXML

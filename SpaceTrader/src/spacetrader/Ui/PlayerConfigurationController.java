@@ -122,7 +122,7 @@ public class PlayerConfigurationController implements Initializable {
         }
     }
     
-        @FXML
+    @FXML
     private void substractFighterAction(ActionEvent event) {
         int currentText = Integer.parseInt(fighter.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
@@ -175,7 +175,7 @@ public class PlayerConfigurationController implements Initializable {
         }
     }
     
-        @FXML
+    @FXML
     private void substractTraderAction(ActionEvent event) {
         int currentText = Integer.parseInt(trader.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());

@@ -7,14 +7,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.GameController">
    <top>
       <Pane prefHeight="40.0" prefWidth="360.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="saveGame" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" text="Save Game" />
-            <Button layoutX="100.0" layoutY="7.0" mnemonicParsing="false" text="Load Game" />
-            <Button layoutX="188.0" layoutY="7.0" mnemonicParsing="false" text="End Game" />
-            <Button layoutX="286.0" layoutY="7.0" mnemonicParsing="false" text="Quit" />
+            <Button fx:id="saveGame" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#saveGameAction" text="Save Game" />
+            <Button fx:id="loadGame" layoutX="100.0" layoutY="7.0" mnemonicParsing="false" onAction="#loadGameAction" text="Load Game" />
+            <Button fx:id="retire" layoutX="291.0" layoutY="7.0" mnemonicParsing="false" onAction="#retireAction" text="Retire" />
+            <Button layoutX="188.0" layoutY="7.0" mnemonicParsing="false" onAction="#quitGameAction" text="Quit Game" />
          </children>
       </Pane>
    </top>

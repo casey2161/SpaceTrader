@@ -31,9 +31,28 @@ public class GameController implements Initializable {
 
     @FXML private Button saveGame;
     @FXML private Button loadGame;
-    @FXML private Button endGame;
-    @FXML private Button quit;
+    @FXML private Button retire;
 
+    @FXML
+    private void saveGameAction(ActionEvent event) {
+        System.out.println("Save Game feature has not been implemented yet."); // Replace later.
+    }
+
+    @FXML
+    private void loadGameAction(ActionEvent event) {
+        System.out.println("Load Game feature has not been implemented yet."); // Replace later.
+    }
+
+    @FXML
+    private void retireAction(ActionEvent event) {
+        // Moon purchase happens here.
+        System.out.println("Retire feature has not been implemented yet."); // Replace later.
+    }
+
+    @FXML
+    private void quitGameAction(ActionEvent event) {
+        stage.setScene(allScenes[0]);
+    }
 
     /**
      * Initializes the controller class.
