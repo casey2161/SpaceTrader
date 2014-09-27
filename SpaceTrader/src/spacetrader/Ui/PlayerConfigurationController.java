@@ -291,6 +291,7 @@ public class PlayerConfigurationController implements Initializable {
             SolarSystem s = new SolarSystem(((Integer) i).toString(), i,10*i, 10*i);
             System.out.print(s.dumpInfo());
         }
+        stage.setScene(allScenes[2]);
     }
     
     @FXML

@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Pane prefHeight="40.0" prefWidth="360.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="saveGame" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" text="Save Game" />
+            <Button layoutX="100.0" layoutY="7.0" mnemonicParsing="false" text="Load Game" />
+            <Button layoutX="188.0" layoutY="7.0" mnemonicParsing="false" text="End Game" />
+            <Button layoutX="286.0" layoutY="7.0" mnemonicParsing="false" text="Quit" />
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Goods">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="567.0" prefWidth="360.0">
+                           <items>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="129.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buy Goods">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Furs">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ore">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Firearms">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machines">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Narcotics">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Robots">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="165.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Button layoutX="14.0" layoutY="36.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="54.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="72.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="108.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="126.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="144.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="162.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="180.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="198.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Text layoutX="200.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="285.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Button layoutX="324.0" layoutY="36.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="36.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Text layoutX="285.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Button layoutX="306.0" layoutY="54.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="72.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="90.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="108.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="126.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="144.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="162.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="180.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="198.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="54.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="72.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="90.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="108.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="126.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="144.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="162.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="180.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="198.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Text layoutX="15.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bays: ">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="55.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="65.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="75.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="262.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100000 cr.">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="210.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cash: ">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="129.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sell Goods">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Furs">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ore">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Firearms">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machines">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Narcotics">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="60.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Robots">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="165.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text layoutX="165.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Button layoutX="14.0" layoutY="36.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="54.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="72.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="108.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="126.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="144.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="162.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="180.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="14.0" layoutY="198.0" mnemonicParsing="false" text="150">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Text layoutX="200.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="200.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much?" />
+                                    <Text layoutX="285.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Button layoutX="324.0" layoutY="36.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="36.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Text layoutX="285.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Text layoutX="285.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Button layoutX="306.0" layoutY="54.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="72.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="90.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="108.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="126.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="144.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="162.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="180.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="306.0" layoutY="198.0" mnemonicParsing="false" text="-">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="54.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="72.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="90.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="108.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="126.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="144.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="162.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="180.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="324.0" layoutY="198.0" mnemonicParsing="false" text="+">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                    <Text layoutX="15.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bays: ">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="55.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="65.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="75.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="262.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100000 cr.">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="210.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cash: ">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </Pane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </Pane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
