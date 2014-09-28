@@ -2,12 +2,14 @@ package spacetrader;
 
 
 import spacetrader.Universe.Planet;
+import java.util.HashMap;
 
 public class Ship {
 	private String name;
-	private int maxRange, size, quality, shield, currRange;
+	private int maxRange, size, quality, shield, currRange, maxCargo, currCargo;
 	private Weapon weapon;
 	private Planet location;
+	private HashMap<String, Integer> cargo = new HashMap<String, Integer>();
 	//private Equipment[] equipmentSlots;
 	
 	public Ship (String name, int maxRange, int size, int quality, Planet location) {
@@ -18,6 +20,8 @@ public class Ship {
 		this.location = location;
 		shield = size*quality;
 		currRange = maxRange;
+		maxCargo = size*quality;
+		currCargo = 0;
 	}
 	
 	public void addWeapon(Weapon newWeapon) {
@@ -59,6 +63,32 @@ public class Ship {
 			if (hit <= weapon.getAccuracy()) {
 				opponent.takeDamage(weapon.getDamage());
 			}
+		}
+	}
+	
+	public boolean hasRoom(int input) {
+		return currCargo + input <= maxCargo;
+	}
+	
+	public boolean canSell(String name, int amount) {
+		return cargo.containsKey(name) && cargo.get(name) >= amount;
+	}
+	
+	public void add(String name, int amount) {
+		if (hasRoom) {
+			cargo.put(name, amount);
+			currCargo = currCargo + amount;
+		} else {
+			System.out.println("You don't have enough room");
+		}
+	}
+	
+	public void remove(String name, int amount) {
+		if (canSell(name, amount)) {
+			currCargo = currCargo - amount;
+			cargo.put(name, cargo.get(name) - amount);
+		} else {
+			System.out.println("You can't sell this item.");
 		}
 	}
 }
