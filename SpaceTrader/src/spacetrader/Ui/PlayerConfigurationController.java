@@ -284,14 +284,14 @@ public class PlayerConfigurationController implements Initializable {
             Player player = new Player (playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
             Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
             Integer.parseInt(engineer.getText()));
-            System.out.println("New game has started."); // Replace later.
+
+            //Temp: This is the dump for the solar system.
+            for(int i = 0; i < 7; i++) {
+                SolarSystem s = new SolarSystem(((Integer) i).toString(), i,10*i, 10*i);
+                System.out.print(s.dumpInfo());
+            }
+            stage.setScene(allScenes[2]);
         }
-        //Temp: This is the dump for the solar system.
-        for(int i = 0; i < 7; i++) {
-            SolarSystem s = new SolarSystem(((Integer) i).toString(), i,10*i, 10*i);
-            System.out.print(s.dumpInfo());
-        }
-        stage.setScene(allScenes[2]);
     }
     
     @FXML
