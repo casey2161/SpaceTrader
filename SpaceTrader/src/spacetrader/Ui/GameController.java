@@ -17,9 +17,8 @@ import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import spacetrader.Player;
 import spacetrader.Ship;
-import spacetrader.SpaceTrader;
-import spacetrader.Weapon;
 import spacetrader.Universe.Planet;
+import spacetrader.Universe.SolarSystem;
 
 /**
  * FXML Controller class
@@ -29,6 +28,10 @@ import spacetrader.Universe.Planet;
 public class GameController implements Initializable {
     private static Stage stage;
     private static Scene[] allScenes;
+    private static Player player;
+    private static SolarSystem solarSystem;
+    private static Planet planet;
+    private static Ship ship;
     
     // Top menu
     @FXML private Button saveGame;
@@ -197,6 +200,7 @@ public class GameController implements Initializable {
 
     @FXML
     private void confirmAction(ActionEvent event) {
+        
         /*
         if (event.getSource().equals(buyWaterConfirm))
             
@@ -334,31 +338,38 @@ public class GameController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Goods
-        /*
-        buyWater.setText("" + SpaceTrader.getPlanet().getAmount("water"));
-        buyFurs.setText("" + SpaceTrader.getPlanet().getAmount("furs"));
-        buyFood.setText("" + SpaceTrader.getPlanet().getAmount("food"));
-        buyOre.setText("" + SpaceTrader.getPlanet().getAmount("ore"));
-        buyGames.setText("" + SpaceTrader.getPlanet().getAmount("games"));
-        buyFirearms.setText("" + SpaceTrader.getPlanet().getAmount("firearms"));
-        buyMedicine.setText("" + SpaceTrader.getPlanet().getAmount("medicine"));
-        buyMachines.setText("" + SpaceTrader.getPlanet().getAmount("machines"));
-        buyNarcotics.setText("" + SpaceTrader.getPlanet().getAmount("narcotics"));
-        buyRobots.setText("" + SpaceTrader.getPlanet().getAmount("robots"));
-        sellWater.setText("" + SpaceTrader.getPlanet().getAmount("water"));
-        sellFurs.setText("" + SpaceTrader.getPlanet().getAmount("furs"));
-        sellFood.setText("" + SpaceTrader.getPlanet().getAmount("food"));
-        sellOre.setText("" + SpaceTrader.getPlanet().getAmount("ore"));
-        sellGames.setText("" + SpaceTrader.getPlanet().getAmount("games"));
-        sellFirearms.setText("" + SpaceTrader.getPlanet().getAmount("firearms"));
-        sellMedicine.setText("" + SpaceTrader.getPlanet().getAmount("medicine"));
-        sellMachines.setText("" + SpaceTrader.getPlanet().getAmount("machines"));
-        sellNarcotics.setText("" + SpaceTrader.getPlanet().getAmount("narcotics"));
-        sellRobots.setText("" + SpaceTrader.getPlanet().getAmount("robots"));*/
+        // Game object instances
+        solarSystem = new SolarSystem("1", 7, 10, 10);
+        planet = solarSystem.getPlanet(0); // Default starting planet
+        ship = new Ship("shipName", 10, 10, 10, planet);
         
+        // Goods
+        buyWater.setText("" + planet.getAmount("water"));
+        buyFurs.setText("" + planet.getAmount("furs"));
+        buyFood.setText("" + planet.getAmount("food"));
+        buyOre.setText("" + planet.getAmount("ore"));
+        buyGames.setText("" + planet.getAmount("games"));
+        buyFirearms.setText("" + planet.getAmount("firearms"));
+        buyMedicine.setText("" + planet.getAmount("medicine"));
+        buyMachines.setText("" + planet.getAmount("machines"));
+        buyNarcotics.setText("" + planet.getAmount("narcotics"));
+        buyRobots.setText("" + planet.getAmount("robots"));
+        sellWater.setText("" + planet.getAmount("water"));
+        sellFurs.setText("" + planet.getAmount("furs"));
+        sellFood.setText("" + planet.getAmount("food"));
+        sellOre.setText("" + planet.getAmount("ore"));
+        sellGames.setText("" + planet.getAmount("games"));
+        sellFirearms.setText("" + planet.getAmount("firearms"));
+        sellMedicine.setText("" + planet.getAmount("medicine"));
+        sellMachines.setText("" + planet.getAmount("machines"));
+        sellNarcotics.setText("" + planet.getAmount("narcotics"));
+        sellRobots.setText("" + planet.getAmount("robots"));
     }
-    
+
+    public static void passPlayer (Player p) {
+        player = p;
+    }
+
     public static void passStageAndScene(Stage mainStage, Scene[] scenes) {
         stage = mainStage;
         allScenes = scenes;

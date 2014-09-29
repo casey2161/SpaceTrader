@@ -18,7 +18,10 @@ import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import spacetrader.Player;
 import spacetrader.SpaceTrader;
+import spacetrader.Ship;
+import spacetrader.Universe.Planet;
 import spacetrader.Universe.SolarSystem;
+        
 
 /**
  * FXML Controller class
@@ -282,18 +285,11 @@ public class PlayerConfigurationController implements Initializable {
         if(!skillPointsRemaining.getText().equals("0") || playerName.getText().equals("")) {
             startFailed.setVisible(true);
         } else {
-            SpaceTrader.setPlayer(new Player (playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
+            Player p = new Player (playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
             Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
-            Integer.parseInt(engineer.getText())));
-
-            SolarSystem[] s = new SolarSystem[7];
-            for (int i = 0; i < s.length; i++) {
-                s[i] = new SolarSystem(((Integer) i).toString(), i,10*i, 10*i);
-            }
-            SpaceTrader.setSolarSystem(s);
-
-            SpaceTrader.setPlanet(s[0].getPlanet(0));
-
+            Integer.parseInt(engineer.getText()));
+            
+            GameController.passPlayer(p);
             stage.setScene(allScenes[2]);
         }
     }
