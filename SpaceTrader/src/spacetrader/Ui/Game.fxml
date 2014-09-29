@@ -144,112 +144,112 @@
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Text fx:id="buyWaterQuantity" layoutX="210.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Button fx:id="buyWaterPlus" layoutX="249.0" layoutY="36.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Text fx:id="buyWaterQuantity" layoutX="210.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Button fx:id="buyWaterPlus" layoutX="249.0" layoutY="36.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyWaterMinus" layoutX="231.0" layoutY="36.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="buyWaterMinus" layoutX="231.0" layoutY="36.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Text fx:id="buyRobotsQuantity" layoutX="210.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="buyFursQuantity" layoutX="210.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="buyFoodQuantity" layoutX="210.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="buyOreQuantity" layoutX="210.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="buyGamesQuantity" layoutX="210.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="buyFirearmsQuantity" layoutX="210.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="buyMedicineQuantity" layoutX="210.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="buyMachinesQuantity" layoutX="210.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="buyNarcoticsQuantity" layoutX="210.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Button fx:id="buyFursMinus" layoutX="231.0" layoutY="54.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Text fx:id="buyRobotsQuantity" layoutX="210.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="buyFursQuantity" layoutX="210.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="buyFoodQuantity" layoutX="210.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="buyOreQuantity" layoutX="210.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="buyGamesQuantity" layoutX="210.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="buyFirearmsQuantity" layoutX="210.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="buyMedicineQuantity" layoutX="210.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="buyMachinesQuantity" layoutX="210.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="buyNarcoticsQuantity" layoutX="210.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Button fx:id="buyFursMinus" layoutX="231.0" layoutY="54.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyFoodMinus" layoutX="231.0" layoutY="72.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="buyFoodMinus" layoutX="231.0" layoutY="72.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyOreMinus" layoutX="231.0" layoutY="90.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="buyOreMinus" layoutX="231.0" layoutY="90.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyGamesMinus" layoutX="231.0" layoutY="108.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="buyGamesMinus" layoutX="231.0" layoutY="108.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyFirearmsMinus" layoutX="231.0" layoutY="126.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="buyFirearmsMinus" layoutX="231.0" layoutY="126.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyMedicineMinus" layoutX="231.0" layoutY="144.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="buyMedicineMinus" layoutX="231.0" layoutY="144.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyMachinesMinus" layoutX="231.0" layoutY="162.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="buyMachinesMinus" layoutX="231.0" layoutY="162.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyNarcoticsMinus" layoutX="231.0" layoutY="180.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="buyNarcoticsMinus" layoutX="231.0" layoutY="180.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyRobotsMinus" layoutX="231.0" layoutY="198.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="buyRobotsMinus" layoutX="231.0" layoutY="198.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyFursPlus" layoutX="249.0" layoutY="54.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="buyFursPlus" layoutX="249.0" layoutY="54.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyFoodPlus" layoutX="249.0" layoutY="72.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="buyFoodPlus" layoutX="249.0" layoutY="72.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyOrePlus" layoutX="249.0" layoutY="90.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="buyOrePlus" layoutX="249.0" layoutY="90.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyGamesPlus" layoutX="249.0" layoutY="108.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="buyGamesPlus" layoutX="249.0" layoutY="108.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyFirearmsPlus" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="buyFirearmsPlus" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyMedicinePlus" layoutX="249.0" layoutY="144.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="buyMedicinePlus" layoutX="249.0" layoutY="144.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyMachinesPlus" layoutX="249.0" layoutY="162.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="buyMachinesPlus" layoutX="249.0" layoutY="162.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyNarcoticsPlus" layoutX="249.0" layoutY="180.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="buyNarcoticsPlus" layoutX="249.0" layoutY="180.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyRobotsPlus" layoutX="249.0" layoutY="198.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="buyRobotsPlus" layoutX="249.0" layoutY="198.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
@@ -284,52 +284,52 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Button fx:id="buyWaterConfirm" layoutX="277.0" layoutY="36.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy">
+                                    <Button fx:id="buyWaterConfirm" layoutX="277.0" layoutY="36.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyFursConfirm" layoutX="277.0" layoutY="54.0" mnemonicParsing="false" text="Buy">
+                                    <Button fx:id="buyFursConfirm" layoutX="277.0" layoutY="54.0" mnemonicParsing="false" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyFoodConfirm" layoutX="277.0" layoutY="72.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy">
+                                    <Button fx:id="buyFoodConfirm" layoutX="277.0" layoutY="72.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyOreConfirm" layoutX="277.0" layoutY="90.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy">
+                                    <Button fx:id="buyOreConfirm" layoutX="277.0" layoutY="90.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyGamesConfirm" layoutX="277.0" layoutY="108.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy">
+                                    <Button fx:id="buyGamesConfirm" layoutX="277.0" layoutY="108.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyFirearmsConfirm" layoutX="277.0" layoutY="126.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy">
+                                    <Button fx:id="buyFirearmsConfirm" layoutX="277.0" layoutY="126.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyMedicineConfirm" layoutX="277.0" layoutY="144.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy">
+                                    <Button fx:id="buyMedicineConfirm" layoutX="277.0" layoutY="144.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyMachinesConfirm" layoutX="277.0" layoutY="162.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy">
+                                    <Button fx:id="buyMachinesConfirm" layoutX="277.0" layoutY="162.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyNarcoticsConfirm" layoutX="277.0" layoutY="180.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy">
+                                    <Button fx:id="buyNarcoticsConfirm" layoutX="277.0" layoutY="180.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyRobotsConfirm" layoutX="277.0" layoutY="198.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy">
+                                    <Button fx:id="buyRobotsConfirm" layoutX="277.0" layoutY="198.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
@@ -453,112 +453,112 @@
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Text fx:id="sellWaterQuantity" layoutX="210.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Button fx:id="sellWaterPlus" layoutX="249.0" layoutY="36.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Text fx:id="sellWaterQuantity" layoutX="210.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Button fx:id="sellWaterPlus" layoutX="249.0" layoutY="36.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellWaterMinus" layoutX="231.0" layoutY="36.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="sellWaterMinus" layoutX="231.0" layoutY="36.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Text fx:id="sellRobotsQuantity" layoutX="210.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="sellFursQuantity" layoutX="210.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="sellFoodQuantity" layoutX="210.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="sellOreQuantity" layoutX="210.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="sellGamesQuantity" layoutX="210.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="sellFirearmsQuantity" layoutX="210.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="sellMedicineQuantity" layoutX="210.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="sellMachinesQuantity" layoutX="210.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Text fx:id="sellNarcoticsQuantity" layoutX="210.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                                    <Button fx:id="sellFursMinus" layoutX="231.0" layoutY="54.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Text fx:id="sellRobotsQuantity" layoutX="210.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="sellFursQuantity" layoutX="210.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="sellFoodQuantity" layoutX="210.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="sellOreQuantity" layoutX="210.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="sellGamesQuantity" layoutX="210.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="sellFirearmsQuantity" layoutX="210.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="sellMedicineQuantity" layoutX="210.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="sellMachinesQuantity" layoutX="210.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Text fx:id="sellNarcoticsQuantity" layoutX="210.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+                                    <Button fx:id="sellFursMinus" layoutX="231.0" layoutY="54.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellFoodMinus" layoutX="231.0" layoutY="72.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="sellFoodMinus" layoutX="231.0" layoutY="72.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellOreMinus" layoutX="231.0" layoutY="90.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="sellOreMinus" layoutX="231.0" layoutY="90.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellGamesMinus" layoutX="231.0" layoutY="108.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="sellGamesMinus" layoutX="231.0" layoutY="108.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellFirearmsMinus" layoutX="231.0" layoutY="126.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="sellFirearmsMinus" layoutX="231.0" layoutY="126.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellMedicineMinus" layoutX="231.0" layoutY="144.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="sellMedicineMinus" layoutX="231.0" layoutY="144.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellMachinesMinus" layoutX="231.0" layoutY="162.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="sellMachinesMinus" layoutX="231.0" layoutY="162.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellNarcoticsMinus" layoutX="231.0" layoutY="180.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="sellNarcoticsMinus" layoutX="231.0" layoutY="180.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellRobotsMinus" layoutX="231.0" layoutY="198.0" mnemonicParsing="false" onAction="#minusAction" text="-">
+                                    <Button fx:id="sellRobotsMinus" layoutX="231.0" layoutY="198.0" mnemonicParsing="false" onAction="#minusAction" text="-" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellFursPlus" layoutX="249.0" layoutY="54.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="sellFursPlus" layoutX="249.0" layoutY="54.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellFoodPlus" layoutX="249.0" layoutY="72.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="sellFoodPlus" layoutX="249.0" layoutY="72.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellOrePlus" layoutX="249.0" layoutY="90.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="sellOrePlus" layoutX="249.0" layoutY="90.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellGamesPlus" layoutX="249.0" layoutY="108.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="sellGamesPlus" layoutX="249.0" layoutY="108.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellFirearmsPlus" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="sellFirearmsPlus" layoutX="249.0" layoutY="126.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellMedicinePlus" layoutX="249.0" layoutY="144.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="sellMedicinePlus" layoutX="249.0" layoutY="144.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellMachinesPlus" layoutX="249.0" layoutY="162.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="sellMachinesPlus" layoutX="249.0" layoutY="162.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellNarcoticsPlus" layoutX="249.0" layoutY="180.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="sellNarcoticsPlus" layoutX="249.0" layoutY="180.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellRobotsPlus" layoutX="249.0" layoutY="198.0" mnemonicParsing="false" onAction="#plusAction" text="+">
+                                    <Button fx:id="sellRobotsPlus" layoutX="249.0" layoutY="198.0" mnemonicParsing="false" onAction="#plusAction" text="+" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
@@ -593,52 +593,52 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Button fx:id="sellWaterConfirm" layoutX="277.0" layoutY="36.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell">
+                                    <Button fx:id="sellWaterConfirm" layoutX="277.0" layoutY="36.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellFursConfirm" layoutX="277.0" layoutY="54.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell">
+                                    <Button fx:id="sellFursConfirm" layoutX="277.0" layoutY="54.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellFoodConfirm" layoutX="277.0" layoutY="72.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell">
+                                    <Button fx:id="sellFoodConfirm" layoutX="277.0" layoutY="72.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellOreConfirm" layoutX="277.0" layoutY="90.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell">
+                                    <Button fx:id="sellOreConfirm" layoutX="277.0" layoutY="90.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellGamesConfirm" layoutX="277.0" layoutY="108.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell">
+                                    <Button fx:id="sellGamesConfirm" layoutX="277.0" layoutY="108.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellFirearmsConfirm" layoutX="277.0" layoutY="126.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell">
+                                    <Button fx:id="sellFirearmsConfirm" layoutX="277.0" layoutY="126.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellMedicineConfirm" layoutX="277.0" layoutY="144.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell">
+                                    <Button fx:id="sellMedicineConfirm" layoutX="277.0" layoutY="144.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellMachinesConfirm" layoutX="277.0" layoutY="162.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell">
+                                    <Button fx:id="sellMachinesConfirm" layoutX="277.0" layoutY="162.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellNarcoticsConfirm" layoutX="277.0" layoutY="180.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell">
+                                    <Button fx:id="sellNarcoticsConfirm" layoutX="277.0" layoutY="180.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="sellRobotsConfirm" layoutX="277.0" layoutY="198.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell">
+                                    <Button fx:id="sellRobotsConfirm" layoutX="277.0" layoutY="198.0" mnemonicParsing="false" onAction="#confirmAction" text="Sell" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>

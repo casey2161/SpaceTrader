@@ -142,4 +142,14 @@ public class Ship {
 			System.out.println("You can't sell this item.");
 		}
 	}
+        
+        public int getAmount(String key) {
+        Object result;
+        result = cargo.get(key);
+        return (int) result;
+        }
+        
+        public void updateAmount(String key, int value) {
+            cargo.put(key, value);
+        }
 }

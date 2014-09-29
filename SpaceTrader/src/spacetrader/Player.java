@@ -7,6 +7,7 @@ public class Player {
     private int fighterPoints;
     private int traderPoints;
     private int engineerPoints;
+    private int money;
 
     private static int DEFAULT_DIFF = 1;
     private static int DEFAULT_SKILL = 4;
@@ -79,4 +80,11 @@ public class Player {
         this.engineerPoints = engineerPoints;
     }
 
+    public int getMoney() {
+        return money;
+    }
+    
+    public void setMoney(int i) {
+        money = i;
+    }
 }

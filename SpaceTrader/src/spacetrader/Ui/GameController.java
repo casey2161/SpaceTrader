@@ -195,54 +195,313 @@ public class GameController implements Initializable {
 
     @FXML
     private void tradeAction(ActionEvent event) {
-        
+        if (event.getSource().equals(buyWater)) {
+            if(!buyWaterQuantity.isVisible()) {
+                buyWaterQuantity.setVisible(true);
+                buyWaterMinus.setVisible(true);
+                buyWaterPlus.setVisible(true);
+                buyWaterConfirm.setVisible(true);
+            } else {
+                buyWaterQuantity.setText("0");
+                buyWaterQuantity.setVisible(false);
+                buyWaterMinus.setVisible(false);
+                buyWaterPlus.setVisible(false);
+                buyWaterConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(buyFurs)) {
+            if(!buyFursQuantity.isVisible()) {
+                buyFursQuantity.setVisible(true);
+                buyFursMinus.setVisible(true);
+                buyFursPlus.setVisible(true);
+                buyFursConfirm.setVisible(true);
+            } else {
+                buyFursQuantity.setText("0");
+                buyFursQuantity.setVisible(false);
+                buyFursMinus.setVisible(false);
+                buyFursPlus.setVisible(false);
+                buyFursConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(buyFood)) {
+            if(!buyFoodQuantity.isVisible()) {
+                buyFoodQuantity.setVisible(true);
+                buyFoodMinus.setVisible(true);
+                buyFoodPlus.setVisible(true);
+                buyFoodConfirm.setVisible(true);
+            } else {
+                buyFoodQuantity.setText("0");
+                buyFoodQuantity.setVisible(false);
+                buyFoodMinus.setVisible(false);
+                buyFoodPlus.setVisible(false);
+                buyFoodConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(buyOre)) {
+            if(!buyOreQuantity.isVisible()) {
+                buyOreQuantity.setVisible(true);
+                buyOreMinus.setVisible(true);
+                buyOrePlus.setVisible(true);
+                buyOreConfirm.setVisible(true);
+            } else {
+                buyOreQuantity.setText("0");
+                buyOreQuantity.setVisible(false);
+                buyOreMinus.setVisible(false);
+                buyOrePlus.setVisible(false);
+                buyOreConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(buyGames)) {
+            if(!buyGamesQuantity.isVisible()) {
+                buyGamesQuantity.setVisible(true);
+                buyGamesMinus.setVisible(true);
+                buyGamesPlus.setVisible(true);
+                buyGamesConfirm.setVisible(true);
+            } else {
+                buyGamesQuantity.setText("0");
+                buyGamesQuantity.setVisible(false);
+                buyGamesMinus.setVisible(false);
+                buyGamesPlus.setVisible(false);
+                buyGamesConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(buyFirearms)) {
+            if(!buyFirearmsQuantity.isVisible()) {
+                buyFirearmsQuantity.setVisible(true);
+                buyFirearmsMinus.setVisible(true);
+                buyFirearmsPlus.setVisible(true);
+                buyFirearmsConfirm.setVisible(true);
+            } else {
+                buyFirearmsQuantity.setText("0");
+                buyFirearmsQuantity.setVisible(false);
+                buyFirearmsMinus.setVisible(false);
+                buyFirearmsPlus.setVisible(false);
+                buyFirearmsConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(buyMedicine)) {
+            if(!buyMedicineQuantity.isVisible()) {
+                buyMedicineQuantity.setVisible(true);
+                buyMedicineMinus.setVisible(true);
+                buyMedicinePlus.setVisible(true);
+                buyMedicineConfirm.setVisible(true);
+            } else {
+                buyMedicineQuantity.setText("0");
+                buyMedicineQuantity.setVisible(false);
+                buyMedicineMinus.setVisible(false);
+                buyMedicinePlus.setVisible(false);
+                buyMedicineConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(buyMachines)) {
+            if(!buyMachinesQuantity.isVisible()) {
+                buyMachinesQuantity.setVisible(true);
+                buyMachinesMinus.setVisible(true);
+                buyMachinesPlus.setVisible(true);
+                buyMachinesConfirm.setVisible(true);
+            } else {
+                buyMachinesQuantity.setText("0");
+                buyMachinesQuantity.setVisible(false);
+                buyMachinesMinus.setVisible(false);
+                buyMachinesPlus.setVisible(false);
+                buyMachinesConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(buyNarcotics)) {
+            if(!buyNarcoticsQuantity.isVisible()) {
+                buyNarcoticsQuantity.setVisible(true);
+                buyNarcoticsMinus.setVisible(true);
+                buyNarcoticsPlus.setVisible(true);
+                buyNarcoticsConfirm.setVisible(true);
+            } else {
+                buyNarcoticsQuantity.setText("0");
+                buyNarcoticsQuantity.setVisible(false);
+                buyNarcoticsMinus.setVisible(false);
+                buyNarcoticsPlus.setVisible(false);
+                buyNarcoticsConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(buyRobots)) {
+            if(!buyRobotsQuantity.isVisible()) {
+                buyRobotsQuantity.setVisible(true);
+                buyRobotsMinus.setVisible(true);
+                buyRobotsPlus.setVisible(true);
+                buyRobotsConfirm.setVisible(true);
+            } else {
+                buyRobotsQuantity.setText("0");
+                buyRobotsQuantity.setVisible(false);
+                buyRobotsMinus.setVisible(false);
+                buyRobotsPlus.setVisible(false);
+                buyRobotsConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellWater)) {
+            if(!sellWaterQuantity.isVisible()) {
+                sellWaterQuantity.setVisible(true);
+                sellWaterMinus.setVisible(true);
+                sellWaterPlus.setVisible(true);
+                sellWaterConfirm.setVisible(true);
+            } else {
+                sellWaterQuantity.setText("0");
+                sellWaterQuantity.setVisible(false);
+                sellWaterMinus.setVisible(false);
+                sellWaterPlus.setVisible(false);
+                sellWaterConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellFurs)) {
+            if(!sellFursQuantity.isVisible()) {
+                sellFursQuantity.setVisible(true);
+                sellFursMinus.setVisible(true);
+                sellFursPlus.setVisible(true);
+                sellFursConfirm.setVisible(true);
+            } else {
+                sellFursQuantity.setText("0");
+                sellFursQuantity.setVisible(false);
+                sellFursMinus.setVisible(false);
+                sellFursPlus.setVisible(false);
+                sellFursConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellFood)) {
+            if(!sellFoodQuantity.isVisible()) {
+                sellFoodQuantity.setVisible(true);
+                sellFoodMinus.setVisible(true);
+                sellFoodPlus.setVisible(true);
+                sellFoodConfirm.setVisible(true);
+            } else {
+                sellFoodQuantity.setText("0");
+                sellFoodQuantity.setVisible(false);
+                sellFoodMinus.setVisible(false);
+                sellFoodPlus.setVisible(false);
+                sellFoodConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellOre)) {
+            if(!sellOreQuantity.isVisible()) {
+                sellOreQuantity.setVisible(true);
+                sellOreMinus.setVisible(true);
+                sellOrePlus.setVisible(true);
+                sellOreConfirm.setVisible(true);
+            } else {
+                sellOreQuantity.setText("0");
+                sellOreQuantity.setVisible(false);
+                sellOreMinus.setVisible(false);
+                sellOrePlus.setVisible(false);
+                sellOreConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellGames)) {
+            if(!sellGamesQuantity.isVisible()) {
+                sellGamesQuantity.setVisible(true);
+                sellGamesMinus.setVisible(true);
+                sellGamesPlus.setVisible(true);
+                sellGamesConfirm.setVisible(true);
+            } else {
+                sellGamesQuantity.setText("0");
+                sellGamesQuantity.setVisible(false);
+                sellGamesMinus.setVisible(false);
+                sellGamesPlus.setVisible(false);
+                sellGamesConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellFirearms)) {
+            if(!sellFirearmsQuantity.isVisible()) {
+                sellFirearmsQuantity.setVisible(true);
+                sellFirearmsMinus.setVisible(true);
+                sellFirearmsPlus.setVisible(true);
+                sellFirearmsConfirm.setVisible(true);
+            } else {
+                sellFirearmsQuantity.setText("0");
+                sellFirearmsQuantity.setVisible(false);
+                sellFirearmsMinus.setVisible(false);
+                sellFirearmsPlus.setVisible(false);
+                sellFirearmsConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellMedicine)) {
+            if(!sellMedicineQuantity.isVisible()) {
+                sellMedicineQuantity.setVisible(true);
+                sellMedicineMinus.setVisible(true);
+                sellMedicinePlus.setVisible(true);
+                sellMedicineConfirm.setVisible(true);
+            } else {
+                sellMedicineQuantity.setText("0");
+                sellMedicineQuantity.setVisible(false);
+                sellMedicineMinus.setVisible(false);
+                sellMedicinePlus.setVisible(false);
+                sellMedicineConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellMachines)) {
+            if(!sellMachinesQuantity.isVisible()) {
+                sellMachinesQuantity.setVisible(true);
+                sellMachinesMinus.setVisible(true);
+                sellMachinesPlus.setVisible(true);
+                sellMachinesConfirm.setVisible(true);
+            } else {
+                sellMachinesQuantity.setText("0");
+                sellMachinesQuantity.setVisible(false);
+                sellMachinesMinus.setVisible(false);
+                sellMachinesPlus.setVisible(false);
+                sellMachinesConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellNarcotics)) {
+            if(!sellNarcoticsQuantity.isVisible()) {
+                sellNarcoticsQuantity.setVisible(true);
+                sellNarcoticsMinus.setVisible(true);
+                sellNarcoticsPlus.setVisible(true);
+                sellNarcoticsConfirm.setVisible(true);
+            } else {
+                sellNarcoticsQuantity.setText("0");
+                sellNarcoticsQuantity.setVisible(false);
+                sellNarcoticsMinus.setVisible(false);
+                sellNarcoticsPlus.setVisible(false);
+                sellNarcoticsConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellRobots)) {
+            if(!sellRobotsQuantity.isVisible()) {
+                sellRobotsQuantity.setVisible(true);
+                sellRobotsMinus.setVisible(true);
+                sellRobotsPlus.setVisible(true);
+                sellRobotsConfirm.setVisible(true);
+            } else {
+                sellRobotsQuantity.setText("0");
+                sellRobotsQuantity.setVisible(false);
+                sellRobotsMinus.setVisible(false);
+                sellRobotsPlus.setVisible(false);
+                sellRobotsConfirm.setVisible(false);
+            }
+        }
     }
 
     @FXML
     private void confirmAction(ActionEvent event) {
-        
-        /*
-        if (event.getSource().equals(buyWaterConfirm))
+        if (event.getSource().equals(buyWaterConfirm)) {
+            int quantity = Integer.parseInt(buyWaterQuantity.getText());
+            if (ship.hasRoom(quantity)) {
             
-        else if (event.getSource().equals(buyFursConfirm))
+            }
+        } else if (event.getSource().equals(buyFursConfirm)) {
             
-        else if (event.getSource().equals(buyFoodConfirm))
+        } else if (event.getSource().equals(buyFoodConfirm)) {
+           
+        } else if (event.getSource().equals(buyOreConfirm)) {
             
-        else if (event.getSource().equals(buyOreConfirm))
+        } else if (event.getSource().equals(buyGamesConfirm)) {
             
-        else if (event.getSource().equals(buyGamesConfirm))
+        } else if (event.getSource().equals(buyFirearmsConfirm)) {
             
-        else if (event.getSource().equals(buyFirearmsConfirm))
+        } else if (event.getSource().equals(buyMedicineConfirm)) {
             
-        else if (event.getSource().equals(buyMedicineConfirm))
+        } else if (event.getSource().equals(buyMachinesConfirm)) {
             
-        else if (event.getSource().equals(buyMachinesConfirm))
+        } else if (event.getSource().equals(buyNarcoticsConfirm)) {
             
-        else if (event.getSource().equals(buyNarcoticsConfirm))
+        } else if (event.getSource().equals(buyRobotsConfirm)) {
             
-        else if (event.getSource().equals(buyRobotsConfirm))
+        } else if (event.getSource().equals(sellWaterConfirm)) {
             
-        else if (event.getSource().equals(sellWaterConfirm))
+        } else if (event.getSource().equals(sellFursConfirm)) {
             
-        else if (event.getSource().equals(sellFursConfirm))
+        } else if (event.getSource().equals(sellOreConfirm)) {
             
-        else if (event.getSource().equals(sellFoodConfirm))
+        } else if (event.getSource().equals(sellGamesConfirm)) {
             
-        else if (event.getSource().equals(sellOreConfirm))
+        } else if (event.getSource().equals(sellFirearmsConfirm)) {
             
-        else if (event.getSource().equals(sellGamesConfirm))
+        } else if (event.getSource().equals(sellMedicineConfirm)) {
             
-        else if (event.getSource().equals(sellFirearmsConfirm))
+        } else if (event.getSource().equals(sellMachinesConfirm)) {
             
-        else if (event.getSource().equals(sellMedicineConfirm))
+        } else if (event.getSource().equals(sellNarcoticsConfirm)) {
             
-        else if (event.getSource().equals(sellMachinesConfirm))
+        } else if (event.getSource().equals(sellRobotsConfirm)) {
             
-        else if (event.getSource().equals(sellNarcoticsConfirm))
-            
-        else if (event.getSource().equals(sellRobotsConfirm))
-            
-        */
+        }
     }
 
     @FXML
@@ -291,46 +550,126 @@ public class GameController implements Initializable {
 
     @FXML
     private void minusAction(ActionEvent event) {
-        if (event.getSource().equals(buyWaterMinus))
-            buyWaterQuantity.setText("" + (Integer.parseInt(buyWaterQuantity.getText()) - 1));
-        else if (event.getSource().equals(buyFursMinus))
-            buyFursQuantity.setText("" + (Integer.parseInt(buyFursQuantity.getText()) - 1));
-        else if (event.getSource().equals(buyFoodMinus))
-            buyFoodQuantity.setText("" + (Integer.parseInt(buyFoodQuantity.getText()) - 1));
-        else if (event.getSource().equals(buyOreMinus))
-            buyOreQuantity.setText("" + (Integer.parseInt(buyOreQuantity.getText()) - 1));
-        else if (event.getSource().equals(buyGamesMinus))
-            buyGamesQuantity.setText("" + (Integer.parseInt(buyGamesQuantity.getText()) - 1));
-        else if (event.getSource().equals(buyFirearmsMinus))
-            buyFirearmsQuantity.setText("" + (Integer.parseInt(buyFirearmsQuantity.getText()) - 1));
-        else if (event.getSource().equals(buyMedicineMinus))
-            buyMedicineQuantity.setText("" + (Integer.parseInt(buyMedicineQuantity.getText()) - 1));
-        else if (event.getSource().equals(buyMachinesMinus))
-            buyMachinesQuantity.setText("" + (Integer.parseInt(buyMachinesQuantity.getText()) - 1));
-        else if (event.getSource().equals(buyNarcoticsMinus))
-            buyNarcoticsQuantity.setText("" + (Integer.parseInt(buyNarcoticsQuantity.getText()) - 1));
-        else if (event.getSource().equals(buyRobotsMinus))
-            buyRobotsQuantity.setText("" + (Integer.parseInt(buyRobotsQuantity.getText()) - 1));
-        else if (event.getSource().equals(sellWaterMinus))
-            sellWaterQuantity.setText("" + (Integer.parseInt(sellWaterQuantity.getText()) - 1));
-        else if (event.getSource().equals(sellFursMinus))
-            sellFursQuantity.setText("" + (Integer.parseInt(sellFursQuantity.getText()) - 1));
-        else if (event.getSource().equals(sellFoodMinus))
-            sellFoodQuantity.setText("" + (Integer.parseInt(sellFoodQuantity.getText()) - 1));
-        else if (event.getSource().equals(sellOreMinus))
-            sellOreQuantity.setText("" + (Integer.parseInt(sellOreQuantity.getText()) - 1));
-        else if (event.getSource().equals(sellGamesMinus))
-            sellGamesQuantity.setText("" + (Integer.parseInt(sellGamesQuantity.getText()) - 1));
-        else if (event.getSource().equals(sellFirearmsMinus))
-            sellFirearmsQuantity.setText("" + (Integer.parseInt(sellFirearmsQuantity.getText()) - 1));
-        else if (event.getSource().equals(sellMedicineMinus))
-            sellMedicineQuantity.setText("" + (Integer.parseInt(sellMedicineQuantity.getText()) - 1));
-        else if (event.getSource().equals(sellMachinesMinus))
-            sellMachinesQuantity.setText("" + (Integer.parseInt(sellMachinesQuantity.getText()) - 1));
-        else if (event.getSource().equals(sellNarcoticsMinus))
-            sellNarcoticsQuantity.setText("" + (Integer.parseInt(sellNarcoticsQuantity.getText()) - 1));
-        else if (event.getSource().equals(sellRobotsMinus))
-            sellRobotsQuantity.setText("" + (Integer.parseInt(sellRobotsQuantity.getText()) - 1));
+        if (event.getSource().equals(buyWaterMinus)) {
+            int i = Integer.parseInt(buyWaterQuantity.getText());
+            if (i > 0) {
+                buyWaterQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(buyFursMinus)) {
+            int i = Integer.parseInt(buyFursQuantity.getText());
+            if (i > 0) {
+                buyFursQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(buyFoodMinus)) {
+            int i = Integer.parseInt(buyFoodQuantity.getText());
+            if (i > 0) {
+                buyFoodQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(buyOreMinus)) {
+            int i = Integer.parseInt(buyOreQuantity.getText());
+            if (i > 0) {
+                buyOreQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(buyGamesMinus)) {
+            int i = Integer.parseInt(buyGamesQuantity.getText());
+            if (i > 0) {
+                buyGamesQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(buyFirearmsMinus)) {
+            int i = Integer.parseInt(buyFirearmsQuantity.getText());
+            if (i > 0) {
+                buyFirearmsQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(buyMedicineMinus)) {
+            int i = Integer.parseInt(buyMedicineQuantity.getText());
+            if (i > 0) {
+                buyMedicineQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(buyMachinesMinus)) {
+            int i = Integer.parseInt(buyMachinesQuantity.getText());
+            if (i > 0) {
+                buyMachinesQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(buyNarcoticsMinus)) {
+            int i = Integer.parseInt(buyNarcoticsQuantity.getText());
+            if (i > 0) {
+                buyNarcoticsQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(buyRobotsMinus)) {
+            int i = Integer.parseInt(buyRobotsQuantity.getText());
+            if (i > 0) {
+                buyRobotsQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(sellWaterMinus)) {
+            int i = Integer.parseInt(sellWaterQuantity.getText());
+            if (i > 0) {
+                sellWaterQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(sellFursMinus)) {
+            int i = Integer.parseInt(sellFursQuantity.getText());
+            if (i > 0) {
+                sellFursQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(sellFoodMinus)) {
+            int i = Integer.parseInt(sellFoodQuantity.getText());
+            if (i > 0) {
+                sellFoodQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(sellOreMinus)) {
+            int i = Integer.parseInt(sellOreQuantity.getText());
+            if (i > 0) {
+                sellOreQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(sellGamesMinus)) {
+            int i = Integer.parseInt(sellGamesQuantity.getText());
+            if (i > 0) {
+                sellGamesQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(sellFirearmsMinus)) {
+            int i = Integer.parseInt(sellFirearmsQuantity.getText());
+            if (i > 0) {
+                sellFirearmsQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(sellMedicineMinus)) {
+            int i = Integer.parseInt(sellMedicineQuantity.getText());
+            if (i > 0) {
+                sellMedicineQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(sellMachinesMinus)) {
+            int i = Integer.parseInt(sellMachinesQuantity.getText());
+            if (i > 0) {
+                sellMachinesQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(sellNarcoticsMinus)) {
+            int i = Integer.parseInt(sellNarcoticsQuantity.getText());
+            if (i > 0) {
+                sellNarcoticsQuantity.setText("" + (i - 1));
+            }
+        }
+        else if (event.getSource().equals(sellRobotsMinus)) {
+            int i = Integer.parseInt(sellRobotsQuantity.getText());
+            if (i > 0) {
+                sellRobotsQuantity.setText("" + (i - 1));
+            }
+        }
     }
 
     /**
