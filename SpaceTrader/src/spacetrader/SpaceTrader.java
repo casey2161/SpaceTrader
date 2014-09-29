@@ -14,12 +14,20 @@ import javafx.stage.Stage;
 import spacetrader.Ui.PlayerConfigurationController;
 import spacetrader.Ui.WelcomeScreenController;
 import spacetrader.Ui.GameController;
+import spacetrader.Universe.SolarSystem;
+import spacetrader.Universe.Planet;
 
 /**
  *
  * @author andikaputra
  */
 public class SpaceTrader extends Application {
+    // Object instances in the game.
+    private static Player player;
+    private static Ship ship;
+    private static SolarSystem[] solarSystem;
+    private static Planet planet;
+    
     // Total number of scenes implemented in the game.
     public static final int NUMBER_OF_SCENES = 9;
     
@@ -49,5 +57,36 @@ public class SpaceTrader extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
+    public static void setPlayer(Player newPlayer) {
+        player = newPlayer;
+    }
+
+    public static void setShip(Ship newShip) {
+        ship = newShip;
+    }
+
+    public static void setSolarSystem(SolarSystem[] newSolarSystem) {
+        solarSystem = newSolarSystem;
+    }
+
+    public static void setPlanet(Planet newPlanet) {
+        planet = newPlanet;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static Ship getShip() {
+        return ship;
+    }
+
+    public static SolarSystem[] getSolarSystem() {
+        return solarSystem;
+    }
+
+    public static Planet getPlanet() {
+        return planet;
+    }
 }

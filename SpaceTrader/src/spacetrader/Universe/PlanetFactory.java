@@ -35,7 +35,7 @@ public class PlanetFactory {
     private HashMap<String, Integer> generateCargo(int techLevel, int rscLevel) {
         HashMap<String, Integer> cargo = new HashMap<String, Integer>();
         cargo.put("water",(int) (30 + 3*techLevel + (Math.random() * 4)));
-        cargo.put("fur", (int) (250 + 10*techLevel + Math.random() * 10));
+        cargo.put("furs", (int) (250 + 10*techLevel + Math.random() * 10));
         if(techLevel >= 1) {
             cargo.put("food", (int) (100 + 5*(techLevel - 1) + Math.random()*5));
         }

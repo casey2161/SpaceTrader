@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import spacetrader.Player;
+import spacetrader.SpaceTrader;
 import spacetrader.Universe.SolarSystem;
 
 /**
@@ -281,15 +282,18 @@ public class PlayerConfigurationController implements Initializable {
         if(!skillPointsRemaining.getText().equals("0") || playerName.getText().equals("")) {
             startFailed.setVisible(true);
         } else {
-            Player player = new Player (playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
+            SpaceTrader.setPlayer(new Player (playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
             Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
-            Integer.parseInt(engineer.getText()));
+            Integer.parseInt(engineer.getText())));
 
-            //Temp: This is the dump for the solar system.
-            for(int i = 0; i < 7; i++) {
-                SolarSystem s = new SolarSystem(((Integer) i).toString(), i,10*i, 10*i);
-                System.out.print(s.dumpInfo());
+            SolarSystem[] s = new SolarSystem[7];
+            for (int i = 0; i < s.length; i++) {
+                s[i] = new SolarSystem(((Integer) i).toString(), i,10*i, 10*i);
             }
+            SpaceTrader.setSolarSystem(s);
+
+            SpaceTrader.setPlanet(s[0].getPlanet(0));
+
             stage.setScene(allScenes[2]);
         }
     }

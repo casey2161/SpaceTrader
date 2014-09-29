@@ -19,6 +19,7 @@ import spacetrader.Player;
 import spacetrader.Ship;
 import spacetrader.SpaceTrader;
 import spacetrader.Weapon;
+import spacetrader.Universe.Planet;
 
 /**
  * FXML Controller class
@@ -333,6 +334,28 @@ public class GameController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // Goods
+        /*
+        buyWater.setText("" + SpaceTrader.getPlanet().getAmount("water"));
+        buyFurs.setText("" + SpaceTrader.getPlanet().getAmount("furs"));
+        buyFood.setText("" + SpaceTrader.getPlanet().getAmount("food"));
+        buyOre.setText("" + SpaceTrader.getPlanet().getAmount("ore"));
+        buyGames.setText("" + SpaceTrader.getPlanet().getAmount("games"));
+        buyFirearms.setText("" + SpaceTrader.getPlanet().getAmount("firearms"));
+        buyMedicine.setText("" + SpaceTrader.getPlanet().getAmount("medicine"));
+        buyMachines.setText("" + SpaceTrader.getPlanet().getAmount("machines"));
+        buyNarcotics.setText("" + SpaceTrader.getPlanet().getAmount("narcotics"));
+        buyRobots.setText("" + SpaceTrader.getPlanet().getAmount("robots"));
+        sellWater.setText("" + SpaceTrader.getPlanet().getAmount("water"));
+        sellFurs.setText("" + SpaceTrader.getPlanet().getAmount("furs"));
+        sellFood.setText("" + SpaceTrader.getPlanet().getAmount("food"));
+        sellOre.setText("" + SpaceTrader.getPlanet().getAmount("ore"));
+        sellGames.setText("" + SpaceTrader.getPlanet().getAmount("games"));
+        sellFirearms.setText("" + SpaceTrader.getPlanet().getAmount("firearms"));
+        sellMedicine.setText("" + SpaceTrader.getPlanet().getAmount("medicine"));
+        sellMachines.setText("" + SpaceTrader.getPlanet().getAmount("machines"));
+        sellNarcotics.setText("" + SpaceTrader.getPlanet().getAmount("narcotics"));
+        sellRobots.setText("" + SpaceTrader.getPlanet().getAmount("robots"));*/
         
     }
     
