@@ -121,7 +121,7 @@ public class Ship {
 	 * @param amount The amount of the cargo being added
 	 */
 	public void add(String name, int amount) {
-		if (hasRoom) {
+		if (hasRoom(amount)) {
 			cargo.put(name, amount);
 			currCargo = currCargo + amount;
 		} else {
