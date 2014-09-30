@@ -285,11 +285,10 @@ public class PlayerConfigurationController implements Initializable {
         if(!skillPointsRemaining.getText().equals("0") || playerName.getText().equals("")) {
             startFailed.setVisible(true);
         } else {
-            Player p = new Player (playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
+            GameController.passPlayer(playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
             Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
             Integer.parseInt(engineer.getText()));
             
-            GameController.passPlayer(p);
             stage.setScene(allScenes[2]);
         }
     }

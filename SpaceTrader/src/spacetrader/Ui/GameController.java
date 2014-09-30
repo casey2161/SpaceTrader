@@ -461,65 +461,375 @@ public class GameController implements Initializable {
     @FXML
     private void confirmAction(ActionEvent event) {
         if (event.getSource().equals(buyWaterConfirm)) {
-            int buyQuantity = Integer.parseInt(buyWaterQuantity.getText());
-            int price = Integer.parseInt(buyWaterPrice.getText().substring(0, buyWaterPrice.getText().length() - 4));
-            if (ship.hasRoom(buyQuantity) && (player.getMoney() - price) >= 0) {
-                ship.add("water", buyQuantity);
+            int quantity = Integer.parseInt(buyWaterQuantity.getText());
+            int price = Integer.parseInt(buyWaterPrice.getText().substring(0, buyWaterPrice.getText().length() - 4)) * quantity;
+            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+                ship.add("water", quantity);
+                sellWater.setText(Integer.parseInt(sellWater.getText()) + quantity + "");
                 player.setMoney(player.getMoney() - price);
-                
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                buyWaterQuantity.setText("0");
+                buyWaterQuantity.setVisible(false);
+                buyWaterPlus.setVisible(false);
+                buyWaterMinus.setVisible(false);
+                buyWaterConfirm.setVisible(false);
             }
         } else if (event.getSource().equals(buyFursConfirm)) {
-            int buyQuantity = Integer.parseInt(buyFursQuantity.getText());
-            int currentQuantity = Integer.parseInt(buyFurs.getText());
-            int price = Integer.parseInt(buyFursPrice.getText().substring(0, buyFursPrice.getText().length() - 4));
-            if (currentQuantity > 0 && ship.hasRoom(buyQuantity)
-                    && (player.getMoney() - price ) >= 0) {
-                ship.add("furs", buyQuantity);
+             int quantity = Integer.parseInt(buyFursQuantity.getText());
+            int price = Integer.parseInt(buyFursPrice.getText().substring(0, buyFursPrice.getText().length() - 4)) * quantity;
+            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+                ship.add("furs", quantity);
+                sellFurs.setText(Integer.parseInt(sellFurs.getText()) + quantity + "");
                 player.setMoney(player.getMoney() - price);
-                planet.updateAmount("furs", currentQuantity - buyQuantity);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                buyFursQuantity.setText("0");
+                buyFursQuantity.setVisible(false);
+                buyFursPlus.setVisible(false);
+                buyFursMinus.setVisible(false);
+                buyFursConfirm.setVisible(false);
+            }
+        } else if(event.getSource().equals(buyOreConfirm)) {
+            int quantity = Integer.parseInt(buyOreQuantity.getText());
+            int price = Integer.parseInt(buyOrePrice.getText().substring(0, buyOrePrice.getText().length() - 4)) * quantity;
+            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+                ship.add("ore", quantity);
+                sellOre.setText(Integer.parseInt(sellOre.getText()) + quantity + "");
+                player.setMoney(player.getMoney() - price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                buyOreQuantity.setText("0");
+                buyOreQuantity.setVisible(false);
+                buyOrePlus.setVisible(false);
+                buyOreMinus.setVisible(false);
+                buyOreConfirm.setVisible(false);
             }
         } else if (event.getSource().equals(buyFoodConfirm)) {
-           int buyQuantity = Integer.parseInt(buyFoodQuantity.getText());
-            int currentQuantity = Integer.parseInt(buyFood.getText());
-            int price = Integer.parseInt(buyFoodPrice.getText().substring(0, buyFoodPrice.getText().length() - 4));
-            if (currentQuantity > 0 && ship.hasRoom(buyQuantity)
-                    && (player.getMoney() - price ) >= 0) {
-                ship.add("food", buyQuantity);
+            int quantity = Integer.parseInt(buyFoodQuantity.getText());
+            int price = Integer.parseInt(buyFoodPrice.getText().substring(0, buyFoodPrice.getText().length() - 4)) * quantity;
+            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+                ship.add("food", quantity);
+                sellFood.setText(Integer.parseInt(sellFood.getText()) + quantity + "");
                 player.setMoney(player.getMoney() - price);
-                planet.updateAmount("food", currentQuantity - buyQuantity);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                buyFoodQuantity.setText("0");
+                buyFoodQuantity.setVisible(false);
+                buyFoodPlus.setVisible(false);
+                buyFoodMinus.setVisible(false);
+                buyFoodConfirm.setVisible(false);
             }
-        } else if (event.getSource().equals(buyOreConfirm)) {
-            
         } else if (event.getSource().equals(buyGamesConfirm)) {
-            
+             int quantity = Integer.parseInt(buyGamesQuantity.getText());
+            int price = Integer.parseInt(buyGamesPrice.getText().substring(0, buyGamesPrice.getText().length() - 4)) * quantity;
+            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+                ship.add("games", quantity);
+                sellGames.setText(Integer.parseInt(sellGames.getText()) + quantity + "");
+                player.setMoney(player.getMoney() - price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                buyGamesQuantity.setText("0");
+                buyGamesQuantity.setVisible(false);
+                buyGamesPlus.setVisible(false);
+                buyGamesMinus.setVisible(false);
+                buyGamesConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(buyFirearmsConfirm)) {
-            
+             int quantity = Integer.parseInt(buyFirearmsQuantity.getText());
+            int price = Integer.parseInt(buyFirearmsPrice.getText().substring(0, buyFirearmsPrice.getText().length() - 4)) * quantity;
+            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+                ship.add("firearms", quantity);
+                sellFirearms.setText(Integer.parseInt(sellFirearms.getText()) + quantity + "");
+                player.setMoney(player.getMoney() - price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                buyFirearmsQuantity.setText("0");
+                buyFirearmsQuantity.setVisible(false);
+                buyFirearmsPlus.setVisible(false);
+                buyFirearmsMinus.setVisible(false);
+                buyFirearmsConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(buyMedicineConfirm)) {
-            
+             int quantity = Integer.parseInt(buyMedicineQuantity.getText());
+            int price = Integer.parseInt(buyMedicinePrice.getText().substring(0, buyMedicinePrice.getText().length() - 4)) * quantity;
+            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+                ship.add("medicine", quantity);
+                sellMedicine.setText(Integer.parseInt(sellMedicine.getText()) + quantity + "");
+                player.setMoney(player.getMoney() - price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                buyMedicineQuantity.setText("0");
+                buyMedicineQuantity.setVisible(false);
+                buyMedicinePlus.setVisible(false);
+                buyMedicineMinus.setVisible(false);
+                buyMedicineConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(buyMachinesConfirm)) {
-            
+             int quantity = Integer.parseInt(buyMachinesQuantity.getText());
+            int price = Integer.parseInt(buyMachinesPrice.getText().substring(0, buyMachinesPrice.getText().length() - 4)) * quantity;
+            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+                ship.add("machines", quantity);
+                sellMachines.setText(Integer.parseInt(sellMachines.getText()) + quantity + "");
+                player.setMoney(player.getMoney() - price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                buyMachinesQuantity.setText("0");
+                buyMachinesQuantity.setVisible(false);
+                buyMachinesPlus.setVisible(false);
+                buyMachinesMinus.setVisible(false);
+                buyMachinesConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(buyNarcoticsConfirm)) {
-            
+             int quantity = Integer.parseInt(buyNarcoticsQuantity.getText());
+            int price = Integer.parseInt(buyNarcoticsPrice.getText().substring(0, buyNarcoticsPrice.getText().length() - 4)) * quantity;
+            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+                ship.add("narcotics", quantity);
+                sellNarcotics.setText(Integer.parseInt(sellNarcotics.getText()) + quantity + "");
+                player.setMoney(player.getMoney() - price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                buyNarcoticsQuantity.setText("0");
+                buyNarcoticsQuantity.setVisible(false);
+                buyNarcoticsPlus.setVisible(false);
+                buyNarcoticsMinus.setVisible(false);
+                buyNarcoticsConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(buyRobotsConfirm)) {
-            
+             int quantity = Integer.parseInt(buyRobotsQuantity.getText());
+            int price = Integer.parseInt(buyRobotsPrice.getText().substring(0, buyRobotsPrice.getText().length() - 4)) * quantity;
+            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+                ship.add("robots", quantity);
+                sellRobots.setText(Integer.parseInt(sellRobots.getText()) + quantity + "");
+                player.setMoney(player.getMoney() - price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                buyRobotsQuantity.setText("0");
+                buyRobotsQuantity.setVisible(false);
+                buyRobotsPlus.setVisible(false);
+                buyRobotsMinus.setVisible(false);
+                buyRobotsConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(sellWaterConfirm)) {
-            
+            int quantity = Integer.parseInt(sellWaterQuantity.getText());
+            int inventory = Integer.parseInt(sellWater.getText());
+            int price = Integer.parseInt(sellWaterPrice.getText().substring(0, sellWaterPrice.getText().length() - 4)) * quantity;
+            if (ship.canSell("water", quantity) && inventory > 0) {
+                ship.remove("water", quantity);
+                sellWater.setText(Integer.parseInt(sellWater.getText()) - quantity + "");
+                player.setMoney(player.getMoney() + price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                sellWaterQuantity.setText("0");
+                sellWaterQuantity.setVisible(false);
+                sellWaterPlus.setVisible(false);
+                sellWaterMinus.setVisible(false);
+                sellWaterConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(sellFursConfirm)) {
-            
+            int quantity = Integer.parseInt(sellFursQuantity.getText());
+            int inventory = Integer.parseInt(sellFurs.getText());
+            int price = Integer.parseInt(sellFursPrice.getText().substring(0, sellFursPrice.getText().length() - 4)) * quantity;
+            if (ship.canSell("furs", quantity) && inventory > 0) {
+                ship.remove("furs", quantity);
+                sellFurs.setText(Integer.parseInt(sellFurs.getText()) - quantity + "");
+                player.setMoney(player.getMoney() + price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                sellFursQuantity.setText("0");
+                sellFursQuantity.setVisible(false);
+                sellFursPlus.setVisible(false);
+                sellFursMinus.setVisible(false);
+                sellFursConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(sellOreConfirm)) {
-            
+            int quantity = Integer.parseInt(sellOreQuantity.getText());
+            int inventory = Integer.parseInt(sellOre.getText());
+            int price = Integer.parseInt(sellOrePrice.getText().substring(0, sellOrePrice.getText().length() - 4)) * quantity;
+            if (ship.canSell("ore", quantity) && inventory > 0) {
+                ship.remove("ore", quantity);
+                sellOre.setText(Integer.parseInt(sellOre.getText()) - quantity + "");
+                player.setMoney(player.getMoney() + price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                sellOreQuantity.setText("0");
+                sellOreQuantity.setVisible(false);
+                sellOrePlus.setVisible(false);
+                sellOreMinus.setVisible(false);
+                sellOreConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(sellGamesConfirm)) {
-            
+            int quantity = Integer.parseInt(sellGamesQuantity.getText());
+            int inventory = Integer.parseInt(sellGames.getText());
+            int price = Integer.parseInt(sellGamesPrice.getText().substring(0, sellGamesPrice.getText().length() - 4)) * quantity;
+            if (ship.canSell("games", quantity) && inventory > 0) {
+                ship.remove("games", quantity);
+                sellGames.setText(Integer.parseInt(sellGames.getText()) - quantity + "");
+                player.setMoney(player.getMoney() + price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                sellGamesQuantity.setText("0");
+                sellGamesQuantity.setVisible(false);
+                sellGamesPlus.setVisible(false);
+                sellGamesMinus.setVisible(false);
+                sellGamesConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(sellFirearmsConfirm)) {
-            
+            int quantity = Integer.parseInt(sellFirearmsQuantity.getText());
+            int inventory = Integer.parseInt(sellFirearms.getText());
+            int price = Integer.parseInt(sellFirearmsPrice.getText().substring(0, sellFirearmsPrice.getText().length() - 4)) * quantity;
+            if (ship.canSell("firearms", quantity) && inventory > 0) {
+                ship.remove("firearms", quantity);
+                sellFirearms.setText(Integer.parseInt(sellFirearms.getText()) - quantity + "");
+                player.setMoney(player.getMoney() + price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                sellFirearmsQuantity.setText("0");
+                sellFirearmsQuantity.setVisible(false);
+                sellFirearmsPlus.setVisible(false);
+                sellFirearmsMinus.setVisible(false);
+                sellFirearmsConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(sellMedicineConfirm)) {
-            
+            int quantity = Integer.parseInt(sellMedicineQuantity.getText());
+            int inventory = Integer.parseInt(sellMedicine.getText());
+            int price = Integer.parseInt(sellMedicinePrice.getText().substring(0, sellMedicinePrice.getText().length() - 4)) * quantity;
+            if (ship.canSell("medicine", quantity) && inventory > 0) {
+                ship.remove("medicine", quantity);
+                sellMedicine.setText(Integer.parseInt(sellMedicine.getText()) - quantity + "");
+                player.setMoney(player.getMoney() + price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                sellMedicineQuantity.setText("0");
+                sellMedicineQuantity.setVisible(false);
+                sellMedicinePlus.setVisible(false);
+                sellMedicineMinus.setVisible(false);
+                sellMedicineConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(sellMachinesConfirm)) {
-            
+            int quantity = Integer.parseInt(sellMachinesQuantity.getText());
+            int inventory = Integer.parseInt(sellMachines.getText());
+            int price = Integer.parseInt(sellMachinesPrice.getText().substring(0, sellMachinesPrice.getText().length() - 4)) * quantity;
+            if (ship.canSell("machines", quantity) && inventory > 0) {
+                ship.remove("machines", quantity);
+                sellMachines.setText(Integer.parseInt(sellMachines.getText()) - quantity + "");
+                player.setMoney(player.getMoney() + price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                sellMachinesQuantity.setText("0");
+                sellMachinesQuantity.setVisible(false);
+                sellMachinesPlus.setVisible(false);
+                sellMachinesMinus.setVisible(false);
+                sellMachinesConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(sellNarcoticsConfirm)) {
-            
+            int quantity = Integer.parseInt(sellNarcoticsQuantity.getText());
+            int inventory = Integer.parseInt(sellNarcotics.getText());
+            int price = Integer.parseInt(sellNarcoticsPrice.getText().substring(0, sellNarcoticsPrice.getText().length() - 4)) * quantity;
+            if (ship.canSell("narcotics", quantity) && inventory > 0) {
+                ship.remove("narcotics", quantity);
+                sellNarcotics.setText(Integer.parseInt(sellNarcotics.getText()) - quantity + "");
+                player.setMoney(player.getMoney() + price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                sellNarcoticsQuantity.setText("0");
+                sellNarcoticsQuantity.setVisible(false);
+                sellNarcoticsPlus.setVisible(false);
+                sellNarcoticsMinus.setVisible(false);
+                sellNarcoticsConfirm.setVisible(false);
+            }
         } else if (event.getSource().equals(sellRobotsConfirm)) {
-            
+            int quantity = Integer.parseInt(sellRobotsQuantity.getText());
+            int inventory = Integer.parseInt(sellRobots.getText());
+            int price = Integer.parseInt(sellRobotsPrice.getText().substring(0, sellRobotsPrice.getText().length() - 4)) * quantity;
+            if (ship.canSell("robots", quantity) && inventory > 0) {
+                ship.remove("robots", quantity);
+                sellRobots.setText(Integer.parseInt(sellRobots.getText()) - quantity + "");
+                player.setMoney(player.getMoney() + price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                sellRobotsQuantity.setText("0");
+                sellRobotsQuantity.setVisible(false);
+                sellRobotsPlus.setVisible(false);
+                sellRobotsMinus.setVisible(false);
+                sellRobotsConfirm.setVisible(false);
+            }
         }
     }
 
@@ -699,7 +1009,7 @@ public class GameController implements Initializable {
         // Game object instances
         solarSystem = new SolarSystem("1", 7, 10, 10);
         planet = solarSystem.getPlanet(0); // Default starting planet
-        ship = new Ship("shipName", 10, 10, 10, planet);
+        ship = new Ship("shipName", 10, 20, 1, planet);
         
         // Goods
         buyWater.setText("∞");
@@ -742,12 +1052,11 @@ public class GameController implements Initializable {
         sellMachinesPrice.setText(planet.getAmount("machines") + " cr.");
         sellNarcoticsPrice.setText(planet.getAmount("narcotics") + " cr.");
         sellRobotsPrice.setText(planet.getAmount("robots") + " cr.");
-        
-        
     }
 
-    public static void passPlayer (Player p) {
-        player = p;
+    public static void passPlayer (String name, int diff, int pilotPoints, int fighterPoints,
+        int traderPoints, int engineerPoints) {
+        player = new Player(name, diff, pilotPoints, fighterPoints, traderPoints, engineerPoints);
     }
 
     public static void passStageAndScene(Stage mainStage, Scene[] scenes) {

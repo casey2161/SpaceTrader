@@ -143,20 +143,20 @@ public class Ship {
 		}
 	}
         
-        public int getAmount(String key) {
-        Object result;
-        result = cargo.get(key);
-        return (int) result;
-        }
-        
-        public void updateAmount(String key, int value) {
-            cargo.put(key, value);
-        }
-        
+        /**
+	 * Returns the capacity left in the cargo
+	 * 
+	 * @return An int representing the current cargo
+	 */
         public int getCurrentCargo() {
             return currCargo;
         }
         
+        /**
+	 * Returns the maximum capacity of the cargo
+	 * 
+	 * @return An int representing the max cargo
+	 */
         public int getMaxCargo() {
             return maxCargo;
         }

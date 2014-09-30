@@ -264,17 +264,17 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text layoutX="65.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/">
+                                    <Text layoutX="75.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="buyMaxBays" layoutX="75.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                    <Text fx:id="buyMaxBays" layoutX="85.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="buyCash" layoutX="262.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100000 cr.">
+                                    <Text fx:id="buyCash" layoutX="262.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1500 cr.">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -573,17 +573,17 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text layoutX="65.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/">
+                                    <Text layoutX="75.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="sellMaxBays" layoutX="75.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                    <Text fx:id="sellMaxBays" layoutX="85.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="sellCash" layoutX="262.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100000 cr.">
+                                    <Text fx:id="sellCash" layoutX="262.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1500 cr.">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
