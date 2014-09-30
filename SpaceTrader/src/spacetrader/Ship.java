@@ -152,4 +152,5 @@ public class Ship {
         public void updateAmount(String key, int value) {
             cargo.put(key, value);
         }
+        
 }

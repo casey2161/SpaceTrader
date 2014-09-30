@@ -20,6 +20,7 @@ public class Player {
             this.fighterPoints = fighterPoints;
             this.traderPoints = traderPoints;
             this.engineerPoints = engineerPoints;
+            this.money = 1500;
     }
 
 

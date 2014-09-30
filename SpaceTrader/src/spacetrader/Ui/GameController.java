@@ -461,14 +461,36 @@ public class GameController implements Initializable {
     @FXML
     private void confirmAction(ActionEvent event) {
         if (event.getSource().equals(buyWaterConfirm)) {
-            int quantity = Integer.parseInt(buyWaterQuantity.getText());
-            if (ship.hasRoom(quantity)) {
-            
+            int buyQuantity = Integer.parseInt(buyWaterQuantity.getText());
+            int currentQuantity = Integer.parseInt(buyWater.getText());
+            int price = Integer.parseInt(buyWaterPrice.getText().substring(0, buyWaterPrice.getText().length() - 4));
+            if (currentQuantity > 0 && ship.hasRoom(buyQuantity)
+                    && (player.getMoney() - price ) >= 0) {
+                ship.add("water", buyQuantity);
+                player.setMoney(player.getMoney() - price);
+                planet.updateAmount("water", currentQuantity - buyQuantity);
+                buyWater.setText(currentQuantity - buyQuantity + "");
             }
         } else if (event.getSource().equals(buyFursConfirm)) {
-            
+            int buyQuantity = Integer.parseInt(buyFursQuantity.getText());
+            int currentQuantity = Integer.parseInt(buyFurs.getText());
+            int price = Integer.parseInt(buyFursPrice.getText().substring(0, buyFursPrice.getText().length() - 4));
+            if (currentQuantity > 0 && ship.hasRoom(buyQuantity)
+                    && (player.getMoney() - price ) >= 0) {
+                ship.add("furs", buyQuantity);
+                player.setMoney(player.getMoney() - price);
+                planet.updateAmount("furs", currentQuantity - buyQuantity);
+            }
         } else if (event.getSource().equals(buyFoodConfirm)) {
-           
+           int buyQuantity = Integer.parseInt(buyFoodQuantity.getText());
+            int currentQuantity = Integer.parseInt(buyFood.getText());
+            int price = Integer.parseInt(buyFoodPrice.getText().substring(0, buyFoodPrice.getText().length() - 4));
+            if (currentQuantity > 0 && ship.hasRoom(buyQuantity)
+                    && (player.getMoney() - price ) >= 0) {
+                ship.add("food", buyQuantity);
+                player.setMoney(player.getMoney() - price);
+                planet.updateAmount("food", currentQuantity - buyQuantity);
+            }
         } else if (event.getSource().equals(buyOreConfirm)) {
             
         } else if (event.getSource().equals(buyGamesConfirm)) {
@@ -703,6 +725,27 @@ public class GameController implements Initializable {
         sellMachines.setText("" + planet.getAmount("machines"));
         sellNarcotics.setText("" + planet.getAmount("narcotics"));
         sellRobots.setText("" + planet.getAmount("robots"));
+        buyWaterPrice.setText("50 cr.");
+        buyFursPrice.setText("50 cr.");
+        buyFoodPrice.setText("50 cr.");
+        buyOrePrice.setText("50 cr.");
+        buyGamesPrice.setText("50 cr.");
+        buyFirearmsPrice.setText("50 cr.");
+        buyMedicinePrice.setText("50 cr.");
+        buyMachinesPrice.setText("50 cr.");
+        buyNarcoticsPrice.setText("50 cr.");
+        buyRobotsPrice.setText("50 cr.");
+        sellWaterPrice.setText("50 cr.");
+        sellFursPrice.setText("50 cr.");
+        sellFoodPrice.setText("50 cr.");
+        sellOrePrice.setText("50 cr.");
+        sellGamesPrice.setText("50 cr.");
+        sellFirearmsPrice.setText("50 cr.");
+        sellMedicinePrice.setText("50 cr.");
+        sellMachinesPrice.setText("50 cr.");
+        sellNarcoticsPrice.setText("50 cr.");
+        sellRobotsPrice.setText("50 cr.");
+        
     }
 
     public static void passPlayer (Player p) {
