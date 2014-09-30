@@ -160,4 +160,8 @@ public class Ship {
         public int getMaxCargo() {
             return maxCargo;
         }
+        
+        public String getName() {
+            return name;
+        }
 }

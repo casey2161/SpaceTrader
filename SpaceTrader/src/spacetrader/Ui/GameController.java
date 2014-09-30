@@ -1072,6 +1072,9 @@ public class GameController implements Initializable {
         sellMachinesPrice.setText(planet.getAmount("machines") / 2 + " cr.");
         sellNarcoticsPrice.setText(planet.getAmount("narcotics") / 2 + " cr.");
         sellRobotsPrice.setText(planet.getAmount("robots") / 2 + " cr.");
+        System.out.println("Player: " + player.name());
+        System.out.println(solarSystem.dumpInfo());
+        System.out.println("Ship: " + ship.getName());
     }
 
     public static void passPlayer (String name, int diff, int pilotPoints, int fighterPoints,
