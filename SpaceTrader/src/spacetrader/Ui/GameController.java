@@ -1061,17 +1061,17 @@ public class GameController implements Initializable {
         buyMedicinePrice.setText(planet.getAmount("medicine") + " cr.");
         buyMachinesPrice.setText(planet.getAmount("machines") + " cr.");
         buyNarcoticsPrice.setText(planet.getAmount("narcotics") + " cr.");
-        buyRobotsPrice.setText(planet.getAmount("robots") + " cr.");
-        sellWaterPrice.setText(planet.getAmount("water") + " cr.");
-        sellFursPrice.setText( planet.getAmount("furs") + " cr.");
-        sellFoodPrice.setText(planet.getAmount("food") + " cr.");
-        sellOrePrice.setText( planet.getAmount("ore") + " cr.");
-        sellGamesPrice.setText(planet.getAmount("games") + " cr.");
-        sellFirearmsPrice.setText(planet.getAmount("firearms") + " cr.");
-        sellMedicinePrice.setText(planet.getAmount("medicine") + " cr.");
-        sellMachinesPrice.setText(planet.getAmount("machines") + " cr.");
-        sellNarcoticsPrice.setText(planet.getAmount("narcotics") + " cr.");
-        sellRobotsPrice.setText(planet.getAmount("robots") + " cr.");
+        buyRobotsPrice.setText(planet.getAmount("robots") / 2  + " cr.");
+        sellWaterPrice.setText(planet.getAmount("water") / 2 + " cr.");
+        sellFursPrice.setText( planet.getAmount("furs") / 2 + " cr.");
+        sellFoodPrice.setText(planet.getAmount("food") / 2 + " cr.");
+        sellOrePrice.setText( planet.getAmount("ore") / 2 + " cr.");
+        sellGamesPrice.setText(planet.getAmount("games") / 2 + " cr.");
+        sellFirearmsPrice.setText(planet.getAmount("firearms") / 2 + " cr.");
+        sellMedicinePrice.setText(planet.getAmount("medicine") / 2 + " cr.");
+        sellMachinesPrice.setText(planet.getAmount("machines") / 2 + " cr.");
+        sellNarcoticsPrice.setText(planet.getAmount("narcotics") / 2 + " cr.");
+        sellRobotsPrice.setText(planet.getAmount("robots") / 2 + " cr.");
     }
 
     public static void passPlayer (String name, int diff, int pilotPoints, int fighterPoints,
