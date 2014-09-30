@@ -2,6 +2,7 @@ package spacetrader.Universe;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.Arrays;
+import java.util.Random;
 
 /*Nickolas Graham
  * C3POs team 27
@@ -43,8 +44,9 @@ public class Planet {
         "DESERT", "LOTSOFWATER", "RICHSOIL", "POORSOIL", "RICHFAUNA", "LIFELESS", "WEIRDMUSHROOMS",
         "LOTSOFHERBS", "ARTISTIC", "WARLIKE"};
     private HashMap cargoMap;
+    HashMap<String, Integer> priceMap;
     
-    public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates, HashMap cargo) { //used for loading saved planet config from saved game
+    public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates, HashMap cargo) {//used for loading saved planet config from saved game
         planetName = name;
         techLevel = level;
         resources = resourcelvl;
@@ -52,6 +54,8 @@ public class Planet {
         xPosition = x;
         yPosition = y;
         cargoMap = cargo;
+        this.priceMap = new HashMap<String, Integer>();
+        this.computePrices();
     }
     public String getName() { //returns the name of the planet
         return planetName;
@@ -80,17 +84,28 @@ public class Planet {
         return returnStr;
     }
     
-    public int getAmount(String key) {
+    public int getAmount(String key) {//gets amount of goods one can buy
         Object result;
         result = cargoMap.get(key);
         return (int) result;
     }
-    public void updateAmount(String key, int value) {
+    public void updateAmount(String key, int value) {//updates quantity of goods
         cargoMap.put(key, value);
     }
     
-    public Object[] returnMap() {
+    public Object[] returnMap() {// returns quantities as array
         Set result = cargoMap.entrySet();
+        Object[] array = result.toArray();
+        return array;
+    }
+    
+    public int getPrice(String key) {//returns item price
+        Object result;
+        result = priceMap.get(key);
+        return (int) result;
+    }
+    public Object[] returnPriceMap() {// returns prices as array
+        Set result = priceMap.entrySet();
         Object[] array = result.toArray();
         return array;
     }
@@ -100,8 +115,22 @@ public class Planet {
         dump += "\nResources: " + rscString(resources);
         dump += "\nSpawn Pirates: " + spawnsPirates;
         dump += "\nCargo: " + Arrays.toString(this.returnMap());
+        dump += "\nPrices: " + Arrays.toString(this.returnPriceMap());
         dump += "\n---------------------------------------------\n";
         return dump;
+    }
+    private void computePrices() {
+        Random rand = new Random();
+        priceMap.put("Water", (int) (30 + 3 * techLevel + 30 * rand.nextFloat()));
+        priceMap.put("Furs", (int) (250 + 10 * techLevel + 250 * rand.nextFloat()));
+        priceMap.put("Food", (int) (100 + 5 * (techLevel - 1) + 100 * rand.nextFloat()));
+        priceMap.put("Ore", (int) (350 + 20 * (techLevel - 2) + 350 * rand.nextFloat()));
+        priceMap.put("Games", (int) (250 + -10 * (techLevel - 3) + 250 * rand.nextFloat()));
+        priceMap.put("Firearms", (int) (1250 + -75 * (techLevel - 3) + 1250 * rand.nextFloat()));
+        priceMap.put("Medicine", (int) (650 + -20 * (techLevel - 4) + 650 * rand.nextFloat()));
+        priceMap.put("Machines", (int) (900 + -30 * (techLevel - 4) + 900 * rand.nextFloat()));
+        priceMap.put("Narcotics", (int) (3500 + -125 * (techLevel - 5) + 3500 * rand.nextFloat()));
+        priceMap.put("Robots", (int) (5000 + -150 * (techLevel - 6) + 5000 * rand.nextFloat()));
     }
 }  
     
