@@ -462,14 +462,11 @@ public class GameController implements Initializable {
     private void confirmAction(ActionEvent event) {
         if (event.getSource().equals(buyWaterConfirm)) {
             int buyQuantity = Integer.parseInt(buyWaterQuantity.getText());
-            int currentQuantity = Integer.parseInt(buyWater.getText());
             int price = Integer.parseInt(buyWaterPrice.getText().substring(0, buyWaterPrice.getText().length() - 4));
-            if (currentQuantity > 0 && ship.hasRoom(buyQuantity)
-                    && (player.getMoney() - price ) >= 0) {
+            if (ship.hasRoom(buyQuantity) && (player.getMoney() - price) >= 0) {
                 ship.add("water", buyQuantity);
                 player.setMoney(player.getMoney() - price);
-                planet.updateAmount("water", currentQuantity - buyQuantity);
-                buyWater.setText(currentQuantity - buyQuantity + "");
+                
             }
         } else if (event.getSource().equals(buyFursConfirm)) {
             int buyQuantity = Integer.parseInt(buyFursQuantity.getText());
@@ -705,46 +702,47 @@ public class GameController implements Initializable {
         ship = new Ship("shipName", 10, 10, 10, planet);
         
         // Goods
-        buyWater.setText("" + planet.getAmount("water"));
-        buyFurs.setText("" + planet.getAmount("furs"));
-        buyFood.setText("" + planet.getAmount("food"));
-        buyOre.setText("" + planet.getAmount("ore"));
-        buyGames.setText("" + planet.getAmount("games"));
-        buyFirearms.setText("" + planet.getAmount("firearms"));
-        buyMedicine.setText("" + planet.getAmount("medicine"));
-        buyMachines.setText("" + planet.getAmount("machines"));
-        buyNarcotics.setText("" + planet.getAmount("narcotics"));
-        buyRobots.setText("" + planet.getAmount("robots"));
-        sellWater.setText("" + planet.getAmount("water"));
-        sellFurs.setText("" + planet.getAmount("furs"));
-        sellFood.setText("" + planet.getAmount("food"));
-        sellOre.setText("" + planet.getAmount("ore"));
-        sellGames.setText("" + planet.getAmount("games"));
-        sellFirearms.setText("" + planet.getAmount("firearms"));
-        sellMedicine.setText("" + planet.getAmount("medicine"));
-        sellMachines.setText("" + planet.getAmount("machines"));
-        sellNarcotics.setText("" + planet.getAmount("narcotics"));
-        sellRobots.setText("" + planet.getAmount("robots"));
-        buyWaterPrice.setText("50 cr.");
-        buyFursPrice.setText("50 cr.");
-        buyFoodPrice.setText("50 cr.");
-        buyOrePrice.setText("50 cr.");
-        buyGamesPrice.setText("50 cr.");
-        buyFirearmsPrice.setText("50 cr.");
-        buyMedicinePrice.setText("50 cr.");
-        buyMachinesPrice.setText("50 cr.");
-        buyNarcoticsPrice.setText("50 cr.");
-        buyRobotsPrice.setText("50 cr.");
-        sellWaterPrice.setText("50 cr.");
-        sellFursPrice.setText("50 cr.");
-        sellFoodPrice.setText("50 cr.");
-        sellOrePrice.setText("50 cr.");
-        sellGamesPrice.setText("50 cr.");
-        sellFirearmsPrice.setText("50 cr.");
-        sellMedicinePrice.setText("50 cr.");
-        sellMachinesPrice.setText("50 cr.");
-        sellNarcoticsPrice.setText("50 cr.");
-        sellRobotsPrice.setText("50 cr.");
+        buyWater.setText("∞");
+        buyFurs.setText("∞");
+        buyFood.setText("∞");
+        buyOre.setText("∞");
+        buyGames.setText("∞");
+        buyFirearms.setText("∞");
+        buyMedicine.setText("∞");
+        buyMachines.setText("∞");
+        buyNarcotics.setText("∞");
+        buyRobots.setText("∞");
+        sellWater.setText("0");
+        sellFurs.setText("0");
+        sellFood.setText("0");
+        sellOre.setText("0");
+        sellGames.setText("0");
+        sellFirearms.setText("0");
+        sellMedicine.setText("0");
+        sellMachines.setText("0");
+        sellNarcotics.setText("0");
+        sellRobots.setText("0");
+        buyWaterPrice.setText(planet.getAmount("water") + " cr.");
+        buyFursPrice.setText(planet.getAmount("furs") + " cr.");
+        buyFoodPrice.setText(planet.getAmount("food") + " cr.");
+        buyOrePrice.setText(planet.getAmount("ore") + " cr.");
+        buyGamesPrice.setText(planet.getAmount("games") + " cr.");
+        buyFirearmsPrice.setText(planet.getAmount("firearms") + " cr.");
+        buyMedicinePrice.setText(planet.getAmount("medicine") + " cr.");
+        buyMachinesPrice.setText(planet.getAmount("machines") + " cr.");
+        buyNarcoticsPrice.setText(planet.getAmount("narcotics") + " cr.");
+        buyRobotsPrice.setText(planet.getAmount("robots") + " cr.");
+        sellWaterPrice.setText(planet.getAmount("water") + " cr.");
+        sellFursPrice.setText( planet.getAmount("furs") + " cr.");
+        sellFoodPrice.setText(planet.getAmount("food") + " cr.");
+        sellOrePrice.setText( planet.getAmount("ore") + " cr.");
+        sellGamesPrice.setText(planet.getAmount("games") + " cr.");
+        sellFirearmsPrice.setText(planet.getAmount("firearms") + " cr.");
+        sellMedicinePrice.setText(planet.getAmount("medicine") + " cr.");
+        sellMachinesPrice.setText(planet.getAmount("machines") + " cr.");
+        sellNarcoticsPrice.setText(planet.getAmount("narcotics") + " cr.");
+        sellRobotsPrice.setText(planet.getAmount("robots") + " cr.");
+        
         
     }
 

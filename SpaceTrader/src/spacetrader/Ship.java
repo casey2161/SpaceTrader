@@ -153,4 +153,11 @@ public class Ship {
             cargo.put(key, value);
         }
         
+        public int getCurrentCargo() {
+            return currCargo;
+        }
+        
+        public int getMaxCargo() {
+            return maxCargo;
+        }
 }

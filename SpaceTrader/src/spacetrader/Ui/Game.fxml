@@ -84,16 +84,16 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="buyWaterPrice" layoutX="165.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="buyFursPrice" layoutX="165.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="buyFoodPrice" layoutX="165.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="buyOrePrice" layoutX="165.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="buyGamesPrice" layoutX="165.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="buyFirearmsPrice" layoutX="165.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="buyMedicinePrice" layoutX="165.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="buyMachinesPrice" layoutX="165.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="buyNarcoticsPrice" layoutX="165.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="buyRobotsPrice" layoutX="165.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="buyWaterPrice" layoutX="135.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="buyFursPrice" layoutX="135.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="buyFoodPrice" layoutX="135.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="buyOrePrice" layoutX="135.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="buyGamesPrice" layoutX="135.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="buyFirearmsPrice" layoutX="135.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="buyMedicinePrice" layoutX="135.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="buyMachinesPrice" layoutX="135.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="buyNarcoticsPrice" layoutX="135.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="buyRobotsPrice" layoutX="135.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
                                     <Button fx:id="buyWater" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#tradeAction" text="150">
                                        <font>
                                           <Font size="9.0" />
@@ -393,16 +393,16 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="sellWaterPrice" layoutX="165.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="sellFursPrice" layoutX="165.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="sellFoodPrice" layoutX="165.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="sellOrePrice" layoutX="165.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="sellGamesPrice" layoutX="165.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="sellFirearmsPrice" layoutX="165.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="sellMedicinePrice" layoutX="165.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="sellMachinesPrice" layoutX="165.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="sellNarcoticsPrice" layoutX="165.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
-                                    <Text fx:id="sellRobotsPrice" layoutX="165.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="sellWaterPrice" layoutX="135.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="sellFursPrice" layoutX="135.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="sellFoodPrice" layoutX="135.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="sellOrePrice" layoutX="135.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="sellGamesPrice" layoutX="135.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="sellFirearmsPrice" layoutX="135.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="sellMedicinePrice" layoutX="135.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="sellMachinesPrice" layoutX="135.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="sellNarcoticsPrice" layoutX="135.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
+                                    <Text fx:id="sellRobotsPrice" layoutX="135.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." />
                                     <Button fx:id="sellWater" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#tradeAction" text="150">
                                        <font>
                                           <Font size="9.0" />
