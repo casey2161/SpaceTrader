@@ -289,7 +289,7 @@
                                           <Font size="9.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buyFursConfirm" layoutX="277.0" layoutY="54.0" mnemonicParsing="false" text="Buy" visible="false">
+                                    <Button fx:id="buyFursConfirm" layoutX="277.0" layoutY="54.0" mnemonicParsing="false" onAction="#confirmAction" text="Buy" visible="false">
                                        <font>
                                           <Font size="9.0" />
                                        </font>

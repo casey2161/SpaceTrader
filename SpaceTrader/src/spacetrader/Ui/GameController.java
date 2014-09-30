@@ -480,7 +480,7 @@ public class GameController implements Initializable {
                 buyWaterConfirm.setVisible(false);
             }
         } else if (event.getSource().equals(buyFursConfirm)) {
-             int quantity = Integer.parseInt(buyFursQuantity.getText());
+            int quantity = Integer.parseInt(buyFursQuantity.getText());
             int price = Integer.parseInt(buyFursPrice.getText().substring(0, buyFursPrice.getText().length() - 4)) * quantity;
             if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
                 ship.add("furs", quantity);
@@ -709,6 +709,26 @@ public class GameController implements Initializable {
                 sellOrePlus.setVisible(false);
                 sellOreMinus.setVisible(false);
                 sellOreConfirm.setVisible(false);
+            }
+        } else if (event.getSource().equals(sellFoodConfirm)) {
+            int quantity = Integer.parseInt(sellFoodQuantity.getText());
+            int inventory = Integer.parseInt(sellFood.getText());
+            int price = Integer.parseInt(sellFoodPrice.getText().substring(0, sellFoodPrice.getText().length() - 4)) * quantity;
+            if (ship.canSell("food", quantity) && inventory > 0) {
+                ship.remove("food", quantity);
+                sellFood.setText(Integer.parseInt(sellFood.getText()) - quantity + "");
+                player.setMoney(player.getMoney() + price);
+                buyCash.setText(player.getMoney() + "");
+                sellCash.setText(player.getMoney() + "");
+                buyCurrentBays.setText(ship.getCurrentCargo() + "");
+                sellCurrentBays.setText(ship.getCurrentCargo() + "");
+                buyMaxBays.setText(ship.getMaxCargo() + "");
+                sellMaxBays.setText(ship.getMaxCargo() + "");
+                sellFoodQuantity.setText("0");
+                sellFoodQuantity.setVisible(false);
+                sellFoodPlus.setVisible(false);
+                sellFoodMinus.setVisible(false);
+                sellFoodConfirm.setVisible(false);
             }
         } else if (event.getSource().equals(sellGamesConfirm)) {
             int quantity = Integer.parseInt(sellGamesQuantity.getText());
