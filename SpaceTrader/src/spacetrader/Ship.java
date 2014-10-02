@@ -13,7 +13,6 @@ public class Ship {
 	private String name;
 	private int maxRange, size, quality, shield, currRange, maxCargo, currCargo;
 	private Weapon weapon;
-	private Planet location;
 	private HashMap<String, Integer> cargo = new HashMap<String, Integer>();
 	//private Equipment[] equipmentSlots;
 	
@@ -31,13 +30,36 @@ public class Ship {
 		this.maxRange = maxRange;
 		this.quality = quality;
 		this.size = size;
-		this.location = location;
 		shield = size*quality;
 		currRange = maxRange;
 		maxCargo = size*quality;
 		currCargo = 0;
 	}
+        
+        public String getName() {
+            return name;
+        }
+        
+        public int getMaxRange() {
+            return maxRange;
+        }
+        
+        public int getQuality() {
+            return quality;
+        }
+        
+        public int getSize() {
+            return size;
+        }
+        
+        public int getShield() {
+            return shield;
+        }
 	
+        public int getCurrRange() {
+            return currRange;
+        }
+        
 	/**
 	 * Adds a new weapon to the ship
 	 * @param newWeapon The weapon being added
@@ -51,18 +73,11 @@ public class Ship {
 	}
 	
 	/**
-	 * Travels to the specified Planet
-	 * @param destination The planet that the ship is travelling to
+	 * Changes new current range
+	 * @param input The new current possible range
 	 */
-	public void travel(Planet destination) {
-		int distance = (int) Math.sqrt(Math.pow(destination.getX() - location.getX(), 2)
-                        + Math.pow(destination.getY() - location.getY(), 2));
-		if (distance > currRange) {
-			System.out.println("Planet is outside of the current range of your ship!");
-		} else {
-			currRange = currRange - distance;
-			location = destination;
-		}
+	public void setCurrRange(int input) {
+            currRange = input;
 	}
 	
 	/**
@@ -159,9 +174,5 @@ public class Ship {
 	 */
         public int getMaxCargo() {
             return maxCargo;
-        }
-        
-        public String getName() {
-            return name;
         }
 }
