@@ -463,12 +463,12 @@ public class GameController implements Initializable {
         if (event.getSource().equals(buyWaterConfirm)) {
             int quantity = Integer.parseInt(buyWaterQuantity.getText());
             int price = Integer.parseInt(buyWaterPrice.getText().substring(0, buyWaterPrice.getText().length() - 4)) * quantity;
-            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+            if (ship.hasRoom(quantity) && (player.money() - price) >= 0) {
                 ship.add("water", quantity);
                 sellWater.setText(Integer.parseInt(sellWater.getText()) + quantity + "");
-                player.setMoney(player.getMoney() - price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() - price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -482,12 +482,12 @@ public class GameController implements Initializable {
         } else if (event.getSource().equals(buyFursConfirm)) {
             int quantity = Integer.parseInt(buyFursQuantity.getText());
             int price = Integer.parseInt(buyFursPrice.getText().substring(0, buyFursPrice.getText().length() - 4)) * quantity;
-            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+            if (ship.hasRoom(quantity) && (player.money() - price) >= 0) {
                 ship.add("furs", quantity);
                 sellFurs.setText(Integer.parseInt(sellFurs.getText()) + quantity + "");
-                player.setMoney(player.getMoney() - price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() - price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -501,12 +501,12 @@ public class GameController implements Initializable {
         } else if(event.getSource().equals(buyOreConfirm)) {
             int quantity = Integer.parseInt(buyOreQuantity.getText());
             int price = Integer.parseInt(buyOrePrice.getText().substring(0, buyOrePrice.getText().length() - 4)) * quantity;
-            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+            if (ship.hasRoom(quantity) && (player.money() - price) >= 0) {
                 ship.add("ore", quantity);
                 sellOre.setText(Integer.parseInt(sellOre.getText()) + quantity + "");
-                player.setMoney(player.getMoney() - price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() - price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -520,12 +520,12 @@ public class GameController implements Initializable {
         } else if (event.getSource().equals(buyFoodConfirm)) {
             int quantity = Integer.parseInt(buyFoodQuantity.getText());
             int price = Integer.parseInt(buyFoodPrice.getText().substring(0, buyFoodPrice.getText().length() - 4)) * quantity;
-            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+            if (ship.hasRoom(quantity) && (player.money() - price) >= 0) {
                 ship.add("food", quantity);
                 sellFood.setText(Integer.parseInt(sellFood.getText()) + quantity + "");
-                player.setMoney(player.getMoney() - price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() - price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -539,12 +539,12 @@ public class GameController implements Initializable {
         } else if (event.getSource().equals(buyGamesConfirm)) {
              int quantity = Integer.parseInt(buyGamesQuantity.getText());
             int price = Integer.parseInt(buyGamesPrice.getText().substring(0, buyGamesPrice.getText().length() - 4)) * quantity;
-            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+            if (ship.hasRoom(quantity) && (player.money() - price) >= 0) {
                 ship.add("games", quantity);
                 sellGames.setText(Integer.parseInt(sellGames.getText()) + quantity + "");
-                player.setMoney(player.getMoney() - price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() - price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -558,12 +558,12 @@ public class GameController implements Initializable {
         } else if (event.getSource().equals(buyFirearmsConfirm)) {
              int quantity = Integer.parseInt(buyFirearmsQuantity.getText());
             int price = Integer.parseInt(buyFirearmsPrice.getText().substring(0, buyFirearmsPrice.getText().length() - 4)) * quantity;
-            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+            if (ship.hasRoom(quantity) && (player.money() - price) >= 0) {
                 ship.add("firearms", quantity);
                 sellFirearms.setText(Integer.parseInt(sellFirearms.getText()) + quantity + "");
-                player.setMoney(player.getMoney() - price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() - price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -577,12 +577,12 @@ public class GameController implements Initializable {
         } else if (event.getSource().equals(buyMedicineConfirm)) {
              int quantity = Integer.parseInt(buyMedicineQuantity.getText());
             int price = Integer.parseInt(buyMedicinePrice.getText().substring(0, buyMedicinePrice.getText().length() - 4)) * quantity;
-            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+            if (ship.hasRoom(quantity) && (player.money() - price) >= 0) {
                 ship.add("medicine", quantity);
                 sellMedicine.setText(Integer.parseInt(sellMedicine.getText()) + quantity + "");
-                player.setMoney(player.getMoney() - price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() - price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -596,12 +596,12 @@ public class GameController implements Initializable {
         } else if (event.getSource().equals(buyMachinesConfirm)) {
              int quantity = Integer.parseInt(buyMachinesQuantity.getText());
             int price = Integer.parseInt(buyMachinesPrice.getText().substring(0, buyMachinesPrice.getText().length() - 4)) * quantity;
-            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+            if (ship.hasRoom(quantity) && (player.money() - price) >= 0) {
                 ship.add("machines", quantity);
                 sellMachines.setText(Integer.parseInt(sellMachines.getText()) + quantity + "");
-                player.setMoney(player.getMoney() - price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() - price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -615,12 +615,12 @@ public class GameController implements Initializable {
         } else if (event.getSource().equals(buyNarcoticsConfirm)) {
              int quantity = Integer.parseInt(buyNarcoticsQuantity.getText());
             int price = Integer.parseInt(buyNarcoticsPrice.getText().substring(0, buyNarcoticsPrice.getText().length() - 4)) * quantity;
-            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+            if (ship.hasRoom(quantity) && (player.money() - price) >= 0) {
                 ship.add("narcotics", quantity);
                 sellNarcotics.setText(Integer.parseInt(sellNarcotics.getText()) + quantity + "");
-                player.setMoney(player.getMoney() - price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() - price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -634,12 +634,12 @@ public class GameController implements Initializable {
         } else if (event.getSource().equals(buyRobotsConfirm)) {
              int quantity = Integer.parseInt(buyRobotsQuantity.getText());
             int price = Integer.parseInt(buyRobotsPrice.getText().substring(0, buyRobotsPrice.getText().length() - 4)) * quantity;
-            if (ship.hasRoom(quantity) && (player.getMoney() - price) >= 0) {
+            if (ship.hasRoom(quantity) && (player.money() - price) >= 0) {
                 ship.add("robots", quantity);
                 sellRobots.setText(Integer.parseInt(sellRobots.getText()) + quantity + "");
-                player.setMoney(player.getMoney() - price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() - price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -657,9 +657,9 @@ public class GameController implements Initializable {
             if (ship.canSell("water", quantity) && inventory > 0) {
                 ship.remove("water", quantity);
                 sellWater.setText(Integer.parseInt(sellWater.getText()) - quantity + "");
-                player.setMoney(player.getMoney() + price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() + price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -677,9 +677,9 @@ public class GameController implements Initializable {
             if (ship.canSell("furs", quantity) && inventory > 0) {
                 ship.remove("furs", quantity);
                 sellFurs.setText(Integer.parseInt(sellFurs.getText()) - quantity + "");
-                player.setMoney(player.getMoney() + price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() + price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -697,9 +697,9 @@ public class GameController implements Initializable {
             if (ship.canSell("ore", quantity) && inventory > 0) {
                 ship.remove("ore", quantity);
                 sellOre.setText(Integer.parseInt(sellOre.getText()) - quantity + "");
-                player.setMoney(player.getMoney() + price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() + price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -717,9 +717,9 @@ public class GameController implements Initializable {
             if (ship.canSell("food", quantity) && inventory > 0) {
                 ship.remove("food", quantity);
                 sellFood.setText(Integer.parseInt(sellFood.getText()) - quantity + "");
-                player.setMoney(player.getMoney() + price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() + price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -737,9 +737,9 @@ public class GameController implements Initializable {
             if (ship.canSell("games", quantity) && inventory > 0) {
                 ship.remove("games", quantity);
                 sellGames.setText(Integer.parseInt(sellGames.getText()) - quantity + "");
-                player.setMoney(player.getMoney() + price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() + price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -757,9 +757,9 @@ public class GameController implements Initializable {
             if (ship.canSell("firearms", quantity) && inventory > 0) {
                 ship.remove("firearms", quantity);
                 sellFirearms.setText(Integer.parseInt(sellFirearms.getText()) - quantity + "");
-                player.setMoney(player.getMoney() + price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() + price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -777,9 +777,9 @@ public class GameController implements Initializable {
             if (ship.canSell("medicine", quantity) && inventory > 0) {
                 ship.remove("medicine", quantity);
                 sellMedicine.setText(Integer.parseInt(sellMedicine.getText()) - quantity + "");
-                player.setMoney(player.getMoney() + price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() + price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -797,9 +797,9 @@ public class GameController implements Initializable {
             if (ship.canSell("machines", quantity) && inventory > 0) {
                 ship.remove("machines", quantity);
                 sellMachines.setText(Integer.parseInt(sellMachines.getText()) - quantity + "");
-                player.setMoney(player.getMoney() + price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() + price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -817,9 +817,9 @@ public class GameController implements Initializable {
             if (ship.canSell("narcotics", quantity) && inventory > 0) {
                 ship.remove("narcotics", quantity);
                 sellNarcotics.setText(Integer.parseInt(sellNarcotics.getText()) - quantity + "");
-                player.setMoney(player.getMoney() + price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() + price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -837,9 +837,9 @@ public class GameController implements Initializable {
             if (ship.canSell("robots", quantity) && inventory > 0) {
                 ship.remove("robots", quantity);
                 sellRobots.setText(Integer.parseInt(sellRobots.getText()) - quantity + "");
-                player.setMoney(player.getMoney() + price);
-                buyCash.setText(player.getMoney() + "");
-                sellCash.setText(player.getMoney() + "");
+                player.setMoney(player.money() + price);
+                buyCash.setText(player.money() + "");
+                sellCash.setText(player.money() + "");
                 buyCurrentBays.setText(ship.getCurrentCargo() + "");
                 sellCurrentBays.setText(ship.getCurrentCargo() + "");
                 buyMaxBays.setText(ship.getMaxCargo() + "");
@@ -1075,11 +1075,6 @@ public class GameController implements Initializable {
         System.out.println("Player: " + player.name());
         System.out.println(solarSystem.dumpInfo());
         System.out.println("Ship: " + ship.getName());
-    }
-
-    public static void passPlayer (String name, int diff, int pilotPoints, int fighterPoints,
-        int traderPoints, int engineerPoints) {
-        player = new Player(name, diff, pilotPoints, fighterPoints, traderPoints, engineerPoints);
     }
 
     public static void passStageAndScene(Stage mainStage, Scene[] scenes) {

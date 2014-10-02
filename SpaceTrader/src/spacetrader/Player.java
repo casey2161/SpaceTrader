@@ -8,9 +8,6 @@ public class Player {
     private int traderPoints;
     private int engineerPoints;
     private int money;
-    private static Player p;
-    private Ship ship;
-    private Planet location;
 
     private static int DEFAULT_DIFF = 1;
     private static int DEFAULT_SKILL = 4;
