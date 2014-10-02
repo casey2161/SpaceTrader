@@ -110,7 +110,15 @@ public class Player {
         return location;
     }
 
-    public void setLocation(Planet location) {
-        this.location = location;
+
+    public void travel(Planet destination) {
+        int distance = (int) Math.sqrt(Math.pow(destination.getX() - location.getX(), 2)
+                        + Math.pow(destination.getY() - location.getY(), 2));
+        if (distance > ship.getCurrRange()) {
+            System.out.println("Destination is out of range for your ship!");
+        } else {
+            this.location = destination;
+            ship.setCurrRange(ship.getCurrRange() - distance);
+        }
     }
 }
