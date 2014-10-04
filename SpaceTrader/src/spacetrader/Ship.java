@@ -1,7 +1,6 @@
 package spacetrader;
 
 
-import spacetrader.Universe.Planet;
 import java.util.HashMap;
 /**
  * Ship class for Space Trader
@@ -25,7 +24,7 @@ public class Ship {
 	 * @param quality The quality of the ship
 	 * @param location The Planet the ship is at
 	 */
-	public Ship (String name, int maxRange, int size, int quality, Planet location) {
+	public Ship (String name, int maxRange, int size, int quality) {
 		this.name = name;
 		this.maxRange = maxRange;
 		this.quality = quality;

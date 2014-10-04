@@ -17,10 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import spacetrader.Player;
-import spacetrader.SpaceTrader;
-import spacetrader.Ship;
 import spacetrader.Universe.Planet;
-import spacetrader.Universe.SolarSystem;
+import spacetrader.Universe.Universe;
         
 
 /**
@@ -285,10 +283,11 @@ public class PlayerConfigurationController implements Initializable {
         if(!skillPointsRemaining.getText().equals("0") || playerName.getText().equals("")) {
             startFailed.setVisible(true);
         } else {
+            Universe.createInstance();
+            Planet spawn = Universe.getInstance().getSolarSystem(0).getPlanet(0);
             Player.createInstance(playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
             Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
-            Integer.parseInt(engineer.getText()));
-            
+            Integer.parseInt(engineer.getText()), spawn);
             stage.setScene(allScenes[2]);
         }
     }

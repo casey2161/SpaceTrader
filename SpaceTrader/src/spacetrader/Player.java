@@ -1,5 +1,7 @@
 package spacetrader;
 
+import spacetrader.Universe.Planet;
+
 public class Player {
     private String name;
     private int diff;
@@ -8,12 +10,14 @@ public class Player {
     private int traderPoints;
     private int engineerPoints;
     private int money;
-
+    private static Player player;
+    private Ship ship;
+    private Planet location;
     private static int DEFAULT_DIFF = 1;
     private static int DEFAULT_SKILL = 4;
 
     private Player(String name, int diff, int pilotPoints, int fighterPoints,
-        int traderPoints, int engineerPoints) {
+        int traderPoints, int engineerPoints, Planet location) {
             this.name = name;
             this.diff = diff;
             this.pilotPoints = pilotPoints;
@@ -21,6 +25,8 @@ public class Player {
             this.traderPoints = traderPoints;
             this.engineerPoints = engineerPoints;
             this.money = 1500;
+            this.location = location;
+            ship = new Ship("SpawnShip", 50, 1, 1);
     }
 
 
@@ -89,13 +95,13 @@ public class Player {
     }
 
     public static void createInstance(String name, int diff, int pilotPoints, int fighterPoints,
-        int traderPoints, int engineerPoints) {
-        p = new Player(name, diff, pilotPoints, fighterPoints, traderPoints, engineerPoints);
+        int traderPoints, int engineerPoints, Planet location) {
+        player = new Player(name, diff, pilotPoints, fighterPoints, traderPoints, engineerPoints, location);
 
     }
 
     public static Player getInstance() {
-        return p;
+        return player;
     }
 
     public Ship ship() {

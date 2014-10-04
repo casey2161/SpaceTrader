@@ -12,6 +12,7 @@ public class PlanetFactory {
     private String[] planetNames;
     private int techLevel;
     private int distanceFromSpawn;
+    private int count;
     
     public PlanetFactory(int techLevel, int distanceFromSpawn) {
         initNames();
@@ -24,12 +25,13 @@ public class PlanetFactory {
         
         String name = planetNames[Math.abs((gen.nextInt()) % planetNames.length)];
         int rscLevel = Math.abs(gen.nextInt() % 12);
-        int x = gen.nextInt()%100;
-        int y = gen.nextInt()%100;
+        int x = (gen.nextInt()%2) * count + distanceFromSpawn;
+        int y = (gen.nextInt()%2) * count + distanceFromSpawn;
         HashMap<String, Integer> cargo;
         cargo = generateCargo(techLevel, rscLevel);        
         double percentDistance = distanceFromSpawn / (int)(100*Math.sqrt(2));
         boolean pirates = Math.abs(percentDistance - gen.nextDouble()) < .0000000001;
+        count++;
         return new Planet(name, techLevel, rscLevel, x, y, pirates, cargo);
     }
     private HashMap<String, Integer> generateCargo(int techLevel, int rscLevel) {

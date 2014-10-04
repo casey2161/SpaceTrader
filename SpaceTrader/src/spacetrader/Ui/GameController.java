@@ -1029,7 +1029,6 @@ public class GameController implements Initializable {
         // Game object instances
         solarSystem = new SolarSystem("1", 7, 10, 10);
         planet = solarSystem.getPlanet(0); // Default starting planet
-        ship = new Ship("shipName", 10, 20, 1, planet);
         
         // Goods
         buyWater.setText("∞");
