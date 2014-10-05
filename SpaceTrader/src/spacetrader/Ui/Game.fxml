@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -651,6 +652,20 @@
                   </Pane>
                </content>
           </Tab>
+            <Tab text="Travel">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="mapPane" prefHeight="360.0" prefWidth="360.0">
+                           <children>
+                              <Line endX="180.0" layoutX="180.0" layoutY="180.0" startX="-180.0" />
+                              <Line endY="180.0" layoutX="180.0" layoutY="180.0" startY="-180.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </center>

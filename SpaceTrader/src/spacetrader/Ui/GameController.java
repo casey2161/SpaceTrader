@@ -7,18 +7,25 @@
 package spacetrader.Ui;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.text.Text;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import spacetrader.Player;
 import spacetrader.Ship;
 import spacetrader.Universe.Planet;
 import spacetrader.Universe.SolarSystem;
+import spacetrader.Universe.Universe;
 
 /**
  * FXML Controller class
@@ -32,6 +39,7 @@ public class GameController implements Initializable {
     private static SolarSystem solarSystem;
     private static Planet planet;
     private static Ship ship;
+    private static Universe universe;
     
     // Top menu
     @FXML private Button saveGame;
@@ -165,6 +173,8 @@ public class GameController implements Initializable {
     @FXML private Text sellCurrentBays;
     @FXML private Text sellMaxBays;
     @FXML private Text sellCash;
+    private Scene currentScene;
+    private Random rand;
 
     
     // Top menu
@@ -1027,9 +1037,9 @@ public class GameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Game object instances
-        solarSystem = new SolarSystem("1", 7, 10, 10);
+        Universe.createInstance();
+        solarSystem = universe.getSolarSystem(0);
         planet = solarSystem.getPlanet(0); // Default starting planet
-        
         // Goods
         buyWater.setText("∞");
         buyFurs.setText("∞");
@@ -1074,6 +1084,30 @@ public class GameController implements Initializable {
         System.out.println("Player: " + player.name());
         System.out.println(solarSystem.dumpInfo());
         System.out.println("Ship: " + ship.getName());
+        //------------Begin Travel Tab Code----------------------------
+        currentScene = allScenes[2];
+        Pane mapPane;
+        mapPane = (Pane) currentScene.lookup("mapPane");
+        rand = new Random();
+        int redInt, greenInt, blueInt;
+        SolarSystem system;
+        Group circles = new Group();
+        Circle circle;
+        Color color;
+        for (int i = 0; i < solarSystem.length; i++) {
+            system = solarSystem[i];
+            for(int j = 0; j < 5; j++) {
+                Planet currPlanet = solarSystem.getPlanet(j);
+                redInt = rand.nextInt(256);
+                greenInt = rand.nextInt(256);
+                blueInt = rand.nextInt(256);
+                color = Color.rgb(redInt, greenInt, blueInt);
+                circle = new Circle(currPlanet.getX(), currPlanet.getY(), 5, color);
+                circle.setId(currPlanet.getName());
+                circles.getChildren().add(circle);
+            }
+        }
+        mapPane.getChildren().add(circles);
     }
 
     public static void passStageAndScene(Stage mainStage, Scene[] scenes) {
