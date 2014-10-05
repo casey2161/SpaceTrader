@@ -6,18 +6,22 @@ package spacetrader.Universe;
  */
 public class Universe {
 
-    private static Universe universe;
+    private static Universe universe = createInstance();
     private SolarSystem[] solarSystems;
     
     private Universe(SolarSystem[] systems) {
         solarSystems = systems;
     }
     
-    public static void createInstance() {
-        //TODO Generate the universe
-        SolarSystem[] solarSystems = new SolarSystem[7];
-        
-        universe = new Universe(solarSystems);
+    private static Universe createInstance() {
+        SolarSystem[] s = new SolarSystem[8];
+        s[0] = new SolarSystem("System" + 0, 0, 0, 0);
+        for(int i = 1; i < 8; i++) {
+            int x = (int) (Math.random() * 150);
+            int y = (int) (Math.random() * 150);
+            s[i] = new SolarSystem("System" + i, i, x, y);
+        }
+        return new Universe(s);
     }
     
     public static Universe getInstance() {
@@ -26,5 +30,12 @@ public class Universe {
     
     public SolarSystem getSolarSystem(int index) {
         return solarSystems[index];
+    }
+    
+    public SolarSystem[] getSolarSystems() {
+        return solarSystems;
+    }
+    public void dumpInfo() {
+        System.out.println(solarSystems[0].dumpInfo());
     }
 }

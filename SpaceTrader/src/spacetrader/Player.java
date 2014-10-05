@@ -97,7 +97,6 @@ public class Player {
     public static void createInstance(String name, int diff, int pilotPoints, int fighterPoints,
         int traderPoints, int engineerPoints, Planet location) {
         player = new Player(name, diff, pilotPoints, fighterPoints, traderPoints, engineerPoints, location);
-
     }
 
     public static Player getInstance() {

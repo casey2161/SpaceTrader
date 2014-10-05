@@ -14,8 +14,7 @@ import javafx.stage.Stage;
 import spacetrader.Ui.PlayerConfigurationController;
 import spacetrader.Ui.WelcomeScreenController;
 import spacetrader.Ui.GameController;
-import spacetrader.Universe.SolarSystem;
-import spacetrader.Universe.Planet;
+import spacetrader.Universe.Universe;
 
 /**
  *
@@ -27,7 +26,6 @@ public class SpaceTrader extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        
         Parent welcomeScreenParent = FXMLLoader.load(getClass().getResource("Ui/WelcomeScreen.fxml"));
         Parent playerConfigurationParent = FXMLLoader.load(getClass().getResource("Ui/PlayerConfiguration.fxml"));
         Parent gameParent = FXMLLoader.load(getClass().getResource("Ui/Game.fxml"));

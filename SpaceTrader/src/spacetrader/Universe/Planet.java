@@ -46,15 +46,15 @@ public class Planet {
     private HashMap cargoMap;
     HashMap<String, Integer> priceMap;
     
-    public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates, HashMap cargo) {//used for loading saved planet config from saved game
+    public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates, HashMap prices) {//used for loading saved planet config from saved game
         planetName = name;
         techLevel = level;
         resources = resourcelvl;
         spawnsPirates = pirates;
         xPosition = x;
         yPosition = y;
-        cargoMap = cargo;
-        this.priceMap = new HashMap<String, Integer>();
+        priceMap = prices;
+        this.cargoMap = new HashMap<String, Integer>();
         this.computePrices();
     }
     public String getName() { //returns the name of the planet

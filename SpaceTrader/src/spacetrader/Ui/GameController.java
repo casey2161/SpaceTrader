@@ -13,7 +13,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
@@ -35,11 +34,11 @@ import spacetrader.Universe.Universe;
 public class GameController implements Initializable {
     private static Stage stage;
     private static Scene[] allScenes;
-    private static Player player;
-    private static SolarSystem solarSystem;
-    private static Planet planet;
-    private static Ship ship;
-    private static Universe universe;
+    private Player player;
+    private SolarSystem[] solarSystem;
+    private Planet planet;
+    private Ship ship;
+    private Universe universe;
     
     // Top menu
     @FXML private Button saveGame;
@@ -173,6 +172,7 @@ public class GameController implements Initializable {
     @FXML private Text sellCurrentBays;
     @FXML private Text sellMaxBays;
     @FXML private Text sellCash;
+    @FXML private Pane mapPane;
     private Scene currentScene;
     private Random rand;
 
@@ -1037,9 +1037,10 @@ public class GameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Game object instances
-        Universe.createInstance();
-        solarSystem = universe.getSolarSystem(0);
-        planet = solarSystem.getPlanet(0); // Default starting planet
+        universe = Universe.getInstance();
+        player = Player.getInstance();
+        solarSystem = universe.getSolarSystems();
+        planet = solarSystem[0].getPlanet(0); // Default starting planet
         // Goods
         buyWater.setText("∞");
         buyFurs.setText("∞");
@@ -1061,43 +1062,43 @@ public class GameController implements Initializable {
         sellMachines.setText("0");
         sellNarcotics.setText("0");
         sellRobots.setText("0");
-        buyWaterPrice.setText(planet.getAmount("water") + " cr.");
-        buyFursPrice.setText(planet.getAmount("furs") + " cr.");
-        buyFoodPrice.setText(planet.getAmount("food") + " cr.");
-        buyOrePrice.setText(planet.getAmount("ore") + " cr.");
-        buyGamesPrice.setText(planet.getAmount("games") + " cr.");
-        buyFirearmsPrice.setText(planet.getAmount("firearms") + " cr.");
-        buyMedicinePrice.setText(planet.getAmount("medicine") + " cr.");
-        buyMachinesPrice.setText(planet.getAmount("machines") + " cr.");
-        buyNarcoticsPrice.setText(planet.getAmount("narcotics") + " cr.");
-        buyRobotsPrice.setText(planet.getAmount("robots") / 2  + " cr.");
-        sellWaterPrice.setText(planet.getAmount("water") / 2 + " cr.");
-        sellFursPrice.setText( planet.getAmount("furs") / 2 + " cr.");
-        sellFoodPrice.setText(planet.getAmount("food") / 2 + " cr.");
-        sellOrePrice.setText( planet.getAmount("ore") / 2 + " cr.");
-        sellGamesPrice.setText(planet.getAmount("games") / 2 + " cr.");
-        sellFirearmsPrice.setText(planet.getAmount("firearms") / 2 + " cr.");
-        sellMedicinePrice.setText(planet.getAmount("medicine") / 2 + " cr.");
-        sellMachinesPrice.setText(planet.getAmount("machines") / 2 + " cr.");
-        sellNarcoticsPrice.setText(planet.getAmount("narcotics") / 2 + " cr.");
-        sellRobotsPrice.setText(planet.getAmount("robots") / 2 + " cr.");
-        System.out.println("Player: " + player.name());
-        System.out.println(solarSystem.dumpInfo());
-        System.out.println("Ship: " + ship.getName());
+        buyWaterPrice.setText(planet.getPrice("water") + " cr.");
+        buyFursPrice.setText(planet.getPrice("furs") + " cr.");
+        buyFoodPrice.setText(planet.getPrice("food") + " cr.");
+        buyOrePrice.setText(planet.getPrice("ore") + " cr.");
+        buyGamesPrice.setText(planet.getPrice("games") + " cr.");
+        buyFirearmsPrice.setText(planet.getPrice("firearms") + " cr.");
+        buyMedicinePrice.setText(planet.getPrice("medicine") + " cr.");
+        buyMachinesPrice.setText(planet.getPrice("machines") + " cr.");
+        buyNarcoticsPrice.setText(planet.getPrice("narcotics") + " cr.");
+        buyRobotsPrice.setText(planet.getPrice("robots")  + " cr.");
+        sellWaterPrice.setText(planet.getPrice("water") / 2 + " cr.");
+        sellFursPrice.setText( planet.getPrice("furs") / 2 + " cr.");
+        sellFoodPrice.setText(planet.getPrice("food") / 2 + " cr.");
+        sellOrePrice.setText( planet.getPrice("ore") / 2 + " cr.");
+        sellGamesPrice.setText(planet.getPrice("games") / 2 + " cr.");
+        sellFirearmsPrice.setText(planet.getPrice("firearms") / 2 + " cr.");
+        sellMedicinePrice.setText(planet.getPrice("medicine") / 2 + " cr.");
+        sellMachinesPrice.setText(planet.getPrice("machines") / 2 + " cr.");
+        sellNarcoticsPrice.setText(planet.getPrice("narcotics") / 2 + " cr.");
+        sellRobotsPrice.setText(planet.getPrice("robots") / 2 + " cr.");
+        //System.out.println("Player: " + player.name());
+        //System.out.println(solarSystem[0].dumpInfo());
+        //System.out.println("Ship: " + ship.getName());
         //------------Begin Travel Tab Code----------------------------
-        currentScene = allScenes[2];
+        /*currentScene = allScenes[1];
         Pane mapPane;
-        mapPane = (Pane) currentScene.lookup("mapPane");
+        mapPane = (Pane) currentScene.lookup("mapPane");*/
         rand = new Random();
         int redInt, greenInt, blueInt;
         SolarSystem system;
         Group circles = new Group();
         Circle circle;
         Color color;
-        for (int i = 0; i < solarSystem.length; i++) {
+        for(int i = 0; i < solarSystem.length; i++) {
             system = solarSystem[i];
-            for(int j = 0; j < 5; j++) {
-                Planet currPlanet = solarSystem.getPlanet(j);
+            for(int j = 0; j < system.getNumPlanets(); j++) {
+                Planet currPlanet = system.getPlanet(j);
                 redInt = rand.nextInt(256);
                 greenInt = rand.nextInt(256);
                 blueInt = rand.nextInt(256);

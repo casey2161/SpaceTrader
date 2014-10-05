@@ -13,27 +13,15 @@ public class SolarSystem {
     private PlanetFactory pf;
     private String name;
     private Planet[] planets;
-    private int x,y;
     
     public SolarSystem(String name, int techLevel, int x, int y) {
         this.name = name;
-        this.x = x;
-        this.y = y;
-        int distance = (int) Math.sqrt((x*x + y*y));
-        pf = new PlanetFactory(techLevel, distance);
+        pf = new PlanetFactory(techLevel, x, y);
         
         planets = new Planet[(int)(Math.random()*10) + 1];
         for(int i = 0; i < planets.length; i++) {
             planets[i] = pf.createPlanet();
         }
-    }
-    
-    public int getX() {
-        return x;
-    }
-    
-    public int getY() {
-        return y;
     }
     
     public Planet getPlanet(int i) {
@@ -55,5 +43,9 @@ public class SolarSystem {
         }
         dump += "End Solar System:" + name + "\n\n";
         return dump;
+    }
+    
+    public int getNumPlanets() {
+        return planets.length;
     }
 }
