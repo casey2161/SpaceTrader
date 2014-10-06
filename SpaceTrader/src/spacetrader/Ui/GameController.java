@@ -112,7 +112,7 @@ public class GameController implements Initializable {
         }
         catch (NullPointerException e){
             String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
-            //inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
+            inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
             buyingPrice.setText("N/A");
             sellingPrice.setText("N/A");
             available.setText("Not Available");

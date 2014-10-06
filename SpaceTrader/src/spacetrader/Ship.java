@@ -40,7 +40,7 @@ public class Ship {
         private HashMap<String, Integer> initCargoBay() {
             HashMap<String, Integer> cargo = new HashMap<String, Integer>();
             cargo.put("water", 0);
-            cargo.put("furs", 0);
+            cargo.put("fur", 0);
             cargo.put("food", 0);
             cargo.put("ore", 0);
             cargo.put("games", 0);
