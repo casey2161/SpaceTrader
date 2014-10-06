@@ -130,4 +130,21 @@ public class Player {
                         + Math.pow(destination.getY() - location.getY(), 2));
         return distance < ship.getCurrRange();
     }
+
+    public void buy(String key, int amount) {
+        if (ship.hasRoom(amount)) {
+            int price = location.getPrice(key) * amount;
+            money = money - price;
+            ship.add(key, amount);
+        }
+    }
+
+    public void sell(String key, int amount) {
+        if (ship.canSell(key, amount)) {
+            int price = location.getPrice(key) * amount;
+            money = money + price;
+            ship.remove(key, amount);
+        }
+        
+    }
 }
