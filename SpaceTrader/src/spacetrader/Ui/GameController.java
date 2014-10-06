@@ -156,7 +156,7 @@ public class GameController implements Initializable {
         Group circles = new Group();
         Circle circle;
         Color color;
-        for(int i = 0; i < solarSystem.length; i++) {
+        for (int i = 0; i < solarSystem.length; i++) {
             system = solarSystem[i];
             for(int j = 0; j < system.getNumPlanets(); j++) {
                 Planet currPlanet = system.getPlanet(j);
@@ -164,7 +164,7 @@ public class GameController implements Initializable {
                 greenInt = rand.nextInt(256);
                 blueInt = rand.nextInt(256);
                 color = Color.rgb(redInt, greenInt, blueInt);
-                circle = new Circle(currPlanet.getX(), currPlanet.getY(), 5, color);
+                circle = new Circle(currPlanet.getX() * 2, currPlanet.getY() * 2, 2, color);
                 circle.setId(currPlanet.getName());
                 circles.getChildren().add(circle);
             }
