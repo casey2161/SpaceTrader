@@ -26,7 +26,7 @@ public class Player {
             this.engineerPoints = engineerPoints;
             this.money = 1500;
             this.location = location;
-            ship = new Ship("SpawnShip", 50, 1, 1);
+            ship = new Ship("SpawnShip", 50, 20, 1);
     }
 
 
