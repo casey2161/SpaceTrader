@@ -174,4 +174,15 @@ public class Ship {
         public int getMaxCargo() {
             return maxCargo;
         }
+        
+        /**
+	 * Returns the amount of a specified resource
+	 * 
+	 * @return An int representing the amount of resource
+	 */
+        public int getAmount(String key) {
+            Object result;
+            result = cargo.get(key);
+            return (int) result;
+        }
 }
