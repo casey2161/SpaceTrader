@@ -22,20 +22,6 @@
    <center>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-            <Tab text="Travel">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Pane fx:id="mapPane" prefHeight="360.0" prefWidth="360.0">
-                           <children>
-                              <Line endX="180.0" layoutX="180.0" layoutY="180.0" startX="-180.0" />
-                              <Line endY="180.0" layoutX="180.0" layoutY="180.0" startY="-180.0" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
             <Tab text="Goods">
                <content>
                   <Pane prefHeight="200.0" prefWidth="200.0">
@@ -61,12 +47,12 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="15.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buying Price:">
+                        <Text layoutX="15.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buying Price:">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="15.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selling Price:">
+                        <Text layoutX="15.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selling Price:">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -111,30 +97,44 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Text fx:id="sellingPrice" layoutX="167.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr.">
+                        <Text fx:id="sellingPrice" layoutX="167.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr.">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Text fx:id="buyingPrice" layoutX="167.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr.">
+                        <Text fx:id="buyingPrice" layoutX="167.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr.">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Button fx:id="buy" layoutX="265.0" layoutY="314.0" mnemonicParsing="false" text="Buy">
+                        <Button fx:id="buy" layoutX="63.0" layoutY="470.0" mnemonicParsing="false" onAction="#tradeAction" text="Buy">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="sell" layoutX="265.0" layoutY="394.0" mnemonicParsing="false" text="Sell">
+                        <Button fx:id="sell" layoutX="234.0" layoutY="470.0" mnemonicParsing="false" onAction="#tradeAction" text="Sell">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="quantity" layoutX="153.0" layoutY="420.0" prefHeight="20.0" prefWidth="40.0" promptText="0" />
+                        <TextField fx:id="quantity" layoutX="153.0" layoutY="420.0" prefHeight="26.0" prefWidth="55.0" promptText="0" />
                      </children>
                   </Pane>
                </content>
+            </Tab>
+            <Tab text="Travel">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="mapPane" prefHeight="360.0" prefWidth="360.0">
+                           <children>
+                              <Line endX="180.0" layoutX="180.0" layoutY="180.0" startX="-180.0" />
+                              <Line endY="180.0" layoutX="180.0" layoutY="180.0" startY="-180.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
             </Tab>
         </tabs>
       </TabPane>

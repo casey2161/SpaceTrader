@@ -106,23 +106,47 @@ public class GameController implements Initializable {
             currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
             maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
             cash.setText(Player.getInstance().money() + " cr.");
+            quantity.setVisible(true);
+            buy.setVisible(true);
+            sell.setVisible(true);
         }
         catch (NullPointerException e){
-            System.out.println("NULL!");
+            String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
+            //inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
+            buyingPrice.setText("N/A");
+            sellingPrice.setText("N/A");
+            available.setText("Not Available");
+            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
+            maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
+            cash.setText(Player.getInstance().money() + " cr.");
+            quantity.setVisible(false);
+            buy.setVisible(false);
+            sell.setVisible(false);
         }
     }
     
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private void tradeAction(ActionEvent event) {
+        if (event.getSource().equals(buy)) {
+            
+        } else if (event.getSource().equals(sell)) {
+            
+        }     
+    }
+    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {   
-        // Goods
+       updateScene();
+    }
+
+    private void updateScene() {
+         // Goods
         List<String> list = Arrays.asList("Water", "Fur", "Food", "Ore",
                 "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots");
         marketplace.setItems(FXCollections.observableList(list));
        
-        //------------Begin Travel Tab Code----------------------------
+        // Travel
         /*currentScene = allScenes[1];
         Pane mapPane;
         mapPane = (Pane) currentScene.lookup("mapPane");*/

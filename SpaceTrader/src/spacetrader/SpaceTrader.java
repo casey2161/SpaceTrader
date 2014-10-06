@@ -22,7 +22,7 @@ import spacetrader.Universe.Universe;
  */
 public class SpaceTrader extends Application { 
     // Total number of scenes implemented in the game.
-    public static final int NUMBER_OF_SCENES = 9;
+    public static final int NUMBER_OF_SCENES = 3;
     
     @Override
     public void start(Stage stage) throws Exception {
