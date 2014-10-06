@@ -101,14 +101,14 @@ public class GameController implements Initializable {
         if (Player.getInstance().location().getAmount("water") == 0) {
             System.out.println("TEST"); // IT breaks here.
         }
-        /*
+        System.out.println(selectedItem);
         available.setText(Player.getInstance().location().getAmount(selectedItem) + "");
         inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
         buyingPrice.setText(Player.getInstance().location().getPrice(selectedItem) + " cr.");
         sellingPrice.setText(Player.getInstance().location().getPrice(selectedItem) / 2 + " cr.");
         currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
         maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
-        cash.setText(Player.getInstance().money() + " cr.");*/
+        cash.setText(Player.getInstance().money() + " cr.");
     }
     
     /**

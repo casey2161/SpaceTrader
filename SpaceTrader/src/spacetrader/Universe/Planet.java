@@ -43,10 +43,10 @@ public class Planet {
     private static final String[] RESOURCES = { "NOSPECIALRESOURCES", "MINERALRICH", "MINERALPOOR",
         "DESERT", "LOTSOFWATER", "RICHSOIL", "POORSOIL", "RICHFAUNA", "LIFELESS", "WEIRDMUSHROOMS",
         "LOTSOFHERBS", "ARTISTIC", "WARLIKE"};
-    private HashMap cargoMap;
-    HashMap<String, Integer> priceMap;
+    private HashMap<String, Integer> priceMap, cargoMap;
     
-    public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates, HashMap prices) {//used for loading saved planet config from saved game
+    public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates,
+            HashMap<String, Integer> prices, HashMap<String, Integer> amount) {//used for loading saved planet config from saved game
         planetName = name;
         techLevel = level;
         resources = resourcelvl;
@@ -54,8 +54,8 @@ public class Planet {
         xPosition = x;
         yPosition = y;
         priceMap = prices;
-        this.cargoMap = new HashMap<String, Integer>();
-        this.computePrices();
+        this.cargoMap = amount;
+        //this.computePrices();
     }
     public String getName() { //returns the name of the planet
         return planetName;
@@ -85,12 +85,10 @@ public class Planet {
     }
     
     public int getAmount(String key) {//gets amount of goods one can buy
-        Object result;
-        result = cargoMap.get(key);
-        return (int) result;
+        return cargoMap.get(key.toLowerCase());
     }
     public void updateAmount(String key, int value) {//updates quantity of goods
-        cargoMap.put(key, value);
+        cargoMap.put(key.toLowerCase(), value);
     }
     
     public Object[] returnMap() {// returns quantities as array
@@ -100,9 +98,7 @@ public class Planet {
     }
     
     public int getPrice(String key) {//returns item price
-        Object result;
-        result = priceMap.get(key);
-        return (int) result;
+        return priceMap.get(key.toLowerCase());
     }
     public Object[] returnPriceMap() {// returns prices as array
         Set result = priceMap.entrySet();

@@ -2,6 +2,8 @@ package spacetrader;
 
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /**
  * Ship class for Space Trader
  * 
@@ -10,7 +12,7 @@ import java.util.HashMap;
  */
 public class Ship {
 	private String name;
-	private int maxRange, size, quality, shield, currRange, maxCargo, currCargo;
+	private int maxRange, size, quality, shield, currRange, maxCargo;
 	private Weapon weapon;
 	private HashMap<String, Integer> cargo = new HashMap<String, Integer>();
 	//private Equipment[] equipmentSlots;
@@ -32,9 +34,23 @@ public class Ship {
 		shield = size*quality;
 		currRange = maxRange;
 		maxCargo = size*quality;
-		currCargo = 0;
+                cargo = initCargoBay();
 	}
         
+        private HashMap<String, Integer> initCargoBay() {
+            HashMap<String, Integer> cargo = new HashMap<String, Integer>();
+            cargo.put("water", 0);
+            cargo.put("furs", 0);
+            cargo.put("food", 0);
+            cargo.put("ore", 0);
+            cargo.put("games", 0);
+            cargo.put("firearms", 0);
+            cargo.put("medicine", 0);
+            cargo.put("machines", 0);
+            cargo.put("narcotics", 0);
+            cargo.put("robots", 0);
+            return cargo;
+        }
         public String getName() {
             return name;
         }
@@ -115,7 +131,7 @@ public class Ship {
 	 * @return A boolean determining whether or not the cargo can be added
 	 */
 	public boolean hasRoom(int input) {
-		return currCargo + input <= maxCargo;
+		return getCurrentCargo() + input <= maxCargo;
 	}
 	
 	/**
@@ -137,7 +153,6 @@ public class Ship {
 	public void add(String name, int amount) {
 		if (hasRoom(amount)) {
 			cargo.put(name, amount);
-			currCargo = currCargo + amount;
 		} else {
 			System.out.println("You don't have enough room");
 		}
@@ -149,12 +164,12 @@ public class Ship {
 	 * @param amount The amount of the cargo being removed
 	 */
 	public void remove(String name, int amount) {
-		if (canSell(name, amount)) {
-			currCargo = currCargo - amount;
-			cargo.put(name, cargo.get(name) - amount);
-		} else {
-			System.out.println("You can't sell this item.");
-		}
+            name = name.toLowerCase();
+            if (canSell(name, amount)) {
+                cargo.put(name, cargo.get(name) - amount);
+            } else {
+		System.out.println("You can't sell this item.");
+            }
 	}
         
         /**
@@ -163,6 +178,12 @@ public class Ship {
 	 * @return An int representing the current cargo
 	 */
         public int getCurrentCargo() {
+            int currCargo = 0;
+            Iterator it = cargo.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry pairs = (Map.Entry)it.next();
+                currCargo += (Integer) pairs.getValue();
+            }
             return currCargo;
         }
         
@@ -177,12 +198,10 @@ public class Ship {
         
         /**
 	 * Returns the amount of a specified resource
-	 * 
+	 * @param key a string representing the item
 	 * @return An int representing the amount of resource
 	 */
         public int getAmount(String key) {
-            Object result;
-            result = cargo.get(key);
-            return (int) result;
+            return cargo.get(key.toLowerCase());
         }
 }
