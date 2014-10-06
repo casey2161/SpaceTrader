@@ -97,18 +97,19 @@ public class GameController implements Initializable {
     
     @FXML
     private void listViewAction(MouseEvent event) {
-        String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
-        if (Player.getInstance().location().getAmount("water") == 0) {
-            System.out.println("TEST"); // IT breaks here.
+        try {
+            String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
+            inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
+            buyingPrice.setText(Player.getInstance().location().getPrice(selectedItem) + " cr.");
+            sellingPrice.setText(Player.getInstance().location().getPrice(selectedItem) / 2 + " cr.");
+            available.setText(Player.getInstance().location().getAmount(selectedItem) + "");
+            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
+            maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
+            cash.setText(Player.getInstance().money() + " cr.");
         }
-        System.out.println(selectedItem);
-        available.setText(Player.getInstance().location().getAmount(selectedItem) + "");
-        inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
-        buyingPrice.setText(Player.getInstance().location().getPrice(selectedItem) + " cr.");
-        sellingPrice.setText(Player.getInstance().location().getPrice(selectedItem) / 2 + " cr.");
-        currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
-        maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
-        cash.setText(Player.getInstance().money() + " cr.");
+        catch (NullPointerException e){
+            System.out.println("NULL!");
+        }
     }
     
     /**
