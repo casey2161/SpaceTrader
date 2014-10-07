@@ -31,7 +31,7 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.TextField;
-import javafx.event.Event;
+import javafx.event.EventHandler;
 
 /**
  * FXML Controller class
@@ -41,11 +41,12 @@ import javafx.event.Event;
 public class GameController implements Initializable {
     private static Stage stage;
     private static Scene[] allScenes;
-    private Player player = Player.getInstance();
+    private final Player player = Player.getInstance();
     private SolarSystem[] solarSystem = Universe.getInstance().getSolarSystems();
     private Planet planet;
     private Ship ship;
     private Universe universe;
+    private int count = 0;
     
     // Top menu
     @FXML private Button saveGame;
@@ -127,20 +128,10 @@ public class GameController implements Initializable {
     
     @FXML
     private void tradeAction(ActionEvent event) {
-        String item = marketplace.getSelectionModel().getSelectedItem() + "";
         if (event.getSource().equals(buy)) {
-            //This will break if a non integer is input
-            player.buy(item.toLowerCase(), Integer.parseInt(quantity.getText()));
-            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
-            maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
-            cash.setText(Player.getInstance().money() + " cr.");
-            quantity.clear();
+            
         } else if (event.getSource().equals(sell)) {
-            player.sell(item.toLowerCase(), Integer.parseInt(quantity.getText()));
-            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
-            maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
-            cash.setText(Player.getInstance().money() + " cr.");
-            quantity.clear();
+            
         }     
     }
     
@@ -163,7 +154,6 @@ public class GameController implements Initializable {
         rand = new Random();
         int redInt, greenInt, blueInt;
         SolarSystem system;
-        Group circles = new Group();
         Circle circle;
         Color color;
         for (int i = 0; i < solarSystem.length; i++) {
@@ -176,12 +166,34 @@ public class GameController implements Initializable {
                 color = Color.rgb(redInt, greenInt, blueInt);
                 circle = new Circle(currPlanet.getX() * 2, currPlanet.getY() * 2, 2, color);
                 circle.setId(currPlanet.getName());
-                circles.getChildren().add(circle);
+                circle.setOnMouseClicked(clickHandler);
+                mapPane.getChildren().add(circle);
             }
         }
-        mapPane.getChildren().add(circles);
     }
-
+    final EventHandler<MouseEvent> clickHandler =
+        new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(final MouseEvent event) {
+                Circle circle = (Circle) event.getSource();
+                SolarSystem system;
+                for (int k = 0; k < solarSystem.length; k++) {
+                    system = solarSystem[k];
+                    for (int l = 0; l < system.getNumPlanets(); l++) {
+                        Planet aPlanet = system.getPlanet(l);
+                        if(circle.getId().equals(aPlanet.getName())) {
+                            if (player.canTravel(aPlanet)) {
+                                player.travel(aPlanet);
+                            } else {
+                                System.out.println("Can't get there");
+                            }
+                        }
+                    }
+                }
+                updateScene();
+                }
+            };
+            
     public static void passStageAndScene(Stage mainStage, Scene[] scenes) {
         stage = mainStage;
         allScenes = scenes;
