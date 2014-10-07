@@ -10,7 +10,7 @@ public class Player {
     private int traderPoints;
     private int engineerPoints;
     private int money;
-    private static Player player;
+    private static Player player = createInstance();
     private Ship ship;
     private Planet location;
     private static int DEFAULT_DIFF = 1;
@@ -94,9 +94,23 @@ public class Player {
         money = money - i;
     }
 
-    public static void createInstance(String name, int diff, int pilotPoints, int fighterPoints,
+    public static void updateInstance(String name, int diff, int pilotPoints, int fighterPoints,
         int traderPoints, int engineerPoints, Planet location) {
-        player = new Player(name, diff, pilotPoints, fighterPoints, traderPoints, engineerPoints, location);
+        player.setDiff(diff);
+        player.setEngineer(engineerPoints);
+        player.setFighter(fighterPoints);
+        player.setPilot(pilotPoints);
+        player.setTrader(traderPoints);
+        player.setName(name);
+        player.initLocation(location);
+    }
+    
+    private void initLocation(Planet location) {
+        this.location = location;
+    }
+    
+    public static Player createInstance() {
+        return new Player("",0,0,0,0,0,null);
     }
 
     public static Player getInstance() {
@@ -134,14 +148,16 @@ public class Player {
     public void buy(String key, int amount) {
         if (ship.hasRoom(amount)) {
             int price = location.getPrice(key) * amount;
-            money = money - price;
-            ship.add(key, amount);
+            if(price < money) {
+                money = money - price;
+                ship.add(key, amount);
+            }
         }
     }
 
     public void sell(String key, int amount) {
         if (ship.canSell(key, amount)) {
-            int price = location.getPrice(key) * amount;
+            int price = ((location.getPrice(key)) / 2) * amount;
             money = money + price;
             ship.remove(key, amount);
         }

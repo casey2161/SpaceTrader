@@ -41,7 +41,7 @@ import javafx.event.Event;
 public class GameController implements Initializable {
     private static Stage stage;
     private static Scene[] allScenes;
-    private Player player;
+    private Player player = Player.getInstance();
     private SolarSystem[] solarSystem = Universe.getInstance().getSolarSystems();
     private Planet planet;
     private Ship ship;
@@ -127,10 +127,20 @@ public class GameController implements Initializable {
     
     @FXML
     private void tradeAction(ActionEvent event) {
+        String item = marketplace.getSelectionModel().getSelectedItem() + "";
         if (event.getSource().equals(buy)) {
-            
+            //This will break if a non integer is input
+            player.buy(item.toLowerCase(), Integer.parseInt(quantity.getText()));
+            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
+            maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
+            cash.setText(Player.getInstance().money() + " cr.");
+            quantity.clear();
         } else if (event.getSource().equals(sell)) {
-            
+            player.sell(item.toLowerCase(), Integer.parseInt(quantity.getText()));
+            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
+            maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
+            cash.setText(Player.getInstance().money() + " cr.");
+            quantity.clear();
         }     
     }
     

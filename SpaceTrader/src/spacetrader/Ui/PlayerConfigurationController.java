@@ -284,7 +284,7 @@ public class PlayerConfigurationController implements Initializable {
             startFailed.setVisible(true);
         } else {
             Planet spawn = Universe.getInstance().getSolarSystem(0).getPlanet(0);
-            Player.createInstance(playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
+            Player.updateInstance(playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
             Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
             Integer.parseInt(engineer.getText()), spawn);
             stage.setScene(allScenes[2]);

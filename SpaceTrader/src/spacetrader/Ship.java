@@ -142,7 +142,7 @@ public class Ship {
 	 * specified amounts
 	 */
 	public boolean canSell(String name, int amount) {
-		return cargo.containsKey(name) && cargo.get(name) >= amount;
+		return cargo.get(name) >= amount;
 	}
 	
 	/**
