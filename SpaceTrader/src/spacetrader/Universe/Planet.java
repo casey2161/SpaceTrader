@@ -62,7 +62,7 @@ public class Planet {
     public int getTechLevel() { //returns the tech level of the planet
         return techLevel;
     }
-    public int getResouces() { //returns the resource type of the planet
+    public int getResources() { //returns the resource type of the planet
         return resources;
     }
     public boolean spawnsPirates() { //returns whether the planet spawns pirates

@@ -287,6 +287,13 @@ public class PlayerConfigurationController implements Initializable {
             Player.updateInstance(playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
             Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
             Integer.parseInt(engineer.getText()), spawn);
+            
+            // For demo purposes
+            System.out.println("Player: " + Player.getInstance().name() + " is created.");
+            System.out.println("Solarsystem:");
+            Universe.getInstance().dumpInfo();
+            
+            
             stage.setScene(allScenes[2]);
         }
     }

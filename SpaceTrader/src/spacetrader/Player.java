@@ -26,7 +26,7 @@ public class Player {
             this.engineerPoints = engineerPoints;
             this.money = 1500;
             this.location = location;
-            ship = new Ship("SpawnShip", 50, 20, 1);
+            ship = new Ship("SpawnShip", 100, 20, 1);
     }
 
 
@@ -132,10 +132,10 @@ public class Player {
 
     public void travel(Planet destination) {
         if(canTravel(destination)) {
-            this.location = destination;
             int distance = (int) Math.sqrt(Math.pow(destination.getX() - location.getX(), 2)
                         + Math.pow(destination.getY() - location.getY(), 2));
             ship.setCurrRange(ship.getCurrRange() - distance);
+            this.location = destination;
         }
     }
 
@@ -146,20 +146,21 @@ public class Player {
     }
 
     public void buy(String key, int amount) {
-        if (ship.hasRoom(amount)) {
-            int price = location.getPrice(key) * amount;
-            if(price < money) {
-                money = money - price;
-                ship.add(key, amount);
-            }
+        int price = location.getPrice(key) * amount;
+        if (ship.hasRoom(amount)  && location.getAmount(key.toLowerCase()) - amount >= 0
+                && (money - price) >= 0) {
+            money = money - price;
+            ship.add(key, amount);
+            location.updateAmount(key.toLowerCase(), location.getAmount(key) - amount);
         }
     }
 
     public void sell(String key, int amount) {
         if (ship.canSell(key, amount)) {
-            int price = ((location.getPrice(key)) / 2) * amount;
+            int price = (location.getPrice(key)) * amount;
             money = money + price;
             ship.remove(key, amount);
+            location.updateAmount(key.toLowerCase(), location.getAmount(key) + amount);
         }
         
     }

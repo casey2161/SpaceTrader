@@ -7,7 +7,6 @@
 package spacetrader.Ui;
 
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,9 +20,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import spacetrader.Player;
-import spacetrader.Ship;
 import spacetrader.Universe.Planet;
-import spacetrader.Universe.SolarSystem;
 import spacetrader.Universe.Universe;
 import javafx.scene.control.ListView;
 import java.util.Arrays;
@@ -31,7 +28,8 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.TextField;
-import javafx.event.EventHandler;
+import javafx.event.Event;
+import javafx.event.EventType;
 
 /**
  * FXML Controller class
@@ -39,22 +37,16 @@ import javafx.event.EventHandler;
  * @author andikaputra
  */
 public class GameController implements Initializable {
+    // Statics
     private static Stage stage;
     private static Scene[] allScenes;
-    private final Player player = Player.getInstance();
-    private SolarSystem[] solarSystem = Universe.getInstance().getSolarSystems();
-    private Planet planet;
-    private Ship ship;
-    private Universe universe;
-    private int count = 0;
     
     // Top menu
     @FXML private Button saveGame;
     @FXML private Button loadGame;
     @FXML private Button retire;
     
-    // Goods
-    @FXML private Pane mapPane;
+    // Marketplace
     @FXML private ListView marketplace;
     @FXML private Text available;
     @FXML private Text inventory;
@@ -66,8 +58,18 @@ public class GameController implements Initializable {
     @FXML private Text cash;
     @FXML private Button buy;
     @FXML private Button sell;
+    
+    // Travel
+    @FXML private Pane mapPane;
+    @FXML private Text currentLocation;
+    @FXML private Text selectedDestination;
+    @FXML private Text notification;
+    @FXML private Text techLevel;
+    @FXML private Text resources;
+    @FXML private Text spawnspirates;
+    @FXML private Text fuel;
     private Scene currentScene;
-    private Random rand;
+    
 
     
     // Top menu
@@ -94,15 +96,43 @@ public class GameController implements Initializable {
     }
 
     
-    // Goods Tab
+    // Marketplace Tab
+    
+    @FXML
+    private void marketplaceSelectedAction(Event event) {
+        refreshMarketplace();
+    }
     
     @FXML
     private void listViewAction(MouseEvent event) {
+        refreshMarketplace();
+    }
+    
+    @FXML
+    private void tradeAction(ActionEvent event) {
+        if (event.getSource().equals(buy)) {
+            String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
+            Player.getInstance().buy(selectedItem + "", Integer.parseInt(quantity.getText()));
+            inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
+            available.setText(Player.getInstance().location().getAmount(selectedItem) + "");
+            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
+            cash.setText(Player.getInstance().money() + " cr.");
+        } else if (event.getSource().equals(sell)) {
+            String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
+            Player.getInstance().sell(selectedItem + "", Integer.parseInt(quantity.getText()));
+            inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
+            available.setText(Player.getInstance().location().getAmount(selectedItem) + "");
+            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
+            cash.setText(Player.getInstance().money() + " cr.");
+        }     
+    }
+    
+    private void refreshMarketplace() {
         try {
             String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
             inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
             buyingPrice.setText(Player.getInstance().location().getPrice(selectedItem) + " cr.");
-            sellingPrice.setText(Player.getInstance().location().getPrice(selectedItem) / 2 + " cr.");
+            sellingPrice.setText(Player.getInstance().location().getPrice(selectedItem) + " cr.");
             available.setText(Player.getInstance().location().getAmount(selectedItem) + "");
             currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
             maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
@@ -126,73 +156,112 @@ public class GameController implements Initializable {
         }
     }
     
+
+    //Travel
+    
     @FXML
-    private void tradeAction(ActionEvent event) {
-        if (event.getSource().equals(buy)) {
-            
-        } else if (event.getSource().equals(sell)) {
-            
-        }     
+    private void travelSelectedAction(Event event) {
+        refreshMap();
     }
     
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {   
-       updateScene();
-    }
-
-    private void updateScene() {
-         // Goods
-        List<String> list = Arrays.asList("Water", "Fur", "Food", "Ore",
-                "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots");
-        marketplace.setItems(FXCollections.observableList(list));
+    @FXML
+    private void mapClickedAction(MouseEvent event) {
+       notification.setVisible(false);
+       double mouseX = event.getX();
+       double mouseY = event.getY();
+       boolean planetIsSelected = false;
        
-        // Travel
-        /*currentScene = allScenes[1];
-        Pane mapPane;
-        mapPane = (Pane) currentScene.lookup("mapPane");*/
-        rand = new Random();
-        int redInt, greenInt, blueInt;
-        SolarSystem system;
-        Circle circle;
-        Color color;
-        for (int i = 0; i < solarSystem.length; i++) {
-            system = solarSystem[i];
-            for(int j = 0; j < system.getNumPlanets(); j++) {
-                Planet currPlanet = system.getPlanet(j);
-                redInt = rand.nextInt(256);
-                greenInt = rand.nextInt(256);
-                blueInt = rand.nextInt(256);
-                color = Color.rgb(redInt, greenInt, blueInt);
-                circle = new Circle(currPlanet.getX() * 2, currPlanet.getY() * 2, 2, color);
-                circle.setId(currPlanet.getName());
-                circle.setOnMouseClicked(clickHandler);
-                mapPane.getChildren().add(circle);
+       Planet planet = Player.getInstance().location();
+       for (int i = 0; i < Universe.getInstance().getSolarSystems().length; i++) {
+            for(int j = 0; j < Universe.getInstance().getSolarSystem(i).getNumPlanets(); j++) {
+                Planet currentPlanet = Universe.getInstance().getSolarSystem(i).getPlanet(j);
+                int planetX = currentPlanet.getX() * 2;
+                int planetY = currentPlanet.getY() * 2;
+                if (mouseX >= planetX - 2 && mouseX <= planetX + 2 &&
+                        mouseY >= planetY - 2 && mouseY <= planetY + 2) {
+                    planet = currentPlanet;
+                    planetIsSelected = true;
+                }
             }
         }
+        if (planetIsSelected) {
+            selectedDestination.setText(planet.getName());
+            techLevel.setText(planet.tchlvlString(planet.getTechLevel()));
+            resources.setText(planet.rscString(planet.getResources()));
+            String pirates;
+            if (planet.spawnsPirates()) {
+                pirates = "Yes";
+            } else {
+                pirates = "No";
+            }
+            spawnspirates.setText(pirates);
+        }
     }
-    final EventHandler<MouseEvent> clickHandler =
-        new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(final MouseEvent event) {
-                Circle circle = (Circle) event.getSource();
-                SolarSystem system;
-                for (int k = 0; k < solarSystem.length; k++) {
-                    system = solarSystem[k];
-                    for (int l = 0; l < system.getNumPlanets(); l++) {
-                        Planet aPlanet = system.getPlanet(l);
-                        if(circle.getId().equals(aPlanet.getName())) {
-                            if (player.canTravel(aPlanet)) {
-                                player.travel(aPlanet);
-                            } else {
-                                System.out.println("Can't get there");
-                            }
-                        }
-                    }
+    
+    @FXML
+    private void travelAction(ActionEvent event) {
+        Planet destination = Player.getInstance().location();
+        for (int i = 0; i < Universe.getInstance().getSolarSystems().length; i++) {
+            for(int j = 0; j < Universe.getInstance().getSolarSystem(i).getNumPlanets(); j++) {
+                String traversePlanet = Universe.getInstance().getSolarSystem(i).getPlanet(j).getName();
+                String selectedPlanet = selectedDestination.getText();
+                if (traversePlanet.equals(selectedPlanet)) {
+                    destination = Universe.getInstance().getSolarSystem(i).getPlanet(j);
                 }
-                updateScene();
+            }
+        }
+        
+        if(!Player.getInstance().canTravel(destination)) {
+            notification.setVisible(true);
+        } else {
+            Player.getInstance().travel(destination);
+            refreshMap();
+        }
+    }
+    
+    private void refreshMap() {
+        Group circles = new Group();
+        Circle circle;
+        Color color;
+
+        for (int i = 0; i < Universe.getInstance().getSolarSystems().length; i++) {
+            for(int j = 0; j < Universe.getInstance().getSolarSystem(i).getNumPlanets(); j++) {
+                Planet currentPlanet = Universe.getInstance().getSolarSystem(i).getPlanet(j);
+                if (Player.getInstance().location().equals(currentPlanet)) {
+                    color = Color.rgb(255, 0, 0);
+                } else if (Player.getInstance().canTravel(currentPlanet)) {
+                    color = Color.rgb(0, 255, 0);
+                } else {
+                    color = Color.rgb(0, 0, 255);
                 }
-            };
+                circle = new Circle(currentPlanet.getX() * 2, currentPlanet.getY() * 2, 2, color);
+                circle.setId(currentPlanet.getName());
+                circles.getChildren().add(circle);
+            }
+        }
+        mapPane.getChildren().add(circles);
+
+        currentLocation.setText(Player.getInstance().location().getName());
+        selectedDestination.setText(Player.getInstance().location().getName());
+        techLevel.setText(Player.getInstance().location().tchlvlString(Player.getInstance().location().getTechLevel()));
+        resources.setText(Player.getInstance().location().rscString(Player.getInstance().location().getResources()));
+        String pirates;
+        if (Player.getInstance().location().spawnsPirates()) {
+            pirates = "Yes";
+        } else {
+            pirates = "No";
+        }
+        spawnspirates.setText(pirates);
+        fuel.setText(Player.getInstance().ship().getCurrRange() + "");
+    }
+    
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {   
+       List<String> list = Arrays.asList("Water", "Fur", "Food", "Ore",
+                "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots");
+        marketplace.setItems(FXCollections.observableList(list));
+    }
             
     public static void passStageAndScene(Stage mainStage, Scene[] scenes) {
         stage = mainStage;

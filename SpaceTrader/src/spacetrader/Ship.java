@@ -142,7 +142,7 @@ public class Ship {
 	 * specified amounts
 	 */
 	public boolean canSell(String name, int amount) {
-		return cargo.get(name) >= amount;
+	    return cargo.containsKey(name.toLowerCase()) && cargo.get(name.toLowerCase()) >= amount;
 	}
 	
 	/**
@@ -152,7 +152,7 @@ public class Ship {
 	 */
 	public void add(String name, int amount) {
 		if (hasRoom(amount)) {
-			cargo.put(name, amount);
+			cargo.put(name.toLowerCase(), getAmount(name) + amount);
 		} else {
 			System.out.println("You don't have enough room");
 		}
