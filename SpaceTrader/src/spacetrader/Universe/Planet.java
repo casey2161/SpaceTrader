@@ -1,7 +1,6 @@
 package spacetrader.Universe;
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Arrays;
 import java.util.Random;
 
 /*Nickolas Graham
@@ -110,11 +109,20 @@ public class Planet {
         dump += "\nTech Level: " + tchlvlString(techLevel);
         dump += "\nResources: " + rscString(resources);
         dump += "\nSpawn Pirates: " + spawnsPirates;
-        dump += "\nCargo: " + Arrays.toString(this.returnMap());
-        dump += "\nPrices: " + Arrays.toString(this.returnPriceMap());
+        dump += "\nCargo: " + dumpMap(cargoMap);
+        dump += "\nPrices: " + dumpMap(priceMap);
         dump += "\n---------------------------------------------\n";
         return dump;
     }
+    
+    private String dumpMap(HashMap<String, Integer> map) {
+        String ret = "";
+        for( HashMap.Entry e : map.entrySet()) {
+            ret+= e.getKey() + ": " + e.getValue() + "\n"; 
+        }
+        return ret;
+    }
+    
     private void computePrices() {
         Random rand = new Random();
         priceMap.put("Water", (int) (30 + 3 * techLevel + 30 * rand.nextFloat()));

@@ -26,8 +26,8 @@ public class PlanetFactory {
         
         String name = planetNames[Math.abs((gen.nextInt()) % planetNames.length)];
         int rscLevel = Math.abs(gen.nextInt() % 12);
-        int xval = (gen.nextInt()%2) * count + x;
-        int yval = (gen.nextInt()%2) * count + y;
+        int xval = (gen.nextInt()%5) * count + x;
+        int yval = (gen.nextInt()%5) * count + y;
         HashMap<String, Integer> prices, amount;
         prices = generatePrices(techLevel, rscLevel);
         amount = generateAmount(techLevel, rscLevel);
@@ -38,7 +38,7 @@ public class PlanetFactory {
     private HashMap<String, Integer> generatePrices(int techLevel, int rscLevel) {
         HashMap<String, Integer> cargo = new HashMap<String, Integer>();
         cargo.put("water",(int) (30 + 3*techLevel + (Math.random() * 4)));
-        cargo.put("furs", (int) (250 + 10*techLevel + Math.random() * 10));
+        cargo.put("fur", (int) (250 + 10*techLevel + Math.random() * 10));
         if(techLevel >= 1) {
             cargo.put("food", (int) (100 + 5*(techLevel - 1) + Math.random()*5));
         }
@@ -62,8 +62,33 @@ public class PlanetFactory {
         
         return cargo;
     }
-    
     private HashMap<String, Integer> generateAmount(int techLevel, int rscLevel) {
+        HashMap<String, Integer> cargo = new HashMap<String, Integer>();
+        cargo.put("water",(int) (Math.random() * 50));
+        cargo.put("fur", (int) (Math.random() * 50));
+        if(techLevel >= 1) {
+            cargo.put("food",(int) (Math.random() * 50));
+        }
+        if(techLevel >= 2) {
+            cargo.put("ore", (int) (Math.random() * 50));
+        }
+        if(techLevel >= 3) {
+            cargo.put("games", (int) (Math.random() * 50));
+            cargo.put("firearms", (int) (Math.random() * 50));
+        }
+        if(techLevel >= 4) {
+            cargo.put("medicine", (int) (Math.random() * 50));
+            cargo.put("machines", (int) (Math.random() * 50));
+        }
+        if(techLevel >= 5) {
+            cargo.put("narcotics", (int) Math.random() * 50);
+        }
+        if(techLevel >= 6) {
+            cargo.put("robots", (int) Math.random() * 50);
+        }
+        return cargo;
+    }
+    private HashMap<String, Integer> generateSellMap(int techLevel, int rscLevel) {
         HashMap<String, Integer> cargo = new HashMap<String, Integer>();
         if(techLevel >= 4) {
             cargo.put("robots", (int) (5000 + (-150)*(techLevel - 4) + Math.random()*100) / 2);

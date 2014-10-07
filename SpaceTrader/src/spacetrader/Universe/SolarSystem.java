@@ -18,7 +18,7 @@ public class SolarSystem {
         this.name = name;
         pf = new PlanetFactory(techLevel, x, y);
         
-        planets = new Planet[(int)(Math.random()*10) + 1];
+        planets = new Planet[(int)(Math.random()* 5) + 3];
         for(int i = 0; i < planets.length; i++) {
             planets[i] = pf.createPlanet();
         }
