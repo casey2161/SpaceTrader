@@ -146,22 +146,33 @@ public class Player {
     }
 
     public void buy(String key, int amount) {
-        int price = location.getPrice(key) * amount;
-        if (ship.hasRoom(amount)  && location.getAmount(key.toLowerCase()) - amount >= 0
+        int price = location.getSellingPrice.get(key) * amount;
+        if (ship.hasRoom(amount)  && location.getAmount.get(key.toLowerCase()) - amount >= 0
                 && (money - price) >= 0) {
             money = money - price;
             ship.add(key, amount);
-            location.updateAmount(key.toLowerCase(), location.getAmount(key) - amount);
+            location.updateAmount(key.toLowerCase(), location.getAmount.get(key) - amount);
         }
     }
 
     public void sell(String key, int amount) {
         if (ship.canSell(key, amount)) {
-            int price = (location.getPrice(key)) * amount;
+            int price = (location.getPrice.get(key)) * amount;
             money = money + price;
             ship.remove(key, amount);
-            location.updateAmount(key.toLowerCase(), location.getAmount(key) + amount);
+            location.updateAmount(key.toLowerCase(), location.getAmount.get(key) + amount);
         }
         
+    }
+
+    public void savePlayer() {
+        System.out.println("PLAYER \nName: " + name +"\n"
+            + "Difficulty: " + diff + "\n"
+                + "Pilot Points: " + pilotPoints + "\n"
+                    + "Fighter Points:" + fighterPoints + "\n"
+                        + "Trader Points:" + traderPoints + "\n"
+                            + "Engineering Points:" + engineerPoints + "\n"
+                                + "Money:" + money + "\n"
+                                    + ship.dump() + location.dump());
     }
 }
