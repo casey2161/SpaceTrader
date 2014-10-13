@@ -6,6 +6,10 @@
 
 package spacetrader.Ui;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -29,7 +33,7 @@ import javafx.collections.FXCollections;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.TextField;
 import javafx.event.Event;
-import javafx.event.EventType;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -76,7 +80,16 @@ public class GameController implements Initializable {
     
     @FXML
     private void saveGameAction(ActionEvent event) {
-        System.out.println("Save Game feature has not been implemented yet."); // Replace later.
+        String saveData = Universe.getInstance().saveUniverse();
+        saveData += Player.getInstance().savePlayer();
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showSaveDialog(stage);
+        try (PrintWriter out = new PrintWriter(new FileOutputStream(file))) {
+                out.println(saveData);
+        }catch(IOException ioe) {
+            //This should never happen
+            System.out.println("broked");
+        }
     }
 
     @FXML
@@ -163,6 +176,7 @@ public class GameController implements Initializable {
     private void travelSelectedAction(Event event) {
         refreshMap();
     }
+    
     
     @FXML
     private void mapClickedAction(MouseEvent event) {

@@ -38,4 +38,27 @@ public class Universe {
     public void dumpInfo() {
         System.out.println(solarSystems[0].dumpInfo());
     }
+    
+    //This is an incredibly slow operation
+    public Planet getPlanet(String xLoc, String yLoc) {
+        int x = Integer.parseInt(xLoc);
+        int y = Integer.parseInt(yLoc);
+        for(SolarSystem s : solarSystems) {
+            for(int i = 0; i < s.getNumPlanets(); i++) {
+                Planet p = s.getPlanet(i);
+                if(p.getX() == x && p.getY() == y) {
+                    return p;
+                }
+            }
+        }
+        return null;
+    }
+    
+    public String saveUniverse() {
+        String ret = "";
+        for(SolarSystem s : solarSystems) {
+            ret += s.saveSolarSystem() ;
+        }
+        return ret;
+    }
 }

@@ -48,4 +48,13 @@ public class SolarSystem {
     public int getNumPlanets() {
         return planets.length;
     }
+    
+    public String saveSolarSystem() {
+        String ret = "name : " + name + "\n";
+        
+        for(Planet p : planets) {
+            ret += p.savePlanet();
+        }
+        return ret;
+    }
 }

@@ -146,33 +146,37 @@ public class Player {
     }
 
     public void buy(String key, int amount) {
-        int price = location.getSellingPrice.get(key) * amount;
-        if (ship.hasRoom(amount)  && location.getAmount.get(key.toLowerCase()) - amount >= 0
+        int price = location.getPrice(key) * amount / 2;
+        if (ship.hasRoom(amount)  && location.getAmount(key) - amount >= 0
                 && (money - price) >= 0) {
             money = money - price;
             ship.add(key, amount);
-            location.updateAmount(key.toLowerCase(), location.getAmount.get(key) - amount);
+            location.updateAmount(key, location.getAmount(key) - amount);
         }
     }
 
     public void sell(String key, int amount) {
         if (ship.canSell(key, amount)) {
-            int price = (location.getPrice.get(key)) * amount;
+            int price = location.getPrice(key) * amount / 2;
             money = money + price;
             ship.remove(key, amount);
-            location.updateAmount(key.toLowerCase(), location.getAmount.get(key) + amount);
+            location.updateAmount(key.toLowerCase(), location.getAmount(key) + amount);
         }
         
     }
-
-    public void savePlayer() {
-        System.out.println("PLAYER \nName: " + name +"\n"
-            + "Difficulty: " + diff + "\n"
-                + "Pilot Points: " + pilotPoints + "\n"
-                    + "Fighter Points:" + fighterPoints + "\n"
-                        + "Trader Points:" + traderPoints + "\n"
-                            + "Engineering Points:" + engineerPoints + "\n"
-                                + "Money:" + money + "\n"
-                                    + ship.dump() + location.dump());
+    
+    
+    public String savePlayer() {
+        String ret = "PLAYER \nName: " + name +"\n"
+            + "Difficulty : " + diff + "\n"
+            + "Pilot Points : " + pilotPoints + "\n"
+            + "Fighter Points : " + fighterPoints + "\n"
+            + "Trader Points : " + traderPoints + "\n"
+            + "Engineering Points : " + engineerPoints + "\n"
+            + "Money : " + money + "\n"
+            + "X : " + location.getX() + "\n"
+            + "Y : " + location.getY() + "\n"
+            + ship.saveShip();
+        return ret;
     }
 }

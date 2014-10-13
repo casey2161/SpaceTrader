@@ -136,6 +136,25 @@ public class Planet {
         priceMap.put("Narcotics", (int) (3500 + -125 * (techLevel - 5) + 3500 * rand.nextFloat()));
         priceMap.put("Robots", (int) (5000 + -150 * (techLevel - 6) + 5000 * rand.nextFloat()));
     }
+    
+    public String savePlanet() {
+        String ret = "name : " + planetName + "\n"
+                + "techLevel : " + techLevel + "\n"
+                + "resources : " + resources + "\n"
+                + "spawnsPirates : " + spawnsPirates + "\n"
+                + "x : " + xPosition + "\n"
+                + "y : " + yPosition + "\n";
+        
+        for(String key : cargoMap.keySet()) {
+                ret += (key + " : " + cargoMap.get(key) + "\n");
+        }
+        
+        for(String key : priceMap.keySet()) {
+                ret += (key + " : " + priceMap.get(key) + "\n");
+        }
+        
+        return ret;
+    }
 }  
     
 

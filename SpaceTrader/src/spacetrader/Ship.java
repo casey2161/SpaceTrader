@@ -204,4 +204,22 @@ public class Ship {
         public int getAmount(String key) {
             return cargo.get(key.toLowerCase());
         }
+        
+        public String saveShip() {
+            String ret = "";
+            
+            ret = "maxRange : " + maxRange + "\n"
+                    + "quality : " + quality + "\n"
+                    + "size : " + size + "\n"
+                    + "shield : " + shield + "\n"
+                    + "currRange : " + currRange + "\n"
+                    + "maxCargo : " + maxCargo + "\n"
+                    + "name : " + name + "\n";
+            
+            for(String key : cargo.keySet()) {
+                ret += (key + " : " + cargo.get(key) + "\n");
+            }
+            
+            return ret;
+        }
 }
