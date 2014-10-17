@@ -1,10 +1,12 @@
 package spacetrader.Universe;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Casey
  */
-public class Universe {
+public class Universe implements Serializable{
 
     private static Universe universe = createInstance();
     private SolarSystem[] solarSystems;
@@ -53,12 +55,24 @@ public class Universe {
         }
         return null;
     }
+    public static void recreateInstance() {
+        universe.setSolarSystems(createInstance().getSolarSystems());
+    }
     
-    public String saveUniverse() {
-        String ret = "";
-        for(SolarSystem s : solarSystems) {
-            ret += s.saveSolarSystem() ;
+    private void setSolarSystems(SolarSystem[] s) {
+        solarSystems = s;
+    }
+    
+    public static void setInstance(Universe u) {
+        System.out.println(universe.getSolarSystem(0).getPlanet(0).dumpInfo());
+        System.out.println(u.getSolarSystem(0).getPlanet(0).dumpInfo());
+        /*
+        for(SolarSystem s : universe.getSolarSystems()) {
+            System.out.println(s.dumpInfo());
         }
-        return ret;
+        for(SolarSystem s : u.getSolarSystems()) {
+            System.out.println(s.dumpInfo());
+        }*/
+        universe.setSolarSystems(u.getSolarSystems());
     }
 }

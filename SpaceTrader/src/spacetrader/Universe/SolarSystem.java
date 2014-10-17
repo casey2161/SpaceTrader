@@ -5,11 +5,13 @@
  */
 package spacetrader.Universe;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Casey
  */
-public class SolarSystem {
+public class SolarSystem implements Serializable{
     private PlanetFactory pf;
     private String name;
     private Planet[] planets;
@@ -47,14 +49,5 @@ public class SolarSystem {
     
     public int getNumPlanets() {
         return planets.length;
-    }
-    
-    public String saveSolarSystem() {
-        String ret = "name : " + name + "\n";
-        
-        for(Planet p : planets) {
-            ret += p.savePlanet();
-        }
-        return ret;
     }
 }

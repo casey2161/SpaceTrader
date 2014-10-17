@@ -1,8 +1,9 @@
 package spacetrader;
 
+import java.io.Serializable;
 import spacetrader.Universe.Planet;
 
-public class Player {
+public class Player implements Serializable{
     private String name;
     private int diff;
     private int pilotPoints;
@@ -109,10 +110,12 @@ public class Player {
         this.location = location;
     }
     
-    public static Player createInstance() {
+    private static Player createInstance() {
         return new Player("",0,0,0,0,0,null);
     }
-
+    public static void clearInstance() {
+        player = new Player("",0,0,0,0,0,null);
+    }
     public static Player getInstance() {
         return player;
     }
@@ -165,18 +168,8 @@ public class Player {
         
     }
     
-    
-    public String savePlayer() {
-        String ret = "PLAYER \nName: " + name +"\n"
-            + "Difficulty : " + diff + "\n"
-            + "Pilot Points : " + pilotPoints + "\n"
-            + "Fighter Points : " + fighterPoints + "\n"
-            + "Trader Points : " + traderPoints + "\n"
-            + "Engineering Points : " + engineerPoints + "\n"
-            + "Money : " + money + "\n"
-            + "X : " + location.getX() + "\n"
-            + "Y : " + location.getY() + "\n"
-            + ship.saveShip();
-        return ret;
+    public static void setInstance(Player p) {        
+        updateInstance(p.name(), 1, p.pilot(), p.fighter(), p.trader(), 
+            p.engineer(), p.location());
     }
 }

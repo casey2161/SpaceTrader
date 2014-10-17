@@ -1,6 +1,7 @@
 
 package spacetrader.Universe;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -8,7 +9,7 @@ import java.util.Random;
  *
  * @author Casey
  */
-public class PlanetFactory {
+public class PlanetFactory implements Serializable{
     private String[] planetNames;
     private int techLevel;
     private int x,y;

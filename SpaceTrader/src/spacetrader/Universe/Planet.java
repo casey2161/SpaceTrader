@@ -1,4 +1,5 @@
 package spacetrader.Universe;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.Random;
@@ -7,7 +8,7 @@ import java.util.Random;
  * C3POs team 27
  * Version 2.1 of Planet
  */
-public class Planet {
+public class Planet implements Serializable{
     /* VALUE KEY: numbers correspond to 
      * TECH LEVELS --------------
      * 0 = Pre-Agriculture
@@ -135,25 +136,6 @@ public class Planet {
         priceMap.put("Machines", (int) (900 + -30 * (techLevel - 4) + 900 * rand.nextFloat()));
         priceMap.put("Narcotics", (int) (3500 + -125 * (techLevel - 5) + 3500 * rand.nextFloat()));
         priceMap.put("Robots", (int) (5000 + -150 * (techLevel - 6) + 5000 * rand.nextFloat()));
-    }
-    
-    public String savePlanet() {
-        String ret = "name : " + planetName + "\n"
-                + "techLevel : " + techLevel + "\n"
-                + "resources : " + resources + "\n"
-                + "spawnsPirates : " + spawnsPirates + "\n"
-                + "x : " + xPosition + "\n"
-                + "y : " + yPosition + "\n";
-        
-        for(String key : cargoMap.keySet()) {
-                ret += (key + " : " + cargoMap.get(key) + "\n");
-        }
-        
-        for(String key : priceMap.keySet()) {
-                ret += (key + " : " + priceMap.get(key) + "\n");
-        }
-        
-        return ret;
     }
 }  
     

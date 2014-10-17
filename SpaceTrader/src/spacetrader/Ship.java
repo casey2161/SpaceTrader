@@ -1,6 +1,7 @@
 package spacetrader;
 
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -10,7 +11,7 @@ import java.util.Map;
  * @author georgeli94
  *
  */
-public class Ship {
+public class Ship implements Serializable{
 	private String name;
 	private int maxRange, size, quality, shield, currRange, maxCargo;
 	private Weapon weapon;
@@ -203,23 +204,5 @@ public class Ship {
 	 */
         public int getAmount(String key) {
             return cargo.get(key.toLowerCase());
-        }
-        
-        public String saveShip() {
-            String ret = "";
-            
-            ret = "maxRange : " + maxRange + "\n"
-                    + "quality : " + quality + "\n"
-                    + "size : " + size + "\n"
-                    + "shield : " + shield + "\n"
-                    + "currRange : " + currRange + "\n"
-                    + "maxCargo : " + maxCargo + "\n"
-                    + "name : " + name + "\n";
-            
-            for(String key : cargo.keySet()) {
-                ret += (key + " : " + cargo.get(key) + "\n");
-            }
-            
-            return ret;
         }
 }

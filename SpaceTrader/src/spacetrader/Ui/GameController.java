@@ -7,9 +7,11 @@
 package spacetrader.Ui;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -80,21 +82,34 @@ public class GameController implements Initializable {
     
     @FXML
     private void saveGameAction(ActionEvent event) {
-        String saveData = Universe.getInstance().saveUniverse();
-        saveData += Player.getInstance().savePlayer();
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showSaveDialog(stage);
-        try (PrintWriter out = new PrintWriter(new FileOutputStream(file))) {
-                out.println(saveData);
-        }catch(IOException ioe) {
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(Universe.getInstance());
+            oos.writeObject(Player.getInstance());
+            oos.close();
+            fos.close();
+        } catch(IOException ioe) {
             //This should never happen
-            System.out.println("broked");
         }
     }
 
     @FXML
     private void loadGameAction(ActionEvent event) {
-        System.out.println("Load Game feature has not been implemented yet."); // Replace later.
+        try {
+            FileChooser fileChooser = new FileChooser();
+            File file = fileChooser.showOpenDialog(stage);
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Universe.setInstance((Universe) ois.readObject());
+            Player.setInstance((Player) ois.readObject());
+            refreshMap();
+        } catch(Exception e) {
+            //Shouldn't happen
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -180,6 +195,7 @@ public class GameController implements Initializable {
     
     @FXML
     private void mapClickedAction(MouseEvent event) {
+       refreshMap();
        notification.setVisible(false);
        double mouseX = event.getX();
        double mouseY = event.getY();
@@ -231,9 +247,11 @@ public class GameController implements Initializable {
             Player.getInstance().travel(destination);
             refreshMap();
         }
+        refreshMap();
     }
     
     private void refreshMap() {
+        mapPane.getChildren().clear();
         Group circles = new Group();
         Circle circle;
         Color color;

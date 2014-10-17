@@ -6,13 +6,20 @@
 
 package spacetrader.Ui;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import spacetrader.Player;
+import spacetrader.Universe.Universe;
 
 /**
  *
@@ -30,14 +37,25 @@ public class WelcomeScreenController implements Initializable {
     
     @FXML
     private void handleLoadGameButtonAction(ActionEvent event) {
-        System.out.println("Load Game feature has not been implemented yet."); // Replace later.
+        try {
+            FileChooser fileChooser = new FileChooser();
+            File file = fileChooser.showOpenDialog(stage);
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Universe.setInstance((Universe) ois.readObject());
+            Player.setInstance((Player) ois.readObject());
+            stage.setScene(allScenes[2]);
+        } catch(Exception e) {
+            //Shouldn't happen
+            e.printStackTrace();
+        }
     }
     
     @FXML
     private void quitAction(ActionEvent event) {
         System.exit(0);
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
