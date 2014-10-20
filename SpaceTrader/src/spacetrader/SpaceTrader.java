@@ -24,24 +24,24 @@ import spacetrader.Universe.Universe;
 public class SpaceTrader extends Application { 
     // Total number of scenes implemented in the game.
     public static final int NUMBER_OF_SCENES = 3;
+    public static Stage stage;
+    public static Scene[] allScenes;
     
     @Override
     public void start(Stage stage) throws Exception {
+        this.stage = stage;
         Parent welcomeScreenParent = FXMLLoader.load(getClass().getResource("Ui/WelcomeScreen.fxml"));
         Parent playerConfigurationParent = FXMLLoader.load(getClass().getResource("Ui/PlayerConfiguration.fxml"));
         Parent gameParent = FXMLLoader.load(getClass().getResource("Ui/Game.fxml"));
 
-        Scene[] allScenes = new Scene[NUMBER_OF_SCENES];
+        allScenes = new Scene[NUMBER_OF_SCENES];
         allScenes[0] = new Scene(welcomeScreenParent);
         allScenes[1] = new Scene(playerConfigurationParent);
         allScenes[2] = new Scene(gameParent);
         
-        WelcomeScreenController.passStageAndScene(stage, allScenes);
-        PlayerConfigurationController.passStageAndScene(stage, allScenes);
-        GameController.passStageAndScene(stage, allScenes);
         
-        stage.setScene(allScenes[0]);
-        stage.show();
+        this.stage.setScene(allScenes[0]);
+        this.stage.show();
     }
 
     /**

@@ -11,12 +11,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import spacetrader.Player;
+import spacetrader.SpaceTrader;
 import spacetrader.Universe.Planet;
 import spacetrader.Universe.Universe;
         
@@ -27,9 +26,6 @@ import spacetrader.Universe.Universe;
  * @author andikaputra
  */
 public class PlayerConfigurationController implements Initializable {
-    private static Stage stage;
-    private static Scene[] allScenes;
-
     @FXML private TextField playerName;
     @FXML private Text startFailed;
     @FXML private Text skillPointsRemaining;
@@ -296,13 +292,13 @@ public class PlayerConfigurationController implements Initializable {
             Universe.getInstance().dumpInfo();
             
             
-            stage.setScene(allScenes[2]);
+            SpaceTrader.stage.setScene(SpaceTrader.allScenes[2]);
         }
     }
     
     @FXML
     private void cancelAction(ActionEvent event) {
-        stage.setScene(allScenes[0]);
+        SpaceTrader.stage.setScene(SpaceTrader.allScenes[0]);
     }
    
     
@@ -316,9 +312,4 @@ public class PlayerConfigurationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
     }    
-    
-    public static void passStageAndScene(Stage mainStage, Scene[] scenes) {
-        stage = mainStage;
-        allScenes = scenes;
-    }
 }

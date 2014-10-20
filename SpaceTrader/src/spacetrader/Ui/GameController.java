@@ -26,6 +26,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import spacetrader.Player;
+import spacetrader.SpaceTrader;
 import spacetrader.Universe.Planet;
 import spacetrader.Universe.Universe;
 import javafx.scene.control.ListView;
@@ -43,10 +44,7 @@ import javafx.stage.FileChooser;
  * @author andikaputra
  */
 public class GameController implements Initializable {
-    // Statics
-    private static Stage stage;
-    private static Scene[] allScenes;
-    
+
     // Top menu
     @FXML private Button saveGame;
     @FXML private Button loadGame;
@@ -83,7 +81,7 @@ public class GameController implements Initializable {
     @FXML
     private void saveGameAction(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showSaveDialog(stage);
+        File file = fileChooser.showSaveDialog(SpaceTrader.stage);
         try {
             FileOutputStream fos = new FileOutputStream(file);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -100,7 +98,7 @@ public class GameController implements Initializable {
     private void loadGameAction(ActionEvent event) {
         try {
             FileChooser fileChooser = new FileChooser();
-            File file = fileChooser.showOpenDialog(stage);
+            File file = fileChooser.showOpenDialog(SpaceTrader.stage);
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
             Universe.setInstance((Universe) ois.readObject());
@@ -120,9 +118,10 @@ public class GameController implements Initializable {
 
     @FXML
     private void quitGameAction(ActionEvent event) {
-        stage.setScene(allScenes[0]);
+        SpaceTrader.stage.setScene(SpaceTrader.allScenes[0]);
     }
 
+    
     
     // Marketplace Tab
     
@@ -185,6 +184,7 @@ public class GameController implements Initializable {
     }
     
 
+    
     //Travel
     
     @FXML
@@ -220,9 +220,9 @@ public class GameController implements Initializable {
             resources.setText(planet.rscString(planet.getResources()));
             String pirates;
             if (planet.spawnsPirates()) {
-                pirates = "Yes";
+                pirates = "High";
             } else {
-                pirates = "No";
+                pirates = "Low";
             }
             spawnspirates.setText(pirates);
         }
@@ -248,6 +248,8 @@ public class GameController implements Initializable {
             refreshMap();
         }
         refreshMap();
+        
+        
     }
     
     private void refreshMap() {
@@ -279,24 +281,22 @@ public class GameController implements Initializable {
         resources.setText(Player.getInstance().location().rscString(Player.getInstance().location().getResources()));
         String pirates;
         if (Player.getInstance().location().spawnsPirates()) {
-            pirates = "Yes";
+            pirates = "High";
         } else {
-            pirates = "No";
+            pirates = "Low";
         }
         spawnspirates.setText(pirates);
         fuel.setText(Player.getInstance().ship().getCurrRange() + "");
     }
     
     
+    
+    // Others
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {   
        List<String> list = Arrays.asList("Water", "Fur", "Food", "Ore",
                 "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots");
         marketplace.setItems(FXCollections.observableList(list));
-    }
-            
-    public static void passStageAndScene(Stage mainStage, Scene[] scenes) {
-        stage = mainStage;
-        allScenes = scenes;
     }
 }

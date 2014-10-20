@@ -8,17 +8,15 @@ package spacetrader.Ui;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import spacetrader.Player;
+import spacetrader.SpaceTrader;
 import spacetrader.Universe.Universe;
 
 /**
@@ -26,25 +24,22 @@ import spacetrader.Universe.Universe;
  * @author andikaputra
  */
 public class WelcomeScreenController implements Initializable {
-    private static Stage stage;
-    private static Scene[] allScenes;
-    
     
     @FXML
     private void handleNewGameButtonAction(ActionEvent event) {
-        stage.setScene(allScenes[1]);
+        SpaceTrader.stage.setScene(SpaceTrader.allScenes[1]);
     }
     
     @FXML
     private void handleLoadGameButtonAction(ActionEvent event) {
         try {
             FileChooser fileChooser = new FileChooser();
-            File file = fileChooser.showOpenDialog(stage);
+            File file = fileChooser.showOpenDialog(SpaceTrader.stage);
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
             Universe.setInstance((Universe) ois.readObject());
             Player.setInstance((Player) ois.readObject());
-            stage.setScene(allScenes[2]);
+            SpaceTrader.stage.setScene(SpaceTrader.allScenes[2]);
         } catch(Exception e) {
             //Shouldn't happen
             e.printStackTrace();
@@ -60,10 +55,4 @@ public class WelcomeScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-
-    public static void passStageAndScene(Stage mainStage, Scene[] scenes) {
-        stage = mainStage;
-        allScenes = scenes;
-    }
-    
 }
