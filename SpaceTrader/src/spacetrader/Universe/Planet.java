@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.Random;
+import spacetrader.Ship;
 
 /*Nickolas Graham
  * C3POs team 27
@@ -122,6 +123,34 @@ public class Planet implements Serializable{
             ret+= e.getKey() + ": " + e.getValue() + "\n"; 
         }
         return ret;
+    }
+    
+    public boolean isEncounter() {
+        if(spawnsPirates) {
+            return Math.random() <= 0.5;
+        } else {
+            return Math.random() <= 0.1;
+        }
+    }
+    
+    public Ship getEncounterShip() {
+        Ship encounter;
+        String name;
+        int size = (int)(Math.random() * 2) + 1; 
+        if(Math.random() <=0.5) {
+            name = "pirate";
+        } else {
+            name = "police";
+        }
+        int quality = 0;
+        if(techLevel < 3) {
+            quality = 1;
+        } else if(techLevel < 5) {
+            quality = 2;
+        } else {
+            quality = 3;
+        }
+        return new Ship(name, 0, size, quality);
     }
     
     private void computePrices() {
