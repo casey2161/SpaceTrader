@@ -96,22 +96,22 @@
             <Font size="15.0" />
          </font></Text>
       <Button layoutX="160.0" layoutY="436.0" mnemonicParsing="false" onAction="#cancelAction" text="Cancel" />
-      <Button fx:id="substractPilot" layoutX="291.0" layoutY="228.0" mnemonicParsing="false" onAction="#substractPilotAction" text="Substract" visible="false">
+      <Button fx:id="subtractPilot" layoutX="291.0" layoutY="228.0" mnemonicParsing="false" onAction="#subtractPilotAction" text="Subtract" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="substractFighter" layoutX="291.0" layoutY="258.0" mnemonicParsing="false" onAction="#substractFighterAction" text="Substract" visible="false">
+      <Button fx:id="subtractFighter" layoutX="291.0" layoutY="258.0" mnemonicParsing="false" onAction="#subtractFighterAction" text="Subtract" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="substractTrader" layoutX="291.0" layoutY="288.0" mnemonicParsing="false" onAction="#substractTraderAction" text="Substract" visible="false">
+      <Button fx:id="subtractTrader" layoutX="291.0" layoutY="288.0" mnemonicParsing="false" onAction="#subtractTraderAction" text="Subtract" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="substractEngineer" layoutX="291.0" layoutY="319.0" mnemonicParsing="false" onAction="#substractEngineerAction" text="Substract" visible="false">
+      <Button fx:id="subtractEngineer" layoutX="291.0" layoutY="319.0" mnemonicParsing="false" onAction="#subtractEngineerAction" text="Subtract" visible="false">
          <font>
             <Font size="10.0" />
          </font>

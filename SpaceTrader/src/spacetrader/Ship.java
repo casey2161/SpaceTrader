@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class Ship implements Serializable{
 	private String name;
-	private int maxRange, size, quality, shield, currRange, maxCargo;
+	private int maxRange, size, quality, hull, maxHull, currRange, maxCargo;
 	private Weapon weapon;
 	private HashMap<String, Integer> cargo = new HashMap<String, Integer>();
 	//private Equipment[] equipmentSlots;
@@ -32,7 +32,8 @@ public class Ship implements Serializable{
 		this.maxRange = maxRange;
 		this.quality = quality;
 		this.size = size;
-		shield = size*quality;
+		maxHull = size*quality;
+                hull = maxHull;
 		currRange = maxRange;
 		maxCargo = size*quality;
                 cargo = initCargoBay();
@@ -68,8 +69,8 @@ public class Ship implements Serializable{
             return size;
         }
         
-        public int getShield() {
-            return shield;
+        public int getHull() {
+            return hull;
         }
 	
         public int getCurrRange() {
@@ -104,11 +105,18 @@ public class Ship implements Serializable{
 	}
 	
 	public void takeDamage(int damageTaken) {
-		if (shield - damageTaken <= 0) {
+            /*
+		if (hull - damageTaken <= 0) {
 			System.out.println("Your ship has been destroyed!");
 		} else {
-			shield = shield - damageTaken;
+			hull = hull - damageTaken;
 		}
+            */
+            if (hull - damageTaken <= 0) {
+                hull = 0;
+            } else {
+                hull -= damageTaken;
+            }
 	}
 	
 	/**
@@ -116,6 +124,7 @@ public class Ship implements Serializable{
 	 * @param opponent The opposing ship
 	 */
 	public void dealDamage (Ship opponent) {
+            /*
 		if (weapon.getAmmo() <= 0) {
 			System.out.println("You're out of ammo! Can't shoot!");
 		} else {
@@ -124,6 +133,8 @@ public class Ship implements Serializable{
 				opponent.takeDamage(weapon.getDamage());
 			}
 		}
+            */
+            opponent.takeDamage((int)(Math.random() * 5));
 	}
 	
 	/**
@@ -204,5 +215,27 @@ public class Ship implements Serializable{
 	 */
         public int getAmount(String key) {
             return cargo.get(key.toLowerCase());
+        }
+        
+        public int getMaxHull() {
+            return maxHull;
+        }
+        
+        public boolean isDestroyed() {
+            return hull <= 0;
+        }
+        
+        public void emptyCargo() {
+            cargo = new HashMap<String, Integer>();
+            cargo.put("water", 0);
+            cargo.put("fur", 0);
+            cargo.put("food", 0);
+            cargo.put("ore", 0);
+            cargo.put("games", 0);
+            cargo.put("firearms", 0);
+            cargo.put("medicine", 0);
+            cargo.put("machines", 0);
+            cargo.put("narcotics", 0);
+            cargo.put("robots", 0);
         }
 }

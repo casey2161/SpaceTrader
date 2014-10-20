@@ -24,7 +24,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import spacetrader.Player;
 import spacetrader.SpaceTrader;
 import spacetrader.Universe.Planet;
@@ -36,6 +35,7 @@ import javafx.collections.FXCollections;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.TextField;
 import javafx.event.Event;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.FileChooser;
 
 /**
@@ -192,7 +192,6 @@ public class GameController implements Initializable {
         refreshMap();
     }
     
-    
     @FXML
     private void mapClickedAction(MouseEvent event) {
        refreshMap();
@@ -240,7 +239,7 @@ public class GameController implements Initializable {
                 }
             }
         }
-        
+
         if(!Player.getInstance().canTravel(destination)) {
             notification.setVisible(true);
         } else {
@@ -248,10 +247,13 @@ public class GameController implements Initializable {
             refreshMap();
         }
         refreshMap();
-        
-        
+
+        if (Player.getInstance().location().isEncounter()) {
+            RandomEncounterController.initializeEncounter(Player.getInstance().location().getEncounterShip());
+            SpaceTrader.stage.setScene(SpaceTrader.allScenes[3]);
+        }
     }
-    
+
     private void refreshMap() {
         mapPane.getChildren().clear();
         Group circles = new Group();
@@ -288,7 +290,7 @@ public class GameController implements Initializable {
         spawnspirates.setText(pirates);
         fuel.setText(Player.getInstance().ship().getCurrRange() + "");
     }
-    
+     
     
     
     // Others

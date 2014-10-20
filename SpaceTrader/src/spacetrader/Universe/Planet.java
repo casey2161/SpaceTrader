@@ -136,11 +136,11 @@ public class Planet implements Serializable{
     public Ship getEncounterShip() {
         Ship encounter;
         String name;
-        int size = (int)(Math.random() * 2) + 1; 
+        int size = (int)(Math.random() * 2) + 10; 
         if(Math.random() <=0.5) {
-            name = "pirate";
+            name = "Pirate";
         } else {
-            name = "police";
+            name = "Police";
         }
         int quality = 0;
         if(techLevel < 3) {

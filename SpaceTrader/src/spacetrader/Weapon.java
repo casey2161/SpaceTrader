@@ -51,7 +51,7 @@ public class Weapon {
 	}
 	
 	/**
-	 * Getter method for minimm quality of the ship needed
+	 * Getter method for minimum quality of the ship needed
 	 * @return The minimum quality of ship needed to mount the weapon
 	 */
 	public int getMinQuality() {

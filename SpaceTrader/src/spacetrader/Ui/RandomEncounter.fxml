@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.RandomEncounterController">
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab disable="true" text="Marketplace" />
+            <Tab text="Travel">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="title" layoutX="48.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You encounter a ship!">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="56.0" onMouseClicked="#encounter" pickOnBounds="true" preserveRatio="true" />
+                        <ProgressBar fx:id="youBar" layoutX="14.0" layoutY="244.0" prefHeight="20.0" prefWidth="150.0" progress="0.0" visible="false" />
+                        <ProgressBar fx:id="enemyBar" layoutX="196.0" layoutY="244.0" prefHeight="20.0" prefWidth="150.0" progress="0.0" visible="false" />
+                        <Text fx:id="you" layoutX="75.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You" visible="false">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="type" layoutX="255.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship" visible="false">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="button1" layoutX="40.0" layoutY="317.0" mnemonicParsing="false" onAction="#attackAction" text="Attack" visible="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button2" layoutX="151.0" layoutY="317.0" mnemonicParsing="false" onAction="#fleeAction" text="Flee" visible="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button3" layoutX="236.0" layoutY="317.0" mnemonicParsing="false" onAction="#submitOrSurrenderAction" text="Surrender" visible="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Text fx:id="message" layoutX="35.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message" visible="false" wrappingWidth="290.1220703125">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="button4" layoutX="146.0" layoutY="366.0" mnemonicParsing="false" onAction="#bribeAction" text="Bribe" visible="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="back" layoutX="153.0" layoutY="491.0" mnemonicParsing="false" onAction="#backAction" text="Back" visible="false">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </content></Tab>
+         </tabs>
+      </TabPane>
+   </center>
+   <top>
+      <Pane prefHeight="40.0" prefWidth="360.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button disable="true" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" text="Save Game" />
+            <Button disable="true" layoutX="100.0" layoutY="7.0" mnemonicParsing="false" text="Load Game" />
+            <Button disable="true" layoutX="291.0" layoutY="7.0" mnemonicParsing="false" text="Retire" />
+            <Button disable="true" layoutX="188.0" layoutY="7.0" mnemonicParsing="false" text="Quit Game" />
+         </children>
+      </Pane>
+   </top>
+</BorderPane>

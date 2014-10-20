@@ -27,7 +27,7 @@ public class Player implements Serializable{
             this.engineerPoints = engineerPoints;
             this.money = 1500;
             this.location = location;
-            ship = new Ship("SpawnShip", 100, 20, 1);
+            ship = new Ship("SpawnShip", 100, 30, 1);
     }
 
 
@@ -93,6 +93,9 @@ public class Player implements Serializable{
 
     public void subtractMoney(int i) {
         money = money - i;
+        if (money < 0) {
+            money = 0;
+        }
     }
 
     public static void updateInstance(String name, int diff, int pilotPoints, int fighterPoints,

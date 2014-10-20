@@ -37,10 +37,10 @@ public class PlayerConfigurationController implements Initializable {
     @FXML private Button addFighter;
     @FXML private Button addTrader;
     @FXML private Button addEngineer;
-    @FXML private Button substractPilot;
-    @FXML private Button substractFighter;
-    @FXML private Button substractTrader;
-    @FXML private Button substractEngineer;
+    @FXML private Button subtractPilot;
+    @FXML private Button subtractFighter;
+    @FXML private Button subtractTrader;
+    @FXML private Button subtractEngineer;
     @FXML private Button reset;
     @FXML private Button startNewGame;
     
@@ -55,7 +55,7 @@ public class PlayerConfigurationController implements Initializable {
         String newPoints = String.valueOf(currentPoints);
         pilot.setText(newText);
         skillPointsRemaining.setText(newPoints);
-        substractPilot.setVisible(true);
+        subtractPilot.setVisible(true);
 
         if (currentText >= 10 || currentPoints <= 0) {
             addPilot.setVisible(false);
@@ -68,7 +68,7 @@ public class PlayerConfigurationController implements Initializable {
     }
     
     @FXML
-    private void substractPilotAction(ActionEvent event) {
+    private void subtractPilotAction(ActionEvent event) {
         int currentText = Integer.parseInt(pilot.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
         currentText--;
@@ -80,7 +80,7 @@ public class PlayerConfigurationController implements Initializable {
         skillPointsRemaining.setText(newPoints);
 
         if (currentText <= 1) {
-            substractPilot.setVisible(false);
+            subtractPilot.setVisible(false);
         }
 
         if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
@@ -108,7 +108,7 @@ public class PlayerConfigurationController implements Initializable {
         String newPoints = String.valueOf(currentPoints);
         fighter.setText(newText);
         skillPointsRemaining.setText(newPoints);
-        substractFighter.setVisible(true);
+        subtractFighter.setVisible(true);
 
         if (currentText >= 10 || currentPoints <= 0) {
             addFighter.setVisible(false);
@@ -121,7 +121,7 @@ public class PlayerConfigurationController implements Initializable {
     }
     
     @FXML
-    private void substractFighterAction(ActionEvent event) {
+    private void subtractFighterAction(ActionEvent event) {
         int currentText = Integer.parseInt(fighter.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
         currentText--;
@@ -133,7 +133,7 @@ public class PlayerConfigurationController implements Initializable {
         skillPointsRemaining.setText(newPoints);
 
         if (currentText <= 1) {
-            substractFighter.setVisible(false);
+            subtractFighter.setVisible(false);
         }
         
         if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
@@ -161,7 +161,7 @@ public class PlayerConfigurationController implements Initializable {
         String newPoints = String.valueOf(currentPoints);
         trader.setText(newText);
         skillPointsRemaining.setText(newPoints);
-        substractTrader.setVisible(true);
+        subtractTrader.setVisible(true);
 
         if (currentText >= 10 || currentPoints <= 0) {
             addTrader.setVisible(false);
@@ -174,7 +174,7 @@ public class PlayerConfigurationController implements Initializable {
     }
     
     @FXML
-    private void substractTraderAction(ActionEvent event) {
+    private void subtractTraderAction(ActionEvent event) {
         int currentText = Integer.parseInt(trader.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
         currentText--;
@@ -186,7 +186,7 @@ public class PlayerConfigurationController implements Initializable {
         skillPointsRemaining.setText(newPoints);
 
         if (currentText <= 1) {
-            substractTrader.setVisible(false);
+            subtractTrader.setVisible(false);
         }
         if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
             addPilot.setVisible(true);
@@ -213,7 +213,7 @@ public class PlayerConfigurationController implements Initializable {
         String newPoints = String.valueOf(currentPoints);
         engineer.setText(newText);
         skillPointsRemaining.setText(newPoints);
-        substractEngineer.setVisible(true);
+        subtractEngineer.setVisible(true);
 
         if (currentText >= 10 || currentPoints <= 0) {
             addEngineer.setVisible(false);
@@ -226,7 +226,7 @@ public class PlayerConfigurationController implements Initializable {
     }
     
         @FXML
-    private void substractEngineerAction(ActionEvent event) {
+    private void subtractEngineerAction(ActionEvent event) {
         int currentText = Integer.parseInt(engineer.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
         currentText--;
@@ -238,7 +238,7 @@ public class PlayerConfigurationController implements Initializable {
         skillPointsRemaining.setText(newPoints);
 
         if (currentText <= 1) {
-            substractEngineer.setVisible(false);
+            subtractEngineer.setVisible(false);
         }
         if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
             addPilot.setVisible(true);
@@ -265,10 +265,10 @@ public class PlayerConfigurationController implements Initializable {
         addFighter.setVisible(true);
         addTrader.setVisible(true);
         addEngineer.setVisible(true);
-        substractPilot.setVisible(false);
-        substractFighter.setVisible(false);
-        substractTrader.setVisible(false);
-        substractEngineer.setVisible(false);
+        subtractPilot.setVisible(false);
+        subtractFighter.setVisible(false);
+        subtractTrader.setVisible(false);
+        subtractEngineer.setVisible(false);
         
         
         
