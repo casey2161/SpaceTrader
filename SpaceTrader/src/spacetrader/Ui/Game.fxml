@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -26,96 +28,155 @@
                <content>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="marketplace" layoutX="69.0" layoutY="81.0" onMouseClicked="#listViewAction" prefHeight="200.0" prefWidth="330.0" />
-                        <Text layoutX="146.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marketplace">
+                        <ImageView fitHeight="576.0" fitWidth="1024.0" layoutX="-155.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Pictures/marketplace.jpg" />
+                           </image>
+                        </ImageView>
+                        <ListView fx:id="marketplace" layoutX="73.0" layoutY="77.0" onMouseClicked="#listViewAction" prefHeight="200.0" prefWidth="330.0" />
+                        <Text fill="WHITE" layoutX="146.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marketplace">
                            <font>
                               <Font size="30.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text layoutX="69.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:">
+                        <Text fill="WHITE" layoutX="69.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text layoutX="69.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available:">
+                        <Text fill="WHITE" layoutX="69.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available:">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text layoutX="69.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory:">
+                        <Text fill="WHITE" layoutX="69.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory:">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text layoutX="69.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
+                        <Text fill="WHITE" layoutX="69.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text layoutX="15.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selling Price:" visible="false">
+                        <Text fill="WHITE" layoutX="15.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selling Price:" visible="false">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text layoutX="15.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacity:">
+                        <Text fill="WHITE" layoutX="15.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacity:">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="currentCapacity" layoutX="85.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="currentCapacity" fill="WHITE" layoutX="85.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text layoutX="110.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/">
+                        <Text fill="WHITE" layoutX="110.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="maximumCapacity" layoutX="130.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="maximumCapacity" fill="WHITE" layoutX="130.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text layoutX="225.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cash:">
+                        <Text fill="WHITE" layoutX="225.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cash:">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="cash" layoutX="270.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr.">
+                        <Text fx:id="cash" fill="WHITE" layoutX="270.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr.">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="available" layoutX="221.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="available" fill="WHITE" layoutX="221.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="inventory" layoutX="221.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="inventory" fill="WHITE" layoutX="221.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="sellingPrice" layoutX="167.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." visible="false">
+                        <Text fx:id="sellingPrice" fill="WHITE" layoutX="167.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr." visible="false">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="buyingPrice" layoutX="221.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr.">
+                        <Text fx:id="buyingPrice" fill="WHITE" layoutX="221.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr.">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
                         <Button fx:id="buy" layoutX="117.0" layoutY="467.0" mnemonicParsing="false" onAction="#tradeAction" text="Buy">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <effect>
+                              <Reflection />
+                           </effect>
                         </Button>
                         <Button fx:id="sell" layoutX="288.0" layoutY="467.0" mnemonicParsing="false" onAction="#tradeAction" text="Sell">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <effect>
+                              <Reflection />
+                           </effect>
                         </Button>
                         <TextField fx:id="quantity" layoutX="207.0" layoutY="417.0" prefHeight="26.0" prefWidth="55.0" promptText="0" />
                      </children>

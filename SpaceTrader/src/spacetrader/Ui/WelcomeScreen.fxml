@@ -23,7 +23,7 @@
             <Font size="48.0" />
          </font>
       </Text>
-      <Button fx:id="fontButton3" layoutX="216.0" layoutY="441.0" mnemonicParsing="false" onAction="#quitAction" text="Quit" />
+      <Button fx:id="fontButton3" layoutX="216.0" layoutY="443.0" mnemonicParsing="false" onAction="#quitAction" text="Quit" />
       <Button fx:id="fontButton" layoutX="194.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleNewGameButtonAction" stylesheets="@style.css" text="New Game" />
    </children>
 </Pane>

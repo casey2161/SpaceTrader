@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -15,112 +16,184 @@
             <Image url="@Pictures/space-art-wallpapers-06.gif" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="38.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
+      <Text fill="WHITE" layoutX="42.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
          <font>
             <Font size="20.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <TextField fx:id="playerName" layoutX="42.0" layoutY="129.0" />
-      <Text fill="WHITE" layoutX="46.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skill Points Remaining">
+      <TextField fx:id="playerName" layoutX="42.0" layoutY="104.0">
+         <effect>
+            <Reflection />
+         </effect></TextField>
+      <Text fill="WHITE" layoutX="42.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skill Points Remaining">
          <font>
             <Font size="18.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <Text fill="WHITE" layoutX="50.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pilot">
+      <Text fill="WHITE" layoutX="42.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pilot">
          <font>
             <Font size="18.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <Text fill="WHITE" layoutX="50.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fighter">
+      <Text fill="WHITE" layoutX="42.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fighter">
          <font>
             <Font size="18.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <Text fill="WHITE" layoutX="50.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trader">
+      <Text fill="WHITE" layoutX="44.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trader">
          <font>
             <Font size="18.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <Text fill="WHITE" layoutX="50.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engineer">
+      <Text fill="WHITE" layoutX="42.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Engineer">
          <font>
             <Font size="18.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <Text fx:id="skillPointsRemaining" fill="WHITE" layoutX="280.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16">
+      <Text fx:id="skillPointsRemaining" fill="WHITE" layoutX="276.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16">
          <font>
             <Font size="18.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <Text fx:id="pilot" fill="WHITE" layoutX="207.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+      <Text fx:id="pilot" fill="WHITE" layoutX="199.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <Text fx:id="fighter" fill="WHITE" layoutX="207.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+      <Text fx:id="fighter" fill="WHITE" layoutX="199.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <Text fx:id="trader" fill="WHITE" layoutX="207.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+      <Text fx:id="trader" fill="WHITE" layoutX="199.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <Text fx:id="engineer" fill="WHITE" layoutX="207.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+      <Text fx:id="engineer" fill="WHITE" layoutX="199.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
          <font>
             <Font size="15.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Text>
-      <Button fx:id="addPilot" layoutX="247.0" layoutY="228.0" mnemonicParsing="false" onAction="#addPilotAction" text="Add">
+      <Button fx:id="addPilot" layoutX="249.0" layoutY="213.0" mnemonicParsing="false" onAction="#addPilotAction" text="Add">
          <font>
             <Font size="10.0" />
          </font>
+         <effect>
+            <Reflection />
+         </effect>
       </Button>
-      <Button fx:id="addFighter" layoutX="247.0" layoutY="258.0" mnemonicParsing="false" onAction="#addFighterAction" text="Add">
+      <Button fx:id="addFighter" layoutX="251.0" layoutY="279.0" mnemonicParsing="false" onAction="#addFighterAction" text="Add">
          <font>
             <Font size="10.0" />
          </font>
+         <effect>
+            <Reflection />
+         </effect>
       </Button>
-      <Button fx:id="addTrader" layoutX="247.0" layoutY="288.0" mnemonicParsing="false" onAction="#addTraderAction" text="Add">
+      <Button fx:id="addTrader" layoutX="251.0" layoutY="345.0" mnemonicParsing="false" onAction="#addTraderAction" text="Add">
          <font>
             <Font size="10.0" />
          </font>
+         <effect>
+            <Reflection />
+         </effect>
       </Button>
-      <Button fx:id="addEngineer" layoutX="247.0" layoutY="319.0" mnemonicParsing="false" onAction="#addEngineerAction" text="Add">
+      <Button fx:id="addEngineer" layoutX="253.0" layoutY="411.0" mnemonicParsing="false" onAction="#addEngineerAction" text="Add">
          <font>
             <Font size="10.0" />
          </font>
+         <effect>
+            <Reflection />
+         </effect>
       </Button>
-      <Button fx:id="reset" layoutX="262.0" layoutY="355.0" mnemonicParsing="false" onAction="#resetAction" text="Reset">
+      <Button fx:id="reset" layoutX="362.0" layoutY="509.0" mnemonicParsing="false" onAction="#resetAction" text="Reset">
          <font>
             <Font size="15.0" />
          </font>
+         <effect>
+            <Reflection />
+         </effect>
       </Button>
-      <Button fx:id="startNewGame" layoutX="130.0" layoutY="396.0" mnemonicParsing="false" onAction="#startNewGameAction" text="Start New Game" />
-      <Text fx:id="startFailed" layoutX="85.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your name and assign all of the skill points." textAlignment="CENTER" visible="false" wrappingWidth="207.20361328125">
+      <Button fx:id="startNewGame" layoutX="34.0" layoutY="576.0" mnemonicParsing="false" onAction="#startNewGameAction" text="Start New Game">
+         <effect>
+            <Reflection />
+         </effect></Button>
+      <Text fx:id="startFailed" fill="WHITE" layoutX="113.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your name and assign all of the skill points." textAlignment="CENTER" wrappingWidth="207.20361328125">
          <font>
             <Font size="15.0" />
-         </font></Text>
-      <Button layoutX="160.0" layoutY="436.0" mnemonicParsing="false" onAction="#cancelAction" text="Cancel" />
-      <Button fx:id="subtractPilot" layoutX="350.0" layoutY="228.0" mnemonicParsing="false" onAction="#subtractPilotAction" text="Substract" visible="false">
+         </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect></Text>
+      <Button layoutX="359.0" layoutY="576.0" mnemonicParsing="false" onAction="#cancelAction" text="Cancel">
+         <effect>
+            <Reflection />
+         </effect></Button>
+      <Button fx:id="subtractPilot" layoutX="350.0" layoutY="213.0" mnemonicParsing="false" onAction="#subtractPilotAction" text="Substract">
          <font>
             <Font size="10.0" />
          </font>
+         <effect>
+            <Reflection />
+         </effect>
       </Button>
-      <Button fx:id="subtractFighter" layoutX="350.0" layoutY="258.0" mnemonicParsing="false" onAction="#subtractFighterAction" text="Substract" visible="false">
+      <Button fx:id="subtractFighter" layoutX="350.0" layoutY="279.0" mnemonicParsing="false" onAction="#subtractFighterAction" text="Substract">
          <font>
             <Font size="10.0" />
          </font>
+         <effect>
+            <Reflection />
+         </effect>
       </Button>
-      <Button fx:id="subtractTrader" layoutX="350.0" layoutY="288.0" mnemonicParsing="false" onAction="#subtractTraderAction" text="Substract" visible="false">
+      <Button fx:id="subtractTrader" layoutX="350.0" layoutY="345.0" mnemonicParsing="false" onAction="#subtractTraderAction" text="Substract">
          <font>
             <Font size="10.0" />
          </font>
+         <effect>
+            <Reflection />
+         </effect>
       </Button>
-      <Button fx:id="subtractEngineer" layoutX="350.0" layoutY="319.0" mnemonicParsing="false" onAction="#subtractEngineerAction" text="Substract" visible="false">
+      <Button fx:id="subtractEngineer" layoutX="350.0" layoutY="411.0" mnemonicParsing="false" onAction="#subtractEngineerAction" text="Substract">
          <font>
             <Font size="10.0" />
          </font>
+         <effect>
+            <Reflection />
+         </effect>
       </Button>
    </children>
 </Pane>
