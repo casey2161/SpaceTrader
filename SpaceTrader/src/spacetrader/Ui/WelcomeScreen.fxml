@@ -12,9 +12,9 @@
 
 <Pane onMouseMoved="#handleMouseMoved" prefHeight="640.0" prefWidth="360.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.WelcomeScreenController">
    <children>
-      <ImageView fx:id="bgImage" fitHeight="1200.0" fitWidth="809.0" layoutX="-124.0" layoutY="-47.0">
+      <ImageView fx:id="bgImage" fitHeight="744.0" fitWidth="992.0" layoutX="-316.0" layoutY="-49.0">
          <image>
-            <Image url="@Pictures/14cd18l.jpg" />
+            <Image url="@Pictures/Blue%20Space%20Wallpapers%203.jpg" />
          </image>
       </ImageView>
       <Button fx:id="fontButton2" layoutX="133.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleLoadGameButtonAction" text="Load Game" />

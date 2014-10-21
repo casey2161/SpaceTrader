@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.effect.Reflection;
+import spacetrader.SpaceTrader;
 
 /**
  *
@@ -32,7 +33,7 @@ public class WelcomeScreenController implements Initializable {
     
     @FXML
     private void handleNewGameButtonAction(ActionEvent event) {
-        stage.setScene(allScenes[1]);
+        SpaceTrader.stage.setScene(SpaceTrader.allScenes[1]);
     }
     
     @FXML
@@ -49,13 +50,16 @@ public class WelcomeScreenController implements Initializable {
     private void handleMouseMoved(MouseEvent event) {
         double x = event.getX();
         double y = event.getY();
-        double imageX = bgImage.getX();
-        double imageY = bgImage.getY();
-        if (x <= 180 || x >= -180) {
-            bgImage.setX(-x + (x/5));
+        double imageX = 150;
+        double imageY = 0;
+        if (x <= 360 || x >= 0) {
+            if (imageX >= -316.00 || imageX <= 316.00) {
+                bgImage.setX(imageX-(x/1.13));
+                imageX = bgImage.getX();
+            }
         } 
-        if (y <= 200 || y >= -100) {
-            bgImage.setY(-y + (y/5));
+        if (y <= 640 || y >= 0) {
+            bgImage.setY(imageY-(y/12.32));
         }
     }
     
