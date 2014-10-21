@@ -8,14 +8,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.GameController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="480.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.GameController">
    <top>
       <Pane prefHeight="40.0" prefWidth="360.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="saveGame" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#saveGameAction" text="Save Game" />
-            <Button fx:id="loadGame" layoutX="100.0" layoutY="7.0" mnemonicParsing="false" onAction="#loadGameAction" text="Load Game" />
-            <Button fx:id="retire" layoutX="291.0" layoutY="7.0" mnemonicParsing="false" onAction="#retireAction" text="Retire" />
-            <Button layoutX="188.0" layoutY="7.0" mnemonicParsing="false" onAction="#quitGameAction" text="Quit Game" />
+            <Button fx:id="saveGame" layoutX="21.0" layoutY="5.0" mnemonicParsing="false" onAction="#saveGameAction" text="Save Game" />
+            <Button fx:id="loadGame" layoutX="139.0" layoutY="5.0" mnemonicParsing="false" onAction="#loadGameAction" text="Load Game" />
+            <Button fx:id="retire" layoutX="375.0" layoutY="5.0" mnemonicParsing="false" onAction="#retireAction" text="Retire" />
+            <Button layoutX="259.0" layoutY="5.0" mnemonicParsing="false" onAction="#quitGameAction" text="Quit Game" />
          </children>
       </Pane>
    </top>
@@ -26,28 +26,28 @@
                <content>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="marketplace" layoutX="15.0" layoutY="84.0" onMouseClicked="#listViewAction" prefHeight="200.0" prefWidth="330.0" />
-                        <Text layoutX="92.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marketplace">
+                        <ListView fx:id="marketplace" layoutX="69.0" layoutY="81.0" onMouseClicked="#listViewAction" prefHeight="200.0" prefWidth="330.0" />
+                        <Text layoutX="146.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marketplace">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Text>
-                        <Text layoutX="15.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:">
+                        <Text layoutX="69.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="15.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available:">
+                        <Text layoutX="69.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available:">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="15.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory:">
+                        <Text layoutX="69.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory:">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="15.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
+                        <Text layoutX="69.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -87,12 +87,12 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="available" layoutX="167.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="available" layoutX="221.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Text fx:id="inventory" layoutX="167.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                        <Text fx:id="inventory" layoutX="221.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -102,22 +102,22 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Text fx:id="buyingPrice" layoutX="167.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr.">
+                        <Text fx:id="buyingPrice" layoutX="221.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 cr.">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Button fx:id="buy" layoutX="63.0" layoutY="470.0" mnemonicParsing="false" onAction="#tradeAction" text="Buy">
+                        <Button fx:id="buy" layoutX="117.0" layoutY="467.0" mnemonicParsing="false" onAction="#tradeAction" text="Buy">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="sell" layoutX="234.0" layoutY="470.0" mnemonicParsing="false" onAction="#tradeAction" text="Sell">
+                        <Button fx:id="sell" layoutX="288.0" layoutY="467.0" mnemonicParsing="false" onAction="#tradeAction" text="Sell">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="quantity" layoutX="153.0" layoutY="420.0" prefHeight="26.0" prefWidth="55.0" promptText="0" />
+                        <TextField fx:id="quantity" layoutX="207.0" layoutY="417.0" prefHeight="26.0" prefWidth="55.0" promptText="0" />
                      </children>
                   </Pane>
                </content>
