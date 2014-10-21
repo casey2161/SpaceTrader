@@ -172,7 +172,7 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="selectedDestination111" layoutX="14.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spawn Chance:">
+                        <Text fx:id="selectedDestination111" layoutX="14.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pirates:">
                            <font>
                               <Font size="15.0" />
                            </font>
