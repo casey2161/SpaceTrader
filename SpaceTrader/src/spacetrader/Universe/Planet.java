@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Set;
 import java.util.Random;
 import spacetrader.Ship;
+import spacetrader.Weapon;
 
 /*Nickolas Graham
  * C3POs team 27
@@ -150,7 +151,10 @@ public class Planet implements Serializable{
         } else {
             quality = 3;
         }
-        return new Ship(name, 0, size, quality);
+        
+        encounter = new Ship(name, 0, size, quality);
+        encounter.addWeapon(new Weapon("Laser", 10, 30, 1));
+        return encounter;
     }
     
     private void computePrices() {
