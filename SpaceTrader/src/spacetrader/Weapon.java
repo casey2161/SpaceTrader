@@ -7,24 +7,26 @@ package spacetrader;
  */
 public class Weapon {
 	String name;
-	private int damage, accuracy, ammo, minQuality;
+	private int damage, ammo, minQuality;
 	
 	/**
 	 * Constructor for Weapon with parameters for name, damage, accuracy, ammo size, and minimum
 	 * quality ship needed to mount it
 	 * @param name The name of the weapon
 	 * @param damage The amount of damage the weapon can deal
-	 * @param accuracy The accuracy of the weapon
 	 * @param ammo The amount of ammo a particular weapon has
 	 * @param minQuality The minimum quality of ship needed to mount the weapon
 	 */
-	public Weapon (String name, int damage, int accuracy, int ammo, int minQuality) {
+	public Weapon (String name, int damage, int ammo, int minQuality) {
 		this.name = name;
 		this.damage = damage;
-		this.accuracy = accuracy;
 		this.ammo = ammo;
 		this.minQuality = minQuality;
 	}
+        
+        public String getName() {
+            return name;
+        }
 	
 	/**
 	 * Getter method for weapon damage
@@ -32,14 +34,6 @@ public class Weapon {
 	 */
 	public int getDamage() {
 		return damage;
-	}
-	
-	/**
-	 * Getter method for accuracy
-	 * @return The accuracy of the weapon
-	 */
-	public int getAccuracy() {
-		return accuracy;
 	}
 	
 	/**
@@ -57,4 +51,8 @@ public class Weapon {
 	public int getMinQuality() {
 		return minQuality;
 	}
+        
+        public void fireWeapon() {
+            ammo--;
+        }
 }

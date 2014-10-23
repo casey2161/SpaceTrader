@@ -13,6 +13,7 @@ public class Player implements Serializable{
     private int money;
     private static Player player = createInstance();
     private Ship ship;
+    private Weapon weapon;
     private Planet location;
     private static int DEFAULT_DIFF = 1;
     private static int DEFAULT_SKILL = 4;
@@ -28,6 +29,8 @@ public class Player implements Serializable{
             this.money = 1500;
             this.location = location;
             ship = new Ship("SpawnShip", 100, 30, 1);
+            weapon = new Weapon("Laser", 10, 30, 1);
+            ship.addWeapon(weapon);
     }
 
 

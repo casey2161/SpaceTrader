@@ -14,9 +14,10 @@ import java.util.Map;
 public class Ship implements Serializable{
 	private String name;
 	private int maxRange, size, quality, hull, maxHull, currRange, maxCargo;
-	private Weapon weapon;
+	private Weapon weapon = new Weapon("Default", 0, 0, 0);
 	private HashMap<String, Integer> cargo = new HashMap<String, Integer>();
 	//private Equipment[] equipmentSlots;
+        //private Shield shield;
 	
 	/**
 	 * Constructor for Ship with parameters for name, maximum range, size of the ship, quality
@@ -25,7 +26,6 @@ public class Ship implements Serializable{
 	 * @param maxRange The maximum range the ship can travel on full fuel
 	 * @param size The size of the ship
 	 * @param quality The quality of the ship
-	 * @param location The Planet the ship is at
 	 */
 	public Ship (String name, int maxRange, int size, int quality) {
 		this.name = name;
@@ -88,7 +88,12 @@ public class Ship implements Serializable{
 			System.out.println("Your ship is too low-tech to use this weapon!");
 		}
 	}
-	
+	/*
+        public void addShield(Shield newShield) {
+            shield = newShield;
+        }
+        */
+        
 	/**
 	 * Changes new current range
 	 * @param input The new current possible range
@@ -105,17 +110,10 @@ public class Ship implements Serializable{
 	}
 	
 	public void takeDamage(int damageTaken) {
-            /*
-		if (hull - damageTaken <= 0) {
-			System.out.println("Your ship has been destroyed!");
-		} else {
-			hull = hull - damageTaken;
-		}
-            */
             if (hull - damageTaken <= 0) {
                 hull = 0;
             } else {
-                hull -= damageTaken;
+                hull = hull - damageTaken;
             }
 	}
 	
@@ -124,17 +122,12 @@ public class Ship implements Serializable{
 	 * @param opponent The opposing ship
 	 */
 	public void dealDamage (Ship opponent) {
-            /*
-		if (weapon.getAmmo() <= 0) {
-			System.out.println("You're out of ammo! Can't shoot!");
-		} else {
-			int hit = (int) Math.random()*7;
-			if (hit <= weapon.getAccuracy()) {
-				opponent.takeDamage(weapon.getDamage());
-			}
-		}
-            */
-            opponent.takeDamage((int)(Math.random() * 5));
+            if (weapon.getAmmo() <= 0) {
+                System.out.println("You're out of ammo!");
+            } else {
+                weapon.fireWeapon();
+                opponent.takeDamage((int)(weapon.getDamage() * Math.random()));
+            }
 	}
 	
 	/**
