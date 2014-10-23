@@ -171,8 +171,7 @@ public class Player implements Serializable{
         
     }
     
-    public static void setInstance(Player p) {        
-        updateInstance(p.name(), 1, p.pilot(), p.fighter(), p.trader(), 
-            p.engineer(), p.location());
+    public static void setInstance(Player p) {
+        player = p;
     }
 }
