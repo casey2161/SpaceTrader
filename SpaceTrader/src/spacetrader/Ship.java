@@ -15,9 +15,9 @@ public class Ship implements Serializable{
 	private String name;
 	private int maxRange, size, quality, hull, maxHull, currRange, maxCargo;
 	private Weapon weapon = new Weapon("Default", 0, 0, 0);
+        private Shield shield = new Shield(0, false, false);
 	private HashMap<String, Integer> cargo = new HashMap<String, Integer>();
 	//private Equipment[] equipmentSlots;
-        //private Shield shield;
 	
 	/**
 	 * Constructor for Ship with parameters for name, maximum range, size of the ship, quality
@@ -77,6 +77,14 @@ public class Ship implements Serializable{
             return currRange;
         }
         
+        public Weapon getWeapon() {
+            return weapon;
+        }
+        
+        public Shield getShield() {
+            return shield;
+        }
+        
 	/**
 	 * Adds a new weapon to the ship
 	 * @param newWeapon The weapon being added
@@ -88,11 +96,10 @@ public class Ship implements Serializable{
 			System.out.println("Your ship is too low-tech to use this weapon!");
 		}
 	}
-	/*
+
         public void addShield(Shield newShield) {
             shield = newShield;
         }
-        */
         
 	/**
 	 * Changes new current range
@@ -110,6 +117,7 @@ public class Ship implements Serializable{
 	}
 	
 	public void takeDamage(int damageTaken) {
+            damageTaken = shield.absorbDamage(damageTaken);
             if (hull - damageTaken <= 0) {
                 hull = 0;
             } else {
@@ -122,9 +130,7 @@ public class Ship implements Serializable{
 	 * @param opponent The opposing ship
 	 */
 	public void dealDamage (Ship opponent) {
-            if (weapon.getAmmo() <= 0) {
-                System.out.println("You're out of ammo!");
-            } else {
+            if (weapon.getAmmo() > 0) {
                 weapon.fireWeapon();
                 opponent.takeDamage((int)(weapon.getDamage() * Math.random()));
             }

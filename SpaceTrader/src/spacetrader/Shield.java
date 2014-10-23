@@ -1,13 +1,12 @@
 package spacetrader;
 
 public class Shield {
-    private int charge, chargeTime, maxCharge;
+    private int charge, maxCharge;
     private boolean isReflective, isExplosive;
     
-    public Shield(int maxCharge, int chargeTime, boolean isReflective, boolean 
+    public Shield(int maxCharge, boolean isReflective, boolean 
             isExplosive) {
         this.maxCharge = maxCharge;
-        this.chargeTime = chargeTime;
         this.isReflective = isReflective;
         this.isExplosive = isExplosive;
         charge = maxCharge;
@@ -15,10 +14,6 @@ public class Shield {
     
     public int getCharge() {
         return charge;
-    }
-    
-    public int getChargeTime() {
-        return chargeTime;
     }
     
     public int getMaxCharge() {
@@ -34,19 +29,16 @@ public class Shield {
     }
     
     public void recharge(int distance) {
-        int recharge = distance*chargeTime;
-        if (charge+recharge >= maxCharge) {
-            charge = maxCharge;
-        } else {
-            charge += recharge;
-        }
+        charge = maxCharge;
     }
     
-    public void takeDamage(int damage) {
+    public int absorbDamage(int damage) {
         if (charge - damage <= 0) {
             charge = 0;
+            return damage - charge;
         } else {
             charge -= damage;
+            return 0;
         }
     }
     
