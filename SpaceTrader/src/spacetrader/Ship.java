@@ -27,7 +27,7 @@ public class Ship implements Serializable{
 	 * @param size The size of the ship
 	 * @param quality The quality of the ship
 	 */
-	public Ship (String name, int maxRange, int size, int quality) {
+	public Ship (String name, int maxRange, int size, int quality, int maxCargo) {
 		this.name = name;
 		this.maxRange = maxRange;
 		this.quality = quality;
@@ -35,7 +35,7 @@ public class Ship implements Serializable{
 		maxHull = size*quality;
                 hull = maxHull;
 		currRange = maxRange;
-		maxCargo = size*quality;
+		this.maxCargo = maxCargo;
                 cargo = initCargoBay();
 	}
         
@@ -223,7 +223,7 @@ public class Ship implements Serializable{
         public boolean isDestroyed() {
             return hull <= 0;
         }
-        
+
         public void emptyCargo() {
             cargo = new HashMap<String, Integer>();
             cargo.put("water", 0);
@@ -236,5 +236,9 @@ public class Ship implements Serializable{
             cargo.put("machines", 0);
             cargo.put("narcotics", 0);
             cargo.put("robots", 0);
+        }
+
+        public void repair() {
+            hull = maxHull;
         }
 }

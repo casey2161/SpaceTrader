@@ -152,7 +152,7 @@
          <effect>
             <Reflection />
          </effect></Button>
-      <Text fx:id="startFailed" fill="WHITE" layoutX="113.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your name and assign all of the skill points." textAlignment="CENTER" wrappingWidth="207.20361328125">
+      <Text fx:id="startFailed" fill="WHITE" layoutX="113.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your name and assign all of the skill points." textAlignment="CENTER" visible="false" wrappingWidth="207.20361328125">
          <font>
             <Font size="15.0" />
          </font>
@@ -163,7 +163,7 @@
          <effect>
             <Reflection />
          </effect></Button>
-      <Button fx:id="subtractPilot" layoutX="350.0" layoutY="213.0" mnemonicParsing="false" onAction="#subtractPilotAction" text="Substract">
+      <Button fx:id="subtractPilot" layoutX="350.0" layoutY="213.0" mnemonicParsing="false" onAction="#subtractPilotAction" text="Subtract" visible="false">
          <font>
             <Font size="10.0" />
          </font>
@@ -171,7 +171,7 @@
             <Reflection />
          </effect>
       </Button>
-      <Button fx:id="subtractFighter" layoutX="350.0" layoutY="279.0" mnemonicParsing="false" onAction="#subtractFighterAction" text="Substract">
+      <Button fx:id="subtractFighter" layoutX="350.0" layoutY="279.0" mnemonicParsing="false" onAction="#subtractFighterAction" text="Subtract" visible="false">
          <font>
             <Font size="10.0" />
          </font>
@@ -179,7 +179,7 @@
             <Reflection />
          </effect>
       </Button>
-      <Button fx:id="subtractTrader" layoutX="350.0" layoutY="345.0" mnemonicParsing="false" onAction="#subtractTraderAction" text="Substract">
+      <Button fx:id="subtractTrader" layoutX="350.0" layoutY="345.0" mnemonicParsing="false" onAction="#subtractTraderAction" text="Subtract" visible="false">
          <font>
             <Font size="10.0" />
          </font>
@@ -187,7 +187,7 @@
             <Reflection />
          </effect>
       </Button>
-      <Button fx:id="subtractEngineer" layoutX="350.0" layoutY="411.0" mnemonicParsing="false" onAction="#subtractEngineerAction" text="Substract">
+      <Button fx:id="subtractEngineer" layoutX="350.0" layoutY="411.0" mnemonicParsing="false" onAction="#subtractEngineerAction" text="Subtract" visible="false">
          <font>
             <Font size="10.0" />
          </font>

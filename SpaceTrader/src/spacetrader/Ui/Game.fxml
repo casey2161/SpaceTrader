@@ -267,6 +267,78 @@
                   </AnchorPane>
               </content>
             </Tab>
+            <Tab fx:id="shipyardTab" disable="true" onSelectionChanged="#shipyardSelectedAction" text="Shipyard">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="177.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shipyard">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                        <ListView fx:id="shipyard" layoutX="75.0" layoutY="84.0" onMouseClicked="#shipyardAction" prefHeight="200.0" prefWidth="330.0" />
+                        <Text fx:id="shipName" layoutX="193.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Name">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="fuel11" layoutX="100.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Size:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="fuel111" layoutX="100.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cargo Bays:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="fuel1111" layoutX="100.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Range:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="fuel11111" layoutX="100.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Quality:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="buyShip" layoutX="100.0" layoutY="410.0" mnemonicParsing="false" onAction="#buyShipAction" text="Buy" />
+                        <Text fx:id="shipSize" layoutX="300.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="cargoBays" layoutX="300.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="maxRange" layoutX="300.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="shipQuality" layoutX="300.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="buyFuel" layoutX="118.0" layoutY="492.0" mnemonicParsing="false" onAction="#buyFuelAction" text="Buy Fuel" />
+                        <Button fx:id="repairShip" layoutX="249.0" layoutY="492.0" mnemonicParsing="false" onAction="#repairShipAction" text="Repair Ship" />
+                        <Text fx:id="shipPrice" layoutX="293.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Cr.">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="shipNotification" layoutX="144.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have bought a new ship!" visible="false">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </center>

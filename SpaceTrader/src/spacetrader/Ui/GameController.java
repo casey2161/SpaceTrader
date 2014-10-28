@@ -18,24 +18,25 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import spacetrader.Player;
+import spacetrader.Ship;
 import spacetrader.SpaceTrader;
 import spacetrader.Universe.Planet;
 import spacetrader.Universe.Universe;
 import javafx.scene.control.ListView;
 import java.util.Arrays;
 import java.util.List;
+import java.util.HashMap;
 import javafx.collections.FXCollections;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.TextField;
 import javafx.event.Event;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.FileChooser;
 
 /**
@@ -72,7 +73,22 @@ public class GameController implements Initializable {
     @FXML private Text resources;
     @FXML private Text spawnspirates;
     @FXML private Text fuel;
-    private Scene currentScene;
+
+    // Shipyard
+    @FXML private ListView shipyard;
+    @FXML private Text shipName;
+    @FXML private Text shipSize;
+    @FXML private Text cargoBays;
+    @FXML private Text maxRange;
+    @FXML private Text shipQuality;
+    @FXML private Text shipPrice;
+    @FXML private Text shipNotification;
+    @FXML private Button buyShip;
+    @FXML private Button buyFuel;
+    @FXML private Button repairShip;
+    @FXML private Tab shipyardTab;
+    private HashMap<String, Ship> shipMap;
+    private HashMap<String, Integer> shipPrices;
     
 
     
@@ -121,20 +137,20 @@ public class GameController implements Initializable {
         SpaceTrader.stage.setScene(SpaceTrader.allScenes[0]);
     }
 
-    
-    
+
+
     // Marketplace Tab
     
     @FXML
     private void marketplaceSelectedAction(Event event) {
         refreshMarketplace();
     }
-    
+
     @FXML
     private void listViewAction(MouseEvent event) {
         refreshMarketplace();
     }
-    
+
     @FXML
     private void tradeAction(ActionEvent event) {
         if (event.getSource().equals(buy)) {
@@ -182,9 +198,9 @@ public class GameController implements Initializable {
             sell.setVisible(false);
         }
     }
-    
 
-    
+
+
     //Travel
     
     @FXML
@@ -244,6 +260,11 @@ public class GameController implements Initializable {
             notification.setVisible(true);
         } else {
             Player.getInstance().travel(destination);
+            if (Player.getInstance().location().getTechLevel() > 3) {
+                shipyardTab.setDisable(false);
+            } else {
+                shipyardTab.setDisable(true);
+            }
             refreshMap();
         }
         refreshMap();
@@ -290,15 +311,145 @@ public class GameController implements Initializable {
         spawnspirates.setText(pirates);
         fuel.setText(Player.getInstance().ship().getCurrRange() + "");
     }
-     
-    
-    
+
+
+
+    // Shipyard
+
+    @FXML
+    private void shipyardSelectedAction(Event event) {
+        List<String> list = Arrays.asList("Flea", "Gnat", "Firefly", "Mosquito",
+                "Bumblebee", "Beetle", "Hornet", "Grasshopper", "Termite", "Wasp");
+        shipyard.setItems(FXCollections.observableList(list));
+
+        if (Player.getInstance().ship().getCurrRange()
+                != Player.getInstance().ship().getMaxRange()) {
+            buyFuel.setVisible(true);
+        } else {
+            buyFuel.setVisible(false);
+        }
+
+        if (Player.getInstance().ship().getHull()
+                != Player.getInstance().ship().getMaxHull()) {
+            repairShip.setVisible(true);
+        } else {
+            repairShip.setVisible(false);
+        }
+    }
+
+    @FXML
+    private void shipyardAction(MouseEvent event) {
+        refreshShipyard();
+    }
+
+    @FXML
+    private void buyFuelAction(ActionEvent event) {
+        int price = Player.getInstance().ship().getMaxRange()
+                - Player.getInstance().ship().getCurrRange();
+        Player.getInstance().subtractMoney(price * 2);
+
+        Player.getInstance().ship().refuel();
+        buyFuel.setVisible(false);
+    }
+
+    @FXML
+    private void repairShipAction(ActionEvent event) {
+        int price = Player.getInstance().ship().getMaxHull()
+                - Player.getInstance().ship().getHull();
+        Player.getInstance().subtractMoney(price * 5);
+        Player.getInstance().ship().repair();
+        repairShip.setVisible(false);
+    }
+
+    @FXML
+    private void buyShipAction(ActionEvent event) {
+        String selectedItem = shipyard.getSelectionModel().getSelectedItem() + "";
+        Ship selectedShip = shipMap.get(selectedItem);
+        int price = shipPrices.get(selectedItem);
+        if (Player.getInstance().money() >= price && !Player.getInstance()
+                .ship().getName().equals(selectedShip.getName())) {
+            Player.getInstance().setShip(selectedShip);
+            Player.getInstance().subtractMoney(price);
+            shipNotification.setVisible(true);
+        }
+    }
+
+    private void refreshShipyard() {
+        String selectedItem = shipyard.getSelectionModel().getSelectedItem() + "";
+        shipName.setText(selectedItem);
+        String sizeString = "";
+        if (shipMap.get(selectedItem).getSize() == 10) {
+            sizeString = "Tiny";
+        } else if (shipMap.get(selectedItem).getSize() == 20) {
+            sizeString = "Small";
+        } else if (shipMap.get(selectedItem).getSize() == 30) {
+            sizeString = "Medium";
+        } else if (shipMap.get(selectedItem).getSize() == 40) {
+            sizeString = "Large";
+        } else if (shipMap.get(selectedItem).getSize() == 50) {
+            sizeString = "Huge";
+        }
+        shipSize.setText(sizeString);
+        cargoBays.setText(shipMap.get(selectedItem).getMaxCargo() + "");
+        maxRange.setText(shipMap.get(selectedItem).getMaxRange() + "");
+        String qualityString = "";
+        if (shipMap.get(selectedItem).getQuality() == 1) {
+            qualityString = "Standard";
+        } else if (shipMap.get(selectedItem).getQuality() == 2) {
+            qualityString = "Better";
+        } else if (shipMap.get(selectedItem).getQuality() == 3) {
+            qualityString = "Best";
+        }
+        shipQuality.setText(qualityString);
+
+        if (Player.getInstance().ship().getCurrRange()
+                != Player.getInstance().ship().getMaxRange()) {
+            buyFuel.setVisible(true);
+        } else {
+            buyFuel.setVisible(false);
+        }
+
+        if (Player.getInstance().ship().getHull()
+                != Player.getInstance().ship().getMaxHull()) {
+            repairShip.setVisible(true);
+        } else {
+            repairShip.setVisible(false);
+        }
+
+        shipNotification.setVisible(false);
+        shipPrice.setText(shipPrices.get(selectedItem).toString() + " cr.");
+    }
+
+
     // Others
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {   
-       List<String> list = Arrays.asList("Water", "Fur", "Food", "Ore",
+        List<String> list = Arrays.asList("Water", "Fur", "Food", "Ore",
                 "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots");
         marketplace.setItems(FXCollections.observableList(list));
+
+        shipMap = new HashMap<String, Ship>();
+        shipMap.put("Flea", new Ship("Flea", 200, 10, 1, 10));
+        shipMap.put("Gnat", new Ship("Gnat", 140, 20, 1, 15));
+        shipMap.put("Firefly", new Ship("Firefly", 170, 20, 1, 20));
+        shipMap.put("Mosquito", new Ship("Mosquito", 130, 20, 2, 15));
+        shipMap.put("Bumblebee", new Ship("Bumblebee", 150, 30, 2, 25));
+        shipMap.put("Beetle", new Ship("Beetle", 140, 30, 2, 50));
+        shipMap.put("Hornet", new Ship("Hornet", 160, 40, 2, 20));
+        shipMap.put("Grasshopper", new Ship("Grasshopper", 150, 40, 3, 30));
+        shipMap.put("Termite", new Ship("Termite", 130, 50, 3, 60));
+        shipMap.put("Wasp", new Ship("Wasp", 140, 50, 3, 35));
+        shipPrices = new HashMap<String, Integer>();
+        shipPrices.put("Flea", new Integer(1000));
+        shipPrices.put("Gnat", new Integer(2000));
+        shipPrices.put("Firefly", new Integer(3500));
+        shipPrices.put("Mosquito", new Integer(5000));
+        shipPrices.put("Bumblebee", new Integer(7000));
+        shipPrices.put("Beetle", new Integer(10000));
+        shipPrices.put("Hornet", new Integer(15000));
+        shipPrices.put("Grasshopper", new Integer(20000));
+        shipPrices.put("Termite", new Integer(30000));
+        shipPrices.put("Wasp", new Integer(45000));
     }
 }

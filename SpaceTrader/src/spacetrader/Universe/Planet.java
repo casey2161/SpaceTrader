@@ -137,7 +137,7 @@ public class Planet implements Serializable{
     public Ship getEncounterShip() {
         Ship encounter;
         String name;
-        int size = (int)(Math.random() * 2) + 10; 
+        int size = (int)(Math.random() * 2) + 5;
         if(Math.random() <=0.5) {
             name = "Pirate";
         } else {
@@ -152,8 +152,8 @@ public class Planet implements Serializable{
             quality = 3;
         }
         
-        encounter = new Ship(name, 0, size, quality);
-        encounter.addWeapon(new Weapon("Laser", 10, 30, 1));
+        encounter = new Ship(name, 0, size, quality, 0);
+        encounter.addWeapon(new Weapon("Weaker Laser", 2, 30, 1));
         return encounter;
     }
     
