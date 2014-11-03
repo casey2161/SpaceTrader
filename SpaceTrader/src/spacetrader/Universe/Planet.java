@@ -46,6 +46,7 @@ public class Planet implements Serializable{
         "DESERT", "LOTSOFWATER", "RICHSOIL", "POORSOIL", "RICHFAUNA", "LIFELESS", "WEIRDMUSHROOMS",
         "LOTSOFHERBS", "ARTISTIC", "WARLIKE"};
     private HashMap<String, Integer> priceMap, cargoMap;
+    private HashMap<Object, Integer> upgradeMap;
     
     public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates,
             HashMap<String, Integer> prices, HashMap<String, Integer> amount) {//used for loading saved planet config from saved game
@@ -169,6 +170,30 @@ public class Planet implements Serializable{
         priceMap.put("Machines", (int) (900 + -30 * (techLevel - 4) + 900 * rand.nextFloat()));
         priceMap.put("Narcotics", (int) (3500 + -125 * (techLevel - 5) + 3500 * rand.nextFloat()));
         priceMap.put("Robots", (int) (5000 + -150 * (techLevel - 6) + 5000 * rand.nextFloat()));
+    }
+
+    public void generateUpgradeMap() {
+        Random gen = new Random();
+        Weapon cheapWeapon = new Weapon("Lo-power Lazer", techLevel*(1.5), Integer.MAX_INT, 0);
+        Weapon midTier = new Weapon("Mid-Power Lazer", Random.nextInt(6) + 1 + techLevel*1.75, Integer.MAX_INT, 0);
+        Weapon highTier = new Weapon("Hi-Power Lazer", Random.nextInt(5) + 5 + techLevel*2, Integer.MAX_INT,0);
+        upgradeMap.put(cheapWeapon, 1500*(1 + gen.nextFloat()));
+        upgradeMap.put(midTier, 3000*(1.2 + gen.nextFloat()));
+        upgradeMap.put(highTier, 5000*(1.5 + gen.nextFloat()));
+
+        if(techLevel >= 5 && gen.nextFloat < 0.5) {
+            upgradeMap.put("Escape Pod", 10000);
+        }
+
+        Shield cheapShield = new Shield(techLevel * (2 * (gen.nextInt(5) + 1)), gen.nextBoolean(), gen.nextBoolean());
+        Shield goodShield = new Shield(techLevel * (4 * (gen.nextInt(7) + 1)), gen.nextBoolean(), gen.nextBoolean());
+        upgradeMap.put(cheapShield, 3000 * (1 + (techLevel * gen.nextFloat())));
+        upgradeMap.put(cheapShield, 5000 * (1.2 + (techLevel * gen.nextFloat())));
+
+    }
+
+    public HashMap<Object, Integer> getUpgrades() {
+        return upgradeMap;
     }
 }  
     
