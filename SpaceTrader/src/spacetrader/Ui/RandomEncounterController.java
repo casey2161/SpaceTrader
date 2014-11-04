@@ -81,7 +81,7 @@ public class RandomEncounterController implements Initializable {
         message.setText("You have decided to fight the " + enemy.getName() + "!");
         
         if (Player.getInstance().ship().isDestroyed()) {
-            if (Player.getInstance().ship().getEscapePod()) {
+            if (Player.getInstance().ship().hasEscapePod()) {
                 finish("Your enemy destroyed your ship! You have escaped using the escape pod.");
             } else {
                 SpaceTrader.stage.setScene(SpaceTrader.allScenes[4]);
@@ -107,7 +107,7 @@ public class RandomEncounterController implements Initializable {
                     + " is attacking your ship!");
         
             if (Player.getInstance().ship().isDestroyed()) {
-                if (Player.getInstance().ship().getEscapePod()) {
+                if (Player.getInstance().ship().hasEscapePod()) {
                     finish("Your enemy destroyed your ship! You have escaped using the escape pod.");
                 } else {
                     SpaceTrader.stage.setScene(SpaceTrader.allScenes[4]);
