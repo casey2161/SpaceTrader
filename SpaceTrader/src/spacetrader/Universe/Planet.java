@@ -6,7 +6,7 @@ import java.util.Random;
 import spacetrader.Ship;
 import spacetrader.Flea;
 import spacetrader.Weapon;
-import spacetader.Shield
+import spacetrader.Shield;
 
 /*Nickolas Graham
  * C3POs team 27
@@ -176,21 +176,21 @@ public class Planet implements Serializable{
 
     public void generateUpgradeMap() {
         Random gen = new Random();
-        Weapon cheapWeapon = new Weapon("Lo-power Lazer", techLevel*(1.5), Integer.MAX_VALUE, 0);
-        Weapon midTier = new Weapon("Mid-Power Lazer", gen.nextInt(6) + 1 + techLevel*1.75, Integer.MAX_VALUE, 0);
+        Weapon cheapWeapon = new Weapon("Lo-power Lazer", (int) (techLevel*(1.5)), Integer.MAX_VALUE, 0);
+        Weapon midTier = new Weapon("Mid-Power Lazer", (int) (gen.nextInt(6) + 1 + techLevel*1.75), Integer.MAX_VALUE, 0);
         Weapon highTier = new Weapon("Hi-Power Lazer", gen.nextInt(5) + 5 + techLevel*2, Integer.MAX_VALUE,0);
-        upgradeMap.put(cheapWeapon, 1500*(1 + gen.nextFloat()));
-        upgradeMap.put(midTier, 3000*(1.2 + gen.nextFloat()));
-        upgradeMap.put(highTier, 5000*(1.5 + gen.nextFloat()));
+        upgradeMap.put(cheapWeapon, (int) (1500*(1 + gen.nextFloat())));
+        upgradeMap.put(midTier,(int) (3000*(1.2 + gen.nextFloat())));
+        upgradeMap.put(highTier,(int) (5000*(1.5 + gen.nextFloat())));
 
-        if(techLevel >= 5 && gen.nextFloat < 0.5) {
+        if(techLevel >= 5 && gen.nextFloat() < 0.5) {
             upgradeMap.put("Escape Pod", 10000);
         }
 
         Shield cheapShield = new Shield(techLevel * (2 * (gen.nextInt(5) + 1)), gen.nextBoolean(), gen.nextBoolean());
         Shield goodShield = new Shield(techLevel * (4 * (gen.nextInt(7) + 1)), gen.nextBoolean(), gen.nextBoolean());
-        upgradeMap.put(cheapShield, 3000 * (1 + (techLevel * gen.nextFloat())));
-        upgradeMap.put(cheapShield, 5000 * (1.2 + (techLevel * gen.nextFloat())));
+        upgradeMap.put(cheapShield, (int) (3000 * (1 + (techLevel * gen.nextFloat()))));
+        upgradeMap.put(cheapShield, (int) (5000 * (1.2 + (techLevel * gen.nextFloat()))));
 
     }
 
