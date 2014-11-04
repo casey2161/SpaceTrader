@@ -26,10 +26,10 @@ public class Player implements Serializable{
             this.fighterPoints = fighterPoints;
             this.traderPoints = traderPoints;
             this.engineerPoints = engineerPoints;
-            this.money = 2000;
+            this.money = 5000;
             this.location = location;
             ship = new Flea();
-            weapon = new Weapon("Laser", 10, 30, 1);
+            weapon = new Weapon("Lazer", 10, 30, 1, 1500);
             ship.addWeapon(weapon);
     }
 

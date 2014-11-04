@@ -13,12 +13,11 @@ import java.util.Map;
  */
 public abstract class Ship implements Serializable{
 	private String name;
-	private int maxRange, size, quality, hull, maxHull, currRange, maxCargo;
+	private int maxRange, size, quality, hull, maxHull, currRange, maxCargo, weaponSlotsOpen, shieldSlotsOpen;
         private Weapon[] weaponSlots;
         private Shield[] shieldSlots;
         private int weaponSlot = 0, shieldSlot = 0;
 	private HashMap<String, Integer> cargo = new HashMap<String, Integer>();
-        private boolean escapePod;
 	//private Equipment[] equipmentSlots;
 	
 	/**
@@ -37,9 +36,11 @@ public abstract class Ship implements Serializable{
 		this.size = size;
                 if (weaponSlotNumber != 0) {
                     weaponSlots = new Weapon[weaponSlotNumber];
+                    weaponSlotsOpen = weaponSlotNumber;
                 }
                 if (shieldSlotNumber != 0) {
                     shieldSlots = new Shield[shieldSlotNumber];
+                    shieldSlotsOpen = shieldSlotNumber;
                 }
 		maxHull = size*quality;
                 hull = maxHull;
@@ -108,6 +109,7 @@ public abstract class Ship implements Serializable{
 		if (quality >= newWeapon.getMinQuality() && weaponSlot < weaponSlots.length) {
 			weaponSlots[weaponSlot] = newWeapon;
                         weaponSlot++;
+                        weaponSlotsOpen--;
 		} else {
 			System.out.println("You can't use this weapon!");
 		}
@@ -117,9 +119,16 @@ public abstract class Ship implements Serializable{
             if (shieldSlot < shieldSlots.length) {
 			shieldSlots[shieldSlot] = newShield;
                         shieldSlot++;
+                        shieldSlotsOpen--;
 		} else {
 			System.out.println("You can't use this shield!");
 		}
+        }
+        public int getWeaponSlots() {
+            return weaponSlotsOpen;
+        }
+        public int getShieldSlots() {
+            return shieldSlotsOpen;
         }
         
 	/**
@@ -161,7 +170,7 @@ public abstract class Ship implements Serializable{
             if (weaponSlots.length == 0 || weaponSlots[0] == null) {
                 System.out.println("You can't fire a weapon!");
             } else {
-                for (int i = 0; i < weaponSlot; i++) {
+                for (int i = 0; i <= weaponSlot; i++) {
                     if (weaponSlots[i].getAmmo() > 0) {
                         weaponSlots[i].fireWeapon();
                         opponent.takeDamage((int)(weaponSlots[i].getDamage() * Math.random()));
@@ -274,17 +283,5 @@ public abstract class Ship implements Serializable{
 
         public void repair() {
             hull = maxHull;
-        }
-        
-        public boolean getEscapePod() {
-            return escapePod;
-        }
-        
-        public void setEscapePod(boolean flag) {
-            escapePod = flag;
-        }
-        
-        public void setName(String newName) {
-            name = newName;
         }
 }

@@ -1,17 +1,20 @@
 package spacetrader;
 
 public class Shield {
-    private int charge, maxCharge;
+    private int charge, maxCharge, price;
     private boolean isReflective, isExplosive;
     
     public Shield(int maxCharge, boolean isReflective, boolean 
-            isExplosive) {
+            isExplosive, int price) {
         this.maxCharge = maxCharge;
         this.isReflective = isReflective;
         this.isExplosive = isExplosive;
         charge = maxCharge;
+        this.price = price;
     }
-    
+    public int getPrice() {
+        return price;
+    }
     public int getCharge() {
         return charge;
     }

@@ -88,7 +88,21 @@ public class GameController implements Initializable {
     private HashMap<String, Ship> shipMap;
     private HashMap<String, Integer> shipPrices;
     
-
+    //Upgrades
+    @FXML private ListView upgrades;
+    @FXML private Text weaponName;
+    @FXML private Text damageVal;
+    @FXML private Text maxChargeVal;
+    @FXML private Text qualityReqVal;
+    @FXML private Button buyUpgrade;
+    @FXML private Button rechargeWeapon;
+    @FXML private Text weaponSlots;
+    @FXML private Text upgradePrice;
+    @FXML private Text damage;
+    @FXML private Text qualityReq;
+    @FXML private Text isExplosive;
+    @FXML private Text isExplosiveValue;
+    @FXML private Text shieldSlots;
     
     // Top menu
     
@@ -318,7 +332,10 @@ public class GameController implements Initializable {
     private void shipyardSelectedAction(Event event) {
         List<String> list = Arrays.asList("Flea", "Gnat", "Firefly", "Mosquito",
                 "Bumblebee", "Beetle", "Hornet", "Grasshopper", "Termite", "Wasp");
+        List<String> upgradesList = Arrays.asList("Lo-power Lazer", "Mid-Power Lazer",
+                "Hi-Power Lazer", "Shield Level 1", "Shield Level 2");
         shipyard.setItems(FXCollections.observableList(list));
+        upgrades.setItems(FXCollections.observableList(upgradesList));
 
         if (Player.getInstance().ship().getCurrRange()
                 != Player.getInstance().ship().getMaxRange()) {
@@ -417,8 +434,78 @@ public class GameController implements Initializable {
         shipNotification.setVisible(false);
         shipPrice.setText(shipPrices.get(selectedItem).toString() + " cr.");
     }
-
-
+    
+    //Upgrade Action Handlers
+    @FXML 
+    private void refreshUpgrades() {
+        HashMap<String, Object> upgradeMap = Player.getInstance().location().getUpgrades();
+        String selectedUpgrade = upgrades.getSelectionModel().getSelectedItem() + "";
+        Object selection = upgradeMap.get(selectedUpgrade);
+        weaponSlots.setText(Player.getInstance().ship().getWeaponSlots() + "");
+        shieldSlots.setText(Player.getInstance().ship().getShieldSlots() + "");
+        if (selection instanceof Weapon) {
+            damage.setText("Damage");
+            qualityReq.setText("Ship Quality Required");
+            isExplosive.setVisible(false);
+            isExplosiveValue.setVisible(false);
+            Weapon weapon = (Weapon) selection;
+            damageVal.setText(weapon.getDamage() + "");
+            upgradePrice.setText(weapon.getPrice() + "");
+            qualityReqVal.setText(weapon.getMinQuality() + "");
+            weaponName.setText(weapon.getName());
+            
+        } else {
+            isExplosive.setVisible(true);
+            isExplosiveValue.setVisible(true);
+            Shield shield = (Shield) selection;
+            upgradePrice.setText(shield.getPrice() + "");
+            damage.setText("Max Charge");
+            damageVal.setText(shield.getMaxCharge() + "");
+            qualityReq.setText("Reflective");
+            if (shield.isReflective()) {
+                qualityReqVal.setText("Yes");
+            } else {
+                qualityReqVal.setText("No");
+            }
+            if (shield.isExplosive()) {
+                isExplosiveValue.setText("Yes");
+            } else {
+                isExplosiveValue.setText("No");
+            }
+                    
+        }
+    }
+    @FXML
+    private void upgradesAction() {
+        refreshUpgrades();
+    }
+    
+    @FXML
+    private void buyUpgradeAction(ActionEvent event) {
+        HashMap<String, Object> upgradeMap = Player.getInstance().location().getUpgrades();
+        String selectedUpgrade = upgrades.getSelectionModel().getSelectedItem() + "";
+        Object selection = upgradeMap.get(selectedUpgrade);
+        int money = Player.getInstance().money();
+        if (selection instanceof Weapon) {
+            Weapon weapon = (Weapon) selection;
+            if (money > weapon.getPrice()){
+                if (Player.getInstance().ship().getWeaponSlots() != 0) {
+                    Player.getInstance().ship().addWeapon(weapon);
+                    Player.getInstance().setMoney(money - weapon.getPrice());
+                    weaponSlots.setText(Player.getInstance().ship().getWeaponSlots() + "");
+                }
+            }
+        } else {
+           Shield shield = (Shield) selection;
+            if (money > shield.getPrice()){
+                if (Player.getInstance().ship().getShieldSlots() != 0) {
+                    Player.getInstance().ship().addShield(shield);
+                    Player.getInstance().setMoney(money - shield.getPrice());
+                    shieldSlots.setText(Player.getInstance().ship().getShieldSlots() + "");
+                }
+            }
+        }
+    }
     // Others
     
     @Override

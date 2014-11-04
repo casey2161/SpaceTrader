@@ -48,7 +48,7 @@ public class Planet implements Serializable{
         "DESERT", "LOTSOFWATER", "RICHSOIL", "POORSOIL", "RICHFAUNA", "LIFELESS", "WEIRDMUSHROOMS",
         "LOTSOFHERBS", "ARTISTIC", "WARLIKE"};
     private HashMap<String, Integer> priceMap, cargoMap;
-    private HashMap<Object, Integer> upgradeMap;
+    private HashMap<String, Object> upgradeMap;
     
     public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates,
             HashMap<String, Integer> prices, HashMap<String, Integer> amount) {//used for loading saved planet config from saved game
@@ -60,6 +60,8 @@ public class Planet implements Serializable{
         yPosition = y;
         priceMap = prices;
         this.cargoMap = amount;
+        this.upgradeMap = new HashMap<String, Object>();
+        this.generateUpgradeMap();
         //this.computePrices();
     }
     public String getName() { //returns the name of the planet
@@ -156,8 +158,7 @@ public class Planet implements Serializable{
         }
         
         encounter = new Flea();
-        encounter.setName(name);
-        encounter.addWeapon(new Weapon("Weaker Laser", 2, 30, 1));
+        encounter.addWeapon(new Weapon("Weaker Laser", 2, 30, 1, 1000));
         return encounter;
     }
     
@@ -177,25 +178,30 @@ public class Planet implements Serializable{
 
     public void generateUpgradeMap() {
         Random gen = new Random();
-        Weapon cheapWeapon = new Weapon("Lo-power Lazer", (int) (techLevel*(1.5)), Integer.MAX_VALUE, 0);
-        Weapon midTier = new Weapon("Mid-Power Lazer", (int) (gen.nextInt(6) + 1 + techLevel*1.75), Integer.MAX_VALUE, 0);
-        Weapon highTier = new Weapon("Hi-Power Lazer", gen.nextInt(5) + 5 + techLevel*2, Integer.MAX_VALUE,0);
-        upgradeMap.put(cheapWeapon, (int) (1500*(1 + gen.nextFloat())));
-        upgradeMap.put(midTier,(int) (3000*(1.2 + gen.nextFloat())));
-        upgradeMap.put(highTier,(int) (5000*(1.5 + gen.nextFloat())));
+        Weapon cheapWeapon = new Weapon("Lo-power Lazer", (int) (techLevel*(1.5)), Integer.MAX_VALUE, 0,
+        (int) (1500*(1 + gen.nextFloat())));
+        Weapon midTier = new Weapon("Mid-Power Lazer", (int) (gen.nextInt(6) + 1 + techLevel*1.75), Integer.MAX_VALUE, 0,
+        (int) (3000*(1.2 + gen.nextFloat())));
+        Weapon highTier = new Weapon("Hi-Power Lazer", gen.nextInt(5) + 5 + techLevel*2, Integer.MAX_VALUE,0,
+        (int) (5000*(1.5 + gen.nextFloat())));
+        upgradeMap.put("Lo-power Lazer", cheapWeapon);
+        upgradeMap.put("Mid-Power Lazer", midTier);
+        upgradeMap.put("Hi-Power Lazer", highTier);
 
         if(techLevel >= 5 && gen.nextFloat() < 0.5) {
             upgradeMap.put("Escape Pod", 10000);
         }
 
-        Shield cheapShield = new Shield(techLevel * (2 * (gen.nextInt(5) + 1)), gen.nextBoolean(), gen.nextBoolean());
-        Shield goodShield = new Shield(techLevel * (4 * (gen.nextInt(7) + 1)), gen.nextBoolean(), gen.nextBoolean());
-        upgradeMap.put(cheapShield, (int) (3000 * (1 + (techLevel * gen.nextFloat()))));
-        upgradeMap.put(goodShield, (int) (5000 * (1.2 + (techLevel * gen.nextFloat()))));
+        Shield cheapShield = new Shield(techLevel * (2 * (gen.nextInt(5) + 1)), gen.nextBoolean(), gen.nextBoolean(),
+        (int) (3000 * (1 + (techLevel * gen.nextFloat()))));
+        Shield goodShield = new Shield(techLevel * (4 * (gen.nextInt(7) + 1)), gen.nextBoolean(), gen.nextBoolean(),
+        (int) (5000 * (1.2 + (techLevel * gen.nextFloat()))));
+        upgradeMap.put("Shield Level 1", cheapShield);
+        upgradeMap.put("Shield Level 2", goodShield);
 
     }
 
-    public HashMap<Object, Integer> getUpgrades() {
+    public HashMap<String, Object> getUpgrades() {
         return upgradeMap;
     }
 }  
