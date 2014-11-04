@@ -18,6 +18,7 @@ public abstract class Ship implements Serializable{
         private Shield[] shieldSlots;
         private int weaponSlot = 0, shieldSlot = 0;
 	private HashMap<String, Integer> cargo = new HashMap<String, Integer>();
+        private boolean escapePod;
 	//private Equipment[] equipmentSlots;
 	
 	/**
@@ -273,5 +274,13 @@ public abstract class Ship implements Serializable{
 
         public void repair() {
             hull = maxHull;
+        }
+        
+        public boolean getEscapePod() {
+            return escapePod;
+        }
+        
+        public void setEscapePod(boolean flag) {
+            escapePod = flag;
         }
 }
