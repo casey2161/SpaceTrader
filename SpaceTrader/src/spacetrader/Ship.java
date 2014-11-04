@@ -11,11 +11,12 @@ import java.util.Map;
  * @author georgeli94
  *
  */
-public class Ship implements Serializable{
+public abstract class Ship implements Serializable{
 	private String name;
 	private int maxRange, size, quality, hull, maxHull, currRange, maxCargo;
-	private Weapon weapon = new Weapon("Default", 0, 0, 0);
-        private Shield shield = new Shield(0, false, false);
+        private Weapon[] weaponSlots;
+        private Shield[] shieldSlots;
+        private int weaponSlot = 0, shieldSlot = 0;
 	private HashMap<String, Integer> cargo = new HashMap<String, Integer>();
 	//private Equipment[] equipmentSlots;
 	
@@ -27,11 +28,18 @@ public class Ship implements Serializable{
 	 * @param size The size of the ship
 	 * @param quality The quality of the ship
 	 */
-	public Ship (String name, int maxRange, int size, int quality, int maxCargo) {
+	public Ship (String name, int maxRange, int size, int quality, 
+                int maxCargo, int weaponSlotNumber, int shieldSlotNumber) {
 		this.name = name;
 		this.maxRange = maxRange;
 		this.quality = quality;
 		this.size = size;
+                if (weaponSlotNumber != 0) {
+                    weaponSlots = new Weapon[weaponSlotNumber];
+                }
+                if (shieldSlotNumber != 0) {
+                    shieldSlots = new Shield[shieldSlotNumber];
+                }
 		maxHull = size*quality;
                 hull = maxHull;
 		currRange = maxRange;
@@ -78,11 +86,17 @@ public class Ship implements Serializable{
         }
         
         public Weapon getWeapon() {
-            return weapon;
+            for (int i = 0; i < weaponSlots.length; i++) {
+                return weaponSlots[i];
+            }
+            return null;
         }
         
         public Shield getShield() {
-            return shield;
+            for (int i = 0; i < shieldSlots.length; i++) {
+                return shieldSlots[i];
+            }
+            return null;
         }
         
 	/**
@@ -90,15 +104,21 @@ public class Ship implements Serializable{
 	 * @param newWeapon The weapon being added
 	 */
 	public void addWeapon(Weapon newWeapon) {
-		if (quality >= newWeapon.getMinQuality()) {
-			weapon = newWeapon;
+		if (quality >= newWeapon.getMinQuality() && weaponSlot < weaponSlots.length) {
+			weaponSlots[weaponSlot] = newWeapon;
+                        weaponSlot++;
 		} else {
-			System.out.println("Your ship is too low-tech to use this weapon!");
+			System.out.println("You can't use this weapon!");
 		}
 	}
 
         public void addShield(Shield newShield) {
-            shield = newShield;
+            if (shieldSlot < shieldSlots.length) {
+			shieldSlots[shieldSlot] = newShield;
+                        shieldSlot++;
+		} else {
+			System.out.println("You can't use this shield!");
+		}
         }
         
 	/**
@@ -110,14 +130,21 @@ public class Ship implements Serializable{
 	}
 	
 	/**
-	 * Resets the ship's current traveable range to the maximum traveable range
+	 * Resets the ship's current travelable range to the maximum travelable range
 	 */
 	public void refuel() {
 		currRange = maxRange;
 	}
 	
 	public void takeDamage(int damageTaken) {
-            damageTaken = shield.absorbDamage(damageTaken);
+            if (shieldSlots.length != 0 && shieldSlots[0] != null) {
+                for (int i = 0; i <= shieldSlot; i++) {
+                    damageTaken = shieldSlots[i].absorbDamage(damageTaken);
+                    if (damageTaken <= 0) {
+                        damageTaken = 0;
+                    }
+                }
+            }
             if (hull - damageTaken <= 0) {
                 hull = 0;
             } else {
@@ -130,9 +157,15 @@ public class Ship implements Serializable{
 	 * @param opponent The opposing ship
 	 */
 	public void dealDamage (Ship opponent) {
-            if (weapon.getAmmo() > 0) {
-                weapon.fireWeapon();
-                opponent.takeDamage((int)(weapon.getDamage() * Math.random()));
+            if (weaponSlots.length == 0 || weaponSlots[0] == null) {
+                System.out.println("You can't fire a weapon!");
+            } else {
+                for (int i = 0; i <= weaponSlot; i++) {
+                    if (weaponSlots[i].getAmmo() > 0) {
+                        weaponSlots[i].fireWeapon();
+                        opponent.takeDamage((int)(weaponSlots[i].getDamage() * Math.random()));
+                    }
+                }
             }
 	}
 	
@@ -149,7 +182,7 @@ public class Ship implements Serializable{
 	 * Determines if the ship has enough cargo to sell in the specified amounts
 	 * @param name The name of the cargo being sold
 	 * @param amount The amount the player wants to sell
-	 * @return A boolean determing whether or not the player can sell the specified cargo in the
+	 * @return A boolean determining whether or not the player can sell the specified cargo in the
 	 * specified amounts
 	 */
 	public boolean canSell(String name, int amount) {
