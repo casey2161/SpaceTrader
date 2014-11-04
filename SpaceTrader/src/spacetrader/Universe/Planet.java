@@ -191,7 +191,7 @@ public class Planet implements Serializable{
         Shield cheapShield = new Shield(techLevel * (2 * (gen.nextInt(5) + 1)), gen.nextBoolean(), gen.nextBoolean());
         Shield goodShield = new Shield(techLevel * (4 * (gen.nextInt(7) + 1)), gen.nextBoolean(), gen.nextBoolean());
         upgradeMap.put(cheapShield, (int) (3000 * (1 + (techLevel * gen.nextFloat()))));
-        upgradeMap.put(cheapShield, (int) (5000 * (1.2 + (techLevel * gen.nextFloat()))));
+        upgradeMap.put(goodShield, (int) (5000 * (1.2 + (techLevel * gen.nextFloat()))));
 
     }
 
