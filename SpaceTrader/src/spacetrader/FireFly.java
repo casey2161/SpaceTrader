@@ -12,7 +12,7 @@ package spacetrader;
 public class FireFly extends Ship {
 
     public FireFly() {
-        super("FireFly", 17, 20, 2, 20, 1, 1);
+        super("FireFly", 170, 20, 2, 20, 1, 1);
     }
     
 }

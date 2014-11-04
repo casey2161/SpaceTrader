@@ -12,7 +12,7 @@ package spacetrader;
 public class Mosquito extends Ship {
 
     public Mosquito() {
-        super("Mosquito", 13, 20, 2, 15, 2, 1);
+        super("Mosquito", 130, 20, 2, 15, 2, 1);
     }
     
 }

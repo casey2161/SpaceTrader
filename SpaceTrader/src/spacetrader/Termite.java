@@ -12,7 +12,7 @@ package spacetrader;
 public class Termite extends Ship {
 
     public Termite() {
-        super("Termite", 13, 40, 4, 60, 1, 3);
+        super("Termite", 130, 40, 4, 60, 1, 3);
     }
     
 }

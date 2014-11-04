@@ -12,7 +12,7 @@ package spacetrader;
 public class Gnat extends Ship {
 
     public Gnat() {
-        super("Gnat", 14, 10, 1, 15, 1, 1);
+        super("Gnat", 140, 10, 1, 15, 1, 1);
     }
     
 }
