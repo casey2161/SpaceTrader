@@ -6,6 +6,7 @@ import java.util.Random;
 import spacetrader.Ship;
 import spacetrader.Flea;
 import spacetrader.Weapon;
+import spacetader.Shield
 
 /*Nickolas Graham
  * C3POs team 27
@@ -175,9 +176,9 @@ public class Planet implements Serializable{
 
     public void generateUpgradeMap() {
         Random gen = new Random();
-        Weapon cheapWeapon = new Weapon("Lo-power Lazer", techLevel*(1.5), Integer.MAX_INT, 0);
-        Weapon midTier = new Weapon("Mid-Power Lazer", Random.nextInt(6) + 1 + techLevel*1.75, Integer.MAX_INT, 0);
-        Weapon highTier = new Weapon("Hi-Power Lazer", Random.nextInt(5) + 5 + techLevel*2, Integer.MAX_INT,0);
+        Weapon cheapWeapon = new Weapon("Lo-power Lazer", techLevel*(1.5), Integer.MAX_VALUE, 0);
+        Weapon midTier = new Weapon("Mid-Power Lazer", gen.nextInt(6) + 1 + techLevel*1.75, Integer.MAX_VALUE, 0);
+        Weapon highTier = new Weapon("Hi-Power Lazer", gen.nextInt(5) + 5 + techLevel*2, Integer.MAX_VALUE,0);
         upgradeMap.put(cheapWeapon, 1500*(1 + gen.nextFloat()));
         upgradeMap.put(midTier, 3000*(1.2 + gen.nextFloat()));
         upgradeMap.put(highTier, 5000*(1.5 + gen.nextFloat()));

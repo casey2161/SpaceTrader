@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+    compile files('lib/resources.jar')
+}
+
+jar {
+    manifest {
+        attributes 'Class-Path' : 'lib/resources.jar'
+    }
+}
