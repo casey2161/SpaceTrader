@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Set;
 import java.util.Random;
 import spacetrader.Ship;
+import spacetrader.Flea;
 import spacetrader.Weapon;
 
 /*Nickolas Graham
@@ -153,7 +154,7 @@ public class Planet implements Serializable{
             quality = 3;
         }
         
-        encounter = new Ship(name, 0, size, quality, 0);
+        encounter = new Flea();
         encounter.addWeapon(new Weapon("Weaker Laser", 2, 30, 1));
         return encounter;
     }

@@ -28,7 +28,7 @@ public class Player implements Serializable{
             this.engineerPoints = engineerPoints;
             this.money = 2000;
             this.location = location;
-            ship = new Ship("Flea", 200, 10, 1, 10);
+            ship = new Flea();
             weapon = new Weapon("Laser", 10, 30, 1);
             ship.addWeapon(weapon);
     }
