@@ -156,6 +156,7 @@ public class Planet implements Serializable{
         }
         
         encounter = new Flea();
+        encounter.setName(name);
         encounter.addWeapon(new Weapon("Weaker Laser", 2, 30, 1));
         return encounter;
     }
