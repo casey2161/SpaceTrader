@@ -12,7 +12,7 @@ package spacetrader;
 public class Flea extends Ship {
 
     public Flea() {
-        super("Flea", 20, 10, 1, 10, 0, 0);
+        super("Flea", 20, 10, 1, 10, 1, 1);
     }
     
 }
