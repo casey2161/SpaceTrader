@@ -6,13 +6,14 @@ import java.util.HashMap;
 import java.util.Random;
 
 /**
- *
+ *  This class is a factory for planets. It generates planets for the universe.
  * @author Casey
  */
-public class PlanetFactory implements Serializable{
+public class PlanetFactory implements Serializable {
     private String[] planetNames;
     private int techLevel;
-    private int x,y;
+    private int x;
+    private int y;
     private int count;
     
     public PlanetFactory(int techLevel, int x, int y) {
@@ -21,111 +22,138 @@ public class PlanetFactory implements Serializable{
         this.x = x;
         this.y = y;
     }
-    
+    /**
+     * This method creates a planet based on the factories settings.
+     * @return a planet
+     */
     public Planet createPlanet() {
         Random gen = new Random();
         
-        String name = planetNames[Math.abs((gen.nextInt()) % planetNames.length)];
+        String name = planetNames[Math.abs((gen.nextInt())
+                % planetNames.length)];
         int rscLevel = Math.abs(gen.nextInt() % 12);
-        int xval = (gen.nextInt()%5) * count + x;
-        int yval = (gen.nextInt()%5) * count + y;
+        int xval = (gen.nextInt() % 5) * count + x;
+        int yval = (gen.nextInt() % 5) * count + y;
         HashMap<String, Integer> prices, amount;
         prices = generatePrices(techLevel, rscLevel);
         amount = generateAmount(techLevel, rscLevel);
         boolean pirates = gen.nextDouble() < 0.2;
         count++;
-        return new Planet(name, techLevel, rscLevel, xval, yval, pirates, prices, amount);
+        return new Planet(name, techLevel, rscLevel, xval, yval, pirates,
+                prices, amount);
     }
+    
     private HashMap<String, Integer> generatePrices(int techLevel, int rscLevel) {
         HashMap<String, Integer> cargo = new HashMap<String, Integer>();
-        cargo.put("water",(int) (30 + 3*techLevel + (Math.random() * 4)));
-        cargo.put("fur", (int) (250 + 10*techLevel + Math.random() * 10));
-        if(techLevel >= 1) {
-            cargo.put("food", (int) (100 + 5*(techLevel - 1) + Math.random()*5));
+        cargo.put("water", (int) (30 + 3 * techLevel + (Math.random() * 4)));
+        cargo.put("fur", (int) (250 + 10 * techLevel + Math.random() * 10));
+        if (techLevel >= 1) {
+            cargo.put("food", (int) (100 + 5 * (techLevel - 1)
+                    + Math.random() * 5));
         }
-        if(techLevel >= 2) {
-            cargo.put("ore", (int) (350 + 20*(techLevel - 2) + Math.random()*10));
+        if (techLevel >= 2) {
+            cargo.put("ore", (int) (350 + 20 * (techLevel - 2)
+                    + Math.random() * 10));
         }
-        if(techLevel >= 3) {
-            cargo.put("games", (int) (250 + (-10)*(techLevel - 3) + Math.random()*5));
-            cargo.put("firearms", (int) (1250 + (-75)*(techLevel - 3) + Math.random()*100));
+        if (techLevel >= 3) {
+            cargo.put("games", (int) (250 + (-10) * (techLevel - 3)
+                    + Math.random() * 5));
+            cargo.put("firearms", (int) (1250 + (-75) * (techLevel - 3)
+                    + Math.random() * 100));
         }
-        if(techLevel >= 4) {
-            cargo.put("medicine", (int) (650 + (-20)*(techLevel - 4) + Math.random()*10));
-            cargo.put("machines", (int) (900 + (-30)*(techLevel - 4) + Math.random()*5));
+        if (techLevel >= 4) {
+            cargo.put("medicine", (int) (650 + (-20) * (techLevel - 4)
+                    + Math.random() * 10));
+            cargo.put("machines", (int) (900 + (-30) * (techLevel - 4)
+                    + Math.random() * 5));
         }
-        if(techLevel >= 5) {
-            cargo.put("narcotics", (int) (3500 + (-125)*(techLevel - 5) + Math.random()*150));
+        if (techLevel >= 5) {
+            cargo.put("narcotics", (int) (3500 + (-125) * (techLevel - 5)
+                    + Math.random() * 150));
         }
-        if(techLevel >= 6) {
-            cargo.put("robots", (int) (5000 + (-150)*(techLevel - 5) + Math.random()*100));
+        if (techLevel >= 6) {
+            cargo.put("robots", (int) (5000 + (-150) * (techLevel - 5)
+                    + Math.random() * 100));
         }
         
         return cargo;
     }
+    
     private HashMap<String, Integer> generateAmount(int techLevel, int rscLevel) {
         HashMap<String, Integer> cargo = new HashMap<String, Integer>();
-        cargo.put("water",(int) (Math.random() * 50));
+        cargo.put("water", (int) (Math.random() * 50));
         cargo.put("fur", (int) (Math.random() * 50));
-        if(techLevel >= 1) {
-            cargo.put("food",(int) (Math.random() * 50));
+        if (techLevel >= 1) {
+            cargo.put("food", (int) (Math.random() * 50));
         }
-        if(techLevel >= 2) {
+        if (techLevel >= 2) {
             cargo.put("ore", (int) (Math.random() * 50));
         }
-        if(techLevel >= 3) {
+        if (techLevel >= 3) {
             cargo.put("games", (int) (Math.random() * 50));
             cargo.put("firearms", (int) (Math.random() * 50));
         }
-        if(techLevel >= 4) {
+        if (techLevel >= 4) {
             cargo.put("medicine", (int) (Math.random() * 50));
             cargo.put("machines", (int) (Math.random() * 50));
         }
-        if(techLevel >= 5) {
-            cargo.put("narcotics", (int) Math.random() * 50);
+        if (techLevel >= 5) {
+            cargo.put("narcotics", (int) (Math.random() * 50));
         }
-        if(techLevel >= 6) {
-            cargo.put("robots", (int) Math.random() * 50);
+        if (techLevel >= 6) {
+            cargo.put("robots", (int) (Math.random() * 50));
         }
         return cargo;
     }
+    
     private HashMap<String, Integer> generateSellMap(int techLevel, int rscLevel) {
         HashMap<String, Integer> cargo = new HashMap<String, Integer>();
-        if(techLevel >= 4) {
-            cargo.put("robots", (int) (5000 + (-150)*(techLevel - 4) + Math.random()*100) / 2);
+        if (techLevel >= 4) {
+            cargo.put("robots", (int) (5000 + (-150) * (techLevel - 4)
+                    + Math.random() * 100) / 2);
         }
-        if(techLevel >= 3) {
-            cargo.put("machines", (int) (900 + (-30)*(techLevel - 3) + Math.random()*5) / 2);
+        if (techLevel >= 3) {
+            cargo.put("machines", (int) (900 + (-30) * (techLevel - 3)
+                    + Math.random() * 5) / 2);
         }
-        if(techLevel >= 2) {
-            cargo.put("ore", (int) (350 + 20*(techLevel - 2) + Math.random()*10) / 2);
+        if (techLevel >= 2) {
+            cargo.put("ore", (int) (350 + 20 * (techLevel - 2)
+                    + Math.random() * 10) / 2);
         }
-        if(techLevel >= 1) {
-            cargo.put("medicine", (int) (650 + (-20)*(techLevel - 1) + Math.random()*10) / 2);
-            cargo.put("games", (int) (250 + (-10)*(techLevel - 1) + Math.random()*5) / 2);
-            cargo.put("firearms", (int) (1250 + (-75)*(techLevel - 1) + Math.random()*100) / 2);
+        if (techLevel >= 1) {
+            cargo.put("medicine", (int) (650 + (-20) * (techLevel - 1)
+                    + Math.random() * 10) / 2);
+            cargo.put("games", (int) (250 + (-10) * (techLevel - 1)
+                    + Math.random() * 5) / 2);
+            cargo.put("firearms", (int) (1250 + (-75) * (techLevel - 1)
+                    + Math.random() * 100) / 2);
         }
-        cargo.put("water",(int) (30 + 3*techLevel + (Math.random() * 4)) / 2);
-        cargo.put("furs", (int) (250 + 10*techLevel + Math.random() * 10) / 2);
-        cargo.put("narcotics", (int) (3500 + (-125)*(techLevel - 5) + Math.random()*150) / 2);
-        cargo.put("food", (int) (100 + 5*(techLevel - 1) + Math.random()*5) / 2);
+        cargo.put("water", (int) (30 + 3 * techLevel
+                + (Math.random() * 4)) / 2);
+        cargo.put("furs", (int) (250 + 10 * techLevel
+                + Math.random() * 10) / 2);
+        cargo.put("narcotics", (int) (3500 + (-125) * (techLevel - 5)
+                + Math.random() * 150) / 2);
+        cargo.put("food", (int) (100 + 5 * (techLevel - 1)
+                + Math.random() * 5) / 2);
         return cargo;
     }
+    
     private void initNames() {
         planetNames = new String[]
         {
             "Acamar",
-            "Adahn",		// The alternate personality for The Nameless One in "Planescape: Torment"
+            "Adahn",		
             "Aldea",
             "Andevian",
             "Antedi",
             "Balosnee",
             "Baratas",
             "Brax",			// One of the heroes in Master of Magic
-            "Bretel",		// This is a Dutch device for keeping your pants up.
+            "Bretel",	
             "Calondia",
             "Campor",
-            "Capelle",		// The city I lived in while programming this game
+            "Capelle",		
             "Carzon",
             "Castor",		// A Greek demi-god
             "Cestus",
@@ -145,9 +173,9 @@ public class PlanetFactory implements Serializable{
             "Ferris",		// Iron
             "Festen",		// A great Scandinavian movie
             "Fourmi",		// An ant, in French
-            "Frolix",		// A solar system in one of Philip K. Dick's novels
+            "Frolix",		// A solar system in one of Philip K. Dick's
             "Gemulon",
-            "Guinifer",		// One way of writing the name of king Arthur's wife
+            "Guinifer",		
             "Hades",		// The underworld
             "Hamlet",		// From Shakespeare
             "Helena",		// Of Troy
@@ -164,14 +192,14 @@ public class PlanetFactory implements Serializable{
             "Klaatu",		// From a classic SF movie
             "Klaestron",
             "Korma",		// An Indian sauce
-            "Kravat",		// Interesting spelling of the French word for "tie"
+            "Kravat",		
             "Krios",
             "Laertes",		// A king in a Greek tragedy
             "Largo",
             "Lave",			// The starting system in Elite
             "Ligon",
-            "Lowry",		// The name of the "hero" in Terry Gilliam's "Brazil"
-            "Magrat",		// The second of the witches in Pratchett's Discworld
+            "Lowry",		
+            "Magrat",		
             "Malcoria",
             "Melina",
             "Mentar",		// The Psilon home system in Master of Orion
@@ -181,15 +209,15 @@ public class PlanetFactory implements Serializable{
             "Mordan",
             "Myrthe",		// The name of my daughter
             "Nelvana",
-            "Nix",			// An interesting spelling of a word meaning "nothing" in Dutch
-            "Nyle",			// An interesting spelling of the great river
+            "Nix", 
+            "Nyle",			
             "Odet",
-            "Og",			// The last of the witches in Pratchett's Discworld
+            "Og",			
             "Omega",		// The end of it all
             "Omphalos",		// Greek for navel
             "Orias",
             "Othello",		// From Shakespeare
-            "Parade",		// This word means the same in Dutch and in English
+            "Parade",		
             "Penthara",
             "Picard",		// The enigmatic captain from ST:TNG
             "Pollux",		// Brother of Castor
@@ -222,7 +250,7 @@ public class PlanetFactory implements Serializable{
             "Triacus",
             "Turkana",
             "Tyrus",
-            "Umberlee",		// A god from AD&D, which has a prominent role in Baldur's Gate
+            "Umberlee",		
             "Utopia",		// The ultimate goal
             "Vadera",
             "Vagra",
@@ -230,7 +258,7 @@ public class PlanetFactory implements Serializable{
             "Ventax",
             "Xenon",
             "Xerxes",		// A Greek hero
-            "Yew",			// A city which is in almost all of the Ultima games
+            "Yew",			
             "Yojimbo",		// A film by Akira Kurosawa
             "Zalkon",
             "Zuul"			// From the first Ghostbusters movie

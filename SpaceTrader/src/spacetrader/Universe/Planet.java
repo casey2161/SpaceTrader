@@ -12,7 +12,7 @@ import spacetrader.Shield;
  * C3POs team 27
  * Version 2.1 of Planet
  */
-public class Planet implements Serializable{
+public class Planet implements Serializable {
     /* VALUE KEY: numbers correspond to 
      * TECH LEVELS --------------
      * 0 = Pre-Agriculture
@@ -38,20 +38,27 @@ public class Planet implements Serializable{
      * 11 = Artistic
      * 12 = Warlike
      */
-    
+    //CHECKSTYLE:OFF
     private final String planetName;
-    private final int xPosition, yPosition, techLevel, resources;
+    private final int xPosition;
+    private final int yPosition;
+    private final int techLevel;
+    private final int resources;
     private final boolean spawnsPirates;
-    private static final String[] TECH_LEVEL = { "Pre Agriculture", "Agriculture", "Medieval",
-            "Renaissance", "Early Industrial", "Industrial", "Post-Industrial", "High Tech" };
-    private static final String[] RESOURCES = { "NOSPECIALRESOURCES", "MINERALRICH", "MINERALPOOR",
-        "DESERT", "LOTSOFWATER", "RICHSOIL", "POORSOIL", "RICHFAUNA", "LIFELESS", "WEIRDMUSHROOMS",
-        "LOTSOFHERBS", "ARTISTIC", "WARLIKE"};
-    private HashMap<String, Integer> priceMap, cargoMap;
+    private static final String[] TECH_LEVEL = {"Pre Agriculture", 
+        "Agriculture", "Medieval", "Renaissance", "Early Industrial",
+        "Industrial", "Post-Industrial", "High Tech" };
+    private static final String[] RESOURCES = {"NOSPECIALRESOURCES",
+        "MINERALRICH", "MINERALPOOR", "DESERT", "LOTSOFWATER", "RICHSOIL",
+        "POORSOIL", "RICHFAUNA", "LIFELESS", "WEIRDMUSHROOMS", "LOTSOFHERBS",
+        "ARTISTIC", "WARLIKE" };
+    private HashMap<String, Integer> priceMap;
+    private HashMap<String, Integer> cargoMap;
     private HashMap<String, Object> upgradeMap;
     
-    public Planet (String name, int level, int resourcelvl, int x, int y, boolean pirates,
-            HashMap<String, Integer> prices, HashMap<String, Integer> amount) {//used for loading saved planet config from saved game
+    public Planet (String name, int level, int resourcelvl, int x, 
+            int y, boolean pirates, HashMap<String, Integer> prices,
+            HashMap<String, Integer> amount) {
         planetName = name;
         techLevel = level;
         resources = resourcelvl;
@@ -62,56 +69,142 @@ public class Planet implements Serializable{
         this.cargoMap = amount;
         this.upgradeMap = new HashMap<String, Object>();
         this.generateUpgradeMap();
-        //this.computePrices();
     }
+    //CHECKSTYLE:OFF
+    /**
+     * Getter for the Name
+     * @return returns the name of the planet
+     */
     public String getName() { //returns the name of the planet
         return planetName;
     }
-    public int getTechLevel() { //returns the tech level of the planet
+    
+    /**
+     * Getter for the Tech Level.
+     * @return the tech level of the planet.
+     */
+    
+    public int getTechLevel() {
         return techLevel;
     }
-    public int getResources() { //returns the resource type of the planet
+    
+    /**
+     * Gets the resource type of the planet.
+     * @return the resource type of the planet.
+     */
+    
+    public int getResources() {
         return resources;
     }
-    public boolean spawnsPirates() { //returns whether the planet spawns pirates
+    
+    /**
+     * Getter for whether or not the planet has increased pirates.
+     * @return spawnsPirates.
+     */
+    
+    public boolean spawnsPirates() {
         return spawnsPirates;
     }
-    public int getX() { //returns x position
+    
+    /**
+     * Getter for the x position of the planet.
+     * @return xPosition.
+     */
+    
+    public int getX() {
         return xPosition;
     }
-    public int getY() {//returns y position
+    
+    /**
+     * Getter for the y position of the planet.
+     * @return the y position of the planet.
+     */
+    
+    public int getY() {
         return yPosition;
     }
-    public String tchlvlString(int level) { //returns tech level as a string
+    
+    /**
+     * Takes an integer representing the tech level 
+     * and returns that as a string.
+     * @param level the tech level to find the string for.
+     * @return the string representation of the tech level.
+     */
+    
+    public String tchlvlString(int level) {
         String returnStr = TECH_LEVEL[level];
         return returnStr;   
     }
-    public String rscString(int resources) { //returns resources as a string
+    
+    /**
+     * Takes an integer representing the resource type and 
+     * returns the string value.
+     * @param resources the integer representing the resource type.
+     * @return the resource type as a string.
+     */
+    
+    public String rscString(int resources) {
         String returnStr = RESOURCES[resources];
         return returnStr;
     }
     
-    public int getAmount(String key) {//gets amount of goods one can buy
+    /**
+     * Returns the amount of goods one can buy from the planet.
+     * @param key the good to look up.
+     * @return the amount of the good the planet has.
+     */
+    
+    public int getAmount(String key) {
         return cargoMap.get(key.toLowerCase());
     }
-    public void updateAmount(String key, int value) {//updates quantity of goods
+    
+    /**
+     * Updates the amount of a good the planet has.
+     * @param key the good.
+     * @param value the new amount.
+     */
+    
+    public void updateAmount(String key, int value) {
         cargoMap.put(key.toLowerCase(), value);
     }
     
-    public Object[] returnMap() {// returns quantities as array
+    /**
+     * This gets the values stored in the hash map.
+     * @return the quantities of the planets marketplace.
+     */
+    
+    public Object[] returnMap() {
         Set result = cargoMap.entrySet();
         Object[] array = result.toArray();
         return array;
     }
     
-    public int getPrice(String key) {//returns item price
+    /**
+     * Finds the price of an item.
+     * @param key the good to look up.
+     * @return the price of the good.
+     */
+    
+    public int getPrice(String key) {
         return priceMap.get(key.toLowerCase());
     }
-    public Object[] returnPriceMap() {// returns prices as array
+    
+    /**
+     * Returns the prices as an array.
+     * @return the values for the prices of a good as an array.
+     */
+    
+    public Object[] returnPriceMap() {
         Set result = priceMap.entrySet();
         Object[] array = result.toArray();
         return array;
     }
+    
+    /**
+     * This is a debug method for ta's.
+     * @return the string representation of an object.
+     */
+    
     public String dumpInfo() { //dump method for demo purposes
         String dump = "Planet Name: " + planetName;
         dump += "\nTech Level: " + tchlvlString(techLevel);
@@ -125,82 +218,119 @@ public class Planet implements Serializable{
     
     private String dumpMap(HashMap<String, Integer> map) {
         String ret = "";
-        for( HashMap.Entry e : map.entrySet()) {
-            ret+= e.getKey() + ": " + e.getValue() + "\n"; 
+        for (HashMap.Entry e : map.entrySet()) {
+            ret += e.getKey() + ": " + e.getValue() + "\n"; 
         }
         return ret;
     }
     
+    /**
+     * Determines if there is a random encounter.
+     * @return true if there is an encounter false otherwise.
+     */
+    
     public boolean isEncounter() {
-        if(spawnsPirates) {
+        if (spawnsPirates) {
             return Math.random() <= 0.5;
         } else {
             return Math.random() <= 0.1;
         }
     }
     
+    /**
+     * Generates a Ship for encounters.
+     * @return a ship for the random encounter.
+     */
+    
     public Ship getEncounterShip() {
         Ship encounter;
         String name;
-        int size = (int)(Math.random() * 2) + 5;
-        if(Math.random() <=0.5) {
+        int size = (int) (Math.random() * 2) + 5;
+        if (Math.random() <= 0.5) {
             name = "Pirate";
         } else {
             name = "Police";
         }
         int quality = 0;
-        if(techLevel < 3) {
+        if (techLevel < 3) {
             quality = 1;
-        } else if(techLevel < 5) {
+        } else if (techLevel < 5) {
             quality = 2;
         } else {
             quality = 3;
         }
         
         encounter = new Flea();
-        encounter.addWeapon(new Weapon("Weaker Laser", 2, 30, 1, 1000));
+        encounter.addWeapon(new Weapon("Weaker Laser" , 2 , 30 , 1 , 1000));
         return encounter;
     }
     
+    //CHECKSTYLE:OFF
+    
     private void computePrices() {
         Random rand = new Random();
-        priceMap.put("Water", (int) (30 + 3 * techLevel + 30 * rand.nextFloat()));
-        priceMap.put("Furs", (int) (250 + 10 * techLevel + 250 * rand.nextFloat()));
-        priceMap.put("Food", (int) (100 + 5 * (techLevel - 1) + 100 * rand.nextFloat()));
-        priceMap.put("Ore", (int) (350 + 20 * (techLevel - 2) + 350 * rand.nextFloat()));
-        priceMap.put("Games", (int) (250 + -10 * (techLevel - 3) + 250 * rand.nextFloat()));
-        priceMap.put("Firearms", (int) (1250 + -75 * (techLevel - 3) + 1250 * rand.nextFloat()));
-        priceMap.put("Medicine", (int) (650 + -20 * (techLevel - 4) + 650 * rand.nextFloat()));
-        priceMap.put("Machines", (int) (900 + -30 * (techLevel - 4) + 900 * rand.nextFloat()));
-        priceMap.put("Narcotics", (int) (3500 + -125 * (techLevel - 5) + 3500 * rand.nextFloat()));
-        priceMap.put("Robots", (int) (5000 + -150 * (techLevel - 6) + 5000 * rand.nextFloat()));
+        priceMap.put("Water" , (int) (30 + 3 * techLevel
+                + 30 * rand.nextFloat()));
+        priceMap.put("Furs" , (int) (250 + 10 * techLevel
+                + 250 * rand.nextFloat()));
+        priceMap.put("Food" , (int) (100 + 5 * (techLevel - 1)
+                + 100 * rand.nextFloat()));
+        priceMap.put("Ore" , (int) (350 + 20 * (techLevel - 2)
+                + 350 * rand.nextFloat()));
+        priceMap.put("Games" , (int) (250 + -10 * (techLevel - 3)
+                + 250 * rand.nextFloat()));
+        priceMap.put("Firearms" , (int) (1250 + -75 * (techLevel - 3)
+                + 1250 * rand.nextFloat()));
+        priceMap.put("Medicine" , (int) (650 + -20 * (techLevel - 4)
+                + 650 * rand.nextFloat()));
+        priceMap.put("Machines" , (int) (900 + -30 * (techLevel - 4)
+                + 900 * rand.nextFloat()));
+        priceMap.put("Narcotics" , (int) (3500 + -125 * (techLevel - 5)
+                + 3500 * rand.nextFloat()));
+        priceMap.put("Robots" , (int) (5000 + -150 * (techLevel - 6)
+                + 5000 * rand.nextFloat()));
     }
-
+    
+    //CHECKSTYLE:ON
+    
+    /**
+     * This method generates the upgrade list for the shipyard.
+     */
+    
     public void generateUpgradeMap() {
         Random gen = new Random();
-        Weapon cheapWeapon = new Weapon("Lo-power Lazer", (int) (techLevel*(1.5)), Integer.MAX_VALUE, 0,
-        (int) (1500*(1 + gen.nextFloat())));
-        Weapon midTier = new Weapon("Mid-Power Lazer", (int) (gen.nextInt(6) + 1 + techLevel*1.75), Integer.MAX_VALUE, 0,
-        (int) (3000*(1.2 + gen.nextFloat())));
-        Weapon highTier = new Weapon("Hi-Power Lazer", gen.nextInt(5) + 5 + techLevel*2, Integer.MAX_VALUE,0,
-        (int) (5000*(1.5 + gen.nextFloat())));
-        upgradeMap.put("Lo-power Lazer", cheapWeapon);
-        upgradeMap.put("Mid-Power Lazer", midTier);
-        upgradeMap.put("Hi-Power Lazer", highTier);
+        Weapon cheap = new Weapon("Lo-power Lazer" , (int) (techLevel * (1.5)),
+                Integer.MAX_VALUE, 0, (int) (1500 * (1 + gen.nextFloat())));
+        Weapon midTier = new Weapon("Mid-Power Lazer" , (int) (gen.nextInt(6)
+                + 1 + techLevel * 1.75), Integer.MAX_VALUE, 0,
+                (int) (3000 * (1.2 + gen.nextFloat())));
+        Weapon highTier = new Weapon("Hi-Power Lazer" , gen.nextInt(5)
+                + 5 + techLevel * 2, Integer.MAX_VALUE , 0 ,
+                (int) (5000 * (1.5 + gen.nextFloat())));
+        upgradeMap.put("Lo-power Lazer" , cheap);
+        upgradeMap.put("Mid-Power Lazer" , midTier);
+        upgradeMap.put("Hi-Power Lazer" , highTier);
 
-        if(techLevel >= 5 && gen.nextFloat() < 0.5) {
-            upgradeMap.put("Escape Pod", 10000);
+        if (techLevel >= 5 && gen.nextFloat() < 0.5) {
+            upgradeMap.put("Escape Pod" , 10000);
         }
 
-        Shield cheapShield = new Shield(techLevel * (2 * (gen.nextInt(5) + 1)), gen.nextBoolean(), gen.nextBoolean(),
-        (int) (3000 * (1 + (techLevel * gen.nextFloat()))));
-        Shield goodShield = new Shield(techLevel * (4 * (gen.nextInt(7) + 1)), gen.nextBoolean(), gen.nextBoolean(),
-        (int) (5000 * (1.2 + (techLevel * gen.nextFloat()))));
-        upgradeMap.put("Shield Level 1", cheapShield);
-        upgradeMap.put("Shield Level 2", goodShield);
+        Shield cheapShield = new Shield(techLevel * (2 * (gen.nextInt(5) + 1)),
+                gen.nextBoolean(), gen.nextBoolean(),
+                (int) (3000 * (1 + (techLevel * gen.nextFloat()))));
+        Shield goodShield = new Shield(techLevel * (4 * (gen.nextInt(7) + 1)),
+                gen.nextBoolean(), gen.nextBoolean(),
+                (int) (5000 * (1.2 + (techLevel * gen.nextFloat()))));
+        upgradeMap.put("Shield Level 1" , cheapShield);
+        upgradeMap.put("Shield Level 2" , goodShield);
 
     }
-
+    
+    /**
+     * Getter for the upgrade map.
+     * @return the upgrade map.
+     */
+    
     public HashMap<String, Object> getUpgrades() {
         return upgradeMap;
     }
