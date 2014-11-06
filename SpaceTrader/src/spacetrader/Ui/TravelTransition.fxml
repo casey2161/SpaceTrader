@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="640.0" prefWidth="480.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.TravelTransitionController">
+   <children>
+      <ImageView fx:id="bgImage" fitHeight="800.0" fitWidth="600.0" layoutX="-89.0" layoutY="-52.0">
+         <image>
+            <Image url="@Pictures/d6e5e40d22d3.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fill="WHITE" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Traveling..." textAlignment="CENTER" wrappingWidth="480.0">
+         <font>
+            <Font size="62.0" />
+         </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
+      </Text>
+   </children>
+</Pane>
