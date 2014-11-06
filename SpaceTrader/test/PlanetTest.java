@@ -48,9 +48,14 @@ public class PlanetTest {
         int quality = result.getQuality();
         Weapon newWeapon = result.getWeapon();
 
-
+        // Test whether or not the type of the enemy ship is Flea
         assertTrue(result instanceof Flea);
+
+        // Test whether or not the enemy ship is either Pirate or Police
         assertTrue(name.equals("Pirate") || name.equals("Police"));
+
+        // Test whether or not the enemy ship has the appropriate quality for
+        // the given Planet's tech level
         if (techLevel < 3) {
             assertTrue(quality == 1);
         } else if (techLevel < 5) {
@@ -58,7 +63,11 @@ public class PlanetTest {
         } else {
             assertTrue(quality == 3);
         }
+
+        // Test whether the enemy Ship has a weapon
         assertNotNull(newWeapon);
+
+        // Test whether or not the enemy Ship weapon is a type of Weaker Laser
         assertTrue(newWeapon.getName().equals("Weaker Laser"));
     }
 }
