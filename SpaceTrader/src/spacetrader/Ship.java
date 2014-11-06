@@ -22,7 +22,8 @@ public abstract class Ship implements Serializable{
 	//private Equipment[] equipmentSlots;
 	
 	/**
-	 * Constructor for Ship with parameters for name, maximum range, size of the ship, quality
+	 * Constructor for Ship with parameters for name, maximum range, size of
+         * the ship, quality
 	 * of the ship and location of the ship.
 	 * @param name The name of the ship
 	 * @param maxRange The maximum range the ship can travel on full fuel
@@ -167,16 +168,19 @@ public abstract class Ship implements Serializable{
 	 * Deals damage to an opposing ship
 	 * @param opponent The opposing ship
 	 */
-	public void dealDamage (Ship opponent) {
-            if (weaponSlots.length == 0 || weaponSlots[0] == null) {
-                System.out.println("You can't fire a weapon!");
+	public int dealDamage (Ship opponent) {
+            int damageTaken = 0;
+            if (opponent == null || weaponSlots.length == 0 || weaponSlots[0] == null) {
+                return damageTaken;
             } else {
                 for (int i = 0; i <= weaponSlot; i++) {
                     if (weaponSlots[i].getAmmo() > 0) {
                         weaponSlots[i].fireWeapon();
                         opponent.takeDamage((int)(weaponSlots[i].getDamage() * Math.random()));
+                        damageTaken = damageTaken + weaponSlots[i].getDamage();
                     }
                 }
+                return damageTaken;
             }
 	}
 	
