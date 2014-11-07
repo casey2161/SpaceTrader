@@ -15,6 +15,14 @@ import spacetrader.Universe.Planet;
  */
 public class PlanetTest {
     
+    private Planet instance;
+    private Ship result;
+    String name;
+    int techLevel;
+    int quality;
+    Weapon newWeapon;
+    
+    
     public PlanetTest() {
     }
     
@@ -28,6 +36,13 @@ public class PlanetTest {
     
     @Before
     public void setUp() {
+        instance = new Planet("Test Planet", 1, 1, 0, 0,
+                true, null, null);
+        result = instance.getEncounterShip();
+        name = result.getName();
+        techLevel = instance.getTechLevel();
+        quality = result.getQuality();
+        newWeapon = result.getWeapon();
     }
     
     @After
@@ -35,27 +50,27 @@ public class PlanetTest {
     }
 
     /**
-     * Test of getEncounterShip method, of class Planet.
+     * Test whether or not the type of the enemy ship is Flea
      */
     @Test
-    public void testGetEncounterShip() {
-        System.out.println("getEncounterShip");
-        Planet instance = new Planet("Test Planet", 1, 1, 0, 0,
-                true, null, null);
-        Ship result = instance.getEncounterShip();
-        String name = result.getName();
-        int techLevel = instance.getTechLevel();
-        int quality = result.getQuality();
-        Weapon newWeapon = result.getWeapon();
-
-        // Test whether or not the type of the enemy ship is Flea
+    public void testShipInstance() {
         assertTrue(result instanceof Flea);
+    }
 
-        // Test whether or not the enemy ship is either Pirate or Police
+    /**
+     * Test whether or not the enemy ship is either Pirate or Police
+     */
+    @Test
+    public void testShipName() {
         assertTrue(name.equals("Pirate") || name.equals("Police"));
+    }
 
-        // Test whether or not the enemy ship has the appropriate quality for
-        // the given Planet's tech level
+    /**
+     * Test whether or not the enemy ship has the appropriate quality for
+     * the given Planet's tech level
+     */
+    @Test
+    public void testShipQuality() {
         if (techLevel < 3) {
             assertTrue(quality == 1);
         } else if (techLevel < 5) {
@@ -63,11 +78,16 @@ public class PlanetTest {
         } else {
             assertTrue(quality == 3);
         }
+    }
 
-        // Test whether the enemy Ship has a weapon
+    /**
+     * Test whether the enemy Ship has a weapon
+     * Test whether or not the enemy Ship weapon is a type of Weaker Laser
+     */
+    @Test
+    public void testShipWeapon() {
         assertNotNull(newWeapon);
 
-        // Test whether or not the enemy Ship weapon is a type of Weaker Laser
         assertTrue(newWeapon.getName().equals("Weaker Laser"));
     }
 }
