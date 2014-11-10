@@ -293,4 +293,8 @@ public abstract class Ship implements Serializable{
         public void setEscapePod(boolean flag) {
             escapePod = flag;
         }
+
+        public void setName(String str) {
+            name = str;
+        }
 }
