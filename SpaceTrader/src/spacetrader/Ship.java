@@ -171,7 +171,7 @@ public abstract class Ship implements Serializable{
             if (weaponSlots.length == 0 || weaponSlots[0] == null) {
                 System.out.println("You can't fire a weapon!");
             } else {
-                for (int i = 0; i <= weaponSlot; i++) {
+                for (int i = 0; i < weaponSlot; i++) {
                     if (weaponSlots[i].getAmmo() > 0) {
                         weaponSlots[i].fireWeapon();
                         opponent.takeDamage((int)(weaponSlots[i].getDamage() * Math.random()));
