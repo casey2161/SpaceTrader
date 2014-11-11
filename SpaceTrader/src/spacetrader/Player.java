@@ -18,7 +18,7 @@ public class Player implements Serializable{
     private static int DEFAULT_DIFF = 1;
     private static int DEFAULT_SKILL = 4;
 
-    private Player(String name, int diff, int pilotPoints, int fighterPoints,
+    public Player(String name, int diff, int pilotPoints, int fighterPoints,
         int traderPoints, int engineerPoints, Planet location) {
             this.name = name;
             this.diff = diff;
