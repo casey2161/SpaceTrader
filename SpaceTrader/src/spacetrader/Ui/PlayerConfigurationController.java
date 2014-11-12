@@ -18,7 +18,7 @@ import spacetrader.Player;
 import spacetrader.SpaceTrader;
 import spacetrader.Universe.Planet;
 import spacetrader.Universe.Universe;
-        
+ 
 
 /**
  * FXML Controller class
@@ -43,14 +43,14 @@ public class PlayerConfigurationController implements Initializable {
     @FXML private Button subtractEngineer;
     @FXML private Button reset;
     @FXML private Button startNewGame;
-    
+
     @FXML
     private void addPilotAction(ActionEvent event) {
         int currentText = Integer.parseInt(pilot.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
         currentText++;
         currentPoints--;
-        
+
         String newText = String.valueOf(currentText);
         String newPoints = String.valueOf(currentPoints);
         pilot.setText(newText);
@@ -66,14 +66,14 @@ public class PlayerConfigurationController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     private void subtractPilotAction(ActionEvent event) {
         int currentText = Integer.parseInt(pilot.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
         currentText--;
         currentPoints++;
-        
+
         String newText = String.valueOf(currentText);
         String newPoints = String.valueOf(currentPoints);
         pilot.setText(newText);
@@ -83,20 +83,24 @@ public class PlayerConfigurationController implements Initializable {
             subtractPilot.setVisible(false);
         }
 
-        if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(pilot.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addPilot.setVisible(true);
         }
-        if (Integer.parseInt(fighter.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(fighter.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addFighter.setVisible(true);
         }
-        if (Integer.parseInt(trader.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(trader.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addTrader.setVisible(true);
         }
-        if (Integer.parseInt(engineer.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(engineer.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addEngineer.setVisible(true);
         }
     }
-    
+
     @FXML
     private void addFighterAction (ActionEvent event) {
         int currentText = Integer.parseInt(fighter.getText());
@@ -119,7 +123,7 @@ public class PlayerConfigurationController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     private void subtractFighterAction(ActionEvent event) {
         int currentText = Integer.parseInt(fighter.getText());
@@ -136,27 +140,31 @@ public class PlayerConfigurationController implements Initializable {
             subtractFighter.setVisible(false);
         }
         
-        if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(pilot.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addPilot.setVisible(true);
         }
-        if (Integer.parseInt(fighter.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(fighter.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addFighter.setVisible(true);
         }
-        if (Integer.parseInt(trader.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(trader.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addTrader.setVisible(true);
         }
-        if (Integer.parseInt(engineer.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(engineer.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addEngineer.setVisible(true);
         }
     }
-    
+
     @FXML
     private void addTraderAction(ActionEvent event) {
         int currentText = Integer.parseInt(trader.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
         currentText++;
         currentPoints--;
-        
+
         String newText = String.valueOf(currentText);
         String newPoints = String.valueOf(currentPoints);
         trader.setText(newText);
@@ -172,14 +180,14 @@ public class PlayerConfigurationController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     private void subtractTraderAction(ActionEvent event) {
         int currentText = Integer.parseInt(trader.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
         currentText--;
         currentPoints++;
-        
+
         String newText = String.valueOf(currentText);
         String newPoints = String.valueOf(currentPoints);
         trader.setText(newText);
@@ -188,20 +196,24 @@ public class PlayerConfigurationController implements Initializable {
         if (currentText <= 1) {
             subtractTrader.setVisible(false);
         }
-        if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(pilot.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addPilot.setVisible(true);
         }
-        if (Integer.parseInt(fighter.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(fighter.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addFighter.setVisible(true);
         }
-        if (Integer.parseInt(trader.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(trader.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addTrader.setVisible(true);
         }
-        if (Integer.parseInt(engineer.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(engineer.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addEngineer.setVisible(true);
         }
     }
-    
+
     @FXML
     private void addEngineerAction(ActionEvent event) {
         int currentText = Integer.parseInt(engineer.getText());
@@ -224,8 +236,8 @@ public class PlayerConfigurationController implements Initializable {
             }
         }
     }
-    
-        @FXML
+
+    @FXML
     private void subtractEngineerAction(ActionEvent event) {
         int currentText = Integer.parseInt(engineer.getText());
         int currentPoints = Integer.parseInt(skillPointsRemaining.getText());
@@ -240,20 +252,24 @@ public class PlayerConfigurationController implements Initializable {
         if (currentText <= 1) {
             subtractEngineer.setVisible(false);
         }
-        if (Integer.parseInt(pilot.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(pilot.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addPilot.setVisible(true);
         }
-        if (Integer.parseInt(fighter.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(fighter.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addFighter.setVisible(true);
         }
-        if (Integer.parseInt(trader.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(trader.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addTrader.setVisible(true);
         }
-        if (Integer.parseInt(engineer.getText()) < 10 && Integer.parseInt(skillPointsRemaining.getText()) > 0) {
+        if (Integer.parseInt(engineer.getText()) < 10 && Integer
+                .parseInt(skillPointsRemaining.getText()) > 0) {
             addEngineer.setVisible(true);
         }
     }
-    
+
     @FXML
     private void resetAction(ActionEvent event) {
         skillPointsRemaining.setText("16");
@@ -268,41 +284,38 @@ public class PlayerConfigurationController implements Initializable {
         subtractPilot.setVisible(false);
         subtractFighter.setVisible(false);
         subtractTrader.setVisible(false);
-        subtractEngineer.setVisible(false);
-        
-        
-        
+        subtractEngineer.setVisible(false); 
     }
-    
+
     @FXML
     private void startNewGameAction(ActionEvent event) {
         Player.clearInstance();
         Universe.recreateInstance();
-        if(!skillPointsRemaining.getText().equals("0") || playerName.getText().equals("")) {
+        if(!skillPointsRemaining.getText().equals("0") || playerName.getText()
+                .equals("")) {
             startFailed.setVisible(true);
         } else {
             Planet spawn = Universe.getInstance().getSolarSystem(0).getPlanet(0);
-            Player.updateInstance(playerName.getText(), 1, Integer.parseInt(pilot.getText()), 
+            Player.updateInstance(playerName.getText(), 1, Integer
+                    .parseInt(pilot.getText()), 
             Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
             Integer.parseInt(engineer.getText()), spawn);
             
             // For demo purposes
-            System.out.println("Player: " + Player.getInstance().name() + " is created.");
+            System.out.println("Player: " + Player.getInstance().name()
+                    + " is created.");
             System.out.println("Solarsystem:");
             Universe.getInstance().dumpInfo();
-            
-            
+
             SpaceTrader.stage.setScene(SpaceTrader.allScenes[2]);
         }
     }
-    
+
     @FXML
     private void cancelAction(ActionEvent event) {
         SpaceTrader.stage.setScene(SpaceTrader.allScenes[0]);
     }
-   
-    
-    
+
     /**
      * Initializes the controller class.
      * @param url
@@ -310,6 +323,6 @@ public class PlayerConfigurationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
     }    
 }
