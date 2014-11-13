@@ -3,6 +3,7 @@ package spacetrader.Universe;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -10,17 +11,24 @@ import java.util.Random;
  * @author Casey
  */
 public class PlanetFactory implements Serializable {
+
     private String[] planetNames;
     private int techLevel;
-    private int x;
-    private int y;
+    private int xPos;
+    private int yPos;
     private int count;
     
-    public PlanetFactory(int techLevel, int x, int y) {
+    /**
+     * Constructor for a PlanetFactory.
+     * @param techLevel the tech level.
+     * @param xLoc the x location.
+     * @param yLoc the y location.
+     */
+    public PlanetFactory(int techLevel, int xLoc, int yLoc) {
         initNames();
         this.techLevel = techLevel;
-        this.x = x;
-        this.y = y;
+        xPos = xLoc;
+        yPos = yLoc;
     }
     /**
      * This method creates a planet based on the factories settings.
@@ -28,23 +36,27 @@ public class PlanetFactory implements Serializable {
      */
     public Planet createPlanet() {
         Random gen = new Random();
-        
+
         String name = planetNames[Math.abs((gen.nextInt())
                 % planetNames.length)];
         int rscLevel = Math.abs(gen.nextInt() % 12);
-        int xval = (gen.nextInt() % 5) * count + x;
-        int yval = (gen.nextInt() % 5) * count + y;
+        int xval = (gen.nextInt() % 5) * count + xPos;
+        int yval = (gen.nextInt() % 5) * count + yPos;
         HashMap<String, Integer> prices, amount;
-        prices = generatePrices(techLevel, rscLevel);
-        amount = generateAmount(techLevel, rscLevel);
+        prices = (HashMap<String, Integer>) generatePrices();
+        amount = (HashMap<String, Integer>) generateAmount();
         boolean pirates = gen.nextDouble() < 0.2;
         count++;
         return new Planet(name, techLevel, rscLevel, xval, yval, pirates,
                 prices, amount);
     }
-    
-    private HashMap<String, Integer> generatePrices(int techLevel, int rscLevel) {
-        HashMap<String, Integer> cargo = new HashMap<String, Integer>();
+
+    /**
+     * This generates the market prices.
+     * @return a map containing market prices.
+     */
+    private Map<String, Integer> generatePrices() {
+        Map<String, Integer> cargo = new HashMap<>();
         cargo.put("water", (int) (30 + 3 * techLevel + (Math.random() * 4)));
         cargo.put("fur", (int) (250 + 10 * techLevel + Math.random() * 10));
         if (techLevel >= 1) {
@@ -75,12 +87,15 @@ public class PlanetFactory implements Serializable {
             cargo.put("robots", (int) (5000 + (-150) * (techLevel - 5)
                     + Math.random() * 100));
         }
-        
         return cargo;
     }
-    
-    private HashMap<String, Integer> generateAmount(int techLevel, int rscLevel) {
-        HashMap<String, Integer> cargo = new HashMap<String, Integer>();
+
+    /**
+     * Generates the amount of an item
+     * @return the amount map.
+     */
+    private Map<String, Integer> generateAmount() {
+        HashMap<String, Integer> cargo = new HashMap<>();
         cargo.put("water", (int) (Math.random() * 50));
         cargo.put("fur", (int) (Math.random() * 50));
         if (techLevel >= 1) {
@@ -105,8 +120,12 @@ public class PlanetFactory implements Serializable {
         }
         return cargo;
     }
-    
-    private HashMap<String, Integer> generateSellMap(int techLevel, int rscLevel) {
+
+    /**
+     * Generates the selling prices.
+     * @return the map of the selling prices.
+     *
+    private Map<String, Integer> generateSellMap() {
         HashMap<String, Integer> cargo = new HashMap<String, Integer>();
         if (techLevel >= 4) {
             cargo.put("robots", (int) (5000 + (-150) * (techLevel - 4)
@@ -138,26 +157,29 @@ public class PlanetFactory implements Serializable {
                 + Math.random() * 5) / 2);
         return cargo;
     }
-    
+    */
+    /**
+     * Initiates possible names.
+     */
     private void initNames() {
         planetNames = new String[]
         {
             "Acamar",
-            "Adahn",		
+            "Adahn",
             "Aldea",
             "Andevian",
             "Antedi",
             "Balosnee",
             "Baratas",
             "Brax",			// One of the heroes in Master of Magic
-            "Bretel",	
+            "Bretel",
             "Calondia",
             "Campor",
-            "Capelle",		
+            "Capelle",
             "Carzon",
             "Castor",		// A Greek demi-god
             "Cestus",
-            "Cheron",		
+            "Cheron",
             "Courteney",	// After Courteney Cox…
             "Daled",
             "Damast",
@@ -175,7 +197,7 @@ public class PlanetFactory implements Serializable {
             "Fourmi",		// An ant, in French
             "Frolix",		// A solar system in one of Philip K. Dick's
             "Gemulon",
-            "Guinifer",		
+            "Guinifer",
             "Hades",		// The underworld
             "Hamlet",		// From Shakespeare
             "Helena",		// Of Troy
@@ -192,14 +214,14 @@ public class PlanetFactory implements Serializable {
             "Klaatu",		// From a classic SF movie
             "Klaestron",
             "Korma",		// An Indian sauce
-            "Kravat",		
+            "Kravat",
             "Krios",
             "Laertes",		// A king in a Greek tragedy
             "Largo",
             "Lave",			// The starting system in Elite
             "Ligon",
-            "Lowry",		
-            "Magrat",		
+            "Lowry",
+            "Magrat",
             "Malcoria",
             "Melina",
             "Mentar",		// The Psilon home system in Master of Orion
@@ -209,15 +231,15 @@ public class PlanetFactory implements Serializable {
             "Mordan",
             "Myrthe",		// The name of my daughter
             "Nelvana",
-            "Nix", 
-            "Nyle",			
+            "Nix",
+            "Nyle",
             "Odet",
-            "Og",			
+            "Og",
             "Omega",		// The end of it all
             "Omphalos",		// Greek for navel
             "Orias",
             "Othello",		// From Shakespeare
-            "Parade",		
+            "Parade",
             "Penthara",
             "Picard",		// The enigmatic captain from ST:TNG
             "Pollux",		// Brother of Castor
@@ -250,7 +272,7 @@ public class PlanetFactory implements Serializable {
             "Triacus",
             "Turkana",
             "Tyrus",
-            "Umberlee",		
+            "Umberlee",
             "Utopia",		// The ultimate goal
             "Vadera",
             "Vagra",
@@ -258,7 +280,7 @@ public class PlanetFactory implements Serializable {
             "Ventax",
             "Xenon",
             "Xerxes",		// A Greek hero
-            "Yew",			
+            "Yew",
             "Yojimbo",		// A film by Akira Kurosawa
             "Zalkon",
             "Zuul"			// From the first Ghostbusters movie

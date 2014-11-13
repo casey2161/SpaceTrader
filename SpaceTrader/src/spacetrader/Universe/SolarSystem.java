@@ -12,40 +12,60 @@ import java.io.Serializable;
  * @author Casey
  */
 public class SolarSystem implements Serializable {
-    
-    private PlanetFactory pf;
+
     private String name;
     private Planet[] planets;
     
-    public SolarSystem(String name, int techLevel, int x, int y) {
+    /**
+     * The constructor for a solar system.
+     * @param name the name of the system.
+     * @param techLevel the system's tech level.
+     * @param xPos the x position of the sun.
+     * @param yPos the y position of the sun.
+     */
+    public SolarSystem(String name, int techLevel, int xPos, int yPos) {
         this.name = name;
-        pf = new PlanetFactory(techLevel, x, y);
+        PlanetFactory planetFactory = new PlanetFactory(techLevel, xPos, yPos);
         
         planets = new Planet[(int) (Math.random() * 5) + 3];
         for (int i = 0; i < planets.length; i++) {
-            planets[i] = pf.createPlanet();
+            planets[i] = planetFactory.createPlanet();
         }
     }
     
     /**
+     * Getter for the array of planets.
+     * @return the array of planets.
+     */
+    public Planet[] getPlanets() {
+        return planets;
+    }
+
+    /**
+     * Setter for the array of planets.
+     * @param planets the array to set.
+     */
+    public void setPlanets(Planet[] planets) {
+        this.planets = planets;
+    }
+    /**
      * Returns a specific planet.
-     * @param i the index of the planet to get.
+     * @param index the index of the planet to get.
      * @return the planet at index i.
      */
     
-    public Planet getPlanet(int i) {
-        if (i > planets.length || i < 0) {
+    public Planet getPlanet(int index) {
+        if (index > planets.length || index < 0) {
             throw new IllegalArgumentException("Invalid position argument");
         } else {
-            return planets[i];
+            return planets[index];
         }
     }
     
     /**
      * Gets the name of the SolarSystem.
      * @return returns the name.
-     */
-    
+     */    
     public String getName() {
         return name;
     }
@@ -66,8 +86,7 @@ public class SolarSystem implements Serializable {
     /**
      * Getter for the number of planets.
      * @return returns the number of planets in the solar system.
-     */
-    
+     */    
     public int getNumPlanets() {
         return planets.length;
     }
