@@ -438,8 +438,11 @@ public class GameController implements Initializable {
     //Upgrade Action Handlers
     @FXML 
     private void refreshUpgrades() {
-        HashMap<String, Object> upgradeMap = Player.getInstance().location().getUpgrades();
-        String selectedUpgrade = upgrades.getSelectionModel().getSelectedItem() + "";
+        Planet location = Player.getInstance().location();
+        HashMap<String, Object> upgradeMap =
+                (HashMap<String, Object>) location.getUpgrades();
+        String selectedUpgrade = upgrades.getSelectionModel().getSelectedItem()
+                + "";
         Object selection = upgradeMap.get(selectedUpgrade);
         weaponSlots.setText(Player.getInstance().ship().getWeaponSlots() + "");
         shieldSlots.setText(Player.getInstance().ship().getShieldSlots() + "");
@@ -482,7 +485,7 @@ public class GameController implements Initializable {
     
     @FXML
     private void buyUpgradeAction(ActionEvent event) {
-        HashMap<String, Object> upgradeMap = Player.getInstance().location().getUpgrades();
+        HashMap<String, Object> upgradeMap =(HashMap<String, Object>) Player.getInstance().location().getUpgrades();
         String selectedUpgrade = upgrades.getSelectionModel().getSelectedItem() + "";
         Object selection = upgradeMap.get(selectedUpgrade);
         int money = Player.getInstance().money();
