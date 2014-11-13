@@ -78,11 +78,13 @@ public class RandomEncounterController implements Initializable {
         you.setVisible(true);
         youBar.setVisible(true);
         enemyBar.setVisible(true);
-        message.setText("You have decided to fight the " + enemy.getName() + "!");
+        message.setText("You have decided to fight the " + enemy.getName()
+                + "!");
         
         if (Player.getInstance().ship().isDestroyed()) {
             if (Player.getInstance().ship().hasEscapePod()) {
-                finish("Your enemy destroyed your ship! You have escaped using the escape pod.");
+                finish("Your enemy destroyed your ship!"
+                        + "You have escaped using the escape pod.");
             } else {
                 SpaceTrader.stage.setScene(SpaceTrader.allScenes[4]);
             }
@@ -103,12 +105,13 @@ public class RandomEncounterController implements Initializable {
             you.setVisible(true);
             youBar.setVisible(true);
             enemyBar.setVisible(true);
-            message.setText("You attempted to flee. However, the " + enemy.getName()
+            message.setText("You attempted to flee. However, the "+ enemy.getName()
                     + " is attacking your ship!");
         
             if (Player.getInstance().ship().isDestroyed()) {
                 if (Player.getInstance().ship().hasEscapePod()) {
-                    finish("Your enemy destroyed your ship! You have escaped using the escape pod.");
+                    finish("Your enemy destroyed your ship!"
+                            + "You have escaped using the escape pod.");
                 } else {
                     SpaceTrader.stage.setScene(SpaceTrader.allScenes[4]);
                 }
@@ -137,7 +140,8 @@ public class RandomEncounterController implements Initializable {
                         Player.getInstance().ship().getAmount("Narcotics"));
                 Player.getInstance().subtractMoney(100 * count);
                 finish("The police found some firearms and/or narcotics on your ship."
-                        + " They took away the illegal cargos and fined you for 100 cr * the number of confiscated goods");
+                        + " They took away the illegal cargos and fined you"
+                        + "for 100 cr * the number of confiscated goods");
             }
         }
     }
@@ -175,7 +179,8 @@ public class RandomEncounterController implements Initializable {
         button2.setVisible(true);
         button3.setText("Surrender");
         button3.setVisible(true);
-        message.setText("A pirate ship is demanding you to hand over your cargos.");
+        message.setText("A pirate ship is demanding you"
+                + "to hand over your cargos.");
         message.setVisible(true);
         youBar.setProgress(1.0);
         enemyBar.setProgress(1.0);
@@ -194,12 +199,13 @@ public class RandomEncounterController implements Initializable {
         button3.setText("Submit");
         button3.setVisible(true);
         button4.setVisible(true);
-        message.setText("A police ship has ordered you to submit to a cargo inspection.");
+        message.setText("A police ship has ordered you to submit to"
+                + "a cargo inspection.");
         message.setVisible(true);
         youBar.setProgress(1.0);
         enemyBar.setProgress(1.0);
     }
-    
+
     private void finish(String message) {
         type.setVisible(false);
         you.setVisible(false);

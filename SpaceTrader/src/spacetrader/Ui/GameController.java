@@ -48,7 +48,7 @@ public class GameController implements Initializable {
     @FXML private Button saveGame;
     @FXML private Button loadGame;
     @FXML private Button retire;
-    
+
     // Marketplace
     @FXML private ListView marketplace;
     @FXML private Text available;
@@ -61,7 +61,7 @@ public class GameController implements Initializable {
     @FXML private Text cash;
     @FXML private Button buy;
     @FXML private Button sell;
-    
+
     // Travel
     @FXML private Pane mapPane;
     @FXML private Text currentLocation;
@@ -87,7 +87,7 @@ public class GameController implements Initializable {
     @FXML private Tab shipyardTab;
     private HashMap<String, Ship> shipMap;
     private HashMap<String, Integer> shipPrices;
-    
+
     //Upgrades
     @FXML private ListView upgrades;
     @FXML private Text weaponName;
@@ -103,9 +103,8 @@ public class GameController implements Initializable {
     @FXML private Text isExplosive;
     @FXML private Text isExplosiveValue;
     @FXML private Text shieldSlots;
-    
-    // Top menu
-    
+
+
     @FXML
     private void saveGameAction(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -141,7 +140,7 @@ public class GameController implements Initializable {
     @FXML
     private void retireAction(ActionEvent event) {
         // Moon purchase happens here.
-        System.out.println("Retire feature has not been implemented yet."); // Replace later.
+        System.out.println("Retire feature has not been implemented yet.");
     }
 
     @FXML
@@ -152,7 +151,7 @@ public class GameController implements Initializable {
 
 
     // Marketplace Tab
-    
+
     @FXML
     private void marketplaceSelectedAction(Event event) {
         refreshMarketplace();
@@ -166,44 +165,65 @@ public class GameController implements Initializable {
     @FXML
     private void tradeAction(ActionEvent event) {
         if (event.getSource().equals(buy)) {
-            String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
-            Player.getInstance().buy(selectedItem + "", Integer.parseInt(quantity.getText()));
-            inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
-            available.setText(Player.getInstance().location().getAmount(selectedItem) + "");
-            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
+            String selectedItem = marketplace.getSelectionModel()
+                    .getSelectedItem() + "";
+            Player.getInstance().buy(selectedItem + "", Integer
+                    .parseInt(quantity.getText()));
+            inventory.setText(Player.getInstance().ship()
+                    .getAmount(selectedItem) + "");
+            available.setText(Player.getInstance().location()
+                    .getAmount(selectedItem) + "");
+            currentCapacity.setText(Player.getInstance().ship()
+                    .getCurrentCargo() + "");
             cash.setText(Player.getInstance().money() + " cr.");
         } else if (event.getSource().equals(sell)) {
-            String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
-            Player.getInstance().sell(selectedItem + "", Integer.parseInt(quantity.getText()));
-            inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
-            available.setText(Player.getInstance().location().getAmount(selectedItem) + "");
-            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
+            String selectedItem = marketplace.getSelectionModel()
+                    .getSelectedItem() + "";
+            Player.getInstance().sell(selectedItem + "", Integer
+                    .parseInt(quantity.getText()));
+            inventory.setText(Player.getInstance().ship()
+                    .getAmount(selectedItem) + "");
+            available.setText(Player.getInstance().location()
+                    .getAmount(selectedItem) + "");
+            currentCapacity.setText(Player.getInstance()
+                    .ship().getCurrentCargo() + "");
             cash.setText(Player.getInstance().money() + " cr.");
         }     
     }
-    
+
     private void refreshMarketplace() {
         try {
-            String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
-            inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
-            buyingPrice.setText(Player.getInstance().location().getPrice(selectedItem) + " cr.");
-            sellingPrice.setText(Player.getInstance().location().getPrice(selectedItem) + " cr.");
-            available.setText(Player.getInstance().location().getAmount(selectedItem) + "");
-            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
-            maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
+            String selectedItem = marketplace.getSelectionModel()
+                    .getSelectedItem() + "";
+            inventory.setText(Player.getInstance().ship()
+                    .getAmount(selectedItem) + "");
+            buyingPrice.setText(Player.getInstance().location()
+                    .getPrice(selectedItem) + " cr.");
+            sellingPrice.setText(Player.getInstance().location()
+                    .getPrice(selectedItem) + " cr.");
+            available.setText(Player.getInstance().location()
+                    .getAmount(selectedItem) + "");
+            currentCapacity.setText(Player.getInstance().ship()
+                    .getCurrentCargo() + "");
+            maximumCapacity.setText(Player.getInstance().ship()
+                    .getMaxCargo() + "");
             cash.setText(Player.getInstance().money() + " cr.");
             quantity.setVisible(true);
             buy.setVisible(true);
             sell.setVisible(true);
         }
         catch (NullPointerException e){
-            String selectedItem = marketplace.getSelectionModel().getSelectedItem() + "";
-            inventory.setText(Player.getInstance().ship().getAmount(selectedItem) + "");
+            String selectedItem = marketplace.getSelectionModel()
+                    .getSelectedItem() + "";
+            inventory.setText(Player.getInstance().ship()
+                    .getAmount(selectedItem) + "");
             buyingPrice.setText("N/A");
             sellingPrice.setText("N/A");
             available.setText("Not Available");
-            currentCapacity.setText(Player.getInstance().ship().getCurrentCargo() + "");
-            maximumCapacity.setText(Player.getInstance().ship().getMaxCargo() + "");
+            currentCapacity.setText(Player.getInstance().ship()
+                    .getCurrentCargo() + "");
+            maximumCapacity.setText(Player.getInstance().ship()
+                    .getMaxCargo() + "");
             cash.setText(Player.getInstance().money() + " cr.");
             quantity.setVisible(false);
             buy.setVisible(false);
@@ -214,12 +234,12 @@ public class GameController implements Initializable {
 
 
     //Travel
-    
+
     @FXML
     private void travelSelectedAction(Event event) {
         refreshMap();
     }
-    
+
     @FXML
     private void mapClickedAction(MouseEvent event) {
        refreshMap();
@@ -227,11 +247,14 @@ public class GameController implements Initializable {
        double mouseX = event.getX();
        double mouseY = event.getY();
        boolean planetIsSelected = false;
-       
+
        Planet planet = Player.getInstance().location();
-       for (int i = 0; i < Universe.getInstance().getSolarSystems().length; i++) {
-            for(int j = 0; j < Universe.getInstance().getSolarSystem(i).getNumPlanets(); j++) {
-                Planet currentPlanet = Universe.getInstance().getSolarSystem(i).getPlanet(j);
+       for (int i = 0; i < Universe.getInstance().getSolarSystems()
+               .length; i++) {
+            for(int j = 0; j < Universe.getInstance().getSolarSystem(i)
+                    .getNumPlanets(); j++) {
+                Planet currentPlanet = Universe.getInstance().getSolarSystem(i)
+                        .getPlanet(j);
                 int planetX = currentPlanet.getX() * 2;
                 int planetY = currentPlanet.getY() * 2;
                 if (mouseX >= planetX - 2 && mouseX <= planetX + 2 &&
@@ -254,16 +277,20 @@ public class GameController implements Initializable {
             spawnspirates.setText(pirates);
         }
     }
-    
+
     @FXML
     private void travelAction(ActionEvent event) {
         Planet destination = Player.getInstance().location();
-        for (int i = 0; i < Universe.getInstance().getSolarSystems().length; i++) {
-            for(int j = 0; j < Universe.getInstance().getSolarSystem(i).getNumPlanets(); j++) {
-                String traversePlanet = Universe.getInstance().getSolarSystem(i).getPlanet(j).getName();
+        for (int i = 0; i < Universe.getInstance().getSolarSystems()
+                .length; i++) {
+            for(int j = 0; j < Universe.getInstance().getSolarSystem(i)
+                    .getNumPlanets(); j++) {
+                String traversePlanet = Universe.getInstance().getSolarSystem(i)
+                        .getPlanet(j).getName();
                 String selectedPlanet = selectedDestination.getText();
                 if (traversePlanet.equals(selectedPlanet)) {
-                    destination = Universe.getInstance().getSolarSystem(i).getPlanet(j);
+                    destination = Universe.getInstance().getSolarSystem(i)
+                            .getPlanet(j);
                 }
             }
         }
@@ -282,7 +309,8 @@ public class GameController implements Initializable {
         refreshMap();
 
         if (Player.getInstance().location().isEncounter()) {
-            RandomEncounterController.initializeEncounter(Player.getInstance().location().getEncounterShip());
+            RandomEncounterController.initializeEncounter(Player.getInstance()
+                    .location().getEncounterShip());
             SpaceTrader.stage.setScene(SpaceTrader.allScenes[3]);
         }
     }
@@ -293,9 +321,12 @@ public class GameController implements Initializable {
         Circle circle;
         Color color;
 
-        for (int i = 0; i < Universe.getInstance().getSolarSystems().length; i++) {
-            for(int j = 0; j < Universe.getInstance().getSolarSystem(i).getNumPlanets(); j++) {
-                Planet currentPlanet = Universe.getInstance().getSolarSystem(i).getPlanet(j);
+        for (int i = 0; i < Universe.getInstance().getSolarSystems()
+                .length; i++) {
+            for(int j = 0; j < Universe.getInstance().getSolarSystem(i)
+                    .getNumPlanets(); j++) {
+                Planet currentPlanet = Universe.getInstance().getSolarSystem(i)
+                        .getPlanet(j);
                 if (Player.getInstance().location().equals(currentPlanet)) {
                     color = Color.rgb(255, 0, 0);
                 } else if (Player.getInstance().canTravel(currentPlanet)) {
@@ -303,7 +334,8 @@ public class GameController implements Initializable {
                 } else {
                     color = Color.rgb(0, 0, 255);
                 }
-                circle = new Circle(currentPlanet.getX() * 2, currentPlanet.getY() * 2, 2, color);
+                circle = new Circle(currentPlanet.getX() * 2,
+                        currentPlanet.getY() * 2, 2, color);
                 circle.setId(currentPlanet.getName());
                 circles.getChildren().add(circle);
             }
@@ -312,8 +344,10 @@ public class GameController implements Initializable {
 
         currentLocation.setText(Player.getInstance().location().getName());
         selectedDestination.setText(Player.getInstance().location().getName());
-        techLevel.setText(Player.getInstance().location().tchlvlString(Player.getInstance().location().getTechLevel()));
-        resources.setText(Player.getInstance().location().rscString(Player.getInstance().location().getResources()));
+        techLevel.setText(Player.getInstance().location()
+                .tchlvlString(Player.getInstance().location().getTechLevel()));
+        resources.setText(Player.getInstance().location()
+                .rscString(Player.getInstance().location().getResources()));
         String pirates;
         if (Player.getInstance().location().spawnsPirates()) {
             pirates = "High";
@@ -378,7 +412,8 @@ public class GameController implements Initializable {
 
     @FXML
     private void buyShipAction(ActionEvent event) {
-        String selectedItem = shipyard.getSelectionModel().getSelectedItem() + "";
+        String selectedItem = shipyard.getSelectionModel()
+                .getSelectedItem() + "";
         Ship selectedShip = shipMap.get(selectedItem);
         int price = shipPrices.get(selectedItem);
         if (Player.getInstance().money() >= price && !Player.getInstance()
@@ -390,7 +425,8 @@ public class GameController implements Initializable {
     }
 
     private void refreshShipyard() {
-        String selectedItem = shipyard.getSelectionModel().getSelectedItem() + "";
+        String selectedItem = shipyard.getSelectionModel()
+                .getSelectedItem() + "";
         shipName.setText(selectedItem);
         String sizeString = "";
         if (shipMap.get(selectedItem).getSize() == 10) {
@@ -434,7 +470,7 @@ public class GameController implements Initializable {
         shipNotification.setVisible(false);
         shipPrice.setText(shipPrices.get(selectedItem).toString() + " cr.");
     }
-    
+
     //Upgrade Action Handlers
     @FXML 
     private void refreshUpgrades() {
@@ -478,15 +514,19 @@ public class GameController implements Initializable {
                     
         }
     }
+
     @FXML
     private void upgradesAction() {
         refreshUpgrades();
     }
-    
+  
     @FXML
     private void buyUpgradeAction(ActionEvent event) {
-        HashMap<String, Object> upgradeMap =(HashMap<String, Object>) Player.getInstance().location().getUpgrades();
-        String selectedUpgrade = upgrades.getSelectionModel().getSelectedItem() + "";
+        HashMap<String, Object> upgradeMap =
+                (HashMap<String, Object>) Player.getInstance().location()
+                        .getUpgrades();
+        String selectedUpgrade = upgrades.getSelectionModel().getSelectedItem() 
+                + "";
         Object selection = upgradeMap.get(selectedUpgrade);
         int money = Player.getInstance().money();
         if (selection instanceof Weapon) {
@@ -495,7 +535,8 @@ public class GameController implements Initializable {
                 if (Player.getInstance().ship().getWeaponSlots() != 0) {
                     Player.getInstance().ship().addWeapon(weapon);
                     Player.getInstance().setMoney(money - weapon.getPrice());
-                    weaponSlots.setText(Player.getInstance().ship().getWeaponSlots() + "");
+                    weaponSlots.setText(Player.getInstance().ship()
+                            .getWeaponSlots() + "");
                 }
             }
         } else {
@@ -504,13 +545,16 @@ public class GameController implements Initializable {
                 if (Player.getInstance().ship().getShieldSlots() != 0) {
                     Player.getInstance().ship().addShield(shield);
                     Player.getInstance().setMoney(money - shield.getPrice());
-                    shieldSlots.setText(Player.getInstance().ship().getShieldSlots() + "");
+                    shieldSlots.setText(Player.getInstance().ship()
+                            .getShieldSlots() + "");
                 }
             }
         }
     }
+
+
     // Others
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {   
         List<String> list = Arrays.asList("Water", "Fur", "Food", "Ore",
