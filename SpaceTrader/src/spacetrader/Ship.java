@@ -179,9 +179,9 @@ public abstract class Ship implements Serializable{
                         opponent.takeDamage((int)(weaponSlots[i].getDamage() * Math.random()));
                         damageTaken = damageTaken + weaponSlots[i].getDamage();
                     }
-                }
-                return damageTaken;
+                }     
             }
+            return damageTaken;
 	}
 	
 	/**
