@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
@@ -187,10 +188,15 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Pane fx:id="mapPane" layoutX="30.0" layoutY="14.0" onMouseClicked="#mapClickedAction" prefHeight="300.0" prefWidth="300.0">
+                        <Pane fx:id="mapPane" layoutX="90.0" layoutY="14.0" onMouseClicked="#mapClickedAction" prefHeight="300.0" prefWidth="300.0">
                            <children>
                               <Line endY="150.0" layoutX="150.0" layoutY="150.0" startY="-150.0" />
                               <Line endX="150.0" layoutX="150.0" layoutY="150.0" startX="-150.0" />
+                              <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="26.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@Pictures/Black-Color-26.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </Pane>
                         <Text layoutX="30.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Location: ">
@@ -277,60 +283,68 @@
                                  <children>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Text layoutX="177.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shipyard">
+                                          <ImageView fitHeight="1800.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@Pictures/shipyard.jpg" />
+                                             </image>
+                                             <viewport>
+                                                <Rectangle2D height="1800.0" minX="500.0" minY="400.0" width="800.0" />
+                                             </viewport>
+                                          </ImageView>
+                                          <Text fill="WHITE" layoutX="177.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shipyard">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="shipName" layoutX="193.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Name">
+                                          <Text fx:id="shipName" fill="WHITE" layoutX="193.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Name">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="fuel11" layoutX="100.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Size:">
+                                          <Text fx:id="fuel11" fill="WHITE" layoutX="100.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Size:">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="fuel111" layoutX="100.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cargo Bays:">
+                                          <Text fx:id="fuel111" fill="WHITE" layoutX="100.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cargo Bays:">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="fuel1111" layoutX="100.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Range:">
+                                          <Text fx:id="fuel1111" fill="WHITE" layoutX="100.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Range:">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="fuel11111" layoutX="100.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Quality:">
+                                          <Text fx:id="fuel11111" fill="WHITE" layoutX="100.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Quality:">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
                                           </Text>
                                           <Button fx:id="buyShip" layoutX="100.0" layoutY="410.0" mnemonicParsing="false" onAction="#buyShipAction" text="Buy" />
-                                          <Text fx:id="shipSize" layoutX="300.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                                          <Text fx:id="shipSize" fill="WHITE" layoutX="300.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="cargoBays" layoutX="300.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                                          <Text fx:id="cargoBays" fill="WHITE" layoutX="300.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="maxRange" layoutX="300.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                                          <Text fx:id="maxRange" fill="WHITE" layoutX="300.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="shipQuality" layoutX="300.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                                          <Text fx:id="shipQuality" fill="WHITE" layoutX="300.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
                                           </Text>
                                           <Button fx:id="buyFuel" layoutX="118.0" layoutY="492.0" mnemonicParsing="false" onAction="#buyFuelAction" text="Buy Fuel" />
                                           <Button fx:id="repairShip" layoutX="249.0" layoutY="492.0" mnemonicParsing="false" onAction="#repairShipAction" text="Repair Ship" />
-                                          <Text fx:id="shipPrice" layoutX="293.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Cr.">
+                                          <Text fx:id="shipPrice" fill="WHITE" layoutX="293.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Cr.">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -353,7 +367,15 @@
                                  <children>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Text layoutX="177.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upgrades">
+                                          <ImageView fitHeight="1800.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@Pictures/shipyard.jpg" />
+                                             </image>
+                                             <viewport>
+                                                <Rectangle2D height="1800.0" minX="500.0" minY="400.0" width="800.0" />
+                                             </viewport>
+                                          </ImageView>
+                                          <Text fill="WHITE" layoutX="177.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upgrades">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
@@ -366,53 +388,53 @@
                                           </Text>
                                        </children>
                                     </Pane>
-                                    <Text fx:id="weaponName" layoutX="180.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weapon Name">
+                                    <Text fx:id="weaponName" fill="WHITE" layoutX="180.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weapon Name">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="damage" layoutX="127.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Damage">
+                                    <Text fx:id="damage" fill="WHITE" layoutX="127.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Damage">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="qualityReq" layoutX="126.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Quality Required:">
+                                    <Text fx:id="qualityReq" fill="WHITE" layoutX="126.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Quality Required:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="damageVal" layoutX="327.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                                    <Text fx:id="damageVal" fill="WHITE" layoutX="327.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="qualityReqVal" layoutX="327.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                                    <Text fx:id="qualityReqVal" fill="WHITE" layoutX="327.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
                                     <Button fx:id="buyUpgrade" layoutX="333.0" layoutY="435.0" mnemonicParsing="false" onAction="#buyUpgradeAction" text="Buy" />
-                                    <Text fx:id="upgradePrice" layoutX="336.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Cr.">
+                                    <Text fx:id="upgradePrice" fill="WHITE" layoutX="336.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Cr.">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="upgradeCost" layoutX="127.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upgrade Cost:">
+                                    <Text fx:id="upgradeCost" fill="WHITE" layoutX="127.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upgrade Cost:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="weaponSlotsRem" layoutX="14.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weapon Slots Remaining">
+                                    <Text fx:id="weaponSlotsRem" fill="WHITE" layoutX="14.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weapon Slots Remaining">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="weaponSlots" layoutX="207.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                                    <Text fx:id="weaponSlots" fill="WHITE" layoutX="207.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="isExplosive" layoutX="127.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Explosive:" visible="false">
+                                    <Text fx:id="isExplosive" fill="WHITE" layoutX="127.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Explosive:" visible="false">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -422,12 +444,12 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="weaponSlotsRem1" layoutX="14.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shield Slots Remaining">
+                                    <Text fx:id="weaponSlotsRem1" fill="WHITE" layoutX="14.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shield Slots Remaining">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="shieldSlots" layoutX="207.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
+                                    <Text fx:id="shieldSlots" fill="WHITE" layoutX="207.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
