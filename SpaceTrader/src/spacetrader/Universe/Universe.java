@@ -25,7 +25,7 @@ public final class Universe implements Serializable {
      */
     private static Universe createInstance() {
         SolarSystem[] systems = new SolarSystem[8];
-        systems[8] = new SolarSystem("System" + 0, 0, 0, 0);
+        systems[0] = new SolarSystem("System" + 0, 0, 0, 0);
         for (int i = 1; i < 8; i++) {
             int xPos = (int) (Math.random() * 150);
             int yPos = (int) (Math.random() * 150);
