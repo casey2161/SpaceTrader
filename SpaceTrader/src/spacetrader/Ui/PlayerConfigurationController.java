@@ -33,6 +33,7 @@ public class PlayerConfigurationController implements Initializable {
     @FXML private Text fighter;
     @FXML private Text trader;
     @FXML private Text engineer;
+    @FXML private Text playerNameTitle;
     @FXML private Button addPilot;
     @FXML private Button addFighter;
     @FXML private Button addTrader;
@@ -43,6 +44,8 @@ public class PlayerConfigurationController implements Initializable {
     @FXML private Button subtractEngineer;
     @FXML private Button reset;
     @FXML private Button startNewGame;
+    
+    public static boolean multiplayerMode;
 
     @FXML
     private void addPilotAction(ActionEvent event) {
@@ -295,19 +298,48 @@ public class PlayerConfigurationController implements Initializable {
                 .equals("")) {
             startFailed.setVisible(true);
         } else {
-            Planet spawn = Universe.getInstance().getSolarSystem(0).getPlanet(0);
-            Player.updateInstance(playerName.getText(), 1, Integer
+            if (multiplayerMode && !Player.isPlayerTwo()) {
+                Planet spawn = Universe.getInstance().getSolarSystem(0).getPlanet(0);
+                Player.updateInstance(playerName.getText(), 1, Integer
                     .parseInt(pilot.getText()), 
-            Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
-            Integer.parseInt(engineer.getText()), spawn);
-            
-            // For demo purposes
-            System.out.println("Player: " + Player.getInstance().name()
-                    + " is created.");
-            System.out.println("Solarsystem:");
-            Universe.getInstance().dumpInfo();
+                Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
+                Integer.parseInt(engineer.getText()), spawn);
+                Player.setMultiplayer(true);
+                Player.setPlayerTwo(true);
 
-            SpaceTrader.stage.setScene(SpaceTrader.allScenes[2]);
+                playerNameTitle.setText("Second Player Name");
+                skillPointsRemaining.setText("16");
+                pilot.setText("1");
+                fighter.setText("1");
+                trader.setText("1");
+                engineer.setText("1");
+                addPilot.setVisible(true);
+                addFighter.setVisible(true);
+                addTrader.setVisible(true);
+                addEngineer.setVisible(true);
+                subtractPilot.setVisible(false);
+                subtractFighter.setVisible(false);
+                subtractTrader.setVisible(false);
+                subtractEngineer.setVisible(false);
+            } else if (multiplayerMode && Player.isPlayerTwo()) {
+                Planet spawn = Universe.getInstance().getSolarSystem(0).getPlanet(0);
+                Player.updateInstance(playerName.getText(), 1, Integer
+                    .parseInt(pilot.getText()), 
+                Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
+                Integer.parseInt(engineer.getText()), spawn);
+                Player.setMultiplayer(true);
+                Player.setPlayerTwo(false);
+                SpaceTrader.stage.setScene(SpaceTrader.allScenes[2]);
+            } else {
+                Planet spawn = Universe.getInstance().getSolarSystem(0).getPlanet(0);
+                Player.updateInstance(playerName.getText(), 1, Integer
+                    .parseInt(pilot.getText()), 
+                Integer.parseInt(fighter.getText()), Integer.parseInt(trader.getText()),
+                Integer.parseInt(engineer.getText()), spawn);
+                Player.setMultiplayer(false);
+                Player.setPlayerTwo(false);
+                SpaceTrader.stage.setScene(SpaceTrader.allScenes[2]);
+            }
         }
     }
 

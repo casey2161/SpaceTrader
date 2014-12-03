@@ -16,7 +16,7 @@
             <Image url="@Pictures/space-art-wallpapers-06.gif" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="42.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
+      <Text fx:id="playerNameTitle" fill="WHITE" layoutX="42.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
          <font>
             <Font size="20.0" />
          </font>

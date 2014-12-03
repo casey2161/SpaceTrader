@@ -17,13 +17,14 @@
             <Image url="@Pictures/Blue%20Space%20Wallpapers%203.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="fontButton2" layoutX="193.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleLoadGameButtonAction" text="Load Game" />
+      <Button fx:id="fontButton2" layoutX="192.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleLoadGameButtonAction" text="Load Game" />
       <Text fill="WHITE" layoutX="72.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Space Trader" textAlignment="CENTER" wrappingWidth="335.92333984375">
          <font>
             <Font size="48.0" />
          </font>
       </Text>
-      <Button fx:id="fontButton3" layoutX="216.0" layoutY="443.0" mnemonicParsing="false" onAction="#quitAction" text="Quit" />
-      <Button fx:id="fontButton" layoutX="194.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleNewGameButtonAction" stylesheets="@style.css" text="New Game" />
+      <Button fx:id="fontButton3" layoutX="217.0" layoutY="499.0" mnemonicParsing="false" onAction="#quitAction" text="Quit" />
+      <Button fx:id="fontButton" layoutX="148.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleNewGameButtonAction" stylesheets="@style.css" text="New Single Player Game" />
+      <Button layoutX="155.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleNewMultiplayerGameButtonAction" stylesheets="@style.css" text="New Multiplayer Game" />
    </children>
 </Pane>

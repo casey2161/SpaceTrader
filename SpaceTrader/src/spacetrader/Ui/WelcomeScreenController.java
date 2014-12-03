@@ -40,6 +40,13 @@ public class WelcomeScreenController implements Initializable {
     @FXML
     private void handleNewGameButtonAction(ActionEvent event) {
         SpaceTrader.stage.setScene(SpaceTrader.allScenes[1]);
+        PlayerConfigurationController.multiplayerMode = false;
+    }
+    
+    @FXML
+    private void handleNewMultiplayerGameButtonAction(ActionEvent event) {
+        SpaceTrader.stage.setScene(SpaceTrader.allScenes[1]);
+        PlayerConfigurationController.multiplayerMode = true;
     }
     
     @FXML
