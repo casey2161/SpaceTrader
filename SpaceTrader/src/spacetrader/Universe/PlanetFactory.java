@@ -36,7 +36,7 @@ public class PlanetFactory implements Serializable {
      */
     public Planet createPlanet() {
         Random gen = new Random();
-        int government = gen.nextInt() % 4;
+        int government = Math.abs(gen.nextInt()) % 4;
         String name = planetNames[Math.abs((gen.nextInt())
                 % planetNames.length)];
         int rscLevel = Math.abs(gen.nextInt() % 12);
