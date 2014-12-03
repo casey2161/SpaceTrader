@@ -52,9 +52,13 @@ public class Planet implements Serializable {
         "MINERALRICH", "MINERALPOOR", "DESERT", "LOTSOFWATER", "RICHSOIL",
         "POORSOIL", "RICHFAUNA", "LIFELESS", "WEIRDMUSHROOMS", "LOTSOFHERBS",
         "ARTISTIC", "WARLIKE" };
+    private static final String[] GOVERNMENT = {"Anarchist", "Capitalist", 
+        "Socialist", "Communist" };
     private final HashMap<String, Integer> priceMap;
     private final HashMap<String, Integer> cargoMap;
     private final HashMap<String, Object> upgradeMap;
+    private int government;
+    private double[] govMods;
     
     /**
      * Constructor for a planet.
@@ -69,7 +73,7 @@ public class Planet implements Serializable {
      */
     public Planet (String name, int level, int resourcelvl, int xPos,
             int yPos, boolean pirates, HashMap<String, Integer> prices,
-            HashMap<String, Integer> amount) {
+            HashMap<String, Integer> amount, int government) {
         planetName = name;
         techLevel = level;
         resources = resourcelvl;
@@ -80,6 +84,7 @@ public class Planet implements Serializable {
         this.cargoMap = amount;
         this.upgradeMap = new HashMap<>();
         this.generateUpgradeMap();
+        this.government = government;
     }
     //CHECKSTYLE:OFF
     /**
@@ -97,7 +102,14 @@ public class Planet implements Serializable {
     public int getTechLevel() {
         return techLevel;
     }
-
+    
+    /**
+     * Getter for Government.
+     * @return the integer for government
+     */
+    public int getGovernment() {
+        return government;
+    }
     /**
      * Gets the resource type of the planet.
      * @return the resource type of the planet.
@@ -149,6 +161,16 @@ public class Planet implements Serializable {
      */
     public String rscString(int resources) {
         return RESOURCES[resources];
+    }
+    
+    /**
+     * Takes an integer representing the government and
+     * returns the string value.
+     * @param gov the integer representing government.
+     * @return the government as a string.
+     */
+    public String govString(int gov) {
+        return GOVERNMENT[gov];
     }
 
     /**

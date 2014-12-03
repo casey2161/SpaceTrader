@@ -36,56 +36,61 @@ public class PlanetFactory implements Serializable {
      */
     public Planet createPlanet() {
         Random gen = new Random();
-
+        int government = gen.nextInt() % 4;
         String name = planetNames[Math.abs((gen.nextInt())
                 % planetNames.length)];
         int rscLevel = Math.abs(gen.nextInt() % 12);
         int xval = (gen.nextInt() % 5) * count + xPos;
         int yval = (gen.nextInt() % 5) * count + yPos;
         HashMap<String, Integer> prices, amount;
-        prices = (HashMap<String, Integer>) generatePrices();
+        prices = (HashMap<String, Integer>) generatePrices(government);
         amount = (HashMap<String, Integer>) generateAmount();
         boolean pirates = gen.nextDouble() < 0.2;
         count++;
         return new Planet(name, techLevel, rscLevel, xval, yval, pirates,
-                prices, amount);
+                prices, amount, government);
     }
 
     /**
      * This generates the market prices.
      * @return a map containing market prices.
      */
-    private Map<String, Integer> generatePrices() {
+    private Map<String, Integer> generatePrices(int government) {
+        double[] govMod = {1d,1d,1d,1d};
+        govMod[government] = 0.5;
+        
         Map<String, Integer> cargo = new HashMap<>();
-        cargo.put("water", (int) (30 + 3 * techLevel + (Math.random() * 4)));
-        cargo.put("fur", (int) (250 + 10 * techLevel + Math.random() * 10));
+        cargo.put("water", (int) ((30 + 3 * techLevel + (Math.random() * 4))
+                * govMod[0] * govMod[2]));
+        cargo.put("fur", (int) ((250 + 10 * techLevel + Math.random() * 10) 
+                * govMod[0] * govMod[2]));
         if (techLevel >= 1) {
-            cargo.put("food", (int) (100 + 5 * (techLevel - 1)
-                    + Math.random() * 5));
+            cargo.put("food", (int) ((100 + 5 * (techLevel - 1)
+                    + Math.random() * 5) * govMod[0]));
         }
         if (techLevel >= 2) {
-            cargo.put("ore", (int) (350 + 20 * (techLevel - 2)
-                    + Math.random() * 10));
+            cargo.put("ore", (int) ((350 + 20 * (techLevel - 2)
+                    + Math.random() * 10) * govMod[3] * (1/govMod[1])));
         }
         if (techLevel >= 3) {
-            cargo.put("games", (int) (250 + (-10) * (techLevel - 3)
-                    + Math.random() * 5));
-            cargo.put("firearms", (int) (1250 + (-75) * (techLevel - 3)
-                    + Math.random() * 100));
+            cargo.put("games", (int) ((250 + (-10) * (techLevel - 3)
+                    + Math.random() * 5) * govMod[1]));
+            cargo.put("firearms", (int) ((1250 + (-75) * (techLevel - 3)
+                    + Math.random() * 100) * govMod[3]));
         }
         if (techLevel >= 4) {
-            cargo.put("medicine", (int) (650 + (-20) * (techLevel - 4)
-                    + Math.random() * 10));
-            cargo.put("machines", (int) (900 + (-30) * (techLevel - 4)
-                    + Math.random() * 5));
+            cargo.put("medicine", (int) ((650 + (-20) * (techLevel - 4)
+                    + Math.random() * 10) * govMod[2]));
+            cargo.put("machines", (int) ((900 + (-30) * (techLevel - 4)
+                    + Math.random() * 5) * govMod[2]));
         }
         if (techLevel >= 5) {
-            cargo.put("narcotics", (int) (3500 + (-125) * (techLevel - 5)
-                    + Math.random() * 150));
+            cargo.put("narcotics", (int) ((3500 + (-125) * (techLevel - 5)
+                    + Math.random() * 150) * govMod[2]));
         }
         if (techLevel >= 6) {
-            cargo.put("robots", (int) (5000 + (-150) * (techLevel - 5)
-                    + Math.random() * 100));
+            cargo.put("robots", (int) ((5000 + (-150) * (techLevel - 5)
+                    + Math.random() * 100) * govMod[3]));
         }
         return cargo;
     }
