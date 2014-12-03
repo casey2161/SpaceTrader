@@ -37,7 +37,7 @@ public class PlanetTest {
     @Before
     public void setUp() {
         instance = new Planet("Test Planet", 1, 1, 0, 0,
-                true, null, null);
+                true, null, null, 1);
         result = instance.getEncounterShip();
         name = result.getName();
         techLevel = instance.getTechLevel();
