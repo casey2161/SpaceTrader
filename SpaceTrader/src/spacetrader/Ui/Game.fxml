@@ -15,10 +15,14 @@
    <top>
       <Pane prefHeight="40.0" prefWidth="360.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="saveGame" layoutX="21.0" layoutY="5.0" mnemonicParsing="false" onAction="#saveGameAction" text="Save Game" />
-            <Button fx:id="loadGame" layoutX="139.0" layoutY="5.0" mnemonicParsing="false" onAction="#loadGameAction" text="Load Game" />
-            <Button fx:id="retire" layoutX="375.0" layoutY="5.0" mnemonicParsing="false" onAction="#retireAction" text="Retire" />
-            <Button layoutX="259.0" layoutY="5.0" mnemonicParsing="false" onAction="#quitGameAction" text="Quit Game" />
+            <Button fx:id="saveGame" layoutX="6.0" layoutY="5.0" mnemonicParsing="false" onAction="#saveGameAction" text="Save Game" />
+            <Button fx:id="loadGame" layoutX="129.0" layoutY="5.0" mnemonicParsing="false" onAction="#loadGameAction" text="Load Game" />
+            <Button layoutX="253.0" layoutY="5.0" mnemonicParsing="false" onAction="#quitGameAction" text="Quit Game" />
+            <Text fx:id="topMenuPlayerName" layoutX="371.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </top>

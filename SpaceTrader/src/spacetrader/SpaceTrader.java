@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  */
 public class SpaceTrader extends Application { 
     // Total number of scenes implemented in the game.
-    public static final int NUMBER_OF_SCENES = 5;
+    public static final int NUMBER_OF_SCENES = 6;
     public static Stage stage;
     public static Scene[] allScenes;
     
@@ -31,6 +31,7 @@ public class SpaceTrader extends Application {
         Parent gameParent = FXMLLoader.load(getClass().getResource("Ui/Game.fxml"));
         Parent encounterParent = FXMLLoader.load(getClass().getResource("Ui/RandomEncounter.fxml"));
         Parent gameOverParent = FXMLLoader.load(getClass().getResource("Ui/GameOver.fxml"));
+        Parent travelTransitionParent = FXMLLoader.load(getClass().getResource("Ui/TravelTransition.fxml"));
 
         allScenes = new Scene[NUMBER_OF_SCENES];
         allScenes[0] = new Scene(welcomeScreenParent);
@@ -38,6 +39,7 @@ public class SpaceTrader extends Application {
         allScenes[2] = new Scene(gameParent);
         allScenes[3] = new Scene(encounterParent);
         allScenes[4] = new Scene(gameOverParent);
+        allScenes[5] = new Scene(travelTransitionParent);
         
         
         this.stage.setScene(allScenes[0]);

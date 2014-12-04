@@ -47,7 +47,7 @@ public class GameController implements Initializable {
     // Top menu
     @FXML private Button saveGame;
     @FXML private Button loadGame;
-    @FXML private Button retire;
+    @FXML private Text topMenuPlayerName;
 
     // Marketplace
     @FXML private ListView marketplace;
@@ -138,12 +138,6 @@ public class GameController implements Initializable {
     }
 
     @FXML
-    private void retireAction(ActionEvent event) {
-        // Moon purchase happens here.
-        System.out.println("Retire feature has not been implemented yet.");
-    }
-
-    @FXML
     private void quitGameAction(ActionEvent event) {
         SpaceTrader.stage.setScene(SpaceTrader.allScenes[0]);
     }
@@ -155,11 +149,13 @@ public class GameController implements Initializable {
     @FXML
     private void marketplaceSelectedAction(Event event) {
         refreshMarketplace();
+        topMenuPlayerName.setText(Player.getInstance().name());
     }
 
     @FXML
     private void listViewAction(MouseEvent event) {
         refreshMarketplace();
+        topMenuPlayerName.setText(Player.getInstance().name());
     }
 
     @FXML
@@ -243,6 +239,7 @@ public class GameController implements Initializable {
     @FXML
     private void mapClickedAction(MouseEvent event) {
        refreshMap();
+       topMenuPlayerName.setText(Player.getInstance().name());
        notification.setVisible(false);
        double mouseX = event.getX();
        double mouseY = event.getY();
@@ -312,6 +309,9 @@ public class GameController implements Initializable {
             RandomEncounterController.initializeEncounter(Player.getInstance()
                     .location().getEncounterShip());
             SpaceTrader.stage.setScene(SpaceTrader.allScenes[3]);
+        } else {
+            Player.setPlayerTwo(!Player.isPlayerTwo());
+            SpaceTrader.stage.setScene(SpaceTrader.allScenes[5]);
         }
     }
 
@@ -364,6 +364,7 @@ public class GameController implements Initializable {
 
     @FXML
     private void shipyardSelectedAction(Event event) {
+        topMenuPlayerName.setText(Player.getInstance().name());
         List<String> list = Arrays.asList("Flea", "Gnat", "Firefly", "Mosquito",
                 "Bumblebee", "Beetle", "Hornet", "Grasshopper", "Termite", "Wasp");
         List<String> upgradesList = Arrays.asList("Lo-power Lazer", "Mid-Power Lazer",

@@ -162,7 +162,10 @@ public class RandomEncounterController implements Initializable {
         message.setText("");
         logo.setDisable(false);
         back.setVisible(false);
-        SpaceTrader.stage.setScene(SpaceTrader.allScenes[2]);
+        
+
+        Player.setPlayerTwo(!Player.isPlayerTwo());
+        SpaceTrader.stage.setScene(SpaceTrader.allScenes[5]);
     }
     
     

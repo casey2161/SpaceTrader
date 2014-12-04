@@ -292,7 +292,7 @@ public class PlayerConfigurationController implements Initializable {
 
     @FXML
     private void startNewGameAction(ActionEvent event) {
-        Player.clearInstance();
+        //Player.clearInstance();
         Universe.recreateInstance();
         if(!skillPointsRemaining.getText().equals("0") || playerName.getText()
                 .equals("")) {

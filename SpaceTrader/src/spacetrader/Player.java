@@ -209,6 +209,11 @@ public class Player implements Serializable{
         player.setTrader(traderPoints);
         player.setName(name);
         player.initLocation(location);
+        player.setMoney(5000);
+        Ship standardShip = new Flea();
+        Weapon standardWeapon = new Weapon("Lazer", 10, 30, 1, 1500);
+        standardShip.addWeapon(standardWeapon);
+        player.setShip(standardShip);
     }
     
     private void initLocation(Planet location) {

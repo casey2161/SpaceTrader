@@ -7,15 +7,19 @@ package spacetrader.Ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
+import spacetrader.SpaceTrader;
 
 /**
  * FXML Controller class
  *
- * @author Gateway
+ * @author 
  */
 public class TravelTransitionController implements Initializable {
 
+    
     /**
      * Initializes the controller class.
      */
@@ -23,5 +27,9 @@ public class TravelTransitionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+
+    @FXML
+    private void clickedAction(MouseEvent event) {
+        SpaceTrader.stage.setScene(SpaceTrader.allScenes[2]);
+    }
 }
