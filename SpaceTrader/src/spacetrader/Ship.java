@@ -152,7 +152,7 @@ public abstract class Ship implements Serializable {
 
 	public void takeDamage(int damageTaken) {
             if (shieldSlots.length != 0 && shieldSlots[0] != null) {
-                for (int i = 0; i <= shieldSlot; i++) {
+                for (int i = 0; i < shieldSlot; i++) {
                     damageTaken = shieldSlots[i].absorbDamage(damageTaken);
                     if (damageTaken <= 0) {
                         damageTaken = 0;

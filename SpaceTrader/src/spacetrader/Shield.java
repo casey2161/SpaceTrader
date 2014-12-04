@@ -37,8 +37,9 @@ public class Shield {
     
     public int absorbDamage(int damage) {
         if (charge - damage <= 0) {
+            damage = damage - charge;
             charge = 0;
-            return damage - charge;
+            return damage;
         } else {
             charge -= damage;
             return 0;
