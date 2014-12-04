@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
@@ -13,17 +14,16 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="480.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetrader.Ui.GameController">
    <top>
-      <Pane prefHeight="40.0" prefWidth="360.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="40.0" prefWidth="360.0" styleClass="pane" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="saveGame" layoutX="21.0" layoutY="5.0" mnemonicParsing="false" onAction="#saveGameAction" text="Save Game" />
-            <Button fx:id="loadGame" layoutX="139.0" layoutY="5.0" mnemonicParsing="false" onAction="#loadGameAction" text="Load Game" />
-            <Button fx:id="retire" layoutX="375.0" layoutY="5.0" mnemonicParsing="false" onAction="#retireAction" text="Retire" />
-            <Button layoutX="259.0" layoutY="5.0" mnemonicParsing="false" onAction="#quitGameAction" text="Quit Game" />
+            <Button fx:id="saveGame" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onAction="#saveGameAction" text="Save Game" />
+            <Button fx:id="loadGame" layoutX="179.0" layoutY="6.0" mnemonicParsing="false" onAction="#loadGameAction" text="Load Game" />
+            <Button layoutX="349.0" layoutY="6.0" mnemonicParsing="false" onAction="#quitGameAction" text="Quit Game" />
          </children>
       </Pane>
    </top>
    <center>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="tabPane" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
             <Tab text="Marketplace">
                <content>
@@ -34,7 +34,7 @@
                               <Image url="@Pictures/marketplace.jpg" />
                            </image>
                         </ImageView>
-                        <ListView fx:id="marketplace" layoutX="73.0" layoutY="77.0" onMouseClicked="#listViewAction" prefHeight="200.0" prefWidth="330.0" />
+                        <ListView fx:id="marketplace" layoutX="73.0" layoutY="77.0" onMouseClicked="#listViewAction" prefHeight="200.0" prefWidth="330.0" stylesheets="@style.css" />
                         <Text fill="WHITE" layoutX="146.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marketplace">
                            <font>
                               <Font size="30.0" />
@@ -186,12 +186,12 @@
             </Tab>
             <Tab onSelectionChanged="#travelSelectedAction" text="Travel">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane" stylesheets="@style.css">
                      <children>
-                        <Pane fx:id="mapPane" layoutX="90.0" layoutY="14.0" onMouseClicked="#mapClickedAction" prefHeight="300.0" prefWidth="300.0">
+                        <Pane fx:id="mapPane" layoutX="90.0" layoutY="14.0" onMouseClicked="#mapClickedAction" prefHeight="300.0" prefWidth="300.0" styleClass="travelpane" stylesheets="@style.css">
                            <children>
-                              <Line endY="150.0" layoutX="150.0" layoutY="150.0" startY="-150.0" />
-                              <Line endX="150.0" layoutX="150.0" layoutY="150.0" startX="-150.0" />
+                              <Line endY="150.0" layoutX="150.0" layoutY="150.0" startY="-150.0" stroke="#bfbfbf" styleClass="line" />
+                              <Line endX="150.0" layoutX="150.0" layoutY="150.0" startX="-150.0" stroke="#bfbfbf" styleClass="line" />
                               <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="26.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                  <image>
                                     <Image url="@Pictures/Black-Color-26.png" />
@@ -199,75 +199,114 @@
                               </ImageView>
                            </children>
                         </Pane>
-                        <Text layoutX="30.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Location: ">
+                        <Text layoutX="30.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Current Location: ">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text layoutX="30.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Destination: ">
+                        <Text layoutX="30.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Selected Destination: ">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="currentLocation" layoutX="244.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planet">
+                        <Text fx:id="currentLocation" layoutX="244.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Planet">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="selectedDestination" layoutX="244.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planet">
+                        <Text fx:id="selectedDestination" layoutX="244.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Planet">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
                         <Button layoutX="217.0" layoutY="492.0" mnemonicParsing="false" onAction="#travelAction" text="Travel">
                            <font>
                               <Font size="25.0" />
                            </font>
+                           <effect>
+                              <Reflection />
+                           </effect>
                         </Button>
                         <Text fx:id="notification" layoutX="57.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This planet is out of reach!" textAlignment="CENTER" visible="false" wrappingWidth="102.04150390625">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="selectedDestination1" layoutX="14.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tech Level:">
+                        <Text fx:id="selectedDestination1" layoutX="14.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Tech Level:">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="selectedDestination11" layoutX="14.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources: ">
+                        <Text fx:id="selectedDestination11" layoutX="14.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Resources: ">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="selectedDestination111" layoutX="14.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pirates:">
+                        <Text fx:id="selectedDestination111" layoutX="14.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Pirates:">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="techLevel" layoutX="144.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="String">
+                        <Text fx:id="techLevel" layoutX="144.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="String">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="spawnspirates" layoutX="144.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="String">
+                        <Text fx:id="spawnspirates" layoutX="144.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="String">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="resources" layoutX="144.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="String">
+                        <Text fx:id="resources" layoutX="144.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="String">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="selectedDestination1111" layoutX="14.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fuel:">
+                        <Text fx:id="selectedDestination1111" layoutX="14.0" layoutY="485.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Fuel:">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
-                        <Text fx:id="fuel" layoutX="144.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="String">
+                        <Text fx:id="fuel" layoutX="144.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="String">
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect>
                         </Text>
                      </children>
                   </AnchorPane>
@@ -295,6 +334,9 @@
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
                                           <Text fx:id="shipName" fill="WHITE" layoutX="193.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Name">
                                              <font>
@@ -305,49 +347,85 @@
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
                                           <Text fx:id="fuel111" fill="WHITE" layoutX="100.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cargo Bays:">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
                                           <Text fx:id="fuel1111" fill="WHITE" layoutX="100.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Range:">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
                                           <Text fx:id="fuel11111" fill="WHITE" layoutX="100.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Quality:">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
-                                          <Button fx:id="buyShip" layoutX="100.0" layoutY="410.0" mnemonicParsing="false" onAction="#buyShipAction" text="Buy" />
+                                          <Button fx:id="buyShip" layoutX="100.0" layoutY="410.0" mnemonicParsing="false" onAction="#buyShipAction" text="Buy">
+                                             <effect>
+                                                <Reflection />
+                                             </effect></Button>
                                           <Text fx:id="shipSize" fill="WHITE" layoutX="300.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
                                           <Text fx:id="cargoBays" fill="WHITE" layoutX="300.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
                                           <Text fx:id="maxRange" fill="WHITE" layoutX="300.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
                                           <Text fx:id="shipQuality" fill="WHITE" layoutX="300.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
-                                          <Button fx:id="buyFuel" layoutX="118.0" layoutY="492.0" mnemonicParsing="false" onAction="#buyFuelAction" text="Buy Fuel" />
-                                          <Button fx:id="repairShip" layoutX="249.0" layoutY="492.0" mnemonicParsing="false" onAction="#repairShipAction" text="Repair Ship" />
+                                          <Button fx:id="buyFuel" layoutX="118.0" layoutY="492.0" mnemonicParsing="false" onAction="#buyFuelAction" text="Buy Fuel">
+                                             <effect>
+                                                <Reflection />
+                                             </effect></Button>
+                                          <Button fx:id="repairShip" layoutX="249.0" layoutY="492.0" mnemonicParsing="false" onAction="#repairShipAction" text="Repair Ship">
+                                             <effect>
+                                                <Reflection />
+                                             </effect></Button>
                                           <Text fx:id="shipPrice" fill="WHITE" layoutX="293.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Cr.">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
                                           <Text fx:id="shipNotification" layoutX="144.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have bought a new ship!" visible="false">
                                              <font>
@@ -356,7 +434,7 @@
                                           </Text>
                                        </children>
                                     </Pane>
-                                    <ListView fx:id="shipyard" layoutX="40.0" layoutY="80.0" onMouseClicked="#shipyardAction" prefHeight="205.0" prefWidth="400.0" />
+                                    <ListView fx:id="shipyard" layoutX="40.0" layoutY="80.0" onMouseClicked="#shipyardAction" prefHeight="205.0" prefWidth="400.0" stylesheets="@style.css" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -374,11 +452,17 @@
                                              <viewport>
                                                 <Rectangle2D height="1800.0" minX="500.0" minY="400.0" width="800.0" />
                                              </viewport>
+                                             <effect>
+                                                <Glow level="0.31" />
+                                             </effect>
                                           </ImageView>
                                           <Text fill="WHITE" layoutX="177.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upgrades">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
+                                             <effect>
+                                                <Glow level="1.0" />
+                                             </effect>
                                           </Text>
                                           <ListView fx:id="upgrades" layoutX="75.0" layoutY="84.0" onMouseClicked="#upgradesAction" prefHeight="205.0" prefWidth="330.0" />
                                           <Text fx:id="shipNotification1" layoutX="144.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have bought a new ship!" visible="false">
@@ -392,47 +476,77 @@
                                        <font>
                                           <Font size="18.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
                                     <Text fx:id="damage" fill="WHITE" layoutX="127.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Damage">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
                                     <Text fx:id="qualityReq" fill="WHITE" layoutX="126.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ship Quality Required:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
                                     <Text fx:id="damageVal" fill="WHITE" layoutX="327.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
                                     <Text fx:id="qualityReqVal" fill="WHITE" layoutX="327.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
-                                    <Button fx:id="buyUpgrade" layoutX="333.0" layoutY="435.0" mnemonicParsing="false" onAction="#buyUpgradeAction" text="Buy" />
+                                    <Button fx:id="buyUpgrade" layoutX="333.0" layoutY="435.0" mnemonicParsing="false" onAction="#buyUpgradeAction" text="Buy">
+                                       <effect>
+                                          <Reflection />
+                                       </effect></Button>
                                     <Text fx:id="upgradePrice" fill="WHITE" layoutX="336.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Cr.">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
                                     <Text fx:id="upgradeCost" fill="WHITE" layoutX="127.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upgrade Cost:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
                                     <Text fx:id="weaponSlotsRem" fill="WHITE" layoutX="14.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weapon Slots Remaining">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
                                     <Text fx:id="weaponSlots" fill="WHITE" layoutX="207.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
                                     <Text fx:id="isExplosive" fill="WHITE" layoutX="127.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Explosive:" visible="false">
                                        <font>
@@ -448,11 +562,17 @@
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
                                     <Text fx:id="shieldSlots" fill="WHITE" layoutX="207.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
+                                       <effect>
+                                          <Glow level="1.0" />
+                                       </effect>
                                     </Text>
                                  </children>
                               </AnchorPane>
