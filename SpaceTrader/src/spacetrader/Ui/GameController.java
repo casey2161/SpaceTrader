@@ -71,6 +71,7 @@ public class GameController implements Initializable {
     @FXML private Text resources;
     @FXML private Text spawnspirates;
     @FXML private Text fuel;
+    @FXML private Text government;
 
     // Shipyard
     @FXML private ListView shipyard;
@@ -265,6 +266,7 @@ public class GameController implements Initializable {
             selectedDestination.setText(planet.getName());
             techLevel.setText(planet.tchlvlString(planet.getTechLevel()));
             resources.setText(planet.rscString(planet.getResources()));
+            government.setText(planet.govString(planet.getGovernment()));
             String pirates;
             if (planet.spawnsPirates()) {
                 pirates = "High";
@@ -348,6 +350,8 @@ public class GameController implements Initializable {
                 .tchlvlString(Player.getInstance().location().getTechLevel()));
         resources.setText(Player.getInstance().location()
                 .rscString(Player.getInstance().location().getResources()));
+        government.setText(Player.getInstance().location()
+                .govString(Player.getInstance().location().getGovernment()));
         String pirates;
         if (Player.getInstance().location().spawnsPirates()) {
             pirates = "High";
